@@ -1,7 +1,26 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --pure: #ffffff;
+  --primary: #DCEFB2;
+  --secoundry: #AED036;
 }
 
+.circle-svg {
+  stroke: rgb(0, 0, 0);
+  animation-name: styles_stroke-circle-svg;
+  animation-duration: 7s;
+  animation-timing-function: linear;
+  animation-fill-mode: both;
+  animation-iteration-count: infinite;
+  transform-origin: center;
+}
+
+@keyframes styles_stroke-circle-svg {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(-1turn);
+  }
+}
