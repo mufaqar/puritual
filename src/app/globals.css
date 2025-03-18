@@ -4,6 +4,14 @@
   --pure: #ffffff;
   --primary: #DCEFB2;
   --secoundry: #AED036;
+  --dark: #25330A;
+}
+
+@theme inline {
+  --color-pure: var(--pure);
+  --color-primary: var(--primary);
+  --color-secoundry: var(--secoundry);
+  --color-dark: var(--dark);
 }
 
 .circle-svg {
