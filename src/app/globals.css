@@ -1,21 +1,69 @@
 @import "tailwindcss";
 
+@font-face {
+  font-family: Berlos;
+  src: url('../../public/fonts/Berlos.woff');
+}
+
+@font-face {
+  font-family: Cervo;
+  src: url('../../public/fonts/Cervo-Medium.otf');
+  font-weight: 500;
+}
+@font-face {
+  font-family: Cervo;
+  src: url('../../public/fonts/Cervo-Regular.otf');
+  font-weight: 400;
+}
+@font-face {
+  font-family: Axiforma;
+  src: url('../../public/fonts/Kastelov-Axiforma-Light.otf');
+  font-weight: 300;
+}
+@font-face {
+  font-family: Axiforma;
+  src: url('../../public/fonts/Kastelov-Axiforma-Medium.otf');
+  font-weight: 500;
+}
+@font-face {
+  font-family: Axiforma;
+  src: url('../../public/fonts/Kastelov-Axiforma-Regular.otf');
+  font-weight: 400;
+}
+
+body{
+  font-family: Axiforma;
+  overflow-x: hidden;
+}
+
 :root {
   --pure: #ffffff;
   --primary: #DCEFB2;
   --secoundry: #AED036;
   --dark: #25330A;
+  --font-berlos: 'Berlos';
+  --font-cervo: 'Cervo';
+  --font-axiforma: 'Axiforma';
 }
 
-@theme inline {
+@theme {
   --color-pure: var(--pure);
   --color-primary: var(--primary);
   --color-secoundry: var(--secoundry);
   --color-dark: var(--dark);
+  --font-berlos: var(--font-berlos);
+  --font-cervo: var(--font-cervo);
+  --font-axiforma: var(--font-axiforma);
+}
+.circle_button .arrow path{
+  transition: .4s ease-in-out;
+}
+.circle_button:hover .arrow path{
+  stroke: #111;
 }
 
 .circle-svg {
-  stroke: rgb(0, 0, 0);
+  stroke: rgb(255, 255, 255);
   animation-name: styles_stroke-circle-svg;
   animation-duration: 7s;
   animation-timing-function: linear;
