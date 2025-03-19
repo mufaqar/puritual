@@ -7,6 +7,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import CircleButton from "@/components/ui/circle-button";
 import ScrollText from "@/components/ScrollText";
 import OurMission from "./our-mission";
+import OurProducts from "./our-products";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -111,6 +112,7 @@ const HomePage = () => {
           <ScrollText/>
       </section>
       <OurMission/>
+      <OurProducts/>
       <section className="fixed inset-0 bg-black z-[1000] splash"></section>
     </>
   );
