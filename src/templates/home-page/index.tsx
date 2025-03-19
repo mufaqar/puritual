@@ -30,27 +30,36 @@ const HomePage = () => {
     gsap.from(".text", {
       opacity: 0,
       duration: 1,
-      delay: 0.5,
+      delay: 2,
     });
-    // gsap.from(".imageWrapper", {
-    //   scale: 1.2
-    // })
-    // gsap.to(".imageWrapper", {
-    //   scale: 1,
-    //   // scrollTrigger: {
-    //   //   trigger: ".img",
-    //   //   start: "top -1%",
-    //   //   end: "top -90%",
-    //   //   scrub: true,
-    //   //   // markers: true,
-    //   // },
-    // });
   });
+
+  useGSAP(() => {
+    gsap.from("#mainImage", {
+      scale: 1.2,
+      delay: 1.5,
+      duration: 3,
+      top: 0
+    })
+    gsap.to("#mainImage", {
+      scale: .4,
+      scrollTrigger: {
+        trigger: ".img",
+        start: "top -1%",
+        end: "top -90%",
+        scrub: true,
+        pin: true
+        // markers: true,
+      },
+    });
+  });
+
+
 
   return (
     <>
-      <main className="relative flex  justify-center">
-        <div className="absolute w-full flex flex-col justify-center text-pure top-0 h-screen">
+      <main className="relative flex justify-center">
+        <div className="absolute w-full z-[2] flex flex-col justify-center text-pure top-0 h-screen">
           <div className="grid grid-cols-2 gap-14">
             <div className="">
               <div className="overflow-y-hidden">
@@ -77,8 +86,8 @@ const HomePage = () => {
                 <p className="t1">E</p>
               </h2>
             </div>
-            <div className="">
-              <p className="text-lg max-w-[600px] text pt-10 mb-5">
+            <div className="text">
+              <p className="text-lg max-w-[600px] pt-10 mb-5">
                 A gentle, organic hand wash that cleanses, hydrates, and
                 refreshes—powered by nature! 💧
               </p>
@@ -99,21 +108,25 @@ const HomePage = () => {
           </h2>
         </div>
       </main>
-      <figure className="imageWrapper ">
+
+      <figure className="imageWrapper bg-primary">
         <Image
           src="/images/main.png"
           alt=""
+          id="mainImage"
           width={1500}
           height={800}
-          className="object-cover img h-screen w-screen"
+          className="object-cover z-[1] img h-screen w-screen !top-0"
         />
       </figure>
-      <section className="min-h-[710px] py-14 bg-primary w-full overflow-hidden">
-          <ScrollText/>
+
+      <section className="py-14 bg-primary w-full overflow-hidden">
+        <ScrollText/>
       </section>
+      
       <OurMission/>
       <OurProducts/>
-      <section className="fixed inset-0 bg-black z-[1000] splash"></section>
+      {/* <section className="fixed inset-0 bg-black z-[1000] splash"></section> */}
     </>
   );
 };

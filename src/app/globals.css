@@ -52,7 +52,7 @@ body{
     -webkit-text-fill-color: transparent;
     font-family: Cervo;
     font-weight: 500;
-    line-height: 140px;
+    line-height: 130px;
   }
 }
 
@@ -92,24 +92,6 @@ body{
   }
 }
 
-
-.scroll-content1 {
-  animation: scroll-text 30s linear infinite;
-  line-height: 140px;
-}
-.scroll-content2 {
-  animation: scroll-text 50s linear infinite;
-  line-height: 140px;
-}
-.scroll-content3 {
-  animation: scroll-text 40s linear infinite;
-  line-height: 140px;
-}
-.scroll-content4 {
-  animation: scroll-text 20s linear infinite;
-  line-height: 140px;
-}
-
 .scroll-bubble-1 {
   animation: scroll-text 15s linear infinite;
 }
@@ -122,3 +104,13 @@ body{
     transform: translateX(-100vw);
   }
 }
+
+
+
+
+
+
+
+
+
+
