@@ -5,6 +5,8 @@ import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import CircleButton from "@/components/ui/circle-button";
+import ScrollText from "@/components/ScrollText";
+import OurMission from "./our-mission";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -29,15 +31,18 @@ const HomePage = () => {
       duration: 1,
       delay: 0.5,
     });
+    // gsap.from(".imageWrapper", {
+    //   scale: 1.2
+    // })
     // gsap.to(".imageWrapper", {
-    //   width: 600,
-    //   scrollTrigger: {
-    //     trigger: ".img",
-    //     start: "top -1%",
-    //     end: "top -90%",
-    //     scrub: true,
-    //     // markers: true,
-    //   },
+    //   scale: 1,
+    //   // scrollTrigger: {
+    //   //   trigger: ".img",
+    //   //   start: "top -1%",
+    //   //   end: "top -90%",
+    //   //   scrub: true,
+    //   //   // markers: true,
+    //   // },
     // });
   });
 
@@ -102,8 +107,10 @@ const HomePage = () => {
           className="object-cover img h-screen w-screen"
         />
       </figure>
-      <section className="h-screen w-full"></section>
-      <section className="h-screen w-full"></section>
+      <section className="min-h-[710px] py-14 bg-primary w-full overflow-hidden">
+          <ScrollText/>
+      </section>
+      <OurMission/>
       <section className="fixed inset-0 bg-black z-[1000] splash"></section>
     </>
   );

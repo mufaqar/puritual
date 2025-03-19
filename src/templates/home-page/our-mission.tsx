@@ -1,0 +1,129 @@
+"use client";
+import CircleButton from "@/components/ui/circle-button";
+import Image from "next/image";
+import React from "react";
+
+const OurMission = () => {
+  const text = "OUR JOURNEY, MISSION, AND VALUES";
+  const text2 = "HOW IT ALL STARTED";
+  const letterHeadingOne = text.split("");
+  const letterHeadingTwo = text2.split("");
+
+  return (
+    <section className="bg-dark pt-12 pb-20 relative">
+      <div className="overflow-y-hidden">
+        <div className="text-[175px] z-[1] relative text-center max-w-[1280px] mx-auto text-white font-cervo font-medium uppercase leading-[160px]">
+          {letterHeadingOne?.map((item, idx) => (
+            <span className="t2" key={idx}>
+              {item}
+            </span>
+          ))}
+        </div>
+      </div>
+      <div className="">
+        <div className="text-[175px] z-[1] relative text-center max-w-[1280px] mx-auto text-white font-cervo font-medium uppercase leading-[160px]">
+          {letterHeadingTwo?.map((item, idx) => (
+            <span key={idx}>{item}</span>
+          ))}
+        </div>
+      </div>
+      <div className="flex items-center justify-center gap-14 max-w-[1280px] mx-auto">
+        <figure className="">
+          <Image
+            src="/images/mission.png"
+            alt=""
+            width={665}
+            height={826}
+            className="max-w-[500px] -mt-28"
+          />
+        </figure>
+        <div className="max-w-[483px] font-axiforma text-white mission-text">
+          <p>
+            Once upon a time, a group of friends with big dreams and even bigger
+            hearts decided to make an impact in the world of personal care.
+            After countless discussions, trial and errors, and endless cups of
+            coffee, we brought our wildest ideas to life and created products
+            that make hygiene fun and fabulous.
+          </p>
+          <p>
+            Our journey wasn’t smooth and easy, but our commitment to excellence
+            and creativity kept us going strong. With hardly any clients, we
+            leaned on our close-knit community for support which gave us
+            confidence to keep moving and we started reaching more people who
+            loved our mission as much as we did.
+          </p>
+          <p>
+            Now, we are super excited to introduce our premium products to the
+            world. We’re here to make every wash a delightful experience and to
+            set new trends in personal care that everyone can enjoy. Join us on
+            this amazing journey and let’s make cleanliness cool together!
+          </p>
+        </div>
+      </div>
+
+      <div className="container mx-auto px-3 flex gap-10 mt-6 items-end">
+        <div className="flex gap-10 items-start">
+          <Image
+            src="/images/mission-1.png"
+            alt=""
+            width={397}
+            height={296}
+            className="mission-text"
+          />
+          <div className="text-white max-w-[675px] mission-text">
+            <h2 className="text-[120px] z-[1] mb-10 relative mx-auto text-white font-cervo font-medium uppercase leading-[110px]">
+              REDEFINING HAND & BODY CARE
+            </h2>
+            <p>
+              Imagine a future where personal hygiene is not just a routine but
+              a luxurious and fun experience. Our commitment is to change this
+              landscape by introducing premium quality foaming handwashes and
+              body cleansers that do more than just clean- they nourish
+              rejuvenate your skin.{" "}
+            </p>
+            <p className="mb-16">
+              We are a strong believer of the fact that everyone deserves to
+              treat themselves to quality products made with care and the best
+              ingredients. Plus, we care about the earth too, so we make sure
+              our products are good for you and for our planet. We want to lift
+              the game and become trend setters in personal care, where
+              innovation meets style, and every wash is a pleasure. Our
+              allegiance to quality and wellness aims to elevate your daily
+              routines and make you feel wonderful, wherever you happen to be in
+              the world.
+            </p>
+            <CircleButton />
+          </div>
+        </div>
+        <Image
+          src="/images/mission-2.png"
+          alt=""
+          width={457}
+          height={626}
+          className="mission-text"
+        />
+      </div>
+
+      <Image
+        src="/svg/bubble.svg"
+        alt=""
+        width={220}
+        className="absolute top-40 right-0 scroll-bubble-1"
+        height={220}
+      />
+      <div className="scroll-bubble-1 flex absolute top-60">
+        <Image src="/svg/bubble-group.svg" alt="" width={888} height={580} />
+        <Image
+          src="/images/bubble-white.png"
+          alt=""
+          width={141}
+          height={253}
+          className=" absolute bottom-0 left-60"
+        />
+        <Image src="/svg/bubble-group.svg" alt="" width={888} height={580} />
+      </div>
+    </section>
+  );
+};
+
+export default OurMission;
