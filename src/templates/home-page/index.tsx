@@ -104,7 +104,7 @@ const HomePage = () => {
       </figure>
       <section className="h-screen w-full"></section>
       <section className="h-screen w-full"></section>
-      <section className="fixed inset-0 bg-black splash"></section>
+      <section className="fixed inset-0 bg-black z-[1000] splash"></section>
     </>
   );
 };
