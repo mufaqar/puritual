@@ -48,8 +48,8 @@ const HomePage = () => {
         start: "top -1%",
         end: "top -90%",
         scrub: true,
-        pin: true
-        // markers: true,
+        pin: true,
+        markers: true,
       },
     });
   });
@@ -120,7 +120,7 @@ const HomePage = () => {
         />
       </figure>
 
-      <section className="py-14 bg-primary w-full overflow-hidden">
+      <section className="py-14 bg-primary w-full absolute overflow-hidden translate-y-[-90%]">
         <ScrollText/>
       </section>
       
