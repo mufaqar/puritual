@@ -8,6 +8,8 @@ import CircleButton from "@/components/ui/circle-button";
 import ScrollText from "@/components/ScrollText";
 import OurMission from "./our-mission";
 import OurProducts from "./our-products";
+import ImagesScroller from "./images-scroller";
+import ImagePin from "./image-pin";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -43,18 +45,17 @@ const HomePage = () => {
     })
     gsap.to("#mainImage", {
       scale: .4,
+      objectFit: 'cover',
       scrollTrigger: {
         trigger: ".img",
         start: "top -1%",
         end: "top -90%",
-        scrub: true,
+        scrub: 2,
         pin: true,
-        markers: true,
+        // markers: true,
       },
     });
   });
-
-
 
   return (
     <>
@@ -116,7 +117,7 @@ const HomePage = () => {
           id="mainImage"
           width={1500}
           height={800}
-          className="object-cover z-[1] img h-screen w-screen !top-0"
+          className="!object-cover z-[1] img h-screen w-screen !top-0"
         />
       </figure>
 
@@ -126,6 +127,12 @@ const HomePage = () => {
       
       <OurMission/>
       <OurProducts/>
+      <ImagesScroller/>
+      <ImagePin/>
+      <section className="py-14 bg-primary w-full overflow-hidden">
+        <ScrollText/>
+      </section>
+
       {/* <section className="fixed inset-0 bg-black z-[1000] splash"></section> */}
     </>
   );

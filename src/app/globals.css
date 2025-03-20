@@ -72,6 +72,9 @@ body{
 .circle_button:hover .arrow path{
   stroke: #111;
 }
+.circle_button.dark:hover .arrow path{
+  stroke: #fff;
+}
 
 .circle-svg {
   stroke: rgb(255, 255, 255);
