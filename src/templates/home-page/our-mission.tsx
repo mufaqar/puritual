@@ -1,5 +1,7 @@
 "use client";
 import CircleButton from "@/components/ui/circle-button";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
 import Image from "next/image";
 import React from "react";
 
@@ -9,12 +11,94 @@ const OurMission = () => {
   const letterHeadingOne = text.split("");
   const letterHeadingTwo = text2.split("");
 
+  useGSAP(() => {
+    gsap.from(".t4", {
+      y: 220,
+      stagger: 0.05,
+      opacity: 0,
+      delay: 0.5,
+      duration: 1.2,
+      scrollTrigger: {
+        trigger: ".t4",
+        start: "top 80%", // Start animation when 80% of the element is in view
+      },
+    });
+  })
+  useGSAP(() => {
+    gsap.from(".t5", {
+      y: 220,
+      stagger: 0.05,
+      opacity: 0,
+      delay: 1.6,
+      duration: 1.2,
+      scrollTrigger: {
+        trigger: ".t5",
+        start: "top 80%", // Start animation when 80% of the element is in view
+      },
+    });
+  })
+
+  useGSAP(() => {
+    gsap.from(".mission-Img", {
+      y: 220,
+      delay: 0.5,
+      duration: 1.2,
+      scrollTrigger: {
+        trigger: ".mission-Img",
+        start: "top 70%", // Start animation when 80% of the element is in view
+      },
+    });
+    gsap.from(".mission-text", {
+      y: 220,
+      delay: 0.5,
+      duration: 1.2,
+      scrollTrigger: {
+        trigger: ".mission-text",
+        start: "top 50%", // Start animation when 80% of the element is in view
+      },
+    });
+    gsap.from(".mission-text2", {
+      y: 220,
+      delay: 0.5,
+      duration: 1.2,
+      scrollTrigger: {
+        trigger: ".mission-text2",
+        start: "top 50%", // Start animation when 80% of the element is in view
+      },
+    });
+    gsap.from(".mission-Img2", {
+      y: 220,
+      delay: 0.5,
+      duration: 1.2,
+      scrollTrigger: {
+        trigger: ".mission-Img2",
+        start: "top 60%", // Start animation when 80% of the element is in view
+      },
+    });
+    gsap.from(".mission-Img3", {
+      y: 220,
+      duration: 1,
+      scrollTrigger: {
+        trigger: ".mission-Img3",
+        start: "top 60%", // Start animation when 80% of the element is in view
+      },
+    });
+    gsap.from(".heading2", {
+      y: 220,
+      duration: 1,
+      scrollTrigger: {
+        trigger: ".heading2",
+        start: "top 50%", // Start animation when 80% of the element is in view
+      },
+    });
+  })
+
   return (
     <section className="bg-dark pt-12 pb-20 relative">
       <div className="overflow-y-hidden">
         <div className="text-[175px] z-[1] relative text-center max-w-[1280px] mx-auto text-white font-cervo font-medium uppercase leading-[160px]">
           {letterHeadingOne?.map((item, idx) => (
-            <span className="t2" key={idx}>
+            <span className="t4" key={idx}>
               {item}
             </span>
           ))}
@@ -23,7 +107,7 @@ const OurMission = () => {
       <div className="">
         <div className="text-[175px] z-[1] relative text-center max-w-[1280px] mx-auto text-white font-cervo font-medium uppercase leading-[160px]">
           {letterHeadingTwo?.map((item, idx) => (
-            <span key={idx}>{item}</span>
+            <span key={idx} className="t5">{item}</span>
           ))}
         </div>
       </div>
@@ -34,7 +118,7 @@ const OurMission = () => {
             alt=""
             width={665}
             height={826}
-            className="max-w-[500px] -mt-28"
+            className="max-w-[500px] mission-Img -mt-28"
           />
         </figure>
         <div className="max-w-[483px] font-axiforma text-white mission-text">
@@ -68,12 +152,13 @@ const OurMission = () => {
             alt=""
             width={397}
             height={296}
-            className="mission-text"
+            className="mission-Img2"
           />
           <div className="text-white max-w-[675px] mission-text">
-            <h2 className="text-[120px] z-[1] mb-10 relative mx-auto text-white font-cervo font-medium uppercase leading-[110px]">
+            <h2 className="text-[120px] z-[1] mb-10 heading2 relative mx-auto text-white font-cervo font-medium uppercase leading-[110px]">
               REDEFINING HAND & BODY CARE
             </h2>
+            <div className="mission-text2">
             <p>
               Imagine a future where personal hygiene is not just a routine but
               a luxurious and fun experience. Our commitment is to change this
@@ -92,6 +177,7 @@ const OurMission = () => {
               routines and make you feel wonderful, wherever you happen to be in
               the world.
             </p>
+            </div>
             <CircleButton />
           </div>
         </div>
