@@ -133,7 +133,7 @@ const HomePage = () => {
         <ScrollText/>
       </section>
 
-      {/* <section className="fixed inset-0 bg-black z-[1000] splash"></section> */}
+      <section className="fixed inset-0 bg-black z-[1000] splash"></section>
     </>
   );
 };
