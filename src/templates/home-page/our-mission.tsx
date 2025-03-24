@@ -65,7 +65,7 @@ const OurMission = () => {
   }, [isMobile]);
 
   return (
-    <section className="bg-dark pt-12 pb-20 relative overflow-x-hidden">
+    <section className="bg-dark pt-12 pb-20 relative overflow-hidden">
       <div className="overflow-y-hidden px-4 md:px-0">
         <div className="text-[54px] md:text-[90px] lg:text-[175px] z-[1] relative text-center max-w-[1280px] mx-auto text-white font-cervo font-medium uppercase leading-[60px] md:leading-[90px] lg:leading-[160px]">
           {letterHeadingOne?.map((item, idx) => (
@@ -117,14 +117,14 @@ const OurMission = () => {
         </div>
       </div>
 
-      <div className="container mx-auto px-3 flex flex-col md:flex-row gap-10 mt-6 items-end">
+      <div className="lg:container mx-auto px-3 flex flex-col md:flex-row gap-10 mt-6 items-end">
         <div className="flex flex-col md:flex-row gap-5 md:gap-10 items-start">
           <Image
             src="/images/mission-1.png"
             alt=""
             width={397}
             height={296}
-            className="mission-Img2 max-w-[397px] w-full" 
+            className="mission-Img2 md:max-w-[397px] w-full" 
           />
           <div className="text-white max-w-[675px] mission-text">
             <h2 className="text-[18vw] leading-[18vw] md:text-[120px] md:leading-[110px] z-[1] mb-5 md:mb-10 heading2 relative mx-auto text-white font-cervo font-medium uppercase ">
@@ -158,7 +158,7 @@ const OurMission = () => {
           alt=""
           width={457}
           height={626}
-          className="mission-text"
+          className="mission-text max-w-[457px] w-full"
         />
       </div>
 

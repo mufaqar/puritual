@@ -138,9 +138,9 @@ const HomePage = () => {
       </section>
 
       <OurMission/>
-      {/*<OurProducts/>
+      <OurProducts/>
       <ImagesScroller/>
-      <ImagePin/> */}
+      {/* <ImagePin/> */}
 
       <section className="fixed inset-0 bg-black z-[1000] splash"></section>
     </>

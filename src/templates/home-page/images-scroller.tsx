@@ -28,7 +28,7 @@ const ImagesScroller = () => {
       <section className="flex gap-2 mr-2">
         {[1, 2, 3, 4, 5, 6]?.map((item, idx) => (
           <figure key={idx}>
-            <Image src="/images/leaf.png" alt="" width={348} height={575} />
+            <Image src="/images/leaf.png" alt="" width={348} height={575} className="w-[220px] md:w-[348px]"/>
           </figure>
         ))}
       </section>
