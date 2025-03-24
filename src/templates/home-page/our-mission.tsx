@@ -119,7 +119,7 @@ const OurMission = () => {
             alt=""
             width={665}
             height={826}
-            className="md:max-w-[500px] w-full mission-Img mt-6 md:-mt-28"
+            className="md:w-[500px] w-full mission-Img mt-6 md:-mt-28"
           />
         </figure>
         <div className="md:max-w-[483px] font-axiforma text-white mission-text">
