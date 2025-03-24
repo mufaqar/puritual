@@ -137,8 +137,8 @@ const HomePage = () => {
         <ScrollText />
       </section>
 
-      {/*<OurMission/>
-      <OurProducts/>
+      <OurMission/>
+      {/*<OurProducts/>
       <ImagesScroller/>
       <ImagePin/> */}
 
