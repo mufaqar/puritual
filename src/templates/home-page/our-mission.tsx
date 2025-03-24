@@ -4,12 +4,14 @@ import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import Image from "next/image";
 import React from "react";
+import useIsMobile from  "@/hooks/useIsMobile"
 
 const OurMission = () => {
   const text = "OUR JOURNEY, MISSION, AND VALUES";
   const text2 = "HOW IT ALL STARTED";
   const letterHeadingOne = text.split("");
   const letterHeadingTwo = text2.split("");
+  const isMobile = useIsMobile();
 
   useGSAP(() => {
     gsap.from(".t4", {
@@ -39,59 +41,28 @@ const OurMission = () => {
   })
 
   useGSAP(() => {
-    gsap.from(".mission-Img", {
-      y: 220,
-      delay: 0.5,
-      duration: 1.2,
-      scrollTrigger: {
-        trigger: ".mission-Img",
-        start: "top 70%", // Start animation when 80% of the element is in view
-      },
+    gsap.utils.toArray([
+      ".mission-Img",
+      ".mission-text",
+      ".mission-text2",
+      ".mission-Img2",
+      ".mission-Img3",
+      ".heading2",
+    ]).forEach((element:any, index) => {
+      gsap.from(element, {
+        x: isMobile ? (index % 2 === 0 ? -100 : 100) : 0, // Left-to-right for even indexes, right-to-left for odd
+        y: isMobile ? 0 : 220, // Only apply Y animation on desktop
+        opacity: 0,
+        delay: 0.3,
+        duration: 1.2,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: element,
+          start: "top 70%",
+        },
+      });
     });
-    gsap.from(".mission-text", {
-      y: 220,
-      delay: 0.5,
-      duration: 1.2,
-      scrollTrigger: {
-        trigger: ".mission-text",
-        start: "top 50%", // Start animation when 80% of the element is in view
-      },
-    });
-    gsap.from(".mission-text2", {
-      y: 220,
-      delay: 0.5,
-      duration: 1.2,
-      scrollTrigger: {
-        trigger: ".mission-text2",
-        start: "top 50%", // Start animation when 80% of the element is in view
-      },
-    });
-    gsap.from(".mission-Img2", {
-      y: 220,
-      delay: 0.5,
-      duration: 1.2,
-      scrollTrigger: {
-        trigger: ".mission-Img2",
-        start: "top 60%", // Start animation when 80% of the element is in view
-      },
-    });
-    gsap.from(".mission-Img3", {
-      y: 220,
-      duration: 1,
-      scrollTrigger: {
-        trigger: ".mission-Img3",
-        start: "top 60%", // Start animation when 80% of the element is in view
-      },
-    });
-    gsap.from(".heading2", {
-      y: 220,
-      duration: 1,
-      scrollTrigger: {
-        trigger: ".heading2",
-        start: "top 50%", // Start animation when 80% of the element is in view
-      },
-    });
-  })
+  }, [isMobile]);
 
   return (
     <section className="bg-dark pt-12 pb-20 relative overflow-x-hidden">
