@@ -1,3 +1,4 @@
+import ScrollText from "@/components/ScrollText";
 import CircleButton from "@/components/ui/circle-button";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
@@ -34,7 +35,7 @@ const ImagePin = () => {
 
   return (
     <>
-      <main className="relative flex justify-center">
+      <main className="relative flex justify-center bg-primary ">
         <div className="absolute w-full z-[2] flex flex-col justify-center text-pure top-0 h-screen">
           <div className="container px-10 text-dark mx-auto">
             <div className="overflow-y-hidden flex items-center gap-4">
@@ -79,12 +80,16 @@ const ImagePin = () => {
         <Image
           src="/images/product-banner.png"
           alt=""
-          id="mainImage2"
+          id="pinImage"
           width={1500}
           height={800}
-          className="!object-cover z-[1] img2 h-screen w-screen !top-0"
+          className="!object-cover z-[1] pImg h-screen w-screen !top-0"
         />
       </figure>
+
+      <section className="py-14 bg-primary w-full overflow-hidden">
+        <ScrollText/>
+      </section>
     </>
   );
 };

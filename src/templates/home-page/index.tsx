@@ -59,7 +59,7 @@ const HomePage = () => {
 
   return (
     <>
-      <main className="relative flex justify-center">
+      {/* <main className="relative flex justify-center">
         <div className="absolute w-full z-[2] flex flex-col justify-center text-pure top-0 h-screen">
           <div className="grid grid-cols-2 gap-14">
             <div className="">
@@ -119,19 +119,16 @@ const HomePage = () => {
           height={800}
           className="!object-cover z-[1] img h-screen w-screen !top-0"
         />
-      </figure>
+      </figure> */}
 
-      <section className="py-14 bg-primary w-full absolute overflow-hidden translate-y-[-90%]">
+      {/* <section className="py-14 bg-primary w-full absolute overflow-hidden translate-y-[-90%]">
         <ScrollText/>
-      </section>
+      </section> */}
       
-      <OurMission/>
+      {/*<OurMission/>
       <OurProducts/>
       <ImagesScroller/>
-      <ImagePin/>
-      <section className="py-14 bg-primary w-full overflow-hidden">
-        <ScrollText/>
-      </section>
+      <ImagePin/> */}
 
       <section className="fixed inset-0 bg-black z-[1000] splash"></section>
     </>

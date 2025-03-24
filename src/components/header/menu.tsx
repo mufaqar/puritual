@@ -15,7 +15,7 @@ const Menu = () => {
       gsap.fromTo(
         menuRef.current,
         { opacity: 0, top: "-20%", right: "-20%", width: "80px", height: "80px", borderRadius: "50%" },
-        { opacity: 1, top: 0, right: 0, width: "438px", height: "458px", borderRadius: "0%", duration: 0.5, ease: "power2.out" }
+        { opacity: 1, top: 0, right: 0, maxWidth: "438px", width: "100%",  minHeight: "458px", borderRadius: "0%", duration: 0.5, ease: "power2.out" }
       );
 
       gsap.fromTo(
@@ -52,9 +52,9 @@ const Menu = () => {
 
   return (
     <>
-      <SquareButton onClick={handleMenu} className="z-[60]">
-        <div className="p-[14px]">
-          <svg width="26.667" height="26.667" viewBox="0 0 26.667 26.667">
+      <SquareButton onClick={handleMenu} className="z-[100]">
+        <div className="p-2 px-2.5 md:p-[14px]">
+          <svg className="h-4 w-4 md:w-[26px] md:h-[26px]" viewBox="0 0 26.667 26.667">
             <path
               d="M8,16H24v2.667H8ZM8,8H24v5.333H8ZM8,21.333H20V24H8ZM2.667,2.667V29.334H24A5.349,5.349,0,0,0,29.333,24V2.668H2.666ZM24,26.667H5.333V5.334H26.666V24A2.675,2.675,0,0,1,24,26.668Z"
               transform="translate(-2.666 -2.667)"
@@ -67,7 +67,7 @@ const Menu = () => {
       {/* MENU */}
       <div
         ref={menuRef}
-        className="absolute bg-secoundry top-0 right-0 pl-20 !rounded-bl-[50px] z-50 p-10 pt-20 opacity-0 w-0 h-0"
+        className="absolute bg-secoundry top-0 right-0 md:pl-20 !rounded-bl-[50px] z-50 p-10 pt-20 opacity-0 w-0 h-0"
       >
         <nav className="flex flex-col text-5xl font-cervo font-medium">
           {["Home", "About Us", "Flavor map", "Where to buy?", "FAQ", "Contacts"].map((text, i) => (
