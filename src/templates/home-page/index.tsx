@@ -41,11 +41,11 @@ const HomePage = () => {
       scale: 1.2,
       delay: 1.5,
       duration: 3,
-      top: 0
-    })
+      top: 0,
+    });
     gsap.to("#mainImage", {
-      scale: .4,
-      objectFit: 'cover',
+      scale: 0.4,
+      objectFit: "cover",
       scrollTrigger: {
         trigger: ".img",
         start: "top -1%",
@@ -59,12 +59,12 @@ const HomePage = () => {
 
   return (
     <>
-      {/* <main className="relative flex justify-center">
+      <main className="relative flex justify-center">
         <div className="absolute w-full z-[2] flex flex-col justify-center text-pure top-0 h-screen">
-          <div className="grid grid-cols-2 gap-14">
+          <div className="grid md:grid-cols-2 gap-4 lg:gap-14 px-4">
             <div className="">
               <div className="overflow-y-hidden">
-                <h2 className="font-bold flex justify-end text-[8vw] font-berlos leading-[8vw] text-right">
+                <h2 className="font-bold flex md:justify-end text-[14vw] md:text-[8vw] font-berlos leading-[13vw] md:leading-[8vw] text-right">
                   <p className="t1">R</p>
                   <p className="t1">E</p>
                   <p className="t1">D</p>
@@ -77,7 +77,7 @@ const HomePage = () => {
                   <p className="t1">G</p>
                 </h2>
               </div>
-              <h2 className="font-bold flex justify-end overflow-y-hidden text-[8vw] font-berlos leading-[8vw] text-right">
+              <h2 className="font-bold flex md:justify-end overflow-y-hidden text-[14vw] md:text-[8vw] font-berlos leading-[13vw] md:leading-[8vw] text-right">
                 <p className="t1">H</p>
                 <p className="t1">Y</p>
                 <p className="t1">G</p>
@@ -86,16 +86,28 @@ const HomePage = () => {
                 <p className="t1">N</p>
                 <p className="t1">E</p>
               </h2>
+              <h2 className="font-bold text-[14vw] md:text-[8vw] font-berlos flex lg:hidden justify-start overflow-y-hidden leading-[13vw] md:leading-[8vw] text-center">
+                <p className="t1">L</p>
+                <p className="t1">U</p>
+                <p className="t1">X</p>
+                <p className="t1">U</p>
+                <p className="t1">R</p>
+                <p className="t1">Y</p>
+                <p className="t1"> </p>
+                <p className="t1 ml-3">F</p>
+                <p className="t1">F</p>
+                <p className="t1">N</p>
+              </h2>
             </div>
             <div className="text">
-              <p className="text-lg max-w-[600px] pt-10 mb-5">
+              <p className="text-lg max-w-[600px] pt-3 lg:pt-10 mb-5">
                 A gentle, organic hand wash that cleanses, hydrates, and
                 refreshes—powered by nature! 💧
               </p>
               <CircleButton />
             </div>
           </div>
-          <h2 className="font-bold text-[8vw] font-berlos flex justify-center overflow-y-hidden leading-[8vw] text-center">
+          <h2 className="font-bold text-[8vw] hidden font-berlos lg:flex justify-center overflow-y-hidden leading-[8vw] text-center">
             <p className="t1">L</p>
             <p className="t1">U</p>
             <p className="t1">X</p>
@@ -119,12 +131,12 @@ const HomePage = () => {
           height={800}
           className="!object-cover z-[1] img h-screen w-screen !top-0"
         />
-      </figure> */}
+      </figure>
 
-      {/* <section className="py-14 bg-primary w-full absolute overflow-hidden translate-y-[-90%]">
-        <ScrollText/>
-      </section> */}
-      
+      <section className="py-14 bg-primary w-full absolute overflow-hidden translate-y-[-110%] md:translate-y-[-90%]">
+        <ScrollText />
+      </section>
+
       {/*<OurMission/>
       <OurProducts/>
       <ImagesScroller/>

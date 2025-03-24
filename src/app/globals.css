@@ -52,7 +52,7 @@ body{
     -webkit-text-fill-color: transparent;
     font-family: Cervo;
     font-weight: 500;
-    line-height: 130px;
+    /* line-height: 130px; */
   }
 }
 
