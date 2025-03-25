@@ -33,7 +33,7 @@ export default function ContactForm() {
         </p>
       ) : (
         <form onSubmit={handleSubmit} className="space-y-5">
-          <div className="flex gap-10">
+          <div className="sm:flex gap-10 space-y-5 sm:space-y-0">
             <input
               type="text"
               name="name"

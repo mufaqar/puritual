@@ -42,7 +42,7 @@ const ContactTemplate = () => {
   return (
     <>
       <section className="bg-primary w-full">
-        <main className="overflow-y-hidden pt-32 pb-12 bg-dark rounded-b-[60px]">
+        <main className="overflow-y-hidden sm:pt-24 pt-26 pb-10 sm:pb-20 bg-dark rounded-b-[60px]">
           {/* Animated Heading */}
           <h1 className="flex justify-center flex-wrap px-10 overflow-y-hidden text-[14vw] font-medium md:text-[10vw] font-cervo leading-[13vw] text-primary md:leading-[8vw] text-center">
             {Array.from("Contacts").map(
@@ -55,8 +55,8 @@ const ContactTemplate = () => {
           </h1>
 
           {/* Contact Information */}
-          <div className="font-cervo text-center text-primary text-3xl sm:text-5xl md:text-6xl mb-5 mt-20 uppercase">
-            <div className="contact-item mb-4">
+          <div className="font-cervo text-center text-primary text-3xl sm:text-5xl md:text-6xl mb-5 mt-6 md:mt-20 uppercase">
+            <div className="contact-item sm:mb-4">
               <Link href="#" className="hover:underline w-fit">
                 +01 123 124 24 00
               </Link>

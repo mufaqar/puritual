@@ -53,9 +53,9 @@ const FaqsTemplate = ({ faqs }: any) => {
           <div
             key={idx}
             ref={(el: any) => (faqRefs.current[idx] = el)}
-            className="border-t gap-20 p-10 flex border-dark opacity-0"
+            className="border-t gap-4 sm:gap-10 md:gap-20 text-dark py-4 md:p-10 flex flex-col sm:flex-row border-dark opacity-0"
           >
-            <h4 className="w-[35%] font-cervo font-medium text-4xl">
+            <h4 className="sm:w-[35%] font-cervo font-medium text-2xl sm:text-4xl">
               {item?.question}
             </h4>
             <p className="flex-1">{item?.answer}</p>

@@ -51,7 +51,7 @@ const AboutTemplate = () => {
   return (
     <>
       <section className="bg-primary w-full">
-        <main className=" pt-32 pb-20 bg-dark rounded-b-[60px]">
+        <main className=" sm:pt-24 pt-26 pb-10 sm:pb-20 bg-dark rounded-b-[60px]">
           <div className=" px-4 md:px-0">
             <div className="text-[54px] md:text-[90px] lg:text-[175px] z-[1] relative text-center max-w-[1280px] mx-auto text-white font-cervo font-medium uppercase leading-[60px] md:leading-[90px] lg:leading-[160px]">
               {letterHeadingOne?.map((item, idx) => (
