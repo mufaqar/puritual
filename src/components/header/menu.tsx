@@ -70,14 +70,15 @@ const Menu = () => {
         className="absolute bg-secoundry top-0 right-0 md:pl-20 !rounded-bl-[50px] z-50 p-10 pt-20 opacity-0 w-0 h-0"
       >
         <nav className="flex flex-col text-5xl font-cervo font-medium">
-          {["Home", "About Us", "Flavor map", "Where to buy?", "FAQ", "Contacts"].map((text, i) => (
+          {menuItems?.map((text:any, i:number) => (
             <Link
-              key={text}
-              href="#"
+              key={i}
+              href={text?.path}
               ref={(el:any) => (linksRef.current[i] = el)}
+              onClick={()=>setIsMenu(!isMenu)}
               className="leading-14 hover:text-primary opacity-0 text-dark w-fit"
             >
-              {text}
+              {text?.label}
             </Link>
           ))}
         </nav>
@@ -87,3 +88,13 @@ const Menu = () => {
 };
 
 export default Menu;
+
+
+const menuItems = [
+  { id: 1, label: "Home", path: "/home" },
+  { id: 2, label: "About Us", path: "/about-us" },
+  { id: 3, label: "Flavor Map", path: "/flavor-map" },
+  { id: 4, label: "Blogs", path: "/blogs" },
+  { id: 5, label: "FAQ", path: "/faqs" },
+  { id: 6, label: "Contacts", path: "/contact-us" },
+];
