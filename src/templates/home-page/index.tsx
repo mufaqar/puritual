@@ -13,7 +13,7 @@ import ImagePin from "./image-pin";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const HomePage = () => {
+const HomePage = ({products}:any) => {
   const timeline = gsap.timeline();
 
   useGSAP(() => {
@@ -138,7 +138,7 @@ const HomePage = () => {
       </section>
 
       <OurMission/>
-      <OurProducts/>
+      <OurProducts products={products}/>
       <ImagesScroller/>
       <ImagePin/>
 

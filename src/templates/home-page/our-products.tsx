@@ -1,7 +1,7 @@
 import ProductLayout from "@/components/product-layout";
 import React from "react";
 
-const OurProducts = () => {
+const OurProducts = ({products}:any) => {
   return (
     <section className="bg-primary py-10 md:py-[75px]">
       <div className="lg:container mx-auto px-3">
@@ -10,8 +10,8 @@ const OurProducts = () => {
         </h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
             {
-                [1,2,3,4,5]?.map((product, idx)=>(
-                    <ProductLayout key={idx} data={product}/>
+                products?.map((product:any, idx:number)=>(
+                    <ProductLayout key={idx} product={product}/>
                 ))
             }
         </div>

@@ -1,19 +1,21 @@
 import Image from "next/image";
 import React from "react";
 
-const ProductLayout = ({ data }: any) => {
+const ProductLayout = ({ product }: any) => {
+  console.log("🚀 ~ ProductLayout ~ product:", product
+  )
   return (
     <div className="bg-white flex justify-center hover:bg-green-50 group cursor-pointer flex-col items-center p-[22px] pt-[36px]">
       <figure>
-        <Image src="/images/product-1.png" alt="" width={110} height={295} />
+        <Image src={product?.images?.[0]?.src} alt="" width={90} height={255} />
       </figure>
       <div className="flex justify-between items-start gap-5 w-full mt-12">
         <div>
-          <h6 className="text-[28px] font-cervo text-dark font-medium">
-            WOODLAND WHISPERS
+          <h6 className="text-[28px] uppercase font-cervo text-dark font-medium">
+            {product?.name}
           </h6>
           <p className="text-[#4E4E4E] font-axiforma">Premium Hand Wash</p>
-          <p className="text-[34px] font-medium text-dark font-cervo">$120</p>
+          <p className="text-[34px] font-medium text-dark font-cervo">${product?.price}</p>
         </div>
         <button className="bg-dark w-[94px] relative h-[94px] rounded-full flex justify-center mt-4 items-center">
           <svg width="38px" height="53px" className="z-10" viewBox="0 0 38.108 53.352">
