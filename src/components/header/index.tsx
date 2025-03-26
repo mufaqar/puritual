@@ -3,6 +3,7 @@ import Logo from "./logo";
 import CartButton from "./cart-button";
 import SquareButton from "../ui/square-button";
 import Menu from "./menu";
+import SideCartBar from "../side-cart-bar/side-cart-bar";
 
 const Header = () => {
   return (
@@ -17,6 +18,7 @@ const Header = () => {
           <Menu/>
         </div>
       </header>
+      <SideCartBar/>
     </>
   );
 };

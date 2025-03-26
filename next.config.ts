@@ -6,7 +6,7 @@ const nextConfig: NextConfig = {
   },
   images: {
     domains: [
-      "localhost",
+      "localhost", "demo.mufaqar.com"
     ],
   },
 };

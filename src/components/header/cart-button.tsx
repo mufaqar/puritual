@@ -1,10 +1,20 @@
+"use client"
 import React from "react";
 import SquareButton from "../ui/square-button";
+import { useDispatch, useSelector } from "react-redux";
+import { toggleCart } from "@/redux/features/side-cart-slice";
 
-const CartButton = () => {
+const CartButton = ({small}:any) => {
+  const dispatch = useDispatch();
+  const totalQuantity = useSelector((state: any) => state?.cart?.totalQuantity);
+
+  const handleCart = () => {
+    dispatch(toggleCart())
+  }
+
   return (
     <>
-      <SquareButton>
+      <SquareButton onClick={handleCart} className={small && "scale-75"}>
         <div className="flex items-center py-1 md:py-[9px] px-3 md:px-5 gap-2">
           <svg className="w-4 h-5 md:w-[25px] md:h-[36px]" viewBox="0 0 38.108 53.352">
             <path
@@ -14,7 +24,7 @@ const CartButton = () => {
               fill="#111"
             />
           </svg>
-          <span className="font-axiforma pt-1 md:border-none md:pl-0 border-secoundry pl-1.5 border-l">0</span>
+          <span className="font-axiforma pt-1 md:border-none md:pl-0 border-secoundry pl-1.5 border-l">{totalQuantity}</span>
         </div>
       </SquareButton>
     </>

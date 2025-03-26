@@ -1,9 +1,12 @@
+"use client"
+import { addInCart } from "@/redux/features/add-to-cart-slice";
 import Image from "next/image";
 import React from "react";
+import { useDispatch } from "react-redux";
 
 const ProductLayout = ({ product }: any) => {
-  console.log("🚀 ~ ProductLayout ~ product:", product
-  )
+  const dispatch = useDispatch();
+
   return (
     <div className="bg-white flex justify-center hover:bg-green-50 group cursor-pointer flex-col items-center p-[22px] pt-[36px]">
       <figure>
@@ -17,7 +20,9 @@ const ProductLayout = ({ product }: any) => {
           <p className="text-[#4E4E4E] font-axiforma">Premium Hand Wash</p>
           <p className="text-[34px] font-medium text-dark font-cervo">${product?.price}</p>
         </div>
-        <button className="bg-dark w-[94px] relative h-[94px] rounded-full flex justify-center mt-4 items-center">
+        <button className="bg-dark w-[94px] relative h-[94px] rounded-full flex justify-center mt-4 items-center"
+          onClick={()=>dispatch(addInCart(product))}
+        >
           <svg width="38px" height="53px" className="z-10" viewBox="0 0 38.108 53.352">
             <path
               id="svgexport-2"
