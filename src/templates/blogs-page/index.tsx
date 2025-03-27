@@ -4,7 +4,7 @@ import gsap from "gsap";
 import React, { useEffect, useRef } from "react";
 import BlogsList from "./blogs-list";
 
-const BlogsTemplate = () => {
+const BlogsTemplate = ({posts}:any) => {
   const timeline = gsap.timeline();
   useGSAP(() => {
     // Animate heading text
@@ -58,7 +58,7 @@ const BlogsTemplate = () => {
 
       <section className="pt-10 pb-20 bg-primary">
         <div className="max-w-[1280px] mx-auto px-3 grid gap-4">
-          {blogs?.map((item, idx) => (
+          {posts?.map((item:any, idx:number) => (
             <article key={idx} ref={(el: any) => (blogRefs.current[idx] = el)}>
               <BlogsList blog={item} />
             </article>
@@ -70,58 +70,3 @@ const BlogsTemplate = () => {
 };
 
 export default BlogsTemplate;
-
-const blogs = [
-  {
-    date: "24",
-    month: "JUL",
-    year: "2017",
-    title: "A BEAUTIFUL BLOG WITH NO IMAGES REQUIRED",
-    author: "Rina Chaudhary",
-    readTime: "1 minute",
-    comments: "0 Comments",
-    description:
-      "Typography is a WordPress theme created for bloggers that just want to write, without the hassle of looking for the right featured image. It has a unique design based on beautiful typography and a modern, clean layout. Simply write your content and publish, and it will handle the rest.",
-    readMoreLink: "#",
-    addCommentLink: "#",
-  },
-  {
-    date: "10",
-    month: "AUG",
-    year: "2018",
-    title: "WHY MINIMALISM IS THE BEST CHOICE FOR BLOGGERS",
-    author: "John Doe",
-    readTime: "2 minutes",
-    comments: "5 Comments",
-    description:
-      "Minimalist design focuses on simplicity and readability, ensuring that your blog content is the main focus. It provides a clutter-free experience for readers and enhances engagement.",
-    readMoreLink: "#",
-    addCommentLink: "#",
-  },
-  {
-    date: "15",
-    month: "SEP",
-    year: "2019",
-    title: "THE ART OF WRITING WITHOUT DISTRACTIONS",
-    author: "Jane Smith",
-    readTime: "3 minutes",
-    comments: "2 Comments",
-    description:
-      "Writing without distractions allows for deeper creativity and productivity. Discover how to optimize your workspace and writing habits for maximum efficiency.",
-    readMoreLink: "#",
-    addCommentLink: "#",
-  },
-  {
-    date: "05",
-    month: "OCT",
-    year: "2020",
-    title: "HOW TO CREATE ENGAGING CONTENT CONSISTENTLY",
-    author: "Emily Johnson",
-    readTime: "4 minutes",
-    comments: "8 Comments",
-    description:
-      "Consistent content creation is key to building an audience. Learn the strategies top bloggers use to stay creative and publish regularly.",
-    readMoreLink: "#",
-    addCommentLink: "#",
-  },
-];

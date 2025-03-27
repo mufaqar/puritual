@@ -1,43 +1,64 @@
 import React from "react";
 import SquareButton from "../ui/square-button";
 import Image from "next/image";
+import { RiDeleteBin6Fill } from "react-icons/ri";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  decrementQuantity,
+  incrementQuantity,
+  removeFromCart,
+} from "@/redux/features/add-to-cart-slice";
+import { TfiLayoutLineSolid } from "react-icons/tfi";
+import { LiaPlusSolid } from "react-icons/lia";
 
 const SideCartMeta = ({ data }: any) => {
-  console.log("🚀 ~ SideCartMeta ~ data:", data);
+  const dispatch = useDispatch();
   return (
     <div>
-      <div>
-        {data?.items?.map((item: any, idx: any) => (
-          <div key={idx} className="flex">
-            <figure className="border border-secoundry w-[55px] p-4">
-              <Image
-                src={item?.images?.[0]?.src}
-                alt=""
-                width={20}
-                height={20}
-              />
-            </figure>
-            <div>
-              <h6>{item?.name}</h6>
+      {data?.items?.map((item: any, idx: any) => (
+        <div key={idx} className="flex gap-2 mb-2">
+          <figure className="border border-secoundry w-[95px] flex justify-center p-4">
+            <Image src={item?.images?.[0]?.src} alt="" width={20} height={20} />
+          </figure>
+          <div className="flex-1">
+            <div className="flex justify-between items-start gap-2">
+              <div>
+                <h6 className="font-cervo text-2xl text-secoundry">
+                  {item?.name}
+                </h6>
+                <p className="text-xs text-gray-400">Serving weight: 80g</p>
+              </div>
+              <button
+                className="text-red-500 mt-3 cursor-pointer"
+                onClick={() => dispatch(removeFromCart(item.id))}
+              >
+                <RiDeleteBin6Fill />
+              </button>
+            </div>
+            <div className="flex items-center gap-3 mt-2 pb-1.5">
+              <SquareButton
+                onClick={() => dispatch(decrementQuantity(item.id))}
+              >
+                <div className="w-8 h-8 flex justify-center items-center">
+                  <TfiLayoutLineSolid />
+                </div>
+              </SquareButton>
+              <SquareButton>
+                <div className="w-8 h-8 flex justify-center items-center pt-1">
+                  {item?.quantity}
+                </div>
+              </SquareButton>
+              <SquareButton
+                onClick={() => dispatch(incrementQuantity(item.id))}
+              >
+                <div className="w-8 h-8 flex justify-center items-center">
+                  <LiaPlusSolid />
+                </div>
+              </SquareButton>
             </div>
           </div>
-        ))}
-      </div>
-      <div>
-        <h5 className="text-4xl font-cervo uppercase font-medium">
-          Amount: <span className="text-secoundry">${data?.totalPrice}</span>
-        </h5>
-      </div>
-      <div className="mt-5 flex gap-4">
-        <SquareButton>
-          <p className="px-6 py-2 font-cervo text-xl">Place an order</p>
-        </SquareButton>
-        <SquareButton>
-          <p className="px-6 py-2 font-cervo text-xl bg-white hover:bg-secoundry">
-            Continue Shopping
-          </p>
-        </SquareButton>
-      </div>
+        </div>
+      ))}
     </div>
   );
 };

@@ -17,20 +17,20 @@ export const addToCart = createSlice({
       if (existingItem) {
         existingItem.quantity += 1;
       } else {
-        state.items.push({ ...action.payload, quantity: 1 });
+        state.items.push({ ...action.payload, quantity: action.payload.quantity > 1 ? action.payload.quantity :  1 });
       }
 
       state.totalQuantity += 1;
       state.totalPrice += Number(action.payload.price);
 
-      toast.success(`${action.payload.name} added to cart!`, { position: "top-right" });
+      toast.success(`${action.payload.name} added to cart!`, { position: "bottom-left" });
     },
     removeFromCart: (state, action: any) => {
       const index = state.items.findIndex((item:any) => item.id === action.payload);
       if (index !== -1) {
         const item = state.items[index];
         state.totalQuantity -= item.quantity;
-        state.totalPrice -= item.price * item.quantity;
+        state.totalPrice -= Number(item.price) * item.quantity;
         state.items.splice(index, 1);
       }
     },
@@ -39,7 +39,7 @@ export const addToCart = createSlice({
       if (item) {
         item.quantity += 1;
         state.totalQuantity += 1;
-        state.totalPrice += item.price;
+        state.totalPrice += Number(item.price);
       }
     },
 
@@ -48,11 +48,11 @@ export const addToCart = createSlice({
       if (item && item.quantity > 1) {
         item.quantity -= 1;
         state.totalQuantity -= 1;
-        state.totalPrice -= item.price;
+        state.totalPrice -= Number(item.price);
       } else if (item) {
         state.items = state.items.filter((cartItem:any) => cartItem.id !== action.payload);
         state.totalQuantity -= 1;
-        state.totalPrice -= item.price;
+        state.totalPrice -= Number(item.price);
       }
     },
 

@@ -1,6 +1,7 @@
 "use client"
 import { addInCart } from "@/redux/features/add-to-cart-slice";
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 import { useDispatch } from "react-redux";
 
@@ -8,7 +9,7 @@ const ProductLayout = ({ product }: any) => {
   const dispatch = useDispatch();
 
   return (
-    <div className="bg-white flex justify-center hover:bg-green-50 group cursor-pointer flex-col items-center p-[22px] pt-[36px]">
+    <Link href={`/product/${product?.slug}`} className="bg-white flex justify-center hover:bg-green-50 group cursor-pointer flex-col items-center p-[22px] pt-[36px]">
       <figure>
         <Image src={product?.images?.[0]?.src} alt="" width={90} height={255} />
       </figure>
@@ -34,7 +35,7 @@ const ProductLayout = ({ product }: any) => {
           <div className="bg-secoundry w-[94px] absolute h-[94px] scale-0 group-hover:scale-[1.01] transition-all duration-300 ease-linear rounded-full"/>
         </button>
       </div>
-    </div>
+    </Link>
   );
 };
 
