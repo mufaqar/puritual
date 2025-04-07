@@ -16,16 +16,13 @@ export async function POST(req: NextRequest) {
 
   try {
     event = stripe.webhooks.constructEvent(body, signature, endpointSecret);
-    console.log("🚀 ~ POST ~ event:", event)
   } catch (err) {
     return new Response(`Webhook error: ${(err as Error).message}`, { status: 400 });
   }
 
   if (event.type === "checkout.session.completed") {
     const session = event.data.object;
-    
-    const res = await CreateOrder()
-
+    const res = await CreateOrder({})
   }
 
   return new Response("ok", { status: 200 });
