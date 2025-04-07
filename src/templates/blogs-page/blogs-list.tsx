@@ -1,6 +1,7 @@
 import SquareButton from "@/components/ui/square-button";
 import React from "react";
 import {formatDate} from "@/utils"
+import Link from "next/link";
 
 const BlogsList = ({ blog }: any) => {
   const formattedDate = formatDate(blog.date);
@@ -19,9 +20,9 @@ const BlogsList = ({ blog }: any) => {
 
         {/* Content Section */}
         <div className="flex-1">
-          <h2 className="text-2xl sm:text-3xl leading-[26px] font-medium text-dark font-cervo">
+          <Link href={`/blogs/${blog.slug}`} className="text-2xl sm:text-3xl leading-[26px] font-medium text-dark font-cervo">
             {blog.title.rendered}
-          </h2>
+          </Link>
           <p className="text-[10px] sm:text-sm text-gray-600 mt-1">
             By Developer | 1 minute Read | 4 Comments
           </p>
@@ -32,7 +33,7 @@ const BlogsList = ({ blog }: any) => {
             <div className="relative">
               <SquareButton className="hidden md:block">
                 <a
-                  href={blog.slug}
+                  href={`/blogs/${blog.slug}`}
                   className="bg-red-700 text-white px-4 py-2 text-sm hover:bg-red-800 transition"
                 >
                   READ MORE
