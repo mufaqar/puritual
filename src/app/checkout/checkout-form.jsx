@@ -4,21 +4,24 @@ import SquareButton from '@/components/ui/square-button'
 import { useSelector } from 'react-redux';
 import { handleCheckout } from '@/lib/handle-checkout';
 import { CreateOrder } from '@/lib/create-order';
+import { useRouter } from 'next/navigation';
 
 const CheckouthtmlForm = () => {
     const cart = useSelector((state) => state?.cart);
+    const [loading, setLoading] = useState(false)
     const [formData, setFormData] = useState({
         your_name: '',
         your_email: '',
         country: '',
         city: '',
-        phone: '',
-        email: '',
+        phone_number: '',
+        address: '',
         company_name: '',
-        vat_number: '',
+        postcode: '',
         payment_method: 'credit-card',
         delivery_method: 'free',
     })
+    const router = useRouter()
 
     const handleChange = (e) => {
         const { id, value } = e.target
@@ -32,30 +35,40 @@ const CheckouthtmlForm = () => {
 
     const subTotal = cart?.totalPrice?.toFixed(2)
     const storePickup = 0
-    const tax = 0 
+    const tax = 0
     const saving = 0
     const grandTotal = subTotal + storePickup + tax + saving
 
     const data = {
-        grandTotal : grandTotal || 0,
+        grandTotal: grandTotal || 0,
         cart: cart || [],
-        formData : formData || {}
+        formData: formData || {}
     }
 
-
-    
     const handleCheckoutPayment = async () => {
-        if(formData?.payment_method === "pay-on-delivery"){
+        setLoading(true)
+        if (formData?.payment_method === "pay-on-delivery") {
             const res = await CreateOrder(data)
-            
-        }else{
+            const paymentMethod = res?.orderData?.payment_method_title
+            const name = res?.orderData?.billing?.first_name
+            const address = res?.orderData?.billing?.address_1
+            const email = res?.orderData?.billing?.email
+            const phone = res?.orderData?.billing?.phone
+            if (res?.status === "success") {
+                setLoading(false)
+                localStorage.removeItem('couponData')
+                router.push(`/success?paymentMethod=${paymentMethod}&name=${name}&address=${address}&email=${email}&phone=${phone}&orderId=${res?.orderId}`)
+            }else{
+                setLoading(false)
+            }
+        } else {
             handleCheckout(data)
         }
     }
 
     return (
         <section className="max-w-[1280px] mx-auto px-3">
-            <form className="mx-auto max-w-screen-xl">
+            <div className="mx-auto max-w-screen-xl">
                 <div className="mt-6 sm:mt-8 lg:flex lg:items-start lg:gap-12 xl:gap-16">
                     <div className="min-w-0 flex-1 space-y-8">
                         {/* Delivery Details */}
@@ -138,14 +151,14 @@ const CheckouthtmlForm = () => {
                                 </div>
 
                                 <div>
-                                    <label htmlFor="email" className="mb-2 block text-sm font-medium text-dark">Email</label>
+                                    <label htmlFor="address" className="mb-2 block text-sm font-medium text-dark">Address</label>
                                     <input
-                                        type="email"
-                                        id="email"
-                                        value={formData.email}
+                                        type="text"
+                                        id="address"
+                                        value={formData.address}
                                         onChange={handleChange}
                                         className="block w-full rounded-lg bg-dark p-4 text-sm text-primary"
-                                        placeholder="name@flowbite.com"
+                                        placeholder="address"
                                         required
                                     />
                                 </div>
@@ -164,11 +177,11 @@ const CheckouthtmlForm = () => {
                                 </div>
 
                                 <div>
-                                    <label htmlFor="vat_number" className="mb-2 block text-sm font-medium text-dark">VAT number</label>
+                                    <label htmlFor="postcode" className="mb-2 block text-sm font-medium text-dark">Postcode</label>
                                     <input
                                         type="text"
-                                        id="vat_number"
-                                        value={formData.vat_number}
+                                        id="postcode"
+                                        value={formData.postcode}
                                         onChange={handleChange}
                                         className="block w-full rounded-lg bg-dark p-4 text-sm text-primary"
                                         placeholder="DE42313253"
@@ -237,7 +250,7 @@ const CheckouthtmlForm = () => {
                         </div>
                         <div className="space-y-3">
                             <SquareButton onClick={handleCheckoutPayment} className="uppercase w-full">
-                                <p className='pb-[10px] font-medium pt-[14px]'>Proceed to Payment</p>
+                                <p className='pb-[10px] font-medium pt-[14px]'>{loading ? "Proceeding..." : "Proceed to Payment"}</p>
                             </SquareButton>
                             <p className="text-sm mt-2 font-normal text-gray-400">
                                 One or more items in your cart require an account. <a href="#" className="font-medium text-primary-700 underline">Sign in or create an account now.</a>
@@ -245,7 +258,7 @@ const CheckouthtmlForm = () => {
                         </div>
                     </div>
                 </div>
-            </form>
+            </div>
         </section>
     )
 }

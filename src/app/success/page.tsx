@@ -1,22 +1,19 @@
 // app/success/page.tsx
 "use client";
+import Link from "next/link";
 import { useSearchParams } from "next/navigation";
-import { useEffect, useState } from "react";
 
 export default function SuccessPage() {
-  const searchParams = useSearchParams();
-  const sessionId = searchParams.get("session_id");
-  const [sessionData, setSessionData] = useState<any>(null);
+  const searchParams = useSearchParams()
+  const paymentMethod = searchParams.get('paymentMethod')
+  const name = searchParams.get('name')
+  const address = searchParams.get('address')
+  const email = searchParams.get('email')
+  const phone = searchParams.get('phone')
+  const orderId = searchParams.get('orderId')
+
   const options:any = { year: 'numeric', month: 'long', day: 'numeric' };
   const currentDate = new Date().toLocaleDateString('en-GB', options);
-
-  useEffect(() => {
-    if (sessionId) {
-      fetch(`/api/get-checkout-session?session_id=${sessionId}`)
-        .then((res) => res.json())
-        .then((data) => setSessionData(data));
-    }
-  }, [sessionId]);
 
   return (
     <>
@@ -44,7 +41,7 @@ export default function SuccessPage() {
               href="#"
               className="font-medium text-dark hover:underline"
             >
-              #7564804
+              #{orderId}
             </a>{" "}
             will be processed within 24 hours during working days. We will
             notify you by email once your order has been shipped.
@@ -63,7 +60,7 @@ export default function SuccessPage() {
                 Payment Method
               </dt>
               <dd className="font-medium text-primary sm:text-end">
-                Card
+                {paymentMethod}
               </dd>
             </dl>
             <dl className="sm:flex items-center justify-between gap-4">
@@ -71,7 +68,7 @@ export default function SuccessPage() {
                 Name
               </dt>
               <dd className="font-medium text-primary sm:text-end">
-              {sessionData?.customer_details?.name}
+              {name}
               </dd>
             </dl>
             <dl className="sm:flex items-center justify-between gap-4">
@@ -79,7 +76,7 @@ export default function SuccessPage() {
                 Address
               </dt>
               <dd className="font-medium text-primary sm:text-end">
-                {sessionData?.metadata?.company_name} {sessionData?.metadata?.city}, {sessionData?.metadata?.country}
+                {address}
               </dd>
             </dl>
             <dl className="sm:flex items-center justify-between gap-4">
@@ -87,7 +84,7 @@ export default function SuccessPage() {
                 Email
               </dt>
               <dd className="font-medium text-primary sm:text-end">
-                {sessionData?.customer_details?.email}
+                {email}
               </dd>
             </dl>
             <dl className="sm:flex items-center justify-between gap-4">
@@ -95,19 +92,19 @@ export default function SuccessPage() {
                 Phone
               </dt>
               <dd className="font-medium text-primary sm:text-end">
-                +(123) 456 7890
+                {phone}
               </dd>
             </dl>
           </div>
           <div className="flex items-center space-x-4">
-            <a
-              href="#"
+            <Link
+              href="/"
               className="text-white bg-dark pb-2.5 pt-3 px-5 rounded-[8px] hover:bg-secoundry hover:text-dark"
             >
               Track your order
-            </a>
+            </Link>
             <a
-              href="#"
+              href="/"
               className="text-dark bg-secoundry pb-2.5 pt-3 px-5 rounded-[8px] hover:bg-dark hover:text-white"
             >
               Return to shopping

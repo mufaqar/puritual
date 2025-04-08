@@ -13,6 +13,7 @@ export const handleCheckout = async (data:any) => {
         body: JSON.stringify(data),
     });
     const session = await res.json();
+    
     const stripe = await stripePromise;
     if (stripe) {
         stripe.redirectToCheckout({ sessionId: session.id });
