@@ -15,13 +15,13 @@ const Footer = () => {
       <section className="bg-dark py-[68px] rounded-t-[60px] lg:px-10 px-4">
         <div className="grid md:grid-cols-3 gap-6 md:gap-0 container mx-auto items-center">
           <nav className="text-white/50 flex gap-4 lg:gap-10 md:justify-start justify-center">
-            <Link href="#" className="hover:text-pure">
+            <Link href="/about-us" className="hover:text-pure">
               About
             </Link>
             <Link href="#" className="hover:text-pure">
               Products
             </Link>
-            <Link href="#" className="hover:text-pure">
+            <Link href="/contact-us" className="hover:text-pure">
               Contact
             </Link>
           </nav>
@@ -52,7 +52,7 @@ const Footer = () => {
         <div className="pt-6 flex flex-col-reverse md:flex-row justify-between container mx-auto px-4 items-center lg:px-0 gap-5 pb-[68px] border-t border-[#33450d]">
           <p className="text-white/50 font-light">© Copyright 2026, Puritual</p>
           <nav className="text-white/50 flex justify-center flex-wrap gap-2 md:gap-4 font-light">
-            <Link href="#" className="hover:text-pure">
+            <Link href="/sitemap.xml" className="hover:text-pure">
               Sitemap
             </Link>
             <p>-</p>
