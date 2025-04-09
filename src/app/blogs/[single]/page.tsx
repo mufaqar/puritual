@@ -50,7 +50,7 @@ const BlogSingle = async ({ params }: any) => {
               </div>
             </div>
           </address>
-          <h1 className="text-3xl font-extrabold leading-tight text-dark lg:text-4xl ">
+          <h1 className="text-2xl font-extrabold leading-tight text-dark lg:text-3xl ">
             {post?.title?.rendered}
           </h1>
           <div className="mt-4 singleBlog">

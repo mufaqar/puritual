@@ -93,42 +93,42 @@ body{
   transform-origin: center;
 }
 .singleBlog p{
-  font-size: 20px;
+  font-size: 18px;
 }
 .singleBlog{
   color: var(--dark);
-  font-size: 20px;
+  font-size: 18px;
 }
 .singleBlog h3{
-  font-size: 25px;
+  font-size: 21px;
   line-height: 27px;
   font-weight: 700;
   margin: 10px 0;
 }
 .singleBlog h4{
-  font-size: 24px;
+  font-size: 20px;
   line-height: 26px;
   font-weight: 700;
   margin: 10px 0;
 }
 .singleBlog a{
-  color: rgb(50, 50, 255);
+  color: rgb(0, 118, 168);
   text-decoration: underline;
 }
 .singleBlog h5{
-  font-size: 22px;
+  font-size: 18px;
   line-height: 24px;
   font-weight: 700;
   margin: 10px 0;
 }
 .singleBlog h6{
-  font-size: 20px;
+  font-size: 16px;
   line-height: 22px;
   font-weight: 700;
   margin: 10px 0;
 }
 .singleBlog h2{
-  font-size: 26px;
+  font-size: 22px;
   line-height: 28px;
   font-weight: 700;
   margin: 10px 0;

@@ -11,20 +11,28 @@ export const addToCart = createSlice({
   name: 'counter',
   initialState,
   reducers: {
-    addInCart: (state, action: any) => {
-      const existingItem = state.items.find((item:any) => item.id === action.payload.id);
-      
+    addInCart: (state, action: { payload: { id: string; name: string; price: number; quantity: number } }) => {
+      const { id, name, price, quantity } = action.payload;
+      const existingItem = state.items.find((item: any) => item.id === id);
+    
       if (existingItem) {
-        existingItem.quantity += 1;
+        existingItem.quantity = quantity;
       } else {
-        state.items.push({ ...action.payload, quantity: action.payload.quantity > 1 ? action.payload.quantity :  1 });
+        state.items.push({
+          ...action.payload,
+          quantity: quantity > 1 ? quantity : 1,
+        });
       }
-
-      state.totalQuantity += 1;
-      state.totalPrice += Number(action.payload.price);
-
-      toast.success(`${action.payload.name} added to cart!`, { position: "bottom-left" });
+    
+      // Update totals
+      state.totalQuantity = state.items.reduce((sum: number, item: any) => sum + item.quantity, 0);
+      state.totalPrice = Number(
+        state.items.reduce((sum: number, item: any) => sum + item.price * item.quantity, 0)
+      );
+    
+      toast.success(`${name} added to cart!`, { position: 'bottom-left' });
     },
+    
     removeFromCart: (state, action: any) => {
       const index = state.items.findIndex((item:any) => item.id === action.payload);
       if (index !== -1) {
