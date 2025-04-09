@@ -5,6 +5,7 @@ import { useSelector } from 'react-redux';
 import { handleCheckout } from '@/lib/handle-checkout';
 import { CreateOrder } from '@/lib/create-order';
 import { useRouter } from 'next/navigation';
+import { toast } from 'react-toastify';
 
 const CheckouthtmlForm = () => {
     const cart = useSelector((state) => state?.cart);
@@ -46,6 +47,7 @@ const CheckouthtmlForm = () => {
     }
 
     const handleCheckoutPayment = async () => {
+        if (checkMissingFiled()) return;
         setLoading(true)
         if (formData?.payment_method === "pay-on-delivery") {
             const res = await CreateOrder(data)
@@ -58,11 +60,20 @@ const CheckouthtmlForm = () => {
                 setLoading(false)
                 localStorage.removeItem('couponData')
                 router.push(`/success?paymentMethod=${paymentMethod}&name=${name}&address=${address}&email=${email}&phone=${phone}&orderId=${res?.orderId}`)
-            }else{
+            } else {
                 setLoading(false)
             }
         } else {
             handleCheckout(data)
+        }
+    }
+
+    const checkMissingFiled = () => {
+        const requiredFields = ['your_name', 'your_email', 'country', 'city', 'phone_number', 'address', 'company_name', 'postcode'];
+        const missingFields = requiredFields.filter(field => !formData[field]);
+        if (missingFields.length > 0) {
+            toast.error('Please fill out all required fields.');
+            return true;
         }
     }
 
@@ -110,11 +121,7 @@ const CheckouthtmlForm = () => {
                                         onChange={handleChange}
                                         className="block w-full rounded-lg bg-dark p-4 text-sm text-primary"
                                     >
-                                        <option>United States</option>
-                                        <option value="AS">Australia</option>
-                                        <option value="FR">France</option>
-                                        <option value="ES">Spain</option>
-                                        <option value="UK">United Kingdom</option>
+                                        <option>Pakistan</option>
                                     </select>
                                 </div>
 
@@ -126,18 +133,23 @@ const CheckouthtmlForm = () => {
                                         onChange={handleChange}
                                         className="block w-full rounded-lg bg-dark p-4 text-sm text-primary"
                                     >
-                                        <option>San Francisco</option>
-                                        <option value="NY">New York</option>
-                                        <option value="LA">Los Angeles</option>
-                                        <option value="CH">Chicago</option>
-                                        <option value="HU">Houston</option>
+                                        <option value="KHI">Karachi</option>
+                                        <option value="LHR">Lahore</option>
+                                        <option value="ISB">Islamabad</option>
+                                        <option value="RWP">Rawalpindi</option>
+                                        <option value="FSD">Faisalabad</option>
+                                        <option value="MLT">Multan</option>
+                                        <option value="PEW">Peshawar</option>
+                                        <option value="QTA">Quetta</option>
+                                        <option value="GJW">Gujranwala</option>
+                                        <option value="SKT">Sialkot</option>
                                     </select>
                                 </div>
 
                                 <div>
                                     <label htmlFor="phone_number" className="mb-2 block text-sm font-medium text-dark">Phone Number*</label>
                                     <div className="flex items-center">
-                                        <span className="inline-flex items-center rounded-s-lg bg-dark p-3 text-primary">+1</span>
+                                        <span className="inline-flex items-center rounded-s-lg bg-dark p-3 text-primary">+92</span>
                                         <input
                                             type="text"
                                             id="phone_number"
@@ -194,7 +206,7 @@ const CheckouthtmlForm = () => {
                         <div className="space-y-4">
                             <h3 className="text-xl font-semibold text-dark">Payment</h3>
                             <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
-                                {['credit-card', 'pay-on-delivery'].map(id => (
+                                {['pay-on-delivery'].map(id => (
                                     <label htmlFor={id} key={id} className="rounded-lg border cursor-pointer border-gray-200 bg-dark p-4 ps-4 ">
                                         <div className="flex items-start">
                                             <input type="radio" id={id} name="payment_method" checked={formData.payment_method === id} onChange={handleRadioChange} className="h-4 w-4 mt-1" />

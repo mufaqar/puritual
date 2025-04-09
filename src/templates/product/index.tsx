@@ -5,7 +5,7 @@ import bg from "../../../public/images/single-banner.png";
 import Image from "next/image";
 import RelatedProducts from "./related-products";
 
-const ProductTemplate = ({ product }: any) => {
+const ProductTemplate = ({ product, meta }: any) => {
   return (
     <>
       <main
@@ -44,24 +44,14 @@ const ProductTemplate = ({ product }: any) => {
                 Energy value:
               </h4>
               <div className="text-sm text-dark mt-3">
-                <p className="flex justify-between gap-4 items-center py-1">
-                  <span>Proteins</span>
-                  <span>
-                    9.30 <sub>g</sub>
-                  </span>
-                </p>
-                <p className="flex justify-between gap-4 items-center py-1">
-                  <span>Jury</span>
-                  <span>
-                  10.28 <sub>g</sub>
-                  </span>
-                </p>
-                <p className="flex justify-between gap-4 items-center py-1">
-                  <span>Carbohydrates</span>
-                  <span>
-                  19.05 <sub>g</sub>
-                  </span>
-                </p>
+                {meta?.acf?.listing?.map((item: any, idx: number) => (
+                  <p key={idx} className="flex justify-between gap-4 items-center py-1">
+                    <span>{item?.title}</span>
+                    <span>
+                      {item?.value} <sub>{item?.prefix}</sub>
+                    </span>
+                  </p>
+                ))}
               </div>
             </div>
           </div>
@@ -77,7 +67,7 @@ const ProductTemplate = ({ product }: any) => {
         </div>
       </section>
 
-      <RelatedProducts/>
+      <RelatedProducts />
     </>
   );
 };

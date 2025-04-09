@@ -63,6 +63,10 @@ const Footer = () => {
             <Link href="#" className="hover:text-pure">
               Privacy Policy
             </Link>
+            <p>-</p>
+            <Link href="/order-tracking" className="hover:text-pure">
+              Order Tracking
+            </Link>
           </nav>
         </div>
       </div>
