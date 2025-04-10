@@ -8,6 +8,7 @@ import CartButton from "./cart-button";
 import SquareButton from "../ui/square-button";
 import Menu from "./menu";
 import SideCartBar from "../side-cart-bar/side-cart-bar";
+import Link from "next/link";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -44,9 +45,9 @@ const Header = () => {
         <div className="flex gap-2.5">
           <CartButton />
           <SquareButton className="hidden md:block">
-            <p className="uppercase flex h-full p-2 px-[21px] pt-4 justify-center items-center text-center">
+            <Link href="/catalog" className="uppercase flex h-full p-2 px-[21px] pt-4 justify-center items-center text-center">
               Products
-            </p>
+            </Link>
           </SquareButton>
           <Menu />
         </div>
