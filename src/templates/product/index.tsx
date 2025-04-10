@@ -6,6 +6,7 @@ import Image from "next/image";
 import RelatedProducts from "./related-products";
 
 const ProductTemplate = ({ product, meta }: any) => {
+  console.log("🚀 ~ ProductTemplate ~ meta:", meta)
   return (
     <>
       <main
@@ -27,19 +28,16 @@ const ProductTemplate = ({ product, meta }: any) => {
           <div>
             <div className="bg-white rounded-[20px] p-12 text-4xl font-cervo text-secoundry">
               <p>
-                Farmer's cheese, grated until smooth and covered in Belgian dark
-                chocolate. The only product that should be thawed before eating.{" "}
+                {meta?.acf?.sub_title}
               </p>
             </div>
             <div className="bg-white rounded-[20px] p-12 mt-4">
               <h4 className="uppercase text-3xl font-cervo text-secoundry">
                 Composition:
               </h4>
-              <p className="text-sm text-dark mt-3">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum
-                earum illo reiciendis expedita! Commodi inventore porro quis
-                necessitatibus officia quidem.
-              </p>
+              <div className="text-sm text-dark mt-3">
+                <div dangerouslySetInnerHTML={{__html: meta?.excerpt?.rendered}}/>
+              </div>
               <h4 className="uppercase text-3xl font-cervo text-secoundry mt-10">
                 Energy value:
               </h4>

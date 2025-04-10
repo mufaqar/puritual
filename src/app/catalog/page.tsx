@@ -13,7 +13,7 @@ export default async function Home() {
   const products = await getData()
   
   return (
-    <div className="">
+    <div className="bg-primary pt-20">
       <OurProducts products={products.data}/>
     </div>
   );
