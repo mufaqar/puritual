@@ -95,7 +95,7 @@ const CheckouthtmlForm = () => {
                                         value={formData.your_name}
                                         onChange={handleChange}
                                         className="block w-full rounded-lg bg-dark p-4 text-sm text-primary"
-                                        placeholder="Bonnie Green"
+                                        placeholder="Muhammad "
                                         required
                                     />
                                 </div>
@@ -108,7 +108,7 @@ const CheckouthtmlForm = () => {
                                         value={formData.your_email}
                                         onChange={handleChange}
                                         className="block w-full rounded-lg bg-dark p-4 text-sm text-primary"
-                                        placeholder="name@flowbite.com"
+                                        placeholder="name@puritual.com"
                                         required
                                     />
                                 </div>
@@ -170,7 +170,7 @@ const CheckouthtmlForm = () => {
                                         value={formData.address}
                                         onChange={handleChange}
                                         className="block w-full rounded-lg bg-dark p-4 text-sm text-primary"
-                                        placeholder="address"
+                                        placeholder="H # 123 ..."
                                         required
                                     />
                                 </div>
@@ -183,7 +183,7 @@ const CheckouthtmlForm = () => {
                                         value={formData.company_name}
                                         onChange={handleChange}
                                         className="block w-full rounded-lg bg-dark p-4 text-sm text-primary"
-                                        placeholder="Flowbite LLC"
+                                        placeholder="Puritual "
                                         required
                                     />
                                 </div>
