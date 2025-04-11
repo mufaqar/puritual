@@ -1,10 +1,10 @@
 import React from 'react'
 
 export const metadata = {
-  title: "Contact Us | Puritual",
+  title: "Catalog | Puritual",
   description: "Puritual",
   alternates: {
-    canonical: `${process.env.NEXT_PUBLIC_BASE_URL}/contact-us`,
+    canonical: `${process.env.NEXT_PUBLIC_BASE_URL}/catelog`,
   },
 };
 

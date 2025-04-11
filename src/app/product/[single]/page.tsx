@@ -17,7 +17,7 @@ const SingleProduct = async ({ params }: any) => {
     )
   }
 
-  return (
+    return (
     <>
       <ProductTemplate product={response.data[0]} meta={res?.[0]}/>
     </>

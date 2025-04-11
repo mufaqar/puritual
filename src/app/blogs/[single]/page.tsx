@@ -1,5 +1,16 @@
 import React from "react";
 
+export async function generateMetadata({ params }: any) {
+  const slug = await params
+  return {
+    title: `${slug?.single.replace(/-/g, ' ').replace(/\b\w/g, (char:any) => char.toUpperCase())} | Puritual`,
+    description: "Puritual",
+    alternates: {
+      canonical: `${process.env.NEXT_PUBLIC_BASE_URL}/blogs/${slug?.single}`,
+    },
+  };
+}
+
 const BlogSingle = async ({ params }: any) => {
   const { single } = await params;
   const response = await fetch(
@@ -43,9 +54,7 @@ const BlogSingle = async ({ params }: any) => {
                   Graphic Designer, educator & CEO Flowbite
                 </p>
                 <p className="text-base text-gray-500 ">
-                  <time>
-                    {formatDate(post?.modified)}
-                  </time>
+                  <time>{formatDate(post?.modified)}</time>
                 </p>
               </div>
             </div>
@@ -54,7 +63,9 @@ const BlogSingle = async ({ params }: any) => {
             {post?.title?.rendered}
           </h1>
           <div className="mt-4 singleBlog">
-            <div dangerouslySetInnerHTML={{ __html: post?.content?.rendered }}/>
+            <div
+              dangerouslySetInnerHTML={{ __html: post?.content?.rendered }}
+            />
           </div>
         </div>
       </section>
@@ -64,10 +75,9 @@ const BlogSingle = async ({ params }: any) => {
 
 export default BlogSingle;
 
-
-const formatDate = (dateString:any) => {
+const formatDate = (dateString: any) => {
   const date = new Date(dateString);
-  const options:any = { month: 'short', day: 'numeric', year: 'numeric' };
+  const options: any = { month: "short", day: "numeric", year: "numeric" };
 
-  return new Intl.DateTimeFormat('en-US', options).format(date);
+  return new Intl.DateTimeFormat("en-US", options).format(date);
 };

@@ -19,6 +19,9 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Puritual",
   description: "Puritual",
+  alternates: {
+    canonical: `${process.env.NEXT_PUBLIC_BASE_URL}/`,
+  },
 };
 
 export default function RootLayout({
