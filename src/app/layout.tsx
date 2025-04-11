@@ -17,8 +17,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Puritual",
-  description: "Puritual",
+  title: "Puritual | Elevate Your Self-Care Rituals",
+description: "Discover natural, sustainable, and beautifully crafted products to enrich your wellness journey. Shop skincare, wellness essentials, and mindful living products at Puritual.",
   alternates: {
     canonical: `${process.env.NEXT_PUBLIC_BASE_URL}/`,
   },
