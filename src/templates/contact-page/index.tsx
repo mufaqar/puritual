@@ -57,13 +57,13 @@ const ContactTemplate = () => {
           {/* Contact Information */}
           <div className="font-cervo text-center text-primary text-3xl sm:text-5xl md:text-6xl mb-5 mt-6 md:mt-20 uppercase">
             <div className="contact-item sm:mb-4">
-              <Link href="#" className="hover:underline w-fit">
-                +01 123 124 24 00
+              <Link href="tel:+923444443442" target="_blank" className="hover:underline w-fit">
+              +923444443442
               </Link>
             </div>
             <div className="contact-item">
-              <Link href="#" className="hover:underline w-fit">
-                info@puritual@gmail.com
+              <Link href="mailto:info@puritualofficial.com" target="_blank" className="hover:underline w-fit">
+              info@puritualofficial.com
               </Link>
             </div>
           </div>
