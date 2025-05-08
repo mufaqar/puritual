@@ -18,7 +18,7 @@ const Footer = () => {
             <Link href="/about-us" className="hover:text-pure">
               About
             </Link>
-            <Link href="#" className="hover:text-pure">
+            <Link href="/catalog" className="hover:text-pure">
               Products
             </Link>
             <Link href="/contact-us" className="hover:text-pure">
@@ -56,11 +56,11 @@ const Footer = () => {
               Sitemap
             </Link>
             <p>-</p>
-            <Link href="#" className="hover:text-pure">
+            <Link href="/terms-conditions" className="hover:text-pure">
               Terms & Conditions
             </Link>
             <p>-</p>
-            <Link href="#" className="hover:text-pure">
+            <Link href="/privacy-policy" className="hover:text-pure">
               Privacy Policy
             </Link>
             <p>-</p>
