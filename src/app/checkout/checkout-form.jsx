@@ -244,19 +244,19 @@ const CheckouthtmlForm = () => {
                         <div className="flow-root">
                             <div className="-my-3 divide-y divide-primary">
                                 <dl className="flex justify-between py-3 text-base">
-                                    <dt className="text-gray-400">Subtotal</dt><dd className="text-secoundry">${subTotal}</dd>
+                                    <dt className="text-gray-400">Subtotal</dt><dd className="text-secoundry">Rs{subTotal}</dd>
                                 </dl>
                                 <dl className="flex justify-between py-3 text-base">
-                                    <dt className="text-gray-400">Savings</dt><dd className="text-secoundry">${saving}</dd>
+                                    <dt className="text-gray-400">Savings</dt><dd className="text-secoundry">Rs{saving}</dd>
                                 </dl>
                                 <dl className="flex justify-between py-3 text-base">
-                                    <dt className="text-gray-400">Store Pickup</dt><dd className="text-secoundry">${storePickup}</dd>
+                                    <dt className="text-gray-400">Store Pickup</dt><dd className="text-secoundry">Rs{storePickup}</dd>
                                 </dl>
                                 <dl className="flex justify-between py-3 text-base">
-                                    <dt className="text-gray-400">Tax</dt><dd className="text-secoundry">${tax}</dd>
+                                    <dt className="text-gray-400">Tax</dt><dd className="text-secoundry">Rs{tax}</dd>
                                 </dl>
                                 <dl className="flex justify-between py-3 text-base font-bold">
-                                    <dt className="text-secoundry">Total</dt><dd className="text-secoundry">${Number(grandTotal).toFixed(2)}</dd>
+                                    <dt className="text-secoundry">Total</dt><dd className="text-secoundry">Rs{Number(grandTotal).toFixed(2)}</dd>
                                 </dl>
                             </div>
                         </div>

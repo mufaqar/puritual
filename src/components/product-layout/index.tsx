@@ -19,7 +19,7 @@ const ProductLayout = ({ product }: any) => {
             {product?.name}
           </h6>
           <p className="text-[#4E4E4E] font-axiforma">Premium Hand Wash</p>
-          <p className="text-[34px] font-medium text-dark font-cervo">${product?.price}</p>
+          <p className="text-[34px] font-medium text-dark font-cervo">Rs{product?.price}</p>
         </div>
         <button className="bg-dark w-[94px] relative h-[94px] rounded-full flex justify-center mt-4 items-center"
           onClick={()=>dispatch(addInCart(product))}

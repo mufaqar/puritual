@@ -80,7 +80,7 @@ const TermsSection = () => {
           <ul className="space-y-2 my-3">
             <li><strong>Email:</strong> <Link href="mailto:info@puritualofficial.com" target="_blank">info@puritualofficial.com</Link></li>
             <li><strong>Phone:</strong> <Link href="tel:+923444443442" target="_blank">+923444443442</Link></li>
-            <li><strong>Address:</strong> Address: [your business address]</li>
+            <li><strong>Address:</strong> Lahore, Pakistan</li>
           </ul>
         </div>
       </div>

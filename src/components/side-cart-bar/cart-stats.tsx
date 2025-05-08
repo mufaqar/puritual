@@ -17,7 +17,7 @@ const CartStats = ({ cart }: any) => {
         <h5 className="text-4xl font-cervo uppercase text-dark font-medium">
           Amount:
           <span className="text-secoundry ml-3">
-            ${cart?.totalPrice?.toFixed(2)}
+            Rs{cart?.totalPrice?.toFixed(2)}
           </span>
         </h5>
       </div>

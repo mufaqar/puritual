@@ -48,7 +48,7 @@ const SingleCart = ({ product }:any) => {
         </div>
         <h5 className="font-cervo text-secoundry text-9xl">
           {(Number(product?.price) * cartItem).toFixed(2)}
-          <sub className="text-2xl -mt-2">$</sub>
+          <sub className="text-2xl -mt-2">Rs</sub>
         </h5>
       </div>
     </>

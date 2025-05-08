@@ -36,7 +36,7 @@ const PrivacySection = () => {
           <p>Putitual is a premium personal care brand, offering high-quality skincare, haircare, and hygiene products designed to make your daily routine refreshing and enjoyable.</p>
           <ul className="space-y-2 my-3">
             <li><strong>Website:</strong> <Link href="https://www.puritualofficial.com/" target="_blank">www.puritualofficial.com/</Link></li>
-            <li><strong>Business Address:</strong> [your business address]</li>
+            <li><strong>Business Address:</strong> Lahore, Pakistan</li>
             <li><strong>Contact Email:</strong> <Link href="mailto:info@puritualofficial.com" target="_blank">info@puritualofficial.com</Link></li>
           </ul>
 
@@ -125,7 +125,7 @@ const PrivacySection = () => {
           <ul className="space-y-2 my-3">
             <li><strong>Email:</strong> <Link href="mailto:info@puritualofficial.com" target="_blank">info@puritualofficial.com</Link></li>
             <li><strong>Phone:</strong> <Link href="tel:+923444443442" target="_blank">+923444443442</Link></li>
-            <li><strong>Address:</strong> [your business address]</li>
+            <li><strong>Address:</strong> Lahore, Pakistan</li>
           </ul>
         </div>
       </div>
