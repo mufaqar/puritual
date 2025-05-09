@@ -32,101 +32,64 @@ const PrivacySection = () => {
     <section className="pt-12 pb-20 relative overflow-x-hidden">
       <div className="px-4 md:px-0 max-w-[1280px] mx-auto">
         <div className="font-axiforma text-dark mission-text">
-          <h3 className="text-2xl my-4 ">Who We Are</h3>
-          <p>Putitual is a premium personal care brand, offering high-quality skincare, haircare, and hygiene products designed to make your daily routine refreshing and enjoyable.</p>
+          <h3 className="text-2xl my-4 ">When We Collect Your Personal Information</h3>
+          <p>
+            Hey there! Interaction with our amazing platform provides multiple entertaining opportunities for us to receive your personal information. Your personal information comes to us during various activities on our website like account registration and purchases and newsletter subscriptions and promotions and support debates.
+          </p>
+
+          <h3 className="text-2xl my-4 ">How We Collect Your Personal Information</h3>
+          <p>We gather your personal info through:</p>
           <ul className="space-y-2 my-3">
-            <li><strong>Website:</strong> <Link href="https://www.puritualofficial.com/" target="_blank">www.puritualofficial.com/</Link></li>
-            <li><strong>Business Address:</strong> Lahore, Pakistan</li>
-            <li><strong>Contact Email:</strong> <Link href="mailto:info@puritualofficial.com" target="_blank">info@puritualofficial.com</Link></li>
+            <li>Forms you fill out on our user-friendly website</li>
+            <li>Transaction data when you make a purchase of our fantastic products</li>
+            <li>Cookies and tracking technologies when you browse our site and enjoy our content</li>
+            <li>Social media interactions and plug-ins that help us stay connected</li>
+            <li>Direct communication from emails, phone calls, or live chats with our helpful team</li>
           </ul>
 
-          <h3 className="text-2xl my-4">Information We Collect</h3>
-          <p>We may collect the following information through our website, contact forms, and purchase process:</p>
-          <ol className="space-y-2 my-3">
-            <li>a. Personal Information
-              <ul className="pl-4 space-y-2 mt-3">
-                <li>Full Name</li>
+          <h3 className="text-2xl my-4">How We Use Your Personal Information</h3>
+          <p>We use your personal info for a bunch of cool things, including:</p>
+          <ul className="pl-4 space-y-2 mt-3">
+            <li>Processing and fulfilling your orders so you get your goodies ASAP</li>
+            <li>Providing top-notch customer support and answering all your questions</li>
+            <li>Sending you exciting promotional materials and updates</li>
+            <li>Improving our website and services based on your valuable feedback</li>
+            <li>Personalizing your shopping experience to make it even more awesome</li>
+            <li>Preventing fraud and ensuring your security</li>
+          </ul>
 
-                <li>Email Address</li>
+          <h3 className="text-2xl my-4">Use of Social Media Plug-ins</h3>
+          <p>Our website might feature social media plug-ins to help you share the love with your friends. These plug-ins might collect your IP address and the page you're visiting on our site, and they may set a cookie to make the plug-in work perfectly. Interactions with these plug-ins are governed by the privacy policies of the social media platforms.</p>
 
-                <li>Billing and Shipping Address</li>
+          <h3 className="text-2xl my-4">Cookies</h3>
+          <p>Cookies are those little data files that make your life easier. We use cookies to:</p>
+          <ul className="pl-4 space-y-2 my-3">
+            <li>Remember your preferences and settings so you don't have to</li>
+            <li>Keep track of the items in your shopping cart</li>
+            <li>Facilitate login and authentication so you can access your account effortlessly</li>
+            <li>Analyse site traffic and user behaviour to make our site better</li>
+            <li>Deliver targeted advertisements that you'll find interesting</li>
+          </ul>
 
-                <li>Phone Number</li>
-
-                <li>Payment Information (handled securely by third-party payment processors)</li>
-              </ul>
-            </li>
-
-
-            <li>b. Non-Personal Information
-              <ul className="pl-4 space-y-2 mt-3">
-                <li>Browser type and device</li>
-
-                <li>IP address</li>
-
-                <li>Referring URLs and pages visited</li>
-
-                <li>Time spent on the site</li>
-
-                <li>Cookies and tracking data (see section 5)</li>
-              </ul>
-            </li>
-          </ol>
-          <p>This data helps us provide a better user experience and improve our online personal care store.</p>
-
-          <h3 className="text-2xl my-4">How We Use Your Information</h3>
-          <p>Your data is used to:</p>
-
-          <p>Process and deliver your Putitual orders</p>
-
-          <p>Provide customer service and support</p>
-
-          <p>Send order confirmations, shipping updates, and special offers (you can unsubscribe anytime)</p>
-
-          <p>Improve our product offerings and website performance</p>
-
-          <p>Comply with legal and regulatory requirements</p>
-
-          <p>We only retain your information for as long as necessary to fulfill these purposes.</p>
-
-          <h3 className="text-2xl my-4">How We Protect Your Data</h3>
-          <p>We use industry-standard security measures including SSL encryption and secure payment gateways to ensure your data is protected.</p>
-
-          <p>We do not sell or rent your personal data to third parties.</p>
-
-          <p>Only authorized personnel and trusted third-party partners (e.g., shipping providers, payment processors) may access your data for necessary services.</p>
+          <p>You can control your cookie settings through your browser preferences, but keep in mind that disabling cookies might affect the functionality of our awesome website.</p>
 
           <h3 className="text-2xl my-4">Cookies and Tracking Technologies</h3>
           <p>Our website uses cookies to collect information about your browsing behavior, enhance your shopping experience, and show you relevant offers.</p>
 
-          <p>You can manage or disable cookies through your browser settings. For more information, view our [Cookie Policy].</p>
+          <h3 className="text-2xl my-4">Security</h3>
+          <p>Your security is our top priority. The protection of your data against unauthorized access as well as random alteration or disclosure is achieved through encryption and secure server infrastructure. This also applies to secure transactions and credit card security, ensuring that your payment information is handled safely and securely. We keep security measures up to date but transmissions and electronic storage through the Internet have unpreventable security risks that prevent us from maintaining absolute protection.</p>
 
-          <h3 className="text-2xl my-4">Your Data Protection Rights</h3>
-          <p>Depending on your location, you may have the right to:</p>
+          <h3 className="text-2xl my-4">Credit/Debit Card Information and Personally Identifiable Information</h3>
+          <p> The website does not keep nor share personal credit/debit card details and identifiable information with any third parties. We shall NOT sell or disclose your personal information to third parties without obtaining your prior consent.</p>
 
-          <p>Access and update your personal data</p>
+          <h3 className="text-2xl my-4">Links to Other Sites </h3>
+          <p>The Site may contain links to other sites or frames of other sites. Please be aware that we are not responsible for the privacy practices or content of those other sites, nor for any third party to whom we transfer your personal information in accordance with our Privacy Policy.</p>
 
-          <p>Request deletion of your information</p>
+          <h3 className="text-2xl my-4">Changes to this Privacy Policy</h3>
+          <p>Puritual reserves the right, at its discretion, to modify this privacy policy at any time. Any amendments will be posted on the Website and will apply to personal information collected from the date of posting onward. Your continued use of the website after such postings constitutes your acceptance of the revised terms. All changes will comply with applicable federal and provincial privacy legislation. We recommend that you review this privacy policy regularly for updates.</p>
 
-          <p>Opt out of marketing communications</p>
-
-          <p>Lodge a complaint with a data protection authority</p>
-
-          <p>To request access or exercise any of these rights, contact us at <Link href="mailto:info@puritualofficial.com" target="_blank">info@puritualofficial.com</Link>.</p>
-
-          <h3 className="text-2xl my-4">Third-Party Services</h3>
-          <p>We may link to or integrate with third-party services like payment gateways (e.g., Stripe, PayPal), analytics tools (e.g., Google Analytics), and shipping providers. These third-party services have their own privacy policies which we encourage you to review.</p>
-
-          <h3 className="text-2xl my-4">Changes to This Privacy Policy</h3>
-          <p>We may update this Privacy Policy from time to time to reflect changes in our practices, laws, or technology. Updates will be posted on this page with a revised May 8, 2025.</p>
-
-          <h3 className="text-2xl my-4">Contact Us</h3>
-          <p>If you have any questions about these Terms and Conditions, please contact us at:</p>
-          <ul className="space-y-2 my-3">
-            <li><strong>Email:</strong> <Link href="mailto:info@puritualofficial.com" target="_blank">info@puritualofficial.com</Link></li>
-            <li><strong>Phone:</strong> <Link href="tel:+923444443442" target="_blank">+923444443442</Link></li>
-            <li><strong>Address:</strong> Lahore, Pakistan</li>
-          </ul>
+          <h3 className="text-2xl my-4">Consent </h3>
+          <p>By using our website and services, you consent to the collection, use, and sharing of your personal information as described in this fun and friendly Privacy Policy. Using our services requires acceptance of this policy therefore all users who disagree should avoid accessing our platform. Any changes to this policy take effect for all users because continuous service usage signifies agreement with updated policies.</p>
         </div>
       </div>
 

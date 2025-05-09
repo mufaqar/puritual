@@ -33,55 +33,43 @@ const TermsSection = () => {
     <section className="pt-12 pb-20 relative overflow-x-hidden">
       <div className="px-4 md:px-0 max-w-[1280px] mx-auto">
         <div className="font-axiforma text-dark mission-text">
-          <h3 className="text-2xl my-4">Introduction</h3>
-          <p>Putitual is proud to bring you premium personal care products designed to elevate your daily routine. Our aim is to make every wash a delightful experience. Please read these terms carefully before using our services.</p>
+          <h3 className="text-2xl my-4">Welcome!</h3>
+          <p>Hi, and welcome to our store! These are the rules and guidelines required for purchasing any of our amazing products. By placing an order, you fully agree with these terms. So just read on before buying!</p>
 
-          <h3 className="text-2xl my-4">Eligibility</h3>
-          <p>By using this website, you confirm that you are at least 18 years old or are using the website under the supervision of a parent or legal guardian.</p>
+          <h3 className="text-2xl my-4">Order Acceptance</h3>
+          <p>Every order's acceptance and availability are subject to conditions. If something you ordered is sold out, we will inform you via e-mail. You can either wait until it is restocked or cancel the order; it's your choice!</p>
 
-          <h3 className="text-2xl my-4"> Use of Our Website</h3>
-          <p>You agree to:</p>
+          <h3 className="text-2xl my-4">Pricing and Payment</h3>
+          <p>All prices include applicable taxes unless stated otherwise. Prices may change without notice, but you will see the latest price display during your shopping session. We accept various secure payment methods on our site. By ordering, you confirm your payment details are legit</p>
 
-          <p>Use the website for lawful purposes only.</p>
+          <h3 className="text-2xl my-4">Shipping and Delivery</h3>
+          <p>We aim to ship all orders within 2-3 business days. Delivery times vary depending on where you are and the shipping method. Our responsibility does not extend to delivery delays from uncontrollable external factors though we will do our very best to get your order to you ASAP!</p>
 
-          <p>Not engage in any activity that disrupts or interferes with the website.</p>
+          <h3 className="text-2xl my-4">Returns and Refunds</h3>
+          <p>Not happy with your purchase? Not to worry! Simply return the items within 7 days and receive a full refund or exchange. The item should be in its original packaging and unused along with the relevant invoice. Please note that items bought during the sale cannot be exchanged or returned unless the product received does not match the product that you have ordered.</p>
+          <p>Customers are required to pay for their own shipping costs when returning an item. Shipping costs are non-refundable. If a refund is issued, the cost of return shipping & COD charges (if any) will be deducted from the refund amount.</p>
+          <p>Please contact customer support for further instructions regarding returns.</p>
 
-          <p>Not attempt to gain unauthorized access to any portion or feature of the website.</p>
+          <h3 className="text-2xl my-4">Product Descriptions</h3>
+          <p>Our product descriptions reflect accuracy to the best of our abilities, but small imperfections may occur occasionally. Undescribed product attributes call for product return directly to our facilities while maintaining items unused.</p>
 
-          <h3 className="text-2xl my-4"> Product Information</h3>
-          <p>We strive to ensure that all product descriptions, pricing, and availability are accurate. However, we do not guarantee that the information on our website is always current or error-free. Putitual reserves the right to correct any errors and to change or update information at any time without prior notice.</p>
+          <h3 className="text-2xl my-4">Limitations of Liability</h3>
+          <p>We set our liability limit to the amount of your payment when purchasing products. Our business does not burden itself with responsibility for indirect damages or special incidentals or any other types of special damages no matter what occurs.</p>
 
-          <h3 className="text-2xl my-4">Orders and Payments</h3>
-          <p>All orders placed through the website are subject to acceptance and availability.</p>
-
-          <p>We reserve the right to refuse or cancel any order for any reason.</p>
-
-          <p>Prices are subject to change without notice.</p>
-
-          <p>Payment must be made in full at the time of ordering.</p>
-
-          <h3 className="text-2xl my-4">Shipping and Returns</h3>
-          <p>Please refer to our Shipping & Returns Policy for information about delivery times, shipping costs, and return eligibility.</p>
-
-          <h3 className="text-2xl my-4">Intellectual Property</h3>
-          <p>All content on the Putitual website, including images, text, logos, and designs, is the property of Putitual and is protected by applicable intellectual property laws. You may not use, copy, or distribute any content without prior written consent.</p>
-
-          <h3 className="text-2xl my-4">Limitation of Liability</h3>
-          <p>Putitual shall not be liable for any indirect, incidental, or consequential damages arising from the use or inability to use our website or products.</p>
-
-          <h3 className="text-2xl my-4">Privacy Policy</h3>
-          <p>Your use of our website is also governed by our Privacy Policy, which can be found <Link href="/privacy-policy">www.puritualofficial.com/privacy-policy</Link>.</p>
-
-          <h3 className="text-2xl my-4">Changes to Terms</h3>
-          <p>We may update these Terms from time to time. Changes will be posted on this page with an updated May 8, 2025. Continued use of the website after changes constitutes acceptance of the revised Terms.</p>
+          <h3 className="text-2xl my-4">Governing Law</h3>
+          <p>The laws applying in the registered jurisdiction of our establishment shall govern these terms. Any disputes shall be adjudicated solely by the courts of that jurisdiction.</p>
 
           <h3 className="text-2xl my-4">Contact Us</h3>
-          <p>If you have any questions about these Terms and Conditions, please contact us at:</p>
+          <p>Got questions about these terms or your purchase? Our customer service team is here to help. The company supports each product sold and maintains a goal to provide you with enjoyable shopping experiences.</p>
           <ul className="space-y-2 my-3">
-            <li><strong>Email:</strong> <Link href="mailto:info@puritualofficial.com" target="_blank">info@puritualofficial.com</Link></li>
-            <li><strong>Phone:</strong> <Link href="tel:+923444443442" target="_blank">+923444443442</Link></li>
-            <li><strong>Address:</strong> Lahore, Pakistan</li>
+            <li><strong>Email Us:</strong> <Link href="mailto:support@puritualofficial.com" target="_blank">support@puritualofficial.com</Link></li>
+            <li><strong>Call Us:</strong> <Link href="tel:+923004416441" target="_blank">(+92) 300 4416441</Link>, <Link href="tel:+923004161465" target="_blank">(+92) 300 4161465</Link></li>
+            <li><strong>WhatsApp Us:</strong> <Link href="tel:+923004416441" target="_blank">(+92) 300 4416441</Link></li>
+            <li><strong>Site Address:</strong> 22A- Military Accounts Society, College Road, Lahore</li>
           </ul>
+          <p>
+            Thanks for choosing us! We appreciate your business and look forward to serving you again soon.
+          </p>
         </div>
       </div>
 

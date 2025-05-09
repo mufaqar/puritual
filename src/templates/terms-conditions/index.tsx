@@ -5,7 +5,7 @@ import React from "react";
 import TermsSection from "./terms-conditions";
 
 const TermsTemplate = () => {
-  const text = "Terms & Conditions";
+  const text = "Terms and Conditions of Sale";
   const text2 = "";
   const letterHeadingOne = text.split("");
   const letterHeadingTwo = text2.split("");
