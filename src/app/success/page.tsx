@@ -36,13 +36,13 @@ export default function SuccessPage() {
           ✅ Thanks for your order!
           </h2>
           <p className="text-gray-500 mb-6 md:mb-8">
-            Your order{" "}
+            Your order
             <a
               href="#"
               className="font-medium text-dark hover:underline"
             >
               #{orderId}
-            </a>{" "}
+            </a>
             will be processed within 24 hours during working days. We will
             notify you by email once your order has been shipped.
           </p>
