@@ -71,14 +71,14 @@ export default function SuccessPage() {
               {name}
               </dd>
             </dl>
-            <dl className="sm:flex items-center justify-between gap-4">
+            {/* <dl className="sm:flex items-center justify-between gap-4">
               <dt className="font-normal mb-1 sm:mb-0 text-pure">
                 Address
               </dt>
               <dd className="font-medium text-primary sm:text-end">
                 {address}
               </dd>
-            </dl>
+            </dl> */}
             <dl className="sm:flex items-center justify-between gap-4">
               <dt className="font-normal mb-1 sm:mb-0 text-pure">
                 Email
