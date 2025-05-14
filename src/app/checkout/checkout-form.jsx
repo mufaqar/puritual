@@ -53,7 +53,7 @@ const CheckouthtmlForm = () => {
             const res = await CreateOrder(data)
             const paymentMethod = res?.orderData?.payment_method_title
             const name = res?.orderData?.billing?.first_name
-            const address = res?.orderData?.billing?.address_1
+            const address = res?.orderData?.billing?.address
             const email = res?.orderData?.billing?.email
             const phone = res?.orderData?.billing?.phone
             if (res?.status === "success") {
@@ -121,7 +121,8 @@ const CheckouthtmlForm = () => {
                                         onChange={handleChange}
                                         className="block w-full rounded-lg bg-dark p-4 text-sm text-primary"
                                     >
-                                        <option>Pakistan</option>
+                                        <option value="">Select Country</option>
+                                        <option value="pakistan">Pakistan</option>                                        
                                     </select>
                                 </div>
 
