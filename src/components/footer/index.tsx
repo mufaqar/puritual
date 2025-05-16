@@ -3,10 +3,8 @@ import Logo from "../header/logo";
 import Link from "next/link";
 import {
   FaFacebookF,
-  FaLinkedinIn,
-  FaTwitter,
-  FaYoutube,
   FaInstagram,
+  FaTiktok,
 } from "react-icons/fa";
 
 const Footer = () => {
@@ -29,19 +27,13 @@ const Footer = () => {
             <Logo />
           </div>
           <nav className="text-pure flex justify-center md:justify-end gap-4 lg:gap-8 text-lg lg:text-[26px]">
-            <Link href="#">
+            <Link href="https://www.facebook.com/profile.php?id=61573850430062&rdid=TjDPWDoJiM2zrhOy&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F16N2cgBjq1%2F" target="_blank">
               <FaFacebookF />
             </Link>
-            <Link href="#">
-              <FaLinkedinIn />
+            <Link href="https://www.tiktok.com/@puritualofficial?_t=ZS-8wDErVQexgw&_r=1" target="_blank">
+              <FaTiktok />
             </Link>
-            <Link href="#">
-              <FaTwitter />
-            </Link>
-            <Link href="#">
-              <FaYoutube />
-            </Link>
-            <Link href="#">
+            <Link href="https://www.instagram.com/puritualofficial?igsh=MW1wOXoxaWZrMjB6Zg%3D%3D" target="_blank">
               <FaInstagram />
             </Link>
           </nav>
@@ -52,8 +44,8 @@ const Footer = () => {
         <div className="pt-6 flex flex-col-reverse md:flex-row justify-between container mx-auto px-4 items-center lg:px-0 gap-5 pb-[68px] border-t border-[#33450d]">
           <p className="text-white/50 font-light">© Copyright 2026, Puritual</p>
           <nav className="text-white/50 flex justify-center flex-wrap gap-2 md:gap-4 font-light">
-            <Link href="/sitemap.xml" className="hover:text-pure">
-              Sitemap
+            <Link href="/faqs" className="hover:text-pure">
+              Faq
             </Link>
             <p>-</p>
             <Link href="/terms-conditions" className="hover:text-pure">

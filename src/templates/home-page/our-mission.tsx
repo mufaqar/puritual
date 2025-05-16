@@ -150,7 +150,7 @@ const OurMission = () => {
               the world.
             </p>
             </div>
-            <CircleButton />
+            <CircleButton link="/about-us"/>
           </div>
         </div>
         <Image

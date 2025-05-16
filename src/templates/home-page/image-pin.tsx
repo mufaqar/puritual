@@ -89,7 +89,7 @@ const ImagePin = () => {
                 <p className="t3">A</p>
                 <p className="t3">L</p>
               </h2>
-              <CircleButton dark />
+              <CircleButton link="/catalog" dark />
             </div>
           </div>
         </div>

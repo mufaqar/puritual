@@ -104,7 +104,7 @@ const HomePage = ({products}:any) => {
                 A gentle, organic hand wash that cleanses, hydrates, and
                 refreshes—powered by nature! 💧
               </p>
-              <CircleButton />
+              <CircleButton link="/catalog"/>
             </div>
           </div>
           <h2 className="font-bold text-[8vw] hidden font-berlos lg:flex justify-center overflow-y-hidden leading-[8vw] text-center">

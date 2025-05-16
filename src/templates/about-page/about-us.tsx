@@ -102,7 +102,7 @@ const AboutSection = () => {
               the world.
             </p>
             </div>
-            <CircleButton dark/>
+            <CircleButton link="/about-us" dark/>
           </div>
         </div>
         <Image
