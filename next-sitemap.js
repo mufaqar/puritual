@@ -2,9 +2,9 @@ const fs = require("fs");
 const WooCommerceRestApi = require("@woocommerce/woocommerce-rest-api").default;
 
 const SITE_URL = "https://www.puritualofficial.com";
-const WC_URL = "http://demo.mufaqar.com"
-const WC_CONSUMER_KEY = "ck_d23a1b069cf818d0694f99c965c2850342452b20"
-const WC_CONSUMER_SECRET = "cs_bc599f216a2a5c9f9ea9783cc60b2ad6a2c47e4a"
+const WC_URL = "https://moccasin-chinchilla-599653.hostingersite.com"
+const WC_CONSUMER_KEY = "ck_6567880a557e19353440fa8ec3626f660cd54de9"
+const WC_CONSUMER_SECRET = "cs_4805d16670432b5c69983dd8c16fb5f3fe4f1927"
 const WC_VERSION = "wc/v3"
 
 const WooCommerce = new WooCommerceRestApi({
