@@ -6,7 +6,7 @@ const nextConfig: NextConfig = {
   },
   images: {
     domains: [
-      "localhost", "demo.mufaqar.com"
+      "localhost", "moccasin-chinchilla-599653.hostingersite.com"
     ],
   },
 };
