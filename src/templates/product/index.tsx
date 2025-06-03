@@ -6,7 +6,7 @@ import Image from "next/image";
 import RelatedProducts from "./related-products";
 
 const ProductTemplate = ({ product, meta }: any) => {
-  console.log("🚀 ~ ProductTemplate ~ meta:", meta)
+  //console.log("🚀 ~ ProductTemplate ~ meta:", meta)
   return (
     <>
       <main
