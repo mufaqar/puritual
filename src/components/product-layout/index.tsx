@@ -6,6 +6,7 @@ import React from "react";
 import { useDispatch } from "react-redux";
 
 const ProductLayout = ({ product }: any) => {
+  console.log("🚀 ~ ProductLayout ~ product:", product)
   const dispatch = useDispatch();
 
   return (

@@ -2,6 +2,7 @@ import ProductLayout from "@/components/product-layout";
 import React from "react";
 
 const OurProducts = ({products}:any) => {
+ //console.log("🚀 ~ OurProducts ~ products:", products)
   return (
     <section className="bg-primary py-10 md:py-[75px]">
       <div className="lg:container mx-auto px-3">
