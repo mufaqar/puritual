@@ -26,9 +26,9 @@ const ImagesScroller = () => {
       direction={scrollDirection}
     >
       <section className="flex gap-2 mr-2">
-        {[1, 2, 3, 4, 5, 6]?.map((item, idx) => (
+        {Slide_img?.map((item, idx) => (
           <figure key={idx}>
-            <Image src="/images/leaf.png" alt="" width={348} height={575} className="w-[220px] md:w-[348px]"/>
+            <Image src={item?.img} alt="" width={348} height={575} className="w-[220px] md:w-[348px]"/>
           </figure>
         ))}
       </section>
@@ -37,3 +37,20 @@ const ImagesScroller = () => {
 };
 
 export default ImagesScroller;
+const Slide_img = [
+  {
+    img: "/images/slide.png"
+  },
+  {
+    img: "/images/slide2.png"
+  },
+  {
+    img: "/images/slide3.png"
+  },
+  {
+    img: "/images/slide4.png"
+  },
+  {
+    img: "/images/slide5.png"
+  },
+];

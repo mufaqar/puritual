@@ -13,7 +13,7 @@ import ImagePin from "./image-pin";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const HomePage = ({products}:any) => {
+const HomePage = ({ products }: any) => {
   const timeline = gsap.timeline();
 
   useGSAP(() => {
@@ -61,70 +61,69 @@ const HomePage = ({products}:any) => {
     <>
       <main className="relative flex justify-center">
         <div className="absolute w-full z-[2] flex flex-col justify-center text-pure top-0 h-screen">
-          <div className="grid md:grid-cols-2 gap-4 lg:gap-14 px-4">
+          <div className="container mx-auto grid md:grid-cols-2 gap-4 lg:gap-14 px-4">
             <div className="">
               <div className="overflow-y-hidden">
-                <h2 className="font-bold flex md:justify-end text-[14vw] md:text-[8vw] font-berlos leading-[13vw] md:leading-[8vw] text-right">
-                  <p className="t1">R</p>
+                <h2 className="font-bold flex md:justify-start text-[14vw] md:text-[8vw] font-berlos leading-[13vw] md:leading-[8vw] text-right">
+                  <p className="t1">C</p>
+                  <p className="t1">L</p>
                   <p className="t1">E</p>
-                  <p className="t1">D</p>
+                  <p className="t1">A</p>
+                  <p className="t1">N</p>
+                  <p className="t1">S</p>
                   <p className="t1">E</p>
-                  <p className="t1">F</p>
-                  <p className="t1">I</p>
-                  <p className="t1">N</p>
-                  <p className="t1">I</p>
-                  <p className="t1">N</p>
-                  <p className="t1">G</p>
                 </h2>
               </div>
               <h2 className="font-bold flex md:justify-end overflow-y-hidden text-[14vw] md:text-[8vw] font-berlos leading-[13vw] md:leading-[8vw] text-right">
-                <p className="t1">H</p>
-                <p className="t1">Y</p>
-                <p className="t1">G</p>
-                <p className="t1">I</p>
-                <p className="t1">E</p>
-                <p className="t1">N</p>
-                <p className="t1">E</p>
-              </h2>
-              <h2 className="font-bold text-[14vw] md:text-[8vw] font-berlos flex lg:hidden justify-start overflow-y-hidden leading-[13vw] md:leading-[8vw] text-center">
-                <p className="t1">L</p>
-                <p className="t1">U</p>
-                <p className="t1">X</p>
-                <p className="t1">U</p>
                 <p className="t1">R</p>
-                <p className="t1">Y</p>
-                <p className="t1"> </p>
-                <p className="t1 ml-3">F</p>
+                <p className="t1">E</p>
                 <p className="t1">F</p>
-                <p className="t1">N</p>
+                <p className="t1">R</p>
+                <p className="t1">E</p>
+                <p className="t1">S</p>
+                <p className="t1">H</p>
+              </h2>
+              <h2 className="font-bold flex md:justify-start text-[14vw] md:text-[8vw] font-berlos leading-[13vw] md:leading-[8vw] text-right">
+                <p className="t1">R</p>
+                <p className="t1">E</p>
+                <p className="t1">P</p>
+                <p className="t1">E</p>
+                <p className="t1">A</p>
+                <p className="t1">T</p>
+              </h2>
+              <h2 className="font-bold flex md:justify-start text-[14vw] md:text-[5vw] font-berlos leading-[13vw] md:leading-[5vw] text-right">
+                <p className="t1">Y</p>
+                <p className="t1">O</p>
+                <p className="t1">U</p>
+                <p className="t1">R </p>
+                <p className="t1"> </p>
+                <p className="t1">D</p>
+                <p className="t1">A</p>
+                <p className="t1">I</p>
+                <p className="t1">L</p>
+                <p className="t1">Y </p>
+                <p className="t1"> </p>
+                <p className="t1">T</p>
+                <p className="t1">R</p>
+                <p className="t1">E</p>
+                <p className="t1">A</p>
+                <p className="t1">T</p>
               </h2>
             </div>
             <div className="text">
               <p className="text-lg max-w-[600px] pt-3 lg:pt-10 mb-5">
-                A gentle, organic hand wash that cleanses, hydrates, and
-                refreshes—powered by nature! 💧
+                A soothing, organic hand wash that cleans, moisturizes, and revitalizes —powered by nature.
               </p>
-              <CircleButton link="/catalog"/>
+              <CircleButton link="/catalog" />
             </div>
           </div>
-          <h2 className="font-bold text-[8vw] hidden font-berlos lg:flex justify-center overflow-y-hidden leading-[8vw] text-center">
-            <p className="t1">L</p>
-            <p className="t1">U</p>
-            <p className="t1">X</p>
-            <p className="t1">U</p>
-            <p className="t1">R</p>
-            <p className="t1">Y</p>
-            <p className="t1"> </p>
-            <p className="t1 ml-10">F</p>
-            <p className="t1">F</p>
-            <p className="t1">N</p>
-          </h2>
+
         </div>
       </main>
 
       <figure className="imageWrapper bg-primary">
         <Image
-          src="/images/main.png"
+          src="/images/web-banner.jpg"
           alt=""
           id="mainImage"
           width={1500}
@@ -137,10 +136,10 @@ const HomePage = ({products}:any) => {
         <ScrollText />
       </section>
 
-      <OurMission/>
-      <OurProducts products={products}/>
-      <ImagesScroller/>
-      <ImagePin/>
+      <OurMission />
+      <OurProducts products={products} />
+      <ImagesScroller />
+      <ImagePin />
 
       <section className="fixed inset-0 bg-black z-[1000] splash"></section>
     </>
