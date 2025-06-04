@@ -64,7 +64,6 @@ const ProductTemplate = ({ product, meta }: any) => {
           </div>
         </div>
       </section>
-
       <RelatedProducts />
     </>
   );
