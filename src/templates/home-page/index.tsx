@@ -64,7 +64,7 @@ const HomePage = ({ products }: any) => {
           <div className="container mx-auto grid md:grid-cols-2 gap-4 lg:gap-14 px-4">
             <div className="">
               <div className="overflow-y-hidden">
-                <h2 className="font-bold flex md:justify-start text-[10vw] md:text-[8vw] font-berlos leading-[13vw] md:leading-[8vw] text-right">
+                <h2 className="font-bold flex md:justify-start text-[10vw] md:text-[8vw] font-berlos leading-[10vw] md:leading-[8vw] text-right">
                   <p className="t1">C</p>
                   <p className="t1">L</p>
                   <p className="t1">E</p>
@@ -74,7 +74,7 @@ const HomePage = ({ products }: any) => {
                   <p className="t1">E</p>
                 </h2>
               </div>
-              <h2 className="font-bold flex md:justify-end overflow-y-hidden text-[10vw] md:text-[8vw] font-berlos leading-[13vw] md:leading-[8vw] text-right">
+              <h2 className="font-bold flex md:justify-end overflow-y-hidden text-[10vw] md:text-[8vw] font-berlos leading-[10vw] md:leading-[8vw] text-right">
                 <p className="t1">R</p>
                 <p className="t1">E</p>
                 <p className="t1">F</p>
@@ -83,7 +83,7 @@ const HomePage = ({ products }: any) => {
                 <p className="t1">S</p>
                 <p className="t1">H</p>
               </h2>
-              <h2 className="font-bold flex md:justify-start text-[10vw] md:text-[8vw] font-berlos leading-[13vw] md:leading-[8vw] text-right">
+              <h2 className="font-bold flex md:justify-start text-[10vw] md:text-[8vw] font-berlos leading-[10vw] md:leading-[8vw] text-right">
                 <p className="t1">R</p>
                 <p className="t1">E</p>
                 <p className="t1">P</p>
@@ -91,7 +91,7 @@ const HomePage = ({ products }: any) => {
                 <p className="t1">A</p>
                 <p className="t1">T</p>
               </h2>
-              <h2 className="font-bold flex md:justify-start text-[10vw] md:text-[5vw] font-berlos leading-[13vw] md:leading-[5vw] text-right">
+              <h2 className="font-bold flex md:justify-start text-[10vw] md:text-[5vw] font-berlos leading-[10vw] md:leading-[5vw] text-right">
                 <p className="t1">Y</p>
                 <p className="t1">O</p>
                 <p className="t1">U</p>
