@@ -10,6 +10,7 @@ import OurMission from "./our-mission";
 import OurProducts from "./our-products";
 import ImagesScroller from "./images-scroller";
 import ImagePin from "./image-pin";
+import Logo from "../logo/logo";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -137,6 +138,7 @@ const HomePage = ({ products }: any) => {
 
       <OurMission />
       <OurProducts products={products} />
+      <Logo/>
       <ImagesScroller />
       <ImagePin />
 
