@@ -186,3 +186,12 @@ body{
 ::-webkit-scrollbar-track {
   background: transparent;
 }
+
+
+
+
+
+@font-face {
+  font-family: Melodrama;
+  src: url('../../public/fonts/Melodrama-Regular.ttf');
+}

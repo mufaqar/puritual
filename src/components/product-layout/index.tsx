@@ -41,3 +41,4 @@ const ProductLayout = ({ product }: any) => {
 };
 
 export default ProductLayout;
+

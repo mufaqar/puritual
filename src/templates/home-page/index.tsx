@@ -11,6 +11,11 @@ import OurProducts from "./our-products";
 import ImagesScroller from "./images-scroller";
 import ImagePin from "./image-pin";
 import Logo from "../logo/logo";
+import Shop from "../Shop/shop";
+import Delightful from "../Delight/Delightful";
+import Vitamin from "../Delight/Vitamin";
+import Better from "../Delight/Better";
+import Premium from "../Premium";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -136,11 +141,16 @@ const HomePage = ({ products }: any) => {
         <ScrollText />
       </section>
 
-      <OurMission />
+      {/* <OurMission /> */}
       <OurProducts products={products} />
       <Logo/>
-      <ImagesScroller />
-      <ImagePin />
+      {/* <ImagesScroller /> */}
+      {/* <ImagePin /> */}
+      <Premium />
+      <Delightful />
+      <Vitamin />
+      <Better/>
+      <Shop />
 
       <section className="fixed inset-0 bg-black z-[1000] splash"></section>
     </>
