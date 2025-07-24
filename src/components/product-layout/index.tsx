@@ -11,10 +11,10 @@ const ProductLayout = ({ product, BorderColor }: any) => {
   const dispatch = useDispatch();
 
   return (
-    <div className={`${BorderColor} border-4 bg-primary rounded-[20px] flex justify-start hover:bg-green-50 group flex-col items-center p-5 h-full`}>
-      <figure>
-        {/* <Image src={product?.images?.[0]?.src} alt="" width={90} height={255} /> */}
-        <Image src="/images/placeholder.png" alt="" width={450} height={450} />
+    <div className={`${BorderColor} border-4 bg-primary rounded-[20px] flex justify-start hover:bg-green-50 group flex-col items-center p-5 h-full product_box`}>
+      <figure className="h-[450px] w-full">
+        {/* <Image src={product?.images?.[0]?.src} alt="" width={450} height={450} className="h-full w-full object-cover rounded-[20px]" /> */}
+        <Image src="/images/placeholder.png" alt="" width={450} height={450} className="h-full w-full object-cover rounded-[20px]"  />
       </figure>
       <div className="flex justify-between items-start gap-7 w-full mt-3.5">
         <div>
@@ -29,7 +29,7 @@ const ProductLayout = ({ product, BorderColor }: any) => {
         <div>
           {/* <p className="text-[34px] font-medium text-dark font-cervo">Rs{product?.price}</p> */}
           <p className="md:text-[36px] text-2xl font-normal text-black font-cervo">Rs 1200 </p>
-          <button className="bg-secoundry w-[94px] relative h-[94px] rounded-full flex justify-center mt-4 items-center cursor-pointer transition-all duration-300 ease-linear"
+          <button className="light_bubble bg-secoundry w-[94px] relative h-[94px] rounded-full flex justify-center mt-4 items-center cursor-pointer transition-all duration-300 ease-linear"
             onClick={() => dispatch(addInCart(product))}
           >
             <svg width="38px" height="53px" className="z-10" viewBox="0 0 38.108 53.352">

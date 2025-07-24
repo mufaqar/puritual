@@ -199,3 +199,25 @@ body{
   font-family: Melodrama;
   src: url('../../public/fonts/Melodrama-Regular.ttf');
 }
+.light_bubble{
+  @apply relative;
+}
+.light_bubble::before {
+  content: '';
+  @apply w-2.5 h-2.5 bg-secoundry rounded-full absolute -top-0.5 -left-0.5 transition-all duration-300 ease-linear;
+}
+.light_bubble:hover::before {
+  transform: translate(5px, 5px);
+  @apply bg-primary ;
+}
+.dark_bubble{
+  @apply relative;
+}
+.dark_bubble::before {
+  content: '';
+  @apply w-2.5 h-2.5 bg-dark rounded-full absolute -top-0.5 -left-0.5 transition-all duration-300 ease-linear;
+}
+.dark_bubble:hover::before {
+  transform: translate(5px, 5px);
+  @apply bg-primary ;
+}
