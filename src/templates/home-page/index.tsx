@@ -16,6 +16,7 @@ import Delightful from "../Delight/Delightful";
 import Vitamin from "../Delight/Vitamin";
 import Better from "../Delight/Better";
 import Premium from "../Premium";
+import ProductSlider from "@/components/product-layout/ProductSlider";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -142,7 +143,8 @@ const HomePage = ({ products }: any) => {
       </section>
 
       {/* <OurMission /> */}
-      <OurProducts products={products} />
+      {/* <OurProducts products={products} /> */}
+      <ProductSlider products={products} />
       <Logo/>
       {/* <ImagesScroller /> */}
       {/* <ImagePin /> */}
