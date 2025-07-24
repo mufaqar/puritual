@@ -161,10 +161,10 @@ body{
 
 @keyframes scroll-text {
   from {
-    transform: translateX(100vw);
+    transform: translatey(100vw);
   }
   to {
-    transform: translateX(-100vw);
+    transform: translatey(-100vw);
   }
 }
 
