@@ -1,15 +1,9 @@
 "use client";
-import Image from "next/image";
 import React from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import CircleButton from "@/components/ui/circle-button";
 import ScrollText from "@/components/ScrollText";
-import OurMission from "./our-mission";
-import OurProducts from "./our-products";
-import ImagesScroller from "./images-scroller";
-import ImagePin from "./image-pin";
 import Logo from "../logo/logo";
 import Shop from "../Shop/shop";
 import Delightful from "../Delight/Delightful";

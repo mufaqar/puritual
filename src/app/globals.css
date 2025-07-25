@@ -1,21 +1,18 @@
 @import "tailwindcss";
 @import "slick-carousel/slick/slick.css";
 @import "slick-carousel/slick/slick-theme.css";
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap');
 
 @font-face {
   font-family: 'Berlos';
   src: url("../../public/fonts/Berlos.woff");
 }
-
-
-
 @font-face {
   font-family: "Melodrama";
   src: url("../../public/fonts/Melodrama-Regular.woff");
 }
-
 body {
-  font-family: "Axiforma";
+ font-family: "Josefin Sans", sans-serif;
   overflow-x: hidden;
 }
 
@@ -33,27 +30,7 @@ h6 {
   --primary: #dcefb2;
   --secoundry: #aed036;
   --dark: #25330a;
-  --font-berlos: "Berlos";
-  --font-cervo: "Cervo";
-  --font-axiforma: "Axiforma";
-  --font-Melodrama_Regular: "Melodrama-Regular";
-}
-
-@layer utilities {
-  .text-stroke {
-    -webkit-text-stroke: 1px var(--dark);
-    -webkit-text-fill-color: transparent;
-    font-family: Cervo;
-    font-weight: 500;
-    /* line-height: 130px; */
-  }
-  .text-stroke-white {
-    -webkit-text-stroke: 2px var(--pure);
-    -webkit-text-fill-color: transparent;
-    font-family: Cervo;
-    font-weight: 500;
-    /* line-height: 130px; */
-  }
+  --font-Melodrama_Regular: "Melodrama";
 }
 
 @theme {
@@ -61,10 +38,6 @@ h6 {
   --color-primary: var(--primary);
   --color-secoundry: var(--secoundry);
   --color-dark: var(--dark);
-  --font-berlos: var(--font-berlos);
-  --font-cervo: var(--font-cervo);
-  --font-Melodrama: var(--font-Melodrama_Regular);
-  --font-axiforma: var(--font-axiforma);
 }
 .circle_button .arrow path {
   transition: 0.4s ease-in-out;

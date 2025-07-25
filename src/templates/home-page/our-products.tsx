@@ -1,19 +1,6 @@
 import ProductLayout from "@/components/product-layout";
+import { OurProductsProps } from "@/lib/productInterface";
 import React from "react";
-
-// Define the structure of a single product
-interface Product {
-  id: string | number;
-  name: string;
-  image?: string;
-  price?: number;
-  [key: string]: any; // Optional: remove this if you want strict typing
-}
-
-// Props interface for the component
-interface OurProductsProps {
-  products: Product[];
-}
 
 const OurProducts: React.FC<OurProductsProps> = ({ products }) => {
   return (
