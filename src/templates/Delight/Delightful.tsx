@@ -8,12 +8,12 @@ function Delightful() {
                 <div className='flex flex-col md:flex-row gap-6'>
                     {/* text - order changes on mobile */}
                     <div className='w-full md:w-[40%] items-center flex justify-center container mx-auto order-2 md:order-1'>
-                        <div className='pt-10 px-4 md:pl-20 '>
+                        <div className='pt-10 px-4'>
                             <h2 className='text-4xl md:text-5xl lg:text-7xl xl:text-[80px] font-light text-[#25330A]'>
                                 Delightful <br />
                                 <span className='text-5xl md:text-6xl lg:text-7xl xl:text-[90px] font-[400]'>Fragrance</span>
                             </h2>
-                            <div className='ml-0 md:ml-20 pt-6 md:pt-10'>
+                            <div className='ml-0  pt-6 md:pt-10'>
                                 <p className='text-lg md:text-xl lg:text-2xl xl:text-3xl mb-8 text-[#25330A] font-[400]'>
                                     <span className='font-light'> Naturally inspired scents that turn cleaning into a sensory escape.</span>
                                     Crafted scents that make each wash feel fresh, fun, sensory escape.

@@ -8,6 +8,7 @@ const nextConfig: NextConfig = {
     domains: [
       "localhost", "moccasin-chinchilla-599653.hostingersite.com"
     ],
+    
   },
 };
 
