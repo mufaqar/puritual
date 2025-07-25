@@ -1,5 +1,6 @@
 'use client';
-import Shownow from '@/components/shopnow/shownow';
+import CircleText from '@/components/ui/CircleText';
+import Link from 'next/link';
 import React from 'react';
 import { useEffect, useRef, useState } from 'react';
 
@@ -34,41 +35,31 @@ function Shop() {
                         </p>
                     </div>
                 </div>
-            </div>
-
-            {/* Circular text positioned on the right side */}
-
-            <div className="absolute right-4 sm:right-8 md:right-16 lg:right-24 xl:right-80 top-1/2 sm:top-[30%] -translate-y-1/2 w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48 pointer-events-none z-10 perspective-500">
-                <div
-                    ref={containerRef}
-                    className="relative w-full h-full transform-style-preserve-3d" >
-                    {Array.from({ length: text.length }).map((_, i) => {
-                        const charAngle = angle + (i * (360 / text.length));
-                        const radian = charAngle * Math.PI / 180;
-                        const x = 50 + 45 * Math.cos(radian);
-                        const y = 50 + 45 * Math.sin(radian);
-
-                        return (
-                            <span
-                                key={i}
-                                className="absolute text-sm font-[300] text-[#25330A]"
-                                style={{
-                                    left: `${x}%`,
-                                    top: `${y}%`,
-                                    transform: `rotate(${charAngle + 90}deg)`,
-                                    transformOrigin: '0 0',
-                                }}
-                            >
-                                {text[i % text.length]}
-                            </span>
-                        );
-                    })}
+                <div className='flex justify-end items-end h-full md:pb-20'>
+                    <Link href="#" className="md:text-3xl text-xl text-dark hover:text-dark font-semibold light_bubble bg-secoundry md:w-[172px] w-[94px] relative md:h-[172px] h-[94px] rounded-full flex text-center justify-center mt-10 items-center cursor-pointer transition-all duration-300 ease-linear group"                                  >
+                        <span className="z-10">SHOP <br />NOW</span>
+                        <div className="bg-primary md:w-[172px] w-[94px] absolute md:h-[172px] h-[94px] scale-0 group-hover:scale-[1.01] transition-all duration-300 ease-linear rounded-full" />
+                    </Link>
                 </div>
             </div>
-     
+
+            {/* Circular text */}
+            <div className="absolute right-4 sm:right-8 md:right-16 lg:right-24 xl:right-80 top-1/2 sm:top-[30%] -translate-y-1/2 w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48 pointer-events-none z-10 perspective-500">
+                <CircleText
+                    text={[
+                        'PODEMOS DE VERDADE! PODEMOS DE VERDADE!',
+                    ]}
+                    radius={[80, 100]}
+                    reverse={[false, false]}
+                    className={['text-sm', '']}
+                    textClass={[
+                        'text-sm text-dark tracking-widest font-normal',
+                    ]}
+                />
+            </div>
 
             {/* Shop Now button */}
-            <Shownow />
+       
         </section>
     );
 }

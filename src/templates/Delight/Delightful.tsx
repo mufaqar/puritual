@@ -5,8 +5,8 @@ function Delightful() {
     return (
         <section className='bg-[#DBEEB1]'>
             <div className='mx-auto'>
-                <div className='flex flex-col md:flex-row gap-6'>
-                    {/* text - order changes on mobile */}
+                <div className='flex flex-col md:flex-row gap-6 '>
+                    {/* text content - now on left side */}
                     <div className='w-full md:w-[40%] items-center flex justify-center container mx-auto order-2 md:order-1'>
                         <div className='pt-10 px-4'>
                             <h2 className='text-4xl md:text-5xl lg:text-7xl xl:text-[80px] font-light text-[#25330A]'>
@@ -21,14 +21,15 @@ function Delightful() {
                             </div>
                         </div>
                     </div>
-                    {/* img - order changes on mobile */}
+
+                    {/* img - on right side */}
                     <div className='w-full md:w-[60%] order-1 md:order-2'>
                         <Image
                             src="/images/Fragrance.png"
                             alt="Fragrance product"
-                            width={800}
+                            width={600}
                             height={600}
-                            className="w-full h-auto md:h-[600px] object-cover"
+                            className="w-full h-auto object-contain"
                             priority
                         />
                     </div>

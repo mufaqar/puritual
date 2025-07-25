@@ -3,7 +3,7 @@ import React from 'react'
 
 function Logo() {
   return (
-   <section className='bg-primary py-14'>
+   <section className='bg-dark py-14 border-t border-[#dcefb242]'>
      <div className='container mx-auto'>
      <div className='flex justify-between items-center '>
             <Image src="/images/Path-1.svg" alt="Puritual" width={80} height={80}  className=" " />

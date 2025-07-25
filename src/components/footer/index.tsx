@@ -1,6 +1,7 @@
 import React from "react";
 import Logo from "../header/logo";
 import Link from "next/link";
+import Footer from "@/components/footer/index"
 import {
   FaFacebookF,
   FaInstagram,
@@ -15,7 +16,7 @@ const Footer = () => {
         <div className="flex flex-wrap justify-between gap-6 md:gap-0 container mx-auto">
           <nav className="text-[#DBEEB1] flex flex-col gap-4  md:justify-start justify-center">
             <Link href="/about-us" className="hover:text-pure">
-              About123
+              About123s
             </Link>
             
           <Link href="/catalog" className="hover:text-pure">
@@ -47,7 +48,7 @@ const Footer = () => {
             </Link>
             <Link href="/terms-conditions" className="hover:text-pure">
               Terms & Conditions
-            </Link>  
+            </Link>
             <Link href="/privacy-policy" className="hover:text-pure">
               Privacy Policy
             </Link>
@@ -56,12 +57,12 @@ const Footer = () => {
             </Link>
           </nav>
         </div>
-        
+
       </section>
 
       <div className="bg-dark px-4 md:px-10">
-       <div className="flex justify-center">
-          <Image src="/images/Logo.png" alt="Puritual" width={900} height={250}  className="w-full max-w-[900px] h-auto " />
+        <div className="flex justify-center">
+          <Image src="/images/footer-logo.png" alt="footer-logo" width={1436} height={250} className="w-full max-w-[900px] h-auto " />
         </div>
       </div>
 

@@ -22,7 +22,7 @@ const Header = () => {
       start: 20, // Trigger once scroll passes 20px
       onEnter: () => {
         gsap.to(header, {
-          backgroundColor: "#25330A",
+          backgroundColor: "#DCEFB2",
           duration: 0.3,
         });
       },
@@ -39,16 +39,11 @@ const Header = () => {
     <>
       <header
         ref={headerRef}
-        className="md:py-5 py-2 flex justify-between border-b border-[#70707011] items-center px-4 md:px-10 fixed w-full z-[1000] bg-transparent transition-colors duration-300"
+        className="md:py-3 py-2 flex justify-between items-center px-4 md:px-10 fixed w-full z-[1000] bg-transparent transition-colors duration-300"
       >
         <Logo />
-        <div className="flex gap-2.5">
+        <div className="flex items-center md:gap-[102px] gap-2.5">
           <CartButton />
-          <SquareButton className="hidden md:block">
-            <Link href="/catalog" className="uppercase flex h-full p-2 px-[21px] pt-4 justify-center items-center text-center">
-              Products
-            </Link>
-          </SquareButton>
           <Menu />
         </div>
       </header>

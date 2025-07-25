@@ -16,6 +16,9 @@ import Delightful from "../Delight/Delightful";
 import Vitamin from "../Delight/Vitamin";
 import Better from "../Delight/Better";
 import Premium from "../Premium";
+import ProductSlider from "@/components/product-layout/ProductSlider";
+import ScrollImageSection from "@/components/ui/scroll-image";
+
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -65,7 +68,8 @@ const HomePage = ({ products }: any) => {
 
   return (
     <>
-      <main className="relative flex justify-center">
+      <ScrollImageSection />
+      {/* <main className="relative flex justify-center">
         <div className="absolute w-full z-[2] flex flex-col justify-center text-pure top-0 h-screen">
           <div className="container mx-auto grid md:grid-cols-2 gap-4 lg:gap-14 px-4">
             <div className="">
@@ -124,9 +128,9 @@ const HomePage = ({ products }: any) => {
             </div>
           </div>
         </div>
-      </main>
+      </main> */}
 
-      <figure className="imageWrapper bg-primary">
+      {/* <figure className="imageWrapper bg-primary">
         <Image
           src="/images/web-banner.jpg"
           alt=""
@@ -135,23 +139,24 @@ const HomePage = ({ products }: any) => {
           height={800}
           className="!object-cover md:object-center object-right z-[1] img h-screen w-screen !top-0"
         />
-      </figure>
+      </figure> */}
 
-      <section className="py-14 bg-primary w-full absolute overflow-hidden translate-y-[-110%] md:translate-y-[-90%]">
+      <section className="bg-primary w-full">
         <ScrollText />
       </section>
-
-      {/* <OurMission /> */}
-      <OurProducts products={products} />
-      <Logo/>
-      {/* <ImagesScroller /> */}
-      {/* <ImagePin /> */}
       <Premium />
       <Delightful />
       <Vitamin />
-      <Better/>
-      <Shop />
+      <Better />
+      {/* <OurMission /> */}
+      {/* <OurProducts products={products} /> */}
+      <ProductSlider products={products} />
+      <Logo />
+      {/* <ImagesScroller /> */}
+      {/* <ImagePin /> */}
 
+
+      <Shop />
       <section className="fixed inset-0 bg-black z-[1000] splash"></section>
     </>
   );

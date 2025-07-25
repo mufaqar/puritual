@@ -1,4 +1,6 @@
 @import "tailwindcss";
+@import "slick-carousel/slick/slick.css";
+@import "slick-carousel/slick/slick-theme.css";
 
 @font-face {
   font-family: Berlos;
@@ -44,6 +46,7 @@ body{
   --font-berlos: 'Berlos';
   --font-cervo: 'Cervo';
   --font-axiforma: 'Axiforma';
+  --font-Melodrama_Regular: 'Melodrama-Regular';
 }
 
 @layer utilities {
@@ -71,6 +74,7 @@ body{
   --color-dark: var(--dark);
   --font-berlos: var(--font-berlos);
   --font-cervo: var(--font-cervo);
+  --font-Melodrama: var(--font-Melodrama_Regular);
   --font-axiforma: var(--font-axiforma);
 }
 .circle_button .arrow path{
@@ -157,10 +161,10 @@ body{
 
 @keyframes scroll-text {
   from {
-    transform: translateX(100vw);
+    transform: translatey(100vw);
   }
   to {
-    transform: translateX(-100vw);
+    transform: translatey(-100vw);
   }
 }
 
@@ -193,7 +197,7 @@ body{
 
 @font-face {
   font-family: Melodrama;
-  src: url('../../public/fonts/Melodrama-Regular.ttf');
+  src: url('../../public/fonts/Melodrama-Regular.woff');
 }
 
 
