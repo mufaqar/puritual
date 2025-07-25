@@ -67,7 +67,7 @@ const HomePage = ({ products }: any) => {
 
   return (
     <>
-    <ScrollImageSection />
+      <ScrollImageSection />
       {/* <main className="relative flex justify-center">
         <div className="absolute w-full z-[2] flex flex-col justify-center text-pure top-0 h-screen">
           <div className="container mx-auto grid md:grid-cols-2 gap-4 lg:gap-14 px-4">
@@ -140,20 +140,21 @@ const HomePage = ({ products }: any) => {
         />
       </figure> */}
 
-      <section className="py-14 bg-primary w-full overflow-hidden ">
+      <section className="bg-primary w-full">
         <ScrollText />
       </section>
-
-      {/* <OurMission /> */}
-      {/* <OurProducts products={products} /> */}
-      <ProductSlider products={products} />
-      <Logo/>
-      {/* <ImagesScroller /> */}
-      {/* <ImagePin /> */}
       <Premium />
       <Delightful />
       <Vitamin />
-      <Better/>
+      <Better />
+      {/* <OurMission /> */}
+      {/* <OurProducts products={products} /> */}
+      <ProductSlider products={products} />
+      <Logo />
+      {/* <ImagesScroller /> */}
+      {/* <ImagePin /> */}
+
+
       <Shop />
 
       <section className="fixed inset-0 bg-black z-[1000] splash"></section>

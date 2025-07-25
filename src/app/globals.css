@@ -197,7 +197,7 @@ body{
 
 @font-face {
   font-family: Melodrama;
-  src: url('../../public/fonts/Melodrama-Regular.ttf');
+  src: url('../../public/fonts/Melodrama-Regular.woff');
 }
 .light_bubble{
   @apply relative;
