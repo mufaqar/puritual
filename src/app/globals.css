@@ -3,50 +3,40 @@
 @import "slick-carousel/slick/slick-theme.css";
 
 @font-face {
-  font-family: Berlos;
-  src: url('../../public/fonts/Berlos.woff');
+  font-family: 'Berlos';
+  src: url("../../public/fonts/Berlos.woff");
 }
 
+
+
 @font-face {
-  font-family: Cervo;
-  src: url('../../public/fonts/Cervo-Medium.otf');
-  font-weight: 500;
-}
-@font-face {
-  font-family: Cervo;
-  src: url('../../public/fonts/Cervo-Regular.otf');
-  font-weight: 400;
-}
-@font-face {
-  font-family: Axiforma;
-  src: url('../../public/fonts/Kastelov-Axiforma-Light.otf');
-  font-weight: 300;
-}
-@font-face {
-  font-family: Axiforma;
-  src: url('../../public/fonts/Kastelov-Axiforma-Medium.otf');
-  font-weight: 500;
-}
-@font-face {
-  font-family: Axiforma;
-  src: url('../../public/fonts/Kastelov-Axiforma-Regular.otf');
-  font-weight: 400;
+  font-family: "Melodrama";
+  src: url("../../public/fonts/Melodrama-Regular.woff");
 }
 
-body{
-  font-family: Axiforma;
+body {
+  font-family: "Axiforma";
   overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Melodrama";
 }
 
 :root {
   --pure: #ffffff;
-  --primary: #DCEFB2;
-  --secoundry: #AED036;
-  --dark: #25330A;
-  --font-berlos: 'Berlos';
-  --font-cervo: 'Cervo';
-  --font-axiforma: 'Axiforma';
-  --font-Melodrama_Regular: 'Melodrama-Regular';
+  --primary: #dcefb2;
+  --secoundry: #aed036;
+  --dark: #25330a;
+  --font-berlos: "Berlos";
+  --font-cervo: "Cervo";
+  --font-axiforma: "Axiforma";
+  --font-Melodrama_Regular: "Melodrama-Regular";
 }
 
 @layer utilities {
@@ -66,7 +56,6 @@ body{
   }
 }
 
-
 @theme {
   --color-pure: var(--pure);
   --color-primary: var(--primary);
@@ -77,13 +66,13 @@ body{
   --font-Melodrama: var(--font-Melodrama_Regular);
   --font-axiforma: var(--font-axiforma);
 }
-.circle_button .arrow path{
-  transition: .4s ease-in-out;
+.circle_button .arrow path {
+  transition: 0.4s ease-in-out;
 }
-.circle_button:hover .arrow path{
+.circle_button:hover .arrow path {
   stroke: #111;
 }
-.circle_button.dark:hover .arrow path{
+.circle_button.dark:hover .arrow path {
   stroke: #fff;
 }
 
@@ -96,54 +85,53 @@ body{
   animation-iteration-count: infinite;
   transform-origin: center;
 }
-.singleBlog p{
+.singleBlog p {
   font-size: 18px;
 }
-.singleBlog{
+.singleBlog {
   color: var(--dark);
   font-size: 18px;
 }
-.singleBlog h3{
+.singleBlog h3 {
   font-size: 21px;
   line-height: 27px;
   font-weight: 700;
   margin: 10px 0;
 }
-.singleBlog h4{
+.singleBlog h4 {
   font-size: 20px;
   line-height: 26px;
   font-weight: 700;
   margin: 10px 0;
 }
-.singleBlog a{
+.singleBlog a {
   color: rgb(0, 118, 168);
   text-decoration: underline;
 }
-.singleBlog h5{
+.singleBlog h5 {
   font-size: 18px;
   line-height: 24px;
   font-weight: 700;
   margin: 10px 0;
 }
-.singleBlog h6{
+.singleBlog h6 {
   font-size: 16px;
   line-height: 22px;
   font-weight: 700;
   margin: 10px 0;
 }
-.singleBlog h2{
+.singleBlog h2 {
   font-size: 22px;
   line-height: 28px;
   font-weight: 700;
   margin: 10px 0;
 }
-.singleBlog ul{
+.singleBlog ul {
   padding-left: 1.4rem;
-  margin: 8px 0
+  margin: 8px 0;
 }
-.singleBlog li{
+.singleBlog li {
   list-style-type: circle;
-
 }
 
 @keyframes styles_stroke-circle-svg {
@@ -168,15 +156,6 @@ body{
   }
 }
 
-
-
-
-
-
-
-
-
-
 ::-webkit-scrollbar {
   width: 0px; /* Width of the scrollbar */
 }
@@ -191,33 +170,25 @@ body{
   background: transparent;
 }
 
-
-
-
-
-@font-face {
-  font-family: Melodrama;
-  src: url('../../public/fonts/Melodrama-Regular.woff');
-}
-.light_bubble{
+.light_bubble {
   @apply relative;
 }
 .light_bubble::before {
-  content: '';
+  content: "";
   @apply w-2.5 h-2.5 bg-secoundry rounded-full absolute -top-0.5 -left-0.5 transition-all duration-300 ease-linear;
 }
 .light_bubble:hover::before {
   transform: translate(5px, 5px);
-  @apply bg-primary ;
+  @apply bg-primary;
 }
-.dark_bubble{
+.dark_bubble {
   @apply relative;
 }
 .dark_bubble::before {
-  content: '';
+  content: "";
   @apply w-2.5 h-2.5 bg-dark rounded-full absolute -top-0.5 -left-0.5 transition-all duration-300 ease-linear;
 }
 .dark_bubble:hover::before {
   transform: translate(5px, 5px);
-  @apply bg-primary ;
+  @apply bg-primary;
 }

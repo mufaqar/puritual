@@ -1,19 +1,50 @@
-import Image from 'next/image';
-import React from 'react'
+import Image from "next/image";
+import React from "react";
 
 function Logo() {
   return (
-   <section className='bg-dark py-14 border-t border-[#dcefb242]'>
-     <div className='container mx-auto'>
-     <div className='flex justify-between items-center '>
-            <Image src="/images/Path-1.svg" alt="Puritual" width={80} height={80}  className=" " />
-             <Image src="/images/Path-1.svg" alt="Puritual" width={80} height={80}  className=" " />
-            <Image src="/images/Path-1.svg" alt="Puritual" width={80} height={80}  className=" " />
-            <Image src="/images/Path-1.svg" alt="Puritual" width={80} height={80}  className=" " />
-     </div>
-    </div>
-   </section>
-  )
+    <section className="bg-dark py-14 border-t border-[#dcefb242]">
+      <div className="container mx-auto">
+        <div className="flex justify-between items-center ">
+          <Image
+            src="/images/delightful.svg"
+            alt="delightful"
+            width={80}
+            height={80}
+            className=" "
+          />
+          <Image
+            src="/images/circle.svg"
+            alt="circle"
+            width={80}
+            height={80}
+            className=" "
+          />
+          <Image
+            src="/images/vitamin.svg"
+            alt="vitamin"
+            width={80}
+            height={80}
+            className=" "
+          />
+          <Image
+            src="/images/circle.svg"
+            alt="circle"
+            width={80}
+            height={80}
+            className=" "
+          />
+          <Image
+            src="/images/premium.svg"
+            alt="premium"
+            width={80}
+            height={80}
+            className=" "
+          />
+        </div>
+      </div>
+    </section>
+  );
 }
 
 export default Logo;
