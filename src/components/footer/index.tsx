@@ -15,9 +15,10 @@ const Footer = () => {
         <div className="flex flex-wrap justify-between gap-6 md:gap-0 container mx-auto">
           <nav className="text-[#DBEEB1] flex flex-col gap-4  md:justify-start justify-center">
             <Link href="/about-us" className="hover:text-pure">
-              About
+              About123
             </Link>
-            <Link href="/catalog" className="hover:text-pure">
+            
+          <Link href="/catalog" className="hover:text-pure">
               Products
             </Link>
             <Link href="/contact-us" className="hover:text-pure">
