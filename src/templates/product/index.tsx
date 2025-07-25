@@ -5,8 +5,36 @@ import bg from "../../../public/images/single-banner.png";
 import Image from "next/image";
 import RelatedProducts from "./related-products";
 
-const ProductTemplate = ({ product, meta }: any) => {
-  //console.log("🚀 ~ ProductTemplate ~ meta:", meta)
+// Types
+interface MetaListingItem {
+  title: string;
+  value: string;
+  prefix?: string;
+}
+
+interface MetaData {
+  acf: {
+    sub_title: string;
+    listing: MetaListingItem[];
+  };
+  excerpt: {
+    rendered: string;
+  };
+}
+
+interface ProductData {
+  id: number;
+  name: string;
+  price: string;
+ 
+}
+
+interface ProductTemplateProps {
+  product: ProductData;
+  meta: MetaData;
+}
+
+const ProductTemplate: React.FC<ProductTemplateProps> = ({ product, meta }) => {
   return (
     <>
       <main
@@ -23,36 +51,43 @@ const ProductTemplate = ({ product, meta }: any) => {
         </div>
         <SingleCart product={product} />
       </main>
+
       <section className="bg-primary py-4">
         <div className="max-w-[1480px] grid md:grid-cols-2 gap-4 mx-auto px-3">
           <div>
             <div className="bg-white rounded-[20px] p-12 text-4xl font-cervo text-secoundry">
-              <p>
-                {meta?.acf?.sub_title}
-              </p>
+              <p>{meta?.acf?.sub_title}</p>
             </div>
+
             <div className="bg-white rounded-[20px] p-12 mt-4">
               <h4 className="uppercase text-3xl font-cervo text-secoundry">
                 Composition:
               </h4>
               <div className="text-sm text-dark mt-3">
-                <div dangerouslySetInnerHTML={{__html: meta?.excerpt?.rendered}}/>
+                <div
+                  dangerouslySetInnerHTML={{ __html: meta?.excerpt?.rendered }}
+                />
               </div>
+
               <h4 className="uppercase text-3xl font-cervo text-secoundry mt-10">
                 Energy value:
               </h4>
               <div className="text-sm text-dark mt-3">
-                {meta?.acf?.listing?.map((item: any, idx: number) => (
-                  <p key={idx} className="flex justify-between gap-4 items-center py-1">
-                    <span>{item?.title}</span>
+                {meta?.acf?.listing?.map((item, idx) => (
+                  <p
+                    key={idx}
+                    className="flex justify-between gap-4 items-center py-1"
+                  >
+                    <span>{item.title}</span>
                     <span>
-                      {item?.value} <sub>{item?.prefix}</sub>
+                      {item.value} <sub>{item.prefix}</sub>
                     </span>
                   </p>
                 ))}
               </div>
             </div>
           </div>
+
           <div>
             <Image
               src={bg.src}
@@ -64,6 +99,7 @@ const ProductTemplate = ({ product, meta }: any) => {
           </div>
         </div>
       </section>
+
       <RelatedProducts />
     </>
   );

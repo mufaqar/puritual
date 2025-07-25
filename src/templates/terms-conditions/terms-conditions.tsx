@@ -1,5 +1,4 @@
 "use client";
-import CircleButton from "@/components/ui/circle-button";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import Image from "next/image";
