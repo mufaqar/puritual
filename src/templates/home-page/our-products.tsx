@@ -8,7 +8,7 @@ import React from "react";
 const OurProducts: React.FC<OurProductsProps> = ({ products }) => {
   return (
      <section className="bg-dark py-10 md:py-[120px]">
-      <div className="lg:container mx-auto px-3 relative">
+      <div className="container mx-auto px-4 relative">
         <h2 className="text-[60px] md:text-[150px] z-[1] mb-10 relative mx-auto text-primary font-Melodrama font-normal capitalize leading-[110px]">
           Our Products
         </h2>

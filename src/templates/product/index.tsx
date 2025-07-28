@@ -4,6 +4,8 @@ import SingleCart from "./single-cart";
 import bg from "../../../public/images/single-banner.png";
 import Image from "next/image";
 import RelatedProducts from "./related-products";
+import Logo from "../logo/logo";
+import Review from "@/components/Reviews/Review";
 
 // Types
 interface MetaListingItem {
@@ -26,7 +28,7 @@ interface ProductData {
   id: number;
   name: string;
   price: string;
- 
+
 }
 
 interface ProductTemplateProps {
@@ -37,21 +39,28 @@ interface ProductTemplateProps {
 const ProductTemplate: React.FC<ProductTemplateProps> = ({ product, meta }) => {
   return (
     <>
-      <main
-        className="relative w-full h-screen bg-cover bg-center bg-no-repeat overflow-hidden"
-        style={{ backgroundImage: `url(${bg.src})` }}
-      >
-        <div className="h-screen flex items-center rotate-[-3deg] scale-105">
-          <Marquee autoFill className="overflow-hidden " speed={100}>
-            <div className="flex gap-1 text-nowrap md:leading-[150px] h-[300px] leading-[80px] text-[80px] md:text-[157px] uppercase mr-1 items-center font-cervo">
-              <p className="text-white font-medium">LUXURY MEETS FUN</p>
-              <p className="text-stroke-white">ORGANIC PRODUCTS</p>
-            </div>
-          </Marquee>
+      <section className="bg-primary">
+        <div className="flex md:flex-row flex-col gap-6 items-center">
+          <div className="md:w-1/3 w-full">
+            <Image
+              src="/images/pro_main.png"
+              alt="pro_main"
+              width={800}
+              height={1000}
+              className="h-full"
+            />
+          </div>
+          <div className="md:w-2/3 w-full md:px-8 px-4">
+            <h1 className="md:text-[100px] md:leading-[100px] text-6xl font-normal text-dark">
+              A GENTLE CLEANSE INSPIRED BY FOREST SPRING AND SEA
+            </h1>
+            <p className="md:text-4xl text-2xl font-normal text-dark uppercase mt-4">
+              BREEZY PEAKS
+            </p>
+          </div>
         </div>
-        <SingleCart product={product} />
-      </main>
-
+      </section>
+       <Logo />
       <section className="bg-primary py-4">
         <div className="max-w-[1480px] grid md:grid-cols-2 gap-4 mx-auto px-3">
           <div>
@@ -99,7 +108,7 @@ const ProductTemplate: React.FC<ProductTemplateProps> = ({ product, meta }) => {
           </div>
         </div>
       </section>
-
+<Review />
       <RelatedProducts />
     </>
   );
