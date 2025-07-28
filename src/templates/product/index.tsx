@@ -1,11 +1,11 @@
 import React from "react";
 import Marquee from "react-fast-marquee";
 import SingleCart from "./single-cart";
-import bg from "../../../public/images/single-banner.png";
 import Image from "next/image";
 import RelatedProducts from "./related-products";
 import Logo from "../logo/logo";
 import Review from "@/components/Reviews/Review";
+import { FaPlus } from "react-icons/fa";
 
 // Types
 interface MetaListingItem {
@@ -28,7 +28,6 @@ interface ProductData {
   id: number;
   name: string;
   price: string;
-
 }
 
 interface ProductTemplateProps {
@@ -36,9 +35,30 @@ interface ProductTemplateProps {
   meta: MetaData;
 }
 
+const faqs = [
+  {
+    question: "PRODUCT DETAIL",
+    answer: `260ml / 8.79 fl. oz.<br />Ingredients : Based on each variant`,
+  },
+  {
+    question: "FRAGRANCE",
+    answer: `Forest, Spring, Sea Breeze`,
+  },
+  {
+    question: "BENEFITS",
+    answer: `Gently cleanses and refreshes while leaving your hands soft, nourished, and delicately scented.`,
+  },
+  {
+    question: "WHY YOU WILL LOVE IT",
+    answer: `Infused with Vitamin E and Aloe.<br />Light, luxurious foam.`,
+  },
+];
+
+
 const ProductTemplate: React.FC<ProductTemplateProps> = ({ product, meta }) => {
   return (
     <>
+      {/* Banner Section */}
       <section className="bg-primary">
         <div className="flex md:flex-row flex-col gap-6 items-center">
           <div className="md:w-1/3 w-full">
@@ -60,55 +80,75 @@ const ProductTemplate: React.FC<ProductTemplateProps> = ({ product, meta }) => {
           </div>
         </div>
       </section>
-       <Logo />
-      <section className="bg-primary py-4">
-        <div className="max-w-[1480px] grid md:grid-cols-2 gap-4 mx-auto px-3">
-          <div>
-            <div className="bg-white rounded-[20px] p-12 text-4xl font-cervo text-secoundry">
-              <p>{meta?.acf?.sub_title}</p>
-            </div>
 
-            <div className="bg-white rounded-[20px] p-12 mt-4">
-              <h4 className="uppercase text-3xl font-cervo text-secoundry">
-                Composition:
-              </h4>
-              <div className="text-sm text-dark mt-3">
-                <div
-                  dangerouslySetInnerHTML={{ __html: meta?.excerpt?.rendered }}
+      <Logo />
+
+      {/* Product Info Section */}
+      <section className="bg-primary py-16 px-5">
+        <div className="container flex md:flex-row flex-col gap-4 mx-auto px-4">
+          <div className="md:w-1/3 w-full">
+            <Image
+              src="/images/pro_cart.png"
+              alt="pro_cart"
+              width={700}
+              height={700}
+            />
+          </div>
+          <div className="md:w-2/3 w-full space-y-5">
+            <h3 className="md:text-[50px] md:leading-[50px] text-3xl font-normal text-dark uppercase">
+              BREEZY PEAKS
+            </h3>
+
+            {/* FAQs List */}
+            {faqs.map((faq, idx) => (
+              <div key={idx} className="mb-6">
+                <h4 className="md:text-3xl text-xl font-normal text-dark mb-2.5 flex items-center justify-between gap-5">
+                  <span>{faq.question}</span> <FaPlus className="text-xl" />
+                </h4>
+                <p
+                  className="md:text-2xl text-lg font-normal text-dark"
+                  dangerouslySetInnerHTML={{ __html: faq.answer }}
                 />
               </div>
-
-              <h4 className="uppercase text-3xl font-cervo text-secoundry mt-10">
-                Energy value:
-              </h4>
-              <div className="text-sm text-dark mt-3">
-                {meta?.acf?.listing?.map((item, idx) => (
-                  <p
-                    key={idx}
-                    className="flex justify-between gap-4 items-center py-1"
-                  >
-                    <span>{item.title}</span>
-                    <span>
-                      {item.value} <sub>{item.prefix}</sub>
-                    </span>
-                  </p>
-                ))}
-              </div>
-            </div>
+            ))}
           </div>
+        </div>
+      </section>
 
+      {/* Gallery Section */}
+      <section className="py-16 bg-primary">
+        <div className="container mx-auto px-4 grid md:grid-cols-3 grid-cols-1 gap-8 items-center">
           <div>
             <Image
-              src={bg.src}
-              alt=""
-              width={600}
-              height={600}
-              className="rounded-[20px] h-full w-full object-center object-cover"
+              src="/images/gallery3.png"
+              alt="gallery3"
+              width={500}
+              height={500}
+              className="rounded-full"
+            />
+          </div>
+          <div>
+            <Image
+              src="/images/gallery2.png"
+              alt="gallery2"
+              width={500}
+              height={500}
+              className="rounded-full"
+            />
+          </div>
+          <div>
+            <Image
+              src="/images/gallery1.png"
+              alt="gallery1"
+              width={500}
+              height={500}
+              className="rounded-full"
             />
           </div>
         </div>
       </section>
-<Review />
+
+      <Review />
       <RelatedProducts />
     </>
   );
