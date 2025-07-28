@@ -6,7 +6,7 @@ export async function generateMetadata({ params }: any) {
     title: `${slug?.single.replace(/-/g, ' ').replace(/\b\w/g, (char:any) => char.toUpperCase())} | Puritual`,
     description: "Explore expert tips, wellness guides, and inspiring stories on the Puritual blog. Stay connected to the latest in self-care, sustainability, and mindful living.",
     alternates: {
-      canonical: `${process.env.NEXT_PUBLIC_BASE_URL}/blogs/${slug?.single}`,
+      canonical: `${process.env.NEXT_PUBLIC_BASE_URL}/blog/${slug?.single}`,
     },
   };
 }

@@ -1,10 +1,10 @@
 import SquareButton from "@/components/ui/square-button";
 import React from "react";
-import {formatDate} from "@/utils"
+
 import Link from "next/link";
 
 const BlogsList = ({ blog }: any) => {
-  const formattedDate = formatDate(blog.date);
+  const formattedDate = (blog.date);
 
   return (
     <>
