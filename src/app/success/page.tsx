@@ -103,12 +103,12 @@ export default function SuccessPage() {
             >
               Track your order
             </Link>
-            <a
+            <Link
               href="/"
               className="text-dark bg-secoundry pb-2.5 pt-3 px-5 rounded-[8px] hover:bg-dark hover:text-white"
             >
               Return to shopping
-            </a>
+            </Link>
           </div>
         </div>
       </section>

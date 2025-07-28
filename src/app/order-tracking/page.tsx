@@ -1,6 +1,7 @@
 // app/success/page.tsx
 "use client";
 import WooCommerce from "@/lib/woocommerce";
+import Link from "next/link";
 import { useState } from "react";
 import { toast } from "react-toastify";
 
@@ -70,12 +71,12 @@ export default function SuccessPage() {
             >
               {loading ? "Tracking..." : "Track your order"}
             </button>
-            <a
+            <Link
               href="/"
               className="text-dark bg-secoundry pb-2.5 pt-3 px-5 rounded-[8px] hover:bg-dark hover:text-white"
             >
               Back to Home
-            </a>
+            </Link>
           </div>
         </div>
       </section>

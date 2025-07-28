@@ -2,7 +2,7 @@ import React from "react";
 import SquareButton from "../ui/square-button";
 import Image from "next/image";
 import { RiDeleteBin6Fill } from "react-icons/ri";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import {
   decrementQuantity,
   incrementQuantity,

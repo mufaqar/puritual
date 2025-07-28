@@ -1,10 +1,8 @@
 "use client";
 import React, { useState, useRef } from "react";
-import SquareButton from "../ui/square-button";
 import Link from "next/link";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
-import { FaBars } from "react-icons/fa";
 import { HiOutlineBars3 } from "react-icons/hi2";
 import { IoCloseOutline } from "react-icons/io5";
 

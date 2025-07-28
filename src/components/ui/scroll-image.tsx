@@ -30,7 +30,7 @@ const ScrollImageSection = () => {
         <section className="relative w-full">
             {/* Section 1 */}
             <div className="h-screen bg-primary md:py-[180px] py-16 flex flex-col items-center justify-center">
-                <div className="container mx-auto flex md:flex-row flex-col justify-between items-center ">
+                <div className="container mx-auto flex md:flex-row flex-col justify-between items-center">
                     <div>
                         <h1 className="md:text-[150px] md:leading-[130px] text-6xl font-normal text-dark font-Melodrama">
                             Cleans<br />
@@ -57,7 +57,7 @@ const ScrollImageSection = () => {
             {/* Animated Image */}
             <div
                 ref={imageRef}
-                className="absolute top-[10%] left-1/2 -translate-x-1/2  md:z-[99999] z-20"
+                className="absolute top-[10%] left-1/2 -translate-x-1/2  md:z-[900]  z-20"
             >
                 <Image
                     src="/images/main_pro.png" // Replace with your image path

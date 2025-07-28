@@ -1,6 +1,5 @@
 "use client"
 import React from "react";
-import SquareButton from "../ui/square-button";
 import { useDispatch, useSelector } from "react-redux";
 import { toggleCart } from "@/redux/features/side-cart-slice";
 

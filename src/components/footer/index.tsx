@@ -1,5 +1,4 @@
 import React from "react";
-import Logo from "../header/logo";
 import Link from "next/link";
 import {
   FaFacebookF,
@@ -10,8 +9,8 @@ import Image from "next/image";
 
 const Footer = () => {
   return (
-    <footer className="bg-primary">
-      <section className="bg-dark py-[68px] rounded-t-[60px] lg:px-10 px-4">
+    <footer className="">
+      <section className="bg-dark py-[68px] lg:px-10 px-4">
         <div className="flex flex-wrap justify-between gap-6 md:gap-0 container mx-auto">
           <nav className="text-primary flex flex-col gap-4  md:justify-start justify-center">
             <Link href="/about-us" className="hover:text-pure">
