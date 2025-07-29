@@ -1,69 +1,189 @@
 import React from "react";
 import Marquee from "react-fast-marquee";
 import SingleCart from "./single-cart";
-import bg from "../../../public/images/single-banner.png";
 import Image from "next/image";
 import RelatedProducts from "./related-products";
+import Logo from "../logo/logo";
+import Review from "@/components/Reviews/Review";
+import { FaPlus } from "react-icons/fa";
 
-const ProductTemplate = ({ product, meta }: any) => {
-  //console.log("🚀 ~ ProductTemplate ~ meta:", meta)
+// Types
+interface MetaListingItem {
+  title: string;
+  value: string;
+  prefix?: string;
+}
+
+interface MetaData {
+  acf: {
+    sub_title: string;
+    listing: MetaListingItem[];
+  };
+  excerpt: {
+    rendered: string;
+  };
+}
+
+interface ProductData {
+  id: number;
+  name: string;
+  price: string;
+}
+
+interface ProductTemplateProps {
+  product: ProductData;
+  meta: MetaData;
+}
+
+const faqs = [
+  {
+    question: "PRODUCT DETAIL",
+    answer: `260ml / 8.79 fl. oz.<br />Ingredients : Based on each variant`,
+  },
+  {
+    question: "FRAGRANCE",
+    answer: `Forest, Spring, Sea Breeze`,
+  },
+  {
+    question: "BENEFITS",
+    answer: `Gently cleanses and refreshes while leaving your hands soft, nourished, and delicately scented.`,
+  },
+  {
+    question: "WHY YOU WILL LOVE IT",
+    answer: `Infused with Vitamin E and Aloe.<br />Light, luxurious foam.`,
+  },
+];
+
+
+const ProductTemplate: React.FC<ProductTemplateProps> = ({ product, meta }) => {
   return (
     <>
-      <main
-        className="relative w-full h-screen bg-cover bg-center bg-no-repeat overflow-hidden"
-        style={{ backgroundImage: `url(${bg.src})` }}
-      >
-        <div className="h-screen flex items-center rotate-[-3deg] scale-105">
-          <Marquee autoFill className="overflow-hidden " speed={100}>
-            <div className="flex gap-1 text-nowrap md:leading-[150px] h-[300px] leading-[80px] text-[80px] md:text-[157px] uppercase mr-1 items-center font-cervo">
-              <p className="text-white font-medium">LUXURY MEETS FUN</p>
-              <p className="text-stroke-white">ORGANIC PRODUCTS</p>
-            </div>
-          </Marquee>
+      {/* Banner Section */}
+      <section className="bg-primary relative">
+        <div className="flex md:flex-row flex-col gap-6 items-center">
+          <div className="md:w-1/3 w-full h-full">
+            <Image
+              src="/images/pro_main.png"
+              alt="pro_main"
+              width={800}
+              height={1500}
+              className="h-full w-full"
+            />
+          </div>
+          <div className="md:w-2/3 w-full md:px-8 px-4">
+            <h1 className="md:text-[100px] md:leading-[100px] text-6xl font-normal text-dark">
+              A GENTLE CLEANSE INSPIRED BY FOREST SPRING AND SEA
+            </h1>
+            <p className="md:text-4xl text-2xl font-normal text-dark uppercase mt-4 mb-5">
+              BREEZY PEAKS
+            </p>
+            <SingleCart product={product} />
+          </div>
         </div>
-        <SingleCart product={product} />
-      </main>
-      <section className="bg-primary py-4">
-        <div className="max-w-[1480px] grid md:grid-cols-2 gap-4 mx-auto px-3">
-          <div>
-            <div className="bg-white rounded-[20px] p-12 text-4xl font-cervo text-secoundry">
-              <p>
-                {meta?.acf?.sub_title}
-              </p>
+      </section>
+
+      <Logo />
+
+      {/* Product Info Section */}
+      <section className="bg-dark md:py-[100px] py-16 px-8">
+        <div className="container bg-primary flex md:flex-row flex-col-reverse items-center md:gap-10 gap-4 mx-auto px-4 border-[10px] border-[#339933] rounded-[20px] md:px-8 md:py-10 py-5 relative">
+          <div className="md:w-1/3 w-full">
+            <Image
+              src="/images/pro_cart.png"
+              alt="pro_cart"
+              width={700}
+              height={700}
+            />
+            <div className="relative w-[200px] h-[200px] mt-[-90px]">
+              <svg
+                viewBox="0 0 200 200"
+                className="w-full h-full"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <defs>
+                  {/* Define a circular path */}
+                  <path
+                    id="text-circle"
+                    d="M 100, 100 m -75, 0 a 75,75 0 1,1 150,0 a 75,75 0 1,1 -150,0"
+                  />
+                </defs>
+                <text fill="#25330A" fontSize="19" fontFamily="">
+                  <textPath href="#text-circle" startOffset="50%" textAnchor="start">
+                    NATURAL INGREDIENTS!
+                  </textPath>
+                </text>
+              </svg>
             </div>
-            <div className="bg-white rounded-[20px] p-12 mt-4">
-              <h4 className="uppercase text-3xl font-cervo text-secoundry">
-                Composition:
-              </h4>
-              <div className="text-sm text-dark mt-3">
-                <div dangerouslySetInnerHTML={{__html: meta?.excerpt?.rendered}}/>
-              </div>
-              <h4 className="uppercase text-3xl font-cervo text-secoundry mt-10">
-                Energy value:
-              </h4>
-              <div className="text-sm text-dark mt-3">
-                {meta?.acf?.listing?.map((item: any, idx: number) => (
-                  <p key={idx} className="flex justify-between gap-4 items-center py-1">
-                    <span>{item?.title}</span>
-                    <span>
-                      {item?.value} <sub>{item?.prefix}</sub>
-                    </span>
-                  </p>
+          </div>
+          <div className="md:w-2/3 w-full">
+            <div className=" flex md:flex-row flex-col-reverse md:gap-2 gap-5 mb-5">
+              <div className="md:w-fit w-full space-y-5">
+                <h3 className="md:text-[50px] md:leading-[50px] text-3xl font-normal text-dark uppercase">
+                  BREEZY PEAKS
+                </h3>
+
+                {/* FAQs List */}
+                {faqs.map((faq, idx) => (
+                  <div key={idx} className="mb-6">
+                    <h4 className="md:text-3xl text-xl font-normal text-dark mb-2.5 flex items-center justify-between gap-5">
+                      <span>{faq.question}</span> <FaPlus className="text-xl" />
+                    </h4>
+                    <p
+                      className="md:text-xl text-lg font-normal text-dark"
+                      dangerouslySetInnerHTML={{ __html: faq.answer }}
+                    />
+                  </div>
                 ))}
               </div>
+              <div className="md:min-w-[217px] md:h-[217px] w-[217px] h-[217px] rounded-full border border-secoundry flex flex-col items-center justify-center relative before:content-[''] before:absolute before:w-[30px] before:h-[30px] before:rounded-full before:border before:border-secoundry before:-top-2 before:left-0">
+                <p className="text-xs font-normal text-dark text-center">
+                  Enriched With
+                </p>
+                <p className="md:text-3xl text-xl font-medium text-dark text-center">
+                  Vitamin E <br />
+                  Aloe Vera
+                </p>
+              </div>
             </div>
+            <SingleCart product={product} />
+          </div>
+        </div>
+      </section>
+
+      {/* Gallery Section */}
+      <section className="py-16 bg-primary">
+        <div className="container mx-auto px-4 grid md:grid-cols-3 grid-cols-1 gap-8 items-center">
+          <div>
+            <Image
+              src="/images/gallery3.png"
+              alt="gallery3"
+              width={500}
+              height={500}
+              className="rounded-full"
+            />
           </div>
           <div>
             <Image
-              src={bg.src}
-              alt=""
-              width={600}
-              height={600}
-              className="rounded-[20px] h-full w-full object-center object-cover"
+              src="/images/gallery2.png"
+              alt="gallery2"
+              width={500}
+              height={500}
+              className="rounded-full"
+            />
+          </div>
+          <div>
+            <Image
+              src="/images/gallery1.png"
+              alt="gallery1"
+              width={500}
+              height={500}
+              className="rounded-full"
             />
           </div>
         </div>
       </section>
+
+      <Review />
       <RelatedProducts />
     </>
   );

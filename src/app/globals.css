@@ -1,85 +1,51 @@
 @import "tailwindcss";
+@import "slick-carousel/slick/slick.css";
+@import "slick-carousel/slick/slick-theme.css";
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap');
 
 @font-face {
-  font-family: Berlos;
-  src: url('../../public/fonts/Berlos.woff');
-}
-
-@font-face {
-  font-family: Cervo;
-  src: url('../../public/fonts/Cervo-Medium.otf');
-  font-weight: 500;
+  font-family: 'Berlos';
+  src: url("../../public/fonts/Berlos.woff");
 }
 @font-face {
-  font-family: Cervo;
-  src: url('../../public/fonts/Cervo-Regular.otf');
-  font-weight: 400;
+  font-family: "Melodrama";
+  src: url("../../public/fonts/Melodrama-Regular.woff");
 }
-@font-face {
-  font-family: Axiforma;
-  src: url('../../public/fonts/Kastelov-Axiforma-Light.otf');
-  font-weight: 300;
-}
-@font-face {
-  font-family: Axiforma;
-  src: url('../../public/fonts/Kastelov-Axiforma-Medium.otf');
-  font-weight: 500;
-}
-@font-face {
-  font-family: Axiforma;
-  src: url('../../public/fonts/Kastelov-Axiforma-Regular.otf');
-  font-weight: 400;
-}
-
-body{
-  font-family: Axiforma;
+body {
+ font-family: "Josefin Sans", sans-serif;
   overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Melodrama";
 }
 
 :root {
   --pure: #ffffff;
-  --primary: #DCEFB2;
-  --secoundry: #AED036;
-  --dark: #25330A;
-  --font-berlos: 'Berlos';
-  --font-cervo: 'Cervo';
-  --font-axiforma: 'Axiforma';
+  --primary: #dcefb2;
+  --secoundry: #aed036;
+  --dark: #25330a;
+  --font-Melodrama_Regular: "Melodrama";
 }
-
-@layer utilities {
-  .text-stroke {
-    -webkit-text-stroke: 1px var(--dark);
-    -webkit-text-fill-color: transparent;
-    font-family: Cervo;
-    font-weight: 500;
-    /* line-height: 130px; */
-  }
-  .text-stroke-white {
-    -webkit-text-stroke: 2px var(--pure);
-    -webkit-text-fill-color: transparent;
-    font-family: Cervo;
-    font-weight: 500;
-    /* line-height: 130px; */
-  }
-}
-
 
 @theme {
   --color-pure: var(--pure);
   --color-primary: var(--primary);
   --color-secoundry: var(--secoundry);
   --color-dark: var(--dark);
-  --font-berlos: var(--font-berlos);
-  --font-cervo: var(--font-cervo);
-  --font-axiforma: var(--font-axiforma);
 }
-.circle_button .arrow path{
-  transition: .4s ease-in-out;
+.circle_button .arrow path {
+  transition: 0.4s ease-in-out;
 }
-.circle_button:hover .arrow path{
+.circle_button:hover .arrow path {
   stroke: #111;
 }
-.circle_button.dark:hover .arrow path{
+.circle_button.dark:hover .arrow path {
   stroke: #fff;
 }
 
@@ -92,54 +58,53 @@ body{
   animation-iteration-count: infinite;
   transform-origin: center;
 }
-.singleBlog p{
+.singleBlog p {
   font-size: 18px;
 }
-.singleBlog{
+.singleBlog {
   color: var(--dark);
   font-size: 18px;
 }
-.singleBlog h3{
+.singleBlog h3 {
   font-size: 21px;
   line-height: 27px;
   font-weight: 700;
   margin: 10px 0;
 }
-.singleBlog h4{
+.singleBlog h4 {
   font-size: 20px;
   line-height: 26px;
   font-weight: 700;
   margin: 10px 0;
 }
-.singleBlog a{
+.singleBlog a {
   color: rgb(0, 118, 168);
   text-decoration: underline;
 }
-.singleBlog h5{
+.singleBlog h5 {
   font-size: 18px;
   line-height: 24px;
   font-weight: 700;
   margin: 10px 0;
 }
-.singleBlog h6{
+.singleBlog h6 {
   font-size: 16px;
   line-height: 22px;
   font-weight: 700;
   margin: 10px 0;
 }
-.singleBlog h2{
+.singleBlog h2 {
   font-size: 22px;
   line-height: 28px;
   font-weight: 700;
   margin: 10px 0;
 }
-.singleBlog ul{
+.singleBlog ul {
   padding-left: 1.4rem;
-  margin: 8px 0
+  margin: 8px 0;
 }
-.singleBlog li{
+.singleBlog li {
   list-style-type: circle;
-
 }
 
 @keyframes styles_stroke-circle-svg {
@@ -157,21 +122,12 @@ body{
 
 @keyframes scroll-text {
   from {
-    transform: translateX(100vw);
+    transform: translatey(100vw);
   }
   to {
-    transform: translateX(-100vw);
+    transform: translatey(-100vw);
   }
 }
-
-
-
-
-
-
-
-
-
 
 ::-webkit-scrollbar {
   width: 0px; /* Width of the scrollbar */
@@ -185,4 +141,30 @@ body{
 }
 ::-webkit-scrollbar-track {
   background: transparent;
+}
+
+.light_bubble {
+  @apply relative;
+}
+.light_bubble::before {
+  content: "";
+  @apply w-2.5 h-2.5 bg-secoundry rounded-full absolute -top-0.5 -left-0.5 transition-all duration-300 ease-linear;
+}
+.light_bubble:hover::before {
+  transform: translate(5px, 5px);
+  @apply bg-dark;
+}
+.dark_bubble {
+  @apply relative;
+}
+.dark_bubble::before {
+  content: "";
+  @apply w-2.5 h-2.5 bg-dark rounded-full absolute -top-0.5 -left-0.5 transition-all duration-300 ease-linear;
+}
+.dark_bubble:hover::before {
+  transform: translate(5px, 5px);
+  @apply bg-secoundry;
+}
+svg path#text-circle{
+background-color: #25330a;
 }

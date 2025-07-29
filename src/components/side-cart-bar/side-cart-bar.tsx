@@ -5,7 +5,7 @@ import gsap from "gsap";
 import SquareButton from "../ui/square-button";
 import { RxCross2 } from "react-icons/rx";
 import CartButton from "../header/cart-button";
-import { closeCart, toggleCart } from "@/redux/features/side-cart-slice";
+import { closeCart } from "@/redux/features/side-cart-slice";
 import SideCartMeta from "./side-cart-meta";
 import CartStats from "./cart-stats";
 
