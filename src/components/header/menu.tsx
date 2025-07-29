@@ -5,6 +5,7 @@ import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { HiOutlineBars3 } from "react-icons/hi2";
 import { IoCloseOutline } from "react-icons/io5";
+import SquareButton from "../ui/square-button";
 
 const Menu = () => {
   const [isMenu, setIsMenu] = useState(false);
@@ -53,15 +54,13 @@ const Menu = () => {
 
   return (
     <>
-      <button onClick={handleMenu} className="dark_bubble bg-dark group relative md:w-[81px] md:h-[81px] w-[46px] h-[46px] z-[90] rounded-full flex justify-center items-center cursor-pointer transition-all duration-300 ease-linear">
+      <SquareButton onClick={handleMenu} className="dark_bubble bg-dark md:w-[81px] md:h-[81px] w-[46px] h-[46px] " BgHovr="bg-secoundry md:w-[81px] md:h-[81px] w-[46px] h-[46px] ">
         {!isMenu ? (
           <HiOutlineBars3 className="text-4xl text-white relative z-[100]" />
         ) : (
           <IoCloseOutline className="text-4xl text-white relative z-[100]" />
         )}
-
-        <div className="bg-primary md:w-[81px] absolute md:h-[81px] w-[46px] h-[46px] scale-0 group-hover:scale-[1.01] transition-all duration-300 ease-linear rounded-full" />
-      </button>
+      </SquareButton>
 
 
       {/* MENU */}

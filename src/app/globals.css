@@ -152,7 +152,7 @@ h6 {
 }
 .light_bubble:hover::before {
   transform: translate(5px, 5px);
-  @apply bg-primary;
+  @apply bg-dark;
 }
 .dark_bubble {
   @apply relative;
@@ -163,5 +163,8 @@ h6 {
 }
 .dark_bubble:hover::before {
   transform: translate(5px, 5px);
-  @apply bg-primary;
+  @apply bg-secoundry;
+}
+svg path#text-circle{
+background-color: #25330a;
 }

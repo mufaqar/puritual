@@ -5,7 +5,7 @@ function Logo() {
   return (
     <section className="bg-dark md:py-[140px] py-14 border-y border-[#dcefb242]">
       <div className="container mx-auto">
-        <div className="flex justify-between items-center ">
+        <div className="flex md:flex-row flex-col gap-5 justify-between items-center ">
           <Image
             src="/images/premium.svg"
             alt="premium"
