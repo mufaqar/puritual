@@ -29,7 +29,7 @@ const ProductLayout = ({ product, BorderColor }: any) => {
         </div>
         <div>
           {/* <p className="text-[34px] font-medium text-dark font-cervo">Rs{product?.price}</p> */}
-          <p className="md:text-[36px] text-2xl font-normal text-black font-cervo">Rs 1200 </p>
+          <p className="md:text-[36px] text-2xl font-normal text-black font-cervo">Rs {product?.price}</p>
           <SquareButton onClick={() => dispatch(addInCart(product))} className="light_bubble bg-secoundry" BgHovr="bg-dark">
             <svg width="38px" height="53px" className="z-10 fill-dark group-hover:fill-amber-50" viewBox="0 0 38.108 53.352">
               <path

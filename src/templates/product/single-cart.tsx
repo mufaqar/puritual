@@ -19,8 +19,7 @@ const SingleCart = ({ product }: any) => {
       <div className="flex flex-col md:flex-row gap-4 md:items-center md:justify-end">
         <SquareButton className="dark_bubble bg-dark md:w-[152px] md:h-[152px]" BgHovr="bg-secoundry md:w-[152px] md:h-[152px]">
           <p className="md:text-3xl text-xl font-bold text-primary z-10 group-hover:text-dark">
-            {/* Rs {(Number(product?.price) * cartItem).toFixed(2)} */}
-            Rs 1200
+            Rs {(Number(product?.price) * cartItem).toFixed(2)}
           </p>
         </SquareButton>
         <div className="flex items-center gap-3 mt-2 pb-1.5">
