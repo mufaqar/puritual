@@ -1,5 +1,4 @@
 import React from "react";
-import Marquee from "react-fast-marquee";
 import SingleCart from "./single-cart";
 import Image from "next/image";
 import RelatedProducts from "./related-products";
@@ -35,27 +34,37 @@ interface ProductTemplateProps {
   meta: MetaData;
 }
 
-const faqs = [
-  {
-    question: "PRODUCT DETAIL",
-    answer: `260ml / 8.79 fl. oz.<br />Ingredients : Based on each variant`,
-  },
-  {
-    question: "FRAGRANCE",
-    answer: `Forest, Spring, Sea Breeze`,
-  },
-  {
-    question: "BENEFITS",
-    answer: `Gently cleanses and refreshes while leaving your hands soft, nourished, and delicately scented.`,
-  },
-  {
-    question: "WHY YOU WILL LOVE IT",
-    answer: `Infused with Vitamin E and Aloe.<br />Light, luxurious foam.`,
-  },
-];
+// const faqs = [
+//   {
+//     question: "PRODUCT DETAIL",
+//     answer: `260ml / 8.79 fl. oz.<br />Ingredients : Based on each variant`,
+//   },
+//   {
+//     question: "FRAGRANCE",
+//     answer: `Forest, Spring, Sea Breeze`,
+//   },
+//   {
+//     question: "BENEFITS",
+//     answer: `Gently cleanses and refreshes while leaving your hands soft, nourished, and delicately scented.`,
+//   },
+//   {
+//     question: "WHY YOU WILL LOVE IT",
+//     answer: `Infused with Vitamin E and Aloe.<br />Light, luxurious foam.`,
+//   },
+// ];
 
 
 const ProductTemplate: React.FC<ProductTemplateProps> = ({ product, meta }) => {
+  console.log(product);
+   console.log(meta);
+
+   const listing = meta.acf.listing;
+   const sub_title = meta.acf.sub_title;
+
+
+    
+
+
   return (
     <>
       {/* Banner Section */}
@@ -72,7 +81,7 @@ const ProductTemplate: React.FC<ProductTemplateProps> = ({ product, meta }) => {
           </div>
           <div className="md:w-2/3 w-full md:px-8 px-4">
             <h1 className="md:text-[100px] md:leading-[100px] text-6xl font-normal text-dark">
-              A GENTLE CLEANSE INSPIRED BY FOREST SPRING AND SEA
+              description
             </h1>
             <p className="md:text-4xl text-2xl font-normal text-dark uppercase mt-4 mb-5">
               BREEZY PEAKS
@@ -123,14 +132,14 @@ const ProductTemplate: React.FC<ProductTemplateProps> = ({ product, meta }) => {
                 </h3>
 
                 {/* FAQs List */}
-                {faqs.map((faq, idx) => (
+                {listing.map((item, idx) => (
                   <div key={idx} className="mb-6">
                     <h4 className="md:text-3xl text-xl font-normal text-dark mb-2.5 flex items-center justify-between gap-5">
-                      <span>{faq.question}</span> <FaPlus className="text-xl" />
+                      <span>{item.title}</span> <FaPlus className="text-xl" />
                     </h4>
                     <p
                       className="md:text-xl text-lg font-normal text-dark"
-                      dangerouslySetInnerHTML={{ __html: faq.answer }}
+                      dangerouslySetInnerHTML={{ __html: item.value }}
                     />
                   </div>
                 ))}
@@ -140,8 +149,7 @@ const ProductTemplate: React.FC<ProductTemplateProps> = ({ product, meta }) => {
                   Enriched With
                 </p>
                 <p className="md:text-3xl text-xl font-medium text-dark text-center">
-                  Vitamin E <br />
-                  Aloe Vera
+                 {sub_title}
                 </p>
               </div>
             </div>

@@ -14,8 +14,8 @@ const ProductLayout = ({ product, BorderColor }: any) => {
   return (
     <div className={`${BorderColor} border-4 bg-primary rounded-[20px] flex justify-start hover:bg-green-50 group flex-col items-center p-5 h-full product_box`}>
       <figure className="h-[450px] w-full">
-        {/* <Image src={product?.images?.[0]?.src} alt="" width={450} height={450} className="h-full w-full object-cover rounded-[20px]" /> */}
-        <Image src="/images/placeholder.png" alt="" width={450} height={450} className="h-full w-full object-cover rounded-[20px]" />
+        <Image src={product?.images?.[0]?.src} alt="" width={450} height={450} className="h-full w-full object-cover rounded-[20px]" />
+        {/* <Image src="/images/placeholder.png" alt="" width={450} height={450} className="h-full w-full object-cover rounded-[20px]" /> */}
       </figure>
       <div className="flex justify-between items-start gap-7 w-full mt-3.5">
         <div>
