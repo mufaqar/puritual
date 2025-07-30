@@ -16,6 +16,7 @@ interface MetaListingItem {
 interface MetaData {
   acf: {
     sub_title: string;
+    description: string;
     listing: MetaListingItem[];
   };
   excerpt: {
@@ -27,6 +28,8 @@ interface ProductData {
   id: number;
   name: string;
   price: string;
+  short_description: string;
+   images: string[];
 }
 
 interface ProductTemplateProps {
@@ -34,24 +37,7 @@ interface ProductTemplateProps {
   meta: MetaData;
 }
 
-// const faqs = [
-//   {
-//     question: "PRODUCT DETAIL",
-//     answer: `260ml / 8.79 fl. oz.<br />Ingredients : Based on each variant`,
-//   },
-//   {
-//     question: "FRAGRANCE",
-//     answer: `Forest, Spring, Sea Breeze`,
-//   },
-//   {
-//     question: "BENEFITS",
-//     answer: `Gently cleanses and refreshes while leaving your hands soft, nourished, and delicately scented.`,
-//   },
-//   {
-//     question: "WHY YOU WILL LOVE IT",
-//     answer: `Infused with Vitamin E and Aloe.<br />Light, luxurious foam.`,
-//   },
-// ];
+
 
 
 const ProductTemplate: React.FC<ProductTemplateProps> = ({ product, meta }) => {
@@ -60,6 +46,11 @@ const ProductTemplate: React.FC<ProductTemplateProps> = ({ product, meta }) => {
 
    const listing = meta.acf.listing;
    const sub_title = meta.acf.sub_title;
+   const images = product.images;
+
+    console.log(images);
+
+   
 
 
     
@@ -80,11 +71,12 @@ const ProductTemplate: React.FC<ProductTemplateProps> = ({ product, meta }) => {
             />
           </div>
           <div className="md:w-2/3 w-full md:px-8 px-4">
-            <h1 className="md:text-[100px] md:leading-[100px] text-6xl font-normal text-dark">
-              description
-            </h1>
+            <h1
+                className="md:text-[100px] md:leading-[100px] text-6xl font-normal text-dark"
+                dangerouslySetInnerHTML={{ __html: product.short_description }}
+              />
             <p className="md:text-4xl text-2xl font-normal text-dark uppercase mt-4 mb-5">
-              BREEZY PEAKS
+              {product.name}
             </p>
             <SingleCart product={product} />
           </div>
@@ -128,7 +120,7 @@ const ProductTemplate: React.FC<ProductTemplateProps> = ({ product, meta }) => {
             <div className=" flex md:flex-row flex-col-reverse md:gap-2 gap-5 mb-5">
               <div className="md:w-fit w-full space-y-5">
                 <h3 className="md:text-[50px] md:leading-[50px] text-3xl font-normal text-dark uppercase">
-                  BREEZY PEAKS
+                    {product.name}
                 </h3>
 
                 {/* FAQs List */}
@@ -161,32 +153,19 @@ const ProductTemplate: React.FC<ProductTemplateProps> = ({ product, meta }) => {
       {/* Gallery Section */}
       <section className="py-16 bg-primary">
         <div className="container mx-auto px-4 grid md:grid-cols-3 grid-cols-1 gap-8 items-center">
-          <div>
-            <Image
-              src="/images/gallery3.png"
-              alt="gallery3"
-              width={500}
-              height={500}
-              className="rounded-full"
-            />
-          </div>
-          <div>
-            <Image
-              src="/images/gallery2.png"
-              alt="gallery2"
-              width={500}
-              height={500}
-              className="rounded-full"
-            />
-          </div>
-          <div>
-            <Image
-              src="/images/gallery1.png"
+         {images.map((item, idx) => (
+        <div key={idx} className="mb-6">
+          <Image
+              src={item.src}
               alt="gallery1"
               width={500}
               height={500}
               className="rounded-full"
             />
+        </div>
+      ))}
+          <div>
+            
           </div>
         </div>
       </section>
