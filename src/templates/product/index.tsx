@@ -31,7 +31,6 @@ interface ProductImage {
   [key: string]: any;
 }
 
-
 interface ProductData {
   id: number;
   name: string;
@@ -45,21 +44,13 @@ interface ProductTemplateProps {
   meta: MetaData;
 }
 
-
-
-
 const ProductTemplate: React.FC<ProductTemplateProps> = ({ product, meta }) => {
- 
+  const listing = meta.acf.listing;
+  const sub_title = meta.acf.sub_title;
+  const images = product.images;
 
-   const listing = meta.acf.listing;
-   const sub_title = meta.acf.sub_title;
-   const images = product.images;
-
-   
-
-
-    
-
+  console.log(product);
+  console.log(images[0].src);
 
   return (
     <>
@@ -68,7 +59,7 @@ const ProductTemplate: React.FC<ProductTemplateProps> = ({ product, meta }) => {
         <div className="flex md:flex-row flex-col gap-6 items-center">
           <div className="md:w-1/3 w-full h-full">
             <Image
-              src="/images/pro_main.png"
+              src={images[0].src}
               alt="pro_main"
               width={800}
               height={1500}
@@ -77,9 +68,9 @@ const ProductTemplate: React.FC<ProductTemplateProps> = ({ product, meta }) => {
           </div>
           <div className="md:w-2/3 w-full md:px-8 px-4">
             <h1
-                className="md:text-[100px] md:leading-[100px] text-6xl font-normal text-dark"
-                dangerouslySetInnerHTML={{ __html: product.short_description }}
-              />
+              className="md:text-[100px] md:leading-[100px] text-6xl font-normal text-dark"
+              dangerouslySetInnerHTML={{ __html: product.short_description }}
+            />
             <p className="md:text-4xl text-2xl font-normal text-dark uppercase mt-4 mb-5">
               {product.name}
             </p>
@@ -114,7 +105,11 @@ const ProductTemplate: React.FC<ProductTemplateProps> = ({ product, meta }) => {
                   />
                 </defs>
                 <text fill="#25330A" fontSize="19" fontFamily="">
-                  <textPath href="#text-circle" startOffset="50%" textAnchor="start">
+                  <textPath
+                    href="#text-circle"
+                    startOffset="50%"
+                    textAnchor="start"
+                  >
                     NATURAL INGREDIENTS!
                   </textPath>
                 </text>
@@ -125,7 +120,7 @@ const ProductTemplate: React.FC<ProductTemplateProps> = ({ product, meta }) => {
             <div className=" flex md:flex-row flex-col-reverse md:gap-2 gap-5 mb-5">
               <div className="md:w-fit w-full space-y-5">
                 <h3 className="md:text-[50px] md:leading-[50px] text-3xl font-normal text-dark uppercase">
-                    {product.name}
+                  {product.name}
                 </h3>
 
                 {/* FAQs List */}
@@ -146,7 +141,7 @@ const ProductTemplate: React.FC<ProductTemplateProps> = ({ product, meta }) => {
                   Enriched With
                 </p>
                 <p className="md:text-3xl text-xl font-medium text-dark text-center">
-                 {sub_title}
+                  {sub_title}
                 </p>
               </div>
             </div>
@@ -158,20 +153,18 @@ const ProductTemplate: React.FC<ProductTemplateProps> = ({ product, meta }) => {
       {/* Gallery Section */}
       <section className="py-16 bg-primary">
         <div className="container mx-auto px-4 grid md:grid-cols-3 grid-cols-1 gap-8 items-center">
-         {images.map((item, idx) => (
-        <div key={idx} className="mb-6">
-          <Image
-               src={item.src}
-              alt="gallery1"
-              width={500}
-              height={500}
-              className="rounded-full"
-            />
-        </div>
-      ))}
-          <div>
-            
-          </div>
+          {images.map((item, idx) => (
+            <div key={idx} className="mb-6">
+              <Image
+                src={item.src}
+                alt="gallery1"
+                width={500}
+                height={500}
+                className="rounded-full"
+              />
+            </div>
+          ))}
+          <div></div>
         </div>
       </section>
 
