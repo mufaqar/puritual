@@ -24,12 +24,20 @@ interface MetaData {
   };
 }
 
+interface ProductImage {
+  id: number;
+  src: string;
+  alt: string;
+  [key: string]: any;
+}
+
+
 interface ProductData {
   id: number;
   name: string;
   price: string;
   short_description: string;
-   images: string[];
+  images: ProductImage[];
 }
 
 interface ProductTemplateProps {
@@ -41,14 +49,11 @@ interface ProductTemplateProps {
 
 
 const ProductTemplate: React.FC<ProductTemplateProps> = ({ product, meta }) => {
-  console.log(product);
-   console.log(meta);
+ 
 
    const listing = meta.acf.listing;
    const sub_title = meta.acf.sub_title;
    const images = product.images;
-
-    console.log(images);
 
    
 
@@ -156,7 +161,7 @@ const ProductTemplate: React.FC<ProductTemplateProps> = ({ product, meta }) => {
          {images.map((item, idx) => (
         <div key={idx} className="mb-6">
           <Image
-              src={item.src}
+               src={item.src}
               alt="gallery1"
               width={500}
               height={500}
