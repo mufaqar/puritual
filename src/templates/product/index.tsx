@@ -153,7 +153,7 @@ const ProductTemplate: React.FC<ProductTemplateProps> = ({ product, meta }) => {
       {/* Gallery Section */}
       <section className="py-16 bg-primary">
         <div className="container mx-auto px-4 grid md:grid-cols-3 grid-cols-1 gap-8 items-center">
-          {images.map((item, idx) => (
+          {images.slice(1).map((item, idx) => (
             <div key={idx} className="mb-6">
               <Image
                 src={item.src}
