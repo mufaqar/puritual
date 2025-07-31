@@ -39,13 +39,15 @@ const Header = () => {
     <>
       <header
         ref={headerRef}
-        className="md:py-3 py-2 flex justify-between items-center px-4 md:px-10 fixed w-full z-[900] bg-transparent transition-colors duration-300"
+        className="md:py-3 py-2 fixed w-full z-[900] bg-transparent transition-colors duration-300"
       >
-        <Logo />
-        <div className="flex items-center md:gap-[102px] gap-2.5">
-          <CartButton />
-          <Menu />
-        </div>
+        <div className="container mx-auto px-3 flex justify-between items-center">
+          <Logo />
+          <div className="flex items-center md:gap-[102px] gap-2.5">
+            <CartButton />
+            <Menu />
+          </div>
+        </div >
       </header>
       <SideCartBar />
     </>

@@ -46,7 +46,7 @@ const SideCartBar = () => {
     <>
       <div
         ref={sideCartRef}
-        className="z-[1000] fixed top-0 bottom-0 right-0 max-w-[460px] w-full bg-white shadow-lg px-7 py-5"
+        className="z-[1000] fixed top-0 bottom-0 right-0 max-w-[460px] w-full bg-primary shadow-lg px-7 py-5 overflow-y-scroll"
         style={{ transform: "translateX(100%)" }} // Initial position off-screen
       >
         <div className="flex justify-end items-center">
