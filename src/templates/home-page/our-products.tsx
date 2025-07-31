@@ -13,8 +13,8 @@ const OurProducts: React.FC<OurProductsProps> = ({ products }) => {
           Our Products
         </h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 md:gap-[70px] gap-3">
-          {products?.map((product, idx) => (
-            <ProductLayout key={idx} product={product} BorderColor={colors[idx % colors.length]} />
+          {products?.map((product:any, idx:number) => (            
+            <ProductLayout key={idx} product={product} />
           ))}
         </div>
       </div>

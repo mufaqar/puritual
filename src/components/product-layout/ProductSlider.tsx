@@ -10,6 +10,7 @@ interface ProductSliderProps {
 }
 
 const ProductSlider: React.FC<ProductSliderProps> = ({ products }) => {
+ 
   const sliderRef = useRef<Slider | null>(null);
 
   const next = () => {
