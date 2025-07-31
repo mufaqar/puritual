@@ -29,7 +29,7 @@ const TermsSection: React.FC = () => {
   return (
     <section className="pt-12 pb-20 relative overflow-x-hidden">
       <div className="px-4 md:px-0 max-w-[1280px] mx-auto">
-        <div className="font-axiforma text-dark mission-text">
+        <div className="font-axiforma text-secoundry mission-text">
           <h3 className="text-2xl my-4">Welcome!</h3>
           <p>
             Hi, and welcome to our store! These are the rules and guidelines required for purchasing any of our amazing products. By placing an order, you fully agree with these terms. So just read on before buying!
