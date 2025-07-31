@@ -18,6 +18,9 @@ interface MetaData {
     sub_title: string;
     description: string;
     listing: MetaListingItem[];
+    banner_image: string;
+    enriched_image: string;
+    product_enriched: string;
   };
   excerpt: {
     rendered: string;
@@ -36,7 +39,9 @@ interface ProductData {
   name: string;
   price: string;
   short_description: string;
+
   images: ProductImage[];
+  
 }
 
 interface ProductTemplateProps {
@@ -48,6 +53,8 @@ const ProductTemplate: React.FC<ProductTemplateProps> = ({ product, meta }) => {
   const listing = meta.acf.listing;
   const sub_title = meta.acf.sub_title;
   const images = product.images;
+  const banner_image = meta.acf.banner_image;
+  const enriched_image = meta.acf.enriched_image;
 
   console.log(product);
   console.log(images[0].src);
@@ -59,7 +66,7 @@ const ProductTemplate: React.FC<ProductTemplateProps> = ({ product, meta }) => {
         <div className="flex md:flex-row flex-col gap-6 items-center">
           <div className="md:w-1/3 w-full h-full">
             <Image
-              src={images[0].src}
+              src={banner_image}
               alt="pro_main"
               width={800}
               height={1500}
@@ -86,8 +93,8 @@ const ProductTemplate: React.FC<ProductTemplateProps> = ({ product, meta }) => {
         <div className="container bg-primary flex md:flex-row flex-col-reverse items-center md:gap-10 gap-4 mx-auto px-4 border-[10px] border-[#339933] rounded-[20px] md:px-8 md:py-10 py-5 relative">
           <div className="md:w-1/3 w-full">
             <Image
-              src="/images/pro_cart.png"
-              alt="pro_cart"
+              src={enriched_image}
+              alt="enriched_image"
               width={700}
               height={700}
             />

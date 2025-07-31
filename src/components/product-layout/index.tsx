@@ -39,7 +39,7 @@ const ProductLayout = ({ product }: any) => {
             href={`/product/${product?.slug}`}
             className="md:text-2xl text-lg font-normal text-black group-hover:text-secoundry tracking-normal flex gap-4 items-center transition-all duration-300 ease-in-out"
           >
-            LEARN MORE{" "}
+            LEARN MORE
             <FaChevronRight className="text-secoundry group-hover:text-black transition-all duration-300 ease-in-out" />
           </Link>
         </div>
