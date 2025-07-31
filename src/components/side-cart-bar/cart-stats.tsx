@@ -23,12 +23,16 @@ const CartStats = ({ cart }: any) => {
       </div>
       <div className="mt-5 flex gap-4">
         <Link href="/checkout">
-          <SquareButton onClick={()=>dispatch(closeCart())}>
-            <p className="px-6 py-2 font-cervo text-xl">Place an order</p>
+         <SquareButton
+          className="dark_bubble bg-dark md:w-[130px] md:h-[130px]"
+          BgHovr="bg-secoundry md:w-[130px] md:h-[130px]"
+         onClick={()=>dispatch(closeCart())}>
+            <p className="px-6 py-2 font-cervo text-xl relative z-20 text-white">Place an order</p>
           </SquareButton>
         </Link>
-        <SquareButton>
-          <p className="px-6 py-2 font-cervo text-xl bg-white hover:bg-secoundry">
+        <SquareButton  className="dark_bubble bg-dark md:w-[130px] md:h-[130px]"
+          BgHovr="bg-secoundry md:w-[130px] md:h-[130px]">
+          <p className="px-6 py-2 font-cervo text-xl relative z-20 text-white">
             Continue Shopping
           </p>
         </SquareButton>

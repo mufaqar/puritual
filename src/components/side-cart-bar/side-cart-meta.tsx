@@ -17,16 +17,16 @@ const SideCartMeta = ({ data }: any) => {
     <div>
       {data?.items?.map((item: any, idx: any) => (
         <div key={idx} className="flex gap-2 mb-2">
-          <figure className="border border-secoundry w-[95px] flex justify-center p-4">
-            <Image src={item?.images?.[0]?.src} alt="" width={20} height={20} />
+          <figure className="border border-secoundry w-[95px] flex justify-center">
+            <Image src={item?.images?.[0]?.src} alt="" width={200} height={200} className="object-cover object-center" />
           </figure>
           <div className="flex-1">
             <div className="flex justify-between items-start gap-2">
               <div>
-                <h6 className="font-cervo text-2xl text-secoundry">
+                <h6 className="font-cervo text-2xl text-dark">
                   {item?.name}
                 </h6>
-                <p className="text-xs text-gray-400">Serving weight: 80g</p>
+                <p className="text-xs text-dark">Serving weight: 80g</p>
               </div>
               <button
                 className="text-red-500 mt-3 cursor-pointer"
@@ -36,22 +36,22 @@ const SideCartMeta = ({ data }: any) => {
               </button>
             </div>
             <div className="flex items-center gap-3 mt-2 pb-1.5">
-              <SquareButton
+              <SquareButton className="!w-8 !h-8 "
                 onClick={() => dispatch(decrementQuantity(item.id))}
               >
-                <div className="w-8 h-8 flex justify-center items-center">
+                <div className="w-8 h-8 flex justify-center items-center border-dark border rounded-full">
                   <TfiLayoutLineSolid />
                 </div>
               </SquareButton>
-              <SquareButton>
-                <div className="w-8 h-8 flex justify-center items-center pt-1">
+              <SquareButton className="!w-8 !h-8 ">
+                <div className="w-8 h-8 flex justify-center items-center pt-1 border-dark border rounded-full">
                   {item?.quantity}
                 </div>
               </SquareButton>
-              <SquareButton
+              <SquareButton className="!w-8 !h-8 "
                 onClick={() => dispatch(incrementQuantity(item.id))}
               >
-                <div className="w-8 h-8 flex justify-center items-center">
+                <div className="w-8 h-8 flex justify-center items-center border-dark border rounded-full">
                   <LiaPlusSolid />
                 </div>
               </SquareButton>

@@ -29,7 +29,7 @@ const ScrollImageSection = () => {
     return (
         <section className="relative w-full">
             {/* Section 1 */}
-            <div className="h-screen bg-primary md:py-[180px] py-16 flex flex-col items-center justify-center">
+            <div className="h-screen bg-[url('/images/home_banner.jpg')] bg-no-repeat bg-center bg-cover md:py-[180px] py-16 flex flex-col items-center justify-center">
                 <div className="container mx-auto flex md:flex-row flex-col justify-between items-center">
                     <div>
                         <h1 className="md:text-[150px] md:leading-[130px] text-6xl font-normal text-dark font-Melodrama">
@@ -37,10 +37,10 @@ const ScrollImageSection = () => {
                             <span className="md:pl-12 pl-6">Refresh <br /></span>
                             <span className="md:pl-12 pl-6">Repeat</span>
                         </h1>
-                        <p className="md:text-4xl text-2xl font-normal text-dark uppercase mt-10 md:pl-12 pl-6">Your daily treat!</p>
+                        <p className="md:text-4xl text-2xl font-light text-dark uppercase mt-10 md:pl-12 pl-6">Your daily treat!</p>
                     </div>
                     <div className="max-w-[450px]">
-                        <p className="text-lg font-normal text-dark">
+                        <p className="text-lg font-light text-dark">
                             Puritual transforms simple cleansing into pure, foamy fun — a joyful ritual you will love. While regular soaps just clean, Puritual delights you with rich lather, natural goodness of aloe vera and vitamin E and mood-lifting scents that make you smile.
                         </p>
                         <p className="text-lg font-semibold text-dark mt-6">
