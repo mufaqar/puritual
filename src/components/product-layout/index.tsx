@@ -44,7 +44,7 @@ const ProductLayout = ({ product }: any) => {
           </Link>
         </div>
         <div>
-          <p className="md:text-[36px] text-2xl font-normal text-black font-cervo">
+          <p className="md:text-[30px] text-2xl font-normal text-black font-cervo">
             Rs {product?.price}
           </p>
           <SquareButton
