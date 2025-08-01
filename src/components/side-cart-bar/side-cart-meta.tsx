@@ -23,7 +23,7 @@ const SideCartMeta = ({ data }: any) => {
           <div className="flex-1">
             <div className="flex justify-between items-start gap-2">
               <div>
-                <h6 className="font-cervo text-2xl text-dark">
+                <h6 className="text-2xl text-dark">
                   {item?.name}
                 </h6>
                 <p className="text-xs text-dark">Serving weight: 80g</p>

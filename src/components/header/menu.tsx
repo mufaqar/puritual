@@ -68,7 +68,7 @@ const Menu = () => {
         ref={menuRef}
         className="absolute bg-secoundry top-0 right-0 md:pl-20 !rounded-bl-[50px] z-50 p-10 pt-20 opacity-0 w-0 h-0"
       >
-        <nav className="flex flex-col text-5xl font-cervo font-medium">
+        <nav className="flex flex-col text-5xl font-medium">
           {menuItems?.map((text: any, i: number) => (
             <Link
               key={i}

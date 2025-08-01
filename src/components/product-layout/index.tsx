@@ -29,7 +29,7 @@ const ProductLayout = ({ product }: any) => {
       </figure>
       <div className="flex justify-between items-start gap-7 w-full mt-3.5">
         <div>
-          <h6 className="md:text-[46px] md:leading-[50px] text-[28px] uppercase font-cervo text-black font-normal">
+          <h6 className="md:text-[46px] md:leading-[50px] text-[28px] uppercase text-black font-normal">
             {product?.name}
           </h6>
           <p className="text-black md:text-2xl text-lg font-axiforma mb-5">

@@ -67,7 +67,7 @@ const OurMission = () => {
   return (
     <section className="bg-dark pt-12 pb-20 relative overflow-hidden">
       <div className="overflow-y-hidden px-4 md:px-0">
-        <div className="text-[54px] md:text-[90px] lg:text-[175px] z-[1] relative text-center max-w-[1280px] mx-auto text-white font-cervo font-medium uppercase leading-[60px] md:leading-[90px] lg:leading-[160px]">
+        <div className="text-[54px] md:text-[90px] lg:text-[175px] z-[1] relative text-center max-w-[1280px] mx-auto text-white font-medium uppercase leading-[60px] md:leading-[90px] lg:leading-[160px]">
           {letterHeadingOne?.map((item, idx) => (
             <span className="t4" key={idx}>
               {item}
@@ -77,7 +77,7 @@ const OurMission = () => {
       </div>
 
       <div className="px-4 md:px-0">
-        <div className="text-[54px] md:text-[90px] lg:text-[175px] z-[1] relative text-center max-w-[1280px] mx-auto text-white font-cervo font-medium uppercase leading-[60px] md:leading-[90px] lg:leading-[160px]">
+        <div className="text-[54px] md:text-[90px] lg:text-[175px] z-[1] relative text-center max-w-[1280px] mx-auto text-white font-medium uppercase leading-[60px] md:leading-[90px] lg:leading-[160px]">
           {letterHeadingTwo?.map((item, idx) => (
             <span key={idx} className="t5">{item}</span>
           ))}
@@ -127,7 +127,7 @@ const OurMission = () => {
             className="mission-Img2 md:max-w-[397px] w-full" 
           />
           <div className="text-white max-w-[675px] mission-text">
-            <h2 className="text-[18vw] leading-[18vw] md:text-[120px] md:leading-[110px] z-[1] mb-5 md:mb-10 heading2 relative mx-auto text-white font-cervo font-medium uppercase ">
+            <h2 className="text-[18vw] leading-[18vw] md:text-[120px] md:leading-[110px] z-[1] mb-5 md:mb-10 heading2 relative mx-auto text-white font-medium uppercase ">
               REDEFINING HAND & BODY CARE
             </h2>
             <div className="mission-text2">

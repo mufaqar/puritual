@@ -79,7 +79,7 @@ const AboutSection = () => {
             className="mission-Img2 md:max-w-[397px] w-full" 
           />
           <div className="text-dark max-w-[675px] mission-text">
-            <h2 className="text-[18vw] leading-[18vw] md:text-[120px] md:leading-[110px] z-[1] mb-5 md:mb-10 heading2 relative mx-auto text-dark font-cervo font-medium uppercase ">
+            <h2 className="text-[18vw] leading-[18vw] md:text-[120px] md:leading-[110px] z-[1] mb-5 md:mb-10 heading2 relative mx-auto text-dark font-medium uppercase ">
               REDEFINING HAND & BODY CARE
             </h2>
             <div className="mission-text2">

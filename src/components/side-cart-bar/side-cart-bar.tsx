@@ -75,7 +75,7 @@ export default SideCartBar;
 
 const EmptyCartMessage = () => {
   return (
-    <div className="font-cervo mt-10 text-2xl text-dark">
+    <div className="mt-10 text-2xl text-dark">
       Your Cart has no item!
     </div>
   );

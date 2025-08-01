@@ -52,7 +52,7 @@ const FaqsTemplate = ({ faqs }: any) => {
       <section className="bg-primary w-full">
         <main className="overflow-y-hidden sm:pt-36 pt-26 pb-10 sm:pb-20 bg-secoundry rounded-b-[60px]">
           {/* Animated Heading */}
-          <h1 className="flex justify-center flex-wrap px-10 overflow-y-hidden text-[14vw] font-medium md:text-[10vw] font-cervo leading-[13vw] text-primary md:leading-[8vw] text-center">
+          <h1 className="flex justify-center flex-wrap px-10 overflow-y-hidden text-[14vw] font-medium md:text-[10vw] leading-[13vw] text-primary md:leading-[8vw] text-center">
             {Array.from("FAQS").map((char, index) => (
               <span key={index} className="t1 uppercase">
                 {char === " " ? "\u00A0" : char}
@@ -70,7 +70,7 @@ const FaqsTemplate = ({ faqs }: any) => {
               ref={(el: any) => (faqRefs.current[idx] = el)}
               className="border-t gap-4 sm:gap-10 md:gap-20 text-dark py-4 md:p-10 flex flex-col sm:flex-row border-dark opacity-0"
             >
-              <h4 className="sm:w-[35%] font-cervo font-medium text-2xl sm:text-4xl">
+              <h4 className="sm:w-[35%] font-medium text-2xl sm:text-4xl">
                 {item?.question}
               </h4>
               <div className="flex-1 space-y-2" dangerouslySetInnerHTML={{ __html: item?.answer }} />

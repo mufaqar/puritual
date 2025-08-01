@@ -40,13 +40,13 @@ const ImagePin = () => {
           <div className="container px-4 md:px-10 text-pure mx-auto grid md:grid-cols-2 grid-cols-1 gap-5 items-center">
             <div>
               <div className="overflow-y-hidden flex flex-col md:flex-row md:items-center gap-4">
-                <h2 className="flex md:justify-end text-[20vw] leading-[16vw] md:text-[12vw] font-cervo font-medium md:leading-[10vw] text-right">
+                <h2 className="flex md:justify-end text-[20vw] leading-[16vw] md:text-[12vw] font-medium md:leading-[10vw] text-right">
                   <p className="t3">S</p>
                   <p className="t3">H</p>
                   <p className="t3">O</p>
                   <p className="t3">P</p>
                 </h2>
-                <h2 className="flex overflow-y-hidden md:hidden text-[20vw] leading-[16vw] md:text-[12vw] font-cervo font-medium md:leading-[10vw] text-left">
+                <h2 className="flex overflow-y-hidden md:hidden text-[20vw] leading-[16vw] md:text-[12vw] font-medium md:leading-[10vw] text-left">
                   <p className="t3">H</p>
                   <p className="t3">Y</p>
                   <p className="t3">G</p>
@@ -55,7 +55,7 @@ const ImagePin = () => {
                   <p className="t3">N</p>
                   <p className="t3">E</p>
                 </h2>
-                <h2 className="flex md:hidden md:justify-end overflow-y-hidden text-[20vw] leading-[16vw] md:text-[12vw] font-cervo font-medium md:leading-[10vw] text-left">
+                <h2 className="flex md:hidden md:justify-end overflow-y-hidden text-[20vw] leading-[16vw] md:text-[12vw] font-medium md:leading-[10vw] text-left">
                   <p className="t3">P</p>
                   <p className="t3">U</p>
                   <p className="t3">R</p>
@@ -70,7 +70,7 @@ const ImagePin = () => {
                   refreshes—powered by nature! 💧
                 </p>
               </div>
-              <h2 className="overflow-y-hidden hidden md:flex text-[12vw] font-cervo font-medium md:leading-[10vw] text-left">
+              <h2 className="overflow-y-hidden hidden md:flex text-[12vw] font-medium md:leading-[10vw] text-left">
                 <p className="t3">H</p>
                 <p className="t3">Y</p>
                 <p className="t3">G</p>
@@ -80,7 +80,7 @@ const ImagePin = () => {
                 <p className="t3">E</p>
               </h2>
               <div className="flex gap-8 items-center">
-                <h2 className="hidden md:flex justify-end overflow-y-hidden text-[12vw] font-cervo font-medium md:leading-[10vw] text-left">
+                <h2 className="hidden md:flex justify-end overflow-y-hidden text-[12vw] font-medium md:leading-[10vw] text-left">
                   <p className="t3">P</p>
                   <p className="t3">U</p>
                   <p className="t3">R</p>
