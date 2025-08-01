@@ -17,7 +17,7 @@ const Menu = () => {
       gsap.fromTo(
         menuRef.current,
         { opacity: 0, top: "-20%", right: "-20%", width: "80px", height: "80px", borderRadius: "50%" },
-        { opacity: 1, top: 0, right: 0, maxWidth: "438px", width: "100%", minHeight: "458px", borderRadius: "0%", duration: 0.5, ease: "power2.out" }
+        { opacity: 1, top: 0, right: 0, maxWidth: "438px", width: "100%", minHeight: "558px", borderRadius: "0%", duration: 0.5, ease: "power2.out" }
       );
 
       gsap.fromTo(
@@ -66,7 +66,7 @@ const Menu = () => {
       {/* MENU */}
       <div
         ref={menuRef}
-        className="absolute bg-secoundry top-0 right-0 md:pl-20 !rounded-bl-[50px] z-50 p-10 pt-10 opacity-0 w-0 h-0"
+        className="absolute bg-secoundry top-0 right-0 md:pl-20 !rounded-bl-[50px] z-50 p-10 pt-24 opacity-0 w-0 h-0"
       >
         <nav className="flex flex-col gap-2.5 text-5xl font-medium">
           {menuItems?.map((text: any, i: number) => (

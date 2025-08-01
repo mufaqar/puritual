@@ -42,7 +42,7 @@ const AboutSection = () => {
             alt=""
             width={665}
             height={826}
-            className="md:w-[500px] w-full mission-Img mt-6 md:-mt-36"
+            className="md:w-[500px] w-full mission-Img mt-6 "
           />
         </figure>
         <div className="md:max-w-[483px] font-axiforma text-dark mission-text">
@@ -102,16 +102,10 @@ const AboutSection = () => {
               the world.
             </p>
             </div>
-            <CircleButton link="/about-us" dark/>
+         
           </div>
         </div>
-        <Image
-          src="/images/mission-2.png"
-          alt=""
-          width={457}
-          height={626}
-          className="mission-text max-w-[457px] w-full"
-        />
+        
       </div>
 
       <Image
