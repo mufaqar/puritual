@@ -21,6 +21,7 @@ interface MetaData {
     banner_image: string;
     enriched_image: string;
     product_enriched: string;
+    product_color: string;
   };
   excerpt: {
     rendered: string;
@@ -55,7 +56,7 @@ const ProductTemplate: React.FC<ProductTemplateProps> = ({ product, meta }) => {
   const images = product.images;
   const banner_image = meta.acf.banner_image;
   const enriched_image = meta.acf.enriched_image;
-
+const product_color = meta.acf.product_color;
   console.log(product);
   console.log(images[0].src);
 
@@ -90,7 +91,8 @@ const ProductTemplate: React.FC<ProductTemplateProps> = ({ product, meta }) => {
 
       {/* Product Info Section */}
       <section className="bg-dark md:py-[100px] py-16 px-8">
-        <div className="container bg-primary flex md:flex-row flex-col-reverse items-center md:gap-10 gap-4 mx-auto px-4 border-[10px] border-[#339933] rounded-[20px] md:px-8 md:py-10 py-5 relative">
+        <div className="container bg-primary flex md:flex-row flex-col-reverse items-center md:gap-10 gap-4 mx-auto px-4 border-[10px] rounded-[20px] md:px-8 md:py-10 py-5 relative"
+        style={{ borderColor: product_color }}>
           <div className="md:w-1/3 w-full">
             <Image
               src={enriched_image}
