@@ -1,5 +1,5 @@
 import React from "react";
-import SquareButton from "../ui/square-button";
+import CircleButton from "../ui/circle-button";
 import Image from "next/image";
 import { RiDeleteBin6Fill } from "react-icons/ri";
 import { useDispatch } from "react-redux";
@@ -36,25 +36,25 @@ const SideCartMeta = ({ data }: any) => {
               </button>
             </div>
             <div className="flex items-center gap-3 mt-2 pb-1.5">
-              <SquareButton className="!w-8 !h-8 "
+              <CircleButton className="!w-8 !h-8 "
                 onClick={() => dispatch(decrementQuantity(item.id))}
               >
                 <div className="w-8 h-8 flex justify-center items-center border-dark border rounded-full">
                   <TfiLayoutLineSolid />
                 </div>
-              </SquareButton>
-              <SquareButton className="!w-8 !h-8 ">
+              </CircleButton>
+              <CircleButton className="!w-8 !h-8 ">
                 <div className="w-8 h-8 flex justify-center items-center pt-1 border-dark border rounded-full">
                   {item?.quantity}
                 </div>
-              </SquareButton>
-              <SquareButton className="!w-8 !h-8 "
+              </CircleButton>
+              <CircleButton className="!w-8 !h-8 "
                 onClick={() => dispatch(incrementQuantity(item.id))}
               >
                 <div className="w-8 h-8 flex justify-center items-center border-dark border rounded-full">
                   <LiaPlusSolid />
                 </div>
-              </SquareButton>
+              </CircleButton>
             </div>
           </div>
         </div>

@@ -72,7 +72,6 @@ const HomePage = ({ products }: any) => {
       <ProductSlider products={products} />
       <Logo />
       <Shop />
-      <section className="fixed inset-0 bg-black z-[1000] splash"></section>
     </>
   );
 };

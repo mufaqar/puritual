@@ -1,5 +1,5 @@
 import ScrollText from "@/components/ScrollText";
-import CircleButton from "@/components/ui/circle-button";
+import CircleButton from "@/components/ui/square-button";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";

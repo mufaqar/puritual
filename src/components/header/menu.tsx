@@ -5,7 +5,7 @@ import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { HiOutlineBars3 } from "react-icons/hi2";
 import { IoCloseOutline } from "react-icons/io5";
-import SquareButton from "../ui/square-button";
+import CircleButton from "../ui/circle-button";
 
 const Menu = () => {
   const [isMenu, setIsMenu] = useState(false);
@@ -54,28 +54,28 @@ const Menu = () => {
 
   return (
     <>
-      <SquareButton onClick={handleMenu} className="dark_bubble bg-dark md:w-[81px] md:h-[81px] w-[46px] h-[46px] " BgHovr="bg-secoundry md:w-[81px] md:h-[81px] w-[46px] h-[46px] ">
+      <CircleButton onClick={handleMenu} className="dark_bubble bg-dark md:w-[81px] md:h-[81px] w-[46px] h-[46px] " BgHovr="bg-secoundry md:w-[81px] md:h-[81px] w-[46px] h-[46px] ">
         {!isMenu ? (
           <HiOutlineBars3 className="text-4xl text-white relative z-[100]" />
         ) : (
           <IoCloseOutline className="text-4xl text-white relative z-[100]" />
         )}
-      </SquareButton>
+      </CircleButton>
 
 
       {/* MENU */}
       <div
         ref={menuRef}
-        className="absolute bg-secoundry top-0 right-0 md:pl-20 !rounded-bl-[50px] z-50 p-10 pt-20 opacity-0 w-0 h-0"
+        className="absolute bg-secoundry top-0 right-0 md:pl-20 !rounded-bl-[50px] z-50 p-10 pt-10 opacity-0 w-0 h-0"
       >
-        <nav className="flex flex-col text-5xl font-medium">
+        <nav className="flex flex-col gap-2.5 text-5xl font-medium">
           {menuItems?.map((text: any, i: number) => (
             <Link
               key={i}
               href={text?.path}
               ref={(el: any) => (linksRef.current[i] = el)}
               onClick={() => setIsMenu(!isMenu)}
-              className="leading-14 hover:text-primary opacity-0 text-dark w-fit"
+              className="leading-14 hover:text-primary opacity-0 font-Melodrama text-dark w-fit"
             >
               {text?.label}
             </Link>

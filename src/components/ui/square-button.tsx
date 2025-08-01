@@ -1,13 +1,11 @@
+import Link from "next/link";
 import React from "react";
 
-const SquareButton = ({ children, onClick, className, BgHovr }: any) => {
+const SquareButton = ({children, link, Custom_class}:any) => {
   return (
-    <button className={`${className} w-[94px] group relative h-[94px] rounded-full flex justify-center mt-4 items-center cursor-pointer transition-all duration-300 ease-linear`}
-      onClick={onClick}
-    >
-      {children}
-      <div className={`${BgHovr} w-[94px] absolute h-[94px] scale-0 group-hover:scale-[1.01] transition-all duration-300 ease-linear rounded-full`} />
-    </button>
+    <Link href={`${link}`} className={`bg-dark hover:bg-secoundry px-3 py-2 text-lg relative z-20 text-white flex text-center justify-center items-center shadow-[3px_3px_0_3px_rgb(174,208,54)] hover:shadow-[0px_0px_0_0px_rgb(174,208,54)] transition-all duration-300 ease-linear ${Custom_class}`}>
+       {children}
+    </Link>
   );
 };
 

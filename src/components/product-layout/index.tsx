@@ -5,7 +5,7 @@ import Link from "next/link";
 import React from "react";
 import { FaChevronRight } from "react-icons/fa";
 import { useDispatch } from "react-redux";
-import SquareButton from "../ui/square-button";
+import CircleButton from "../ui/circle-button";
 
 const ProductLayout = ({ product }: any) => {
  // console.log("🚀 ~ ProductLayout ~ product:", product);
@@ -27,7 +27,7 @@ const ProductLayout = ({ product }: any) => {
           className="h-full w-full object-cover rounded-[20px]"
         />
       </figure>
-      <div className="flex justify-between items-start gap-7 w-full mt-3.5">
+      <div className="flex justify-between items-start gap-4 min-h-[190px] w-full mt-3.5">
         <div>
           <h6 className="md:text-[46px] md:leading-[50px] text-[28px] uppercase text-black font-normal">
             {product?.name}
@@ -44,14 +44,15 @@ const ProductLayout = ({ product }: any) => {
           </Link>
         </div>
         <div>
-          <p className="md:text-[30px] text-2xl font-normal text-black font-cervo">
+          <p className="md:text-[25px] text-2xl font-normal text-black font-cervo">
             Rs {product?.price}
           </p>
-          <SquareButton
-            onClick={() => dispatch(addInCart(product))}
+          <CircleButton
             className="light_bubble bg-secoundry"
             BgHovr="bg-dark"
           >
+            <Link
+            href={`/product/${product?.slug}`} className="z-10 relative">
             <svg
               width="38px"
               height="53px"
@@ -65,7 +66,8 @@ const ProductLayout = ({ product }: any) => {
                 fill="current"
               />
             </svg>
-          </SquareButton>
+            </Link>
+          </CircleButton>
         </div>
       </div>
     </div>

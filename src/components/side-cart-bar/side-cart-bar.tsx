@@ -2,7 +2,7 @@
 import React, { useEffect, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import gsap from "gsap";
-import SquareButton from "../ui/square-button";
+import CircleButton from "../ui/circle-button";
 import { RxCross2 } from "react-icons/rx";
 import CartButton from "../header/cart-button";
 import { closeCart } from "@/redux/features/side-cart-slice";
@@ -46,19 +46,19 @@ const SideCartBar = () => {
     <>
       <div
         ref={sideCartRef}
-        className="z-[1000] fixed top-0 bottom-0 right-0 max-w-[460px] w-full bg-primary shadow-lg px-7 py-5 overflow-y-scroll"
+        className="z-[1000] fixed top-0 bottom-0 right-0 max-w-[460px] w-full bg-primary shadow-lg px-7 py-5"
         style={{ transform: "translateX(100%)" }} // Initial position off-screen
       >
         <div className="flex justify-end items-center">
           <CartButton small />
-          <SquareButton onClick={() => dispatch(closeCart())}>
+          <CircleButton onClick={() => dispatch(closeCart())}>
             <div className="text-3xl text-dark p-1">
               <RxCross2 />
             </div>
-          </SquareButton>
+          </CircleButton>
         </div>
         {/* Cart Items  */}
-        <div className="h-[calc(100vh-280px)] overflow-y-auto mt-4">
+        <div className="h-[calc(100vh-330px)] overflow-y-auto mt-4">
           {cart?.items?.length > 0 ? (
             <SideCartMeta data={cart} />
           ) : (

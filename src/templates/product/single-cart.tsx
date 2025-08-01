@@ -1,5 +1,5 @@
 "use client";
-import SquareButton from "@/components/ui/square-button";
+import CircleButton from "@/components/ui/circle-button";
 import { addInCart } from "@/redux/features/add-to-cart-slice";
 import { openCart } from "@/redux/features/side-cart-slice";
 import React, { useState } from "react";
@@ -17,14 +17,14 @@ const SingleCart = ({ product }: any) => {
   return (
     <>
       <div className="flex flex-col md:flex-row gap-4 md:items-center md:justify-end">
-        <SquareButton
+        <CircleButton
           className="dark_bubble bg-dark md:w-[152px] md:h-[152px]"
           BgHovr="bg-secoundry md:w-[152px] md:h-[152px]"
         >
           <p className="md:text-3xl text-xl font-bold text-primary z-10 group-hover:text-dark">
             Rs {(Number(product?.price) * cartItem).toFixed(2)}
           </p>
-        </SquareButton>
+        </CircleButton>
         <div className="flex items-center gap-3 mt-2 pb-1.5">
           <button onClick={() => setCartItem(cartItem <= 0 ? 0 : cartItem - 1)}>
             <div className="md:w-[88px] md:h-[88px] w-12 h-12 flex text-dark hover:text-primary bg-transparent hover:bg-dark justify-center items-center border border-dark rounded-full cursor-pointer md:text-4xl text-xl font-normal transition-all duration-300 ease-linear">
@@ -42,7 +42,7 @@ const SingleCart = ({ product }: any) => {
             </div>
           </button>
         </div>
-        <SquareButton
+        <CircleButton
           onClick={handleAddToCart}
           className="light_bubble bg-secoundry md:w-[152px] md:h-[152px]"
           BgHovr="bg-dark md:w-[152px] md:h-[152px]"
@@ -60,7 +60,7 @@ const SingleCart = ({ product }: any) => {
               fill="current"
             />
           </svg>
-        </SquareButton>
+        </CircleButton>
       </div>
     </>
   );
