@@ -1,5 +1,6 @@
 "use client";
 import CircleButton from "@/components/ui/circle-button";
+import SquareButton from "@/components/ui/square-button";
 import { useState } from "react";
 
 export default function ContactForm() {
@@ -78,11 +79,11 @@ export default function ContactForm() {
           </div>
 
           <div className="relative">
-            <CircleButton className="hidden md:block">
+            <SquareButton className="hidden md:block" Custom_class="w-fit">
               <p className="uppercase flex h-full p-2 px-[21px] pt-4 justify-center items-center text-center">
                 Send Message
               </p>
-            </CircleButton>
+            </SquareButton>
           </div>
         </form>
       )}
