@@ -19,9 +19,9 @@ function Shop() {
                     </div>
                 </div>
                 <div className='flex justify-end items-end h-full md:pb-20'>
-                    <Link href="#" className="md:text-3xl text-xl text-dark hover:text-dark font-semibold light_bubble bg-secoundry md:w-[172px] w-[94px] relative md:h-[172px] h-[94px] rounded-full flex text-center justify-center mt-10 items-center cursor-pointer transition-all duration-300 ease-linear group"                                  >
-                        <span className="z-10">SHOP <br />NOW</span>
-                        <div className="bg-primary md:w-[172px] w-[94px] absolute md:h-[172px] h-[94px] scale-0 group-hover:scale-[1.01] transition-all duration-300 ease-linear rounded-full" />
+                    <Link href="/catalog" className="md:text-3xl text-xl text-dark hover:text-dark font-semibold light_bubble bg-secoundry md:w-[172px] w-[94px] relative md:h-[172px] h-[94px] rounded-full flex text-center justify-center mt-10 items-center cursor-pointer transition-all duration-300 ease-linear group"                                  >
+                        <span className="z-10 group-hover:text-white">SHOP <br />NOW</span>
+                        <div className="bg-primary md:w-[172px] w-[94px] absolute md:h-[172px] h-[94px] scale-0 group-hover:scale-[1.01] transition-all duration-300 ease-linear rounded-full group-hover:bg-dark" />
                     </Link>
                 </div>
             </div>
