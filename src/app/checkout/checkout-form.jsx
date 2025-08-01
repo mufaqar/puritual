@@ -1,11 +1,11 @@
 'use client'
 import React, { useState } from 'react'
-import SquareButton from '@/components/ui/square-button'
 import { useSelector } from 'react-redux';
 import { handleCheckout } from '@/lib/handle-checkout';
 import { CreateOrder } from '@/lib/create-order';
 import { useRouter } from 'next/navigation';
 import { toast } from 'react-toastify';
+import SquareButton from '@/components/ui/square-button';
 
 const CheckouthtmlForm = () => {
     const cart = useSelector((state) => state?.cart);
@@ -262,7 +262,7 @@ const CheckouthtmlForm = () => {
                             </div>
                         </div>
                         <div className="space-y-3">
-                            <SquareButton onClick={handleCheckoutPayment} className="uppercase w-full">
+                            <SquareButton onClick={handleCheckoutPayment} Custom_class="uppercase w-full bg-primary !text-dark hover:!text-white">
                                 <p className='pb-[10px] font-medium pt-[14px]'>{loading ? "Proceeding..." : "Proceed to Payment"}</p>
                             </SquareButton>
                             <p className="text-sm mt-2 font-normal text-gray-400">

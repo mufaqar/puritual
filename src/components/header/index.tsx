@@ -5,7 +5,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Logo from "./logo";
 import CartButton from "./cart-button";
-import SquareButton from "../ui/square-button";
+import SquareButton from "../ui/circle-button";
 import Menu from "./menu";
 import SideCartBar from "../side-cart-bar/side-cart-bar";
 import Link from "next/link";

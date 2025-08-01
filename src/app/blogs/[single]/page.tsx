@@ -24,7 +24,7 @@ const BlogSingle = async ({ params }: any) => {
       <section className="bg-primary w-full">
         <main className="overflow-y-hidden sm:pt-24 pt-26 pb-10 sm:pb-20 bg-dark rounded-b-[60px]">
           {/* Animated Heading */}
-          <h1 className="flex justify-center flex-wrap px-10 md:mt-8 overflow-y-hidden text-[6vw] font-medium font-cervo leading-[6vw] text-primary  text-center">
+          <h1 className="flex justify-center flex-wrap px-10 md:mt-8 overflow-y-hidden text-[6vw] font-medium leading-[6vw] text-primary  text-center">
             {Array.from(post?.title?.rendered).map((char: any, index) => (
               <span key={index} className="t1 uppercase">
                 {char === " " ? "\u00A0" : char}
