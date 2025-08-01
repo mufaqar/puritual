@@ -5,6 +5,7 @@ import RelatedProducts from "./related-products";
 import Logo from "../logo/logo";
 import Review from "@/components/Reviews/Review";
 import { FaPlus } from "react-icons/fa";
+import ProductFeatures from "@/components/product-layout/ProductFeatures";
 
 // Types
 interface MetaListingItem {
@@ -132,18 +133,7 @@ const product_color = meta.acf.product_color;
                   {product.name}
                 </h3>
 
-                {/* FAQs List */}
-                {listing.map((item, idx) => (
-                  <div key={idx} className="mb-6">
-                    <h4 className="md:text-3xl text-xl font-normal text-dark mb-2.5 flex items-center justify-between gap-5">
-                      <span>{item.title}</span> <FaPlus className="text-xl" />
-                    </h4>
-                    <p
-                      className="md:text-xl text-lg font-normal text-dark"
-                      dangerouslySetInnerHTML={{ __html: item.value }}
-                    />
-                  </div>
-                ))}
+              <ProductFeatures listing={listing} />
               </div>
               <div className="md:min-w-[217px] md:h-[217px] w-[217px] h-[217px] rounded-full border border-secoundry flex flex-col items-center justify-center relative before:content-[''] before:absolute before:w-[30px] before:h-[30px] before:rounded-full before:border before:border-secoundry before:-top-2 before:left-0">
                 <p className="text-xs font-normal text-dark text-center">
