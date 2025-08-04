@@ -11,8 +11,8 @@ const Footer = () => {
   return (
     <footer className="">
       <section className="bg-dark py-[68px] lg:px-10 px-4">
-        <div className="flex flex-wrap justify-between gap-6 md:gap-0 container mx-auto">
-          <nav className="text-primary flex flex-col gap-4  md:justify-start justify-center">
+        <div className="flex md:flex-row flex-col justify-between gap-6 md:gap-0 container mx-auto">
+          <nav className="text-primary flex flex-col gap-4 md:justify-start justify-center">
             <Link href="/about-us" className="hover:text-pure">
               About
             </Link>
@@ -24,7 +24,7 @@ const Footer = () => {
             </Link>
           </nav>
 
-          <nav className="text-pure flex justify-center flex-col items-center gap-4 ">
+          <nav className="text-pure flex justify-center flex-col items-center gap-4 md:order-2 order-3 ">
             <div className=" flex justify-center md:justify-end gap-4 lg:gap-8 text-lg lg:text-[26px]">
               <Link href="https://www.facebook.com/profile.php?id=61573850430062&rdid=TjDPWDoJiM2zrhOy&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F16N2cgBjq1%2F" target="_blank" className="bg-white text-dark rounded-md py-2 px-2 hover:scale-105 transition-all duration-300">
                 <FaFacebookF />
@@ -39,7 +39,7 @@ const Footer = () => {
             <p className="text-primary font-light ">© Copyright 2026, Puritual</p>
           </nav>
 
-          <nav className="text-primary flex justify-center flex-col gap-4">
+          <nav className="text-primary flex justify-center flex-col gap-4 md:order-3 order-2">
             <Link href="/faqs" className="hover:text-pure">
               Faq
             </Link>

@@ -30,7 +30,7 @@ const ScrollImageSection = () => {
         <section className="relative w-full">
             {/* Section 1 */}
             <div className="h-screen bg-[url('/images/home_banner.jpg')] bg-no-repeat bg-center bg-cover md:py-[180px] py-16 flex flex-col items-center justify-center">
-                <div className="container mx-auto flex md:flex-row flex-col justify-between items-center">
+                <div className="container mx-auto md:px-0 px-3 flex md:flex-row flex-col justify-between md:items-center">
                     <div>
                         <h1 className="md:text-[150px] md:leading-[130px] text-6xl font-normal text-dark font-Melodrama">
                             Cleans<br />
@@ -70,9 +70,9 @@ const ScrollImageSection = () => {
 
             {/* Section 2 */}
             <div className="h-screen bg-primary md:py-[180px] py-16 flex flex-col items-center justify-center">
-                <div className="container mx-auto flex md:flex-row flex-col justify-between items-center ">
+                <div className="container mx-auto md:px-0 px-3 flex md:flex-row flex-col justify-between md:items-center ">
                     <div className="md:w-1/3 w-full">
-                        <h2 className="md:text-[100px] md:leading-[90px] text-4xl font-light tracking-normal text-dark font-Melodrama">
+                        <h2 className="md:text-[100px] md:leading-[90px] text-5xl font-light tracking-normal text-dark font-Melodrama">
                             Who knew washing hands could be this much fun?
                         </h2>
                     </div>

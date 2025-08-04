@@ -2,6 +2,7 @@ import CircleButton from "@/components/ui/circle-button";
 import React from "react";
 
 import Link from "next/link";
+import SquareButton from "@/components/ui/square-button";
 
 const BlogsList = ({ blog }: any) => {
   const formattedDate = blog.date;
@@ -39,24 +40,19 @@ const BlogsList = ({ blog }: any) => {
           {/* Buttons */}
           <div className="mt-4 flex gap-3">
             <div className="relative">
-              <CircleButton className="hidden md:block">
-                <a
-                  href={`/blogs/${blog.slug}`}
-                  className="bg-red-700 text-white px-4 py-2 text-sm hover:bg-red-800 transition"
+              <SquareButton link={`/blogs/${blog.slug}`} Custom_class="hidden md:block text-white px-4 py-2 text-sm transition">
+                <span
                 >
                   READ MORE
-                </a>
-              </CircleButton>
+                </span>
+              </SquareButton>
             </div>
             <div className="relative">
-              <CircleButton className="hidden md:block">
-                <a
-                  href={blog?.addCommentLink || "#"}
-                  className="border border-red-700 text-red-700 px-4 py-2 text-sm hover:bg-red-700 hover:text-white transition"
-                >
+              <SquareButton link={blog?.addCommentLink || "#"} Custom_class="hidden md:block text-white px-4 py-2 text-sm transition">
+                <span>
                   ADD COMMENT
-                </a>
-              </CircleButton>
+                </span>
+              </SquareButton>
             </div>
           </div>
         </div>
