@@ -62,7 +62,7 @@ const ContactTemplate = () => {
               </Link>
             </div>
             <div className="contact-item">
-              <Link href="mailto:info@puritualofficial.com" target="_blank" className="hover:underline w-fit">
+              <Link href="mailto:info@puritualofficial.com" target="_blank" className="hover:underline w-fit text-2xl sm:text-5xl md:text-6xl">
               info@puritualofficial.com
               </Link>
             </div>
@@ -71,7 +71,7 @@ const ContactTemplate = () => {
       </section>
 
       <section className="pt-10 pb-20 bg-primary">
-        <h2 className="flex justify-center mb-8 flex-wrap px-10 overflow-y-hidden text-[14vw] font-medium md:text-[5vw] leading-[13vw] text-dark md:leading-[8vw] text-center">
+        <h2 className="flex justify-center mb-8 flex-wrap px-10 overflow-y-hidden text-[12vw] font-medium md:text-[5vw] leading-[13vw] text-dark md:leading-[8vw] text-center">
           {Array.from("HAVE A QUESTION? THERE ARE ANSWERS TOO!").map(
             (char, index) => (
               <span key={index} className="t2">

@@ -54,13 +54,13 @@ const ProductSlider: React.FC<ProductSliderProps> = ({ products }) => {
 
         {/* Custom Arrows */}
         <button
-          className="button absolute top-1/2 -translate-y-1/2 -left-5 text-secoundry hover:text-primary text-3xl cursor-pointer hover:scale-125 transition-all "
+          className="button absolute top-1/2 -translate-y-1/2 sm:-left-5 left-0 text-secoundry hover:text-primary text-3xl cursor-pointer hover:scale-125 transition-all "
           onClick={previous}
         >
           <FaChevronLeft />
         </button>
         <button
-          className="button absolute top-1/2 -translate-y-1/2 -right-5 text-secoundry hover:text-primary text-3xl cursor-pointer hover:scale-125 transition-all "
+          className="button absolute top-1/2 -translate-y-1/2 sm:-right-5 right-0 text-secoundry hover:text-primary text-3xl cursor-pointer hover:scale-125 transition-all "
           onClick={next}
         >
           <FaChevronRight />

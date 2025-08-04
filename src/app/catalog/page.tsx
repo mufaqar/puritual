@@ -16,7 +16,7 @@ export default async function Home() {
 
   return (
     <>
-      <section className="md:py-[180px] py-16 bg-[url('/images/catalog.jpg')] bg-center bg-cover bg-no-repeat">
+      <section className="md:py-[180px] py-20 bg-[url('/images/catalog.jpg')] bg-center bg-cover bg-no-repeat">
         <div className="container mx-auto px-4 flex md:flex-row flex-col justify-between items-center">
          <div className="max-w-[592px]">
             <h1 className="md:text-[100px] md:leading-[100px] text-6xl font-normal text-dark">

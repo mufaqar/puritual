@@ -54,11 +54,11 @@ const Menu = () => {
 
   return (
     <>
-      <CircleButton onClick={handleMenu} className="dark_bubble bg-dark md:w-[81px] md:h-[81px] w-[46px] h-[46px] " BgHovr="bg-secoundry md:w-[81px] md:h-[81px] w-[46px] h-[46px] ">
+      <CircleButton onClick={handleMenu} className="dark_bubble bg-dark md:!w-[81px] md:!h-[81px] !w-[46px] !h-[46px] " BgHovr="bg-secoundry md:w-[81px] md:h-[81px] w-[46px] h-[46px] ">
         {!isMenu ? (
-          <HiOutlineBars3 className="text-4xl text-white relative z-[100]" />
+          <HiOutlineBars3 className="sm:text-4xl text-2xl text-white relative z-[100]" />
         ) : (
-          <IoCloseOutline className="text-4xl text-white relative z-[100]" />
+          <IoCloseOutline className="sm:text-4xl text-2xl text-white relative z-[100]" />
         )}
       </CircleButton>
 
@@ -68,14 +68,14 @@ const Menu = () => {
         ref={menuRef}
         className="absolute bg-secoundry top-0 right-0 md:pl-20 !rounded-bl-[50px] z-50 p-10 pt-24 opacity-0 w-0 h-0"
       >
-        <nav className="flex flex-col gap-2.5 text-5xl font-medium">
+        <nav className="flex flex-col gap-2.5 sm:text-5xl text-3xl font-medium">
           {menuItems?.map((text: any, i: number) => (
             <Link
               key={i}
               href={text?.path}
               ref={(el: any) => (linksRef.current[i] = el)}
               onClick={() => setIsMenu(!isMenu)}
-              className="leading-14 hover:text-primary opacity-0 font-Melodrama text-dark w-fit"
+              className="sm:leading-14 hover:text-primary opacity-0 font-Melodrama text-dark w-fit"
             >
               {text?.label}
             </Link>
