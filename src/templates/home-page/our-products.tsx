@@ -9,7 +9,7 @@ const OurProducts: React.FC<OurProductsProps> = ({ products }) => {
   return (
      <section className="bg-dark py-10 md:py-[120px]">
       <div className="container mx-auto px-4 relative">
-        <h2 className="text-[60px] md:text-[150px] z-[1] mb-10 relative mx-auto text-primary font-Melodrama font-normal capitalize leading-[110px]">
+        <h2 className="text-[60px] leading-[60px] md:text-[150px] md:leading-[110px] z-[1] mb-10 relative mx-auto text-primary font-Melodrama font-normal capitalize">
           Our Products
         </h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 md:gap-[70px] gap-3">

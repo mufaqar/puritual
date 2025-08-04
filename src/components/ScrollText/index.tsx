@@ -39,7 +39,7 @@ const ScrollText = () => {
       </div>
       {/* Circular text */}
       <div className="bg-primary w-[600px] min-h-full z-10 absolute top-0 bottom-0 left-1/2 -translate-x-1/2 ">
-        <div className="absolute left-1/2 top-[40%] -translate-x-1/2 -translate-y-1/2 md:w-[200px] md:h-[200px] w-[160px] h-[160px] pointer-events-none z-10">
+        <div className="absolute left-1/2 top-[40%] -translate-x-1/2 -translate-y-1/2 md:w-[200px] md:h-[200px] w-[120px] h-[120px] pointer-events-none z-10">
           <CircleText
             text={[
               'PODEMOS DE VERDADE! PODEMOS DE VERDADE!',
@@ -49,8 +49,8 @@ const ScrollText = () => {
             reverse={[false, false]}
             className={['', '']}
             textClass={[
-              'text-2xl text-dark tracking-widest font-normal',
-              'text-4xl text-dark tracking-[40px] font-normal'
+              'md:text-2xl text-xl text-dark tracking-widest font-normal',
+              'md:text-4xl text-xl text-dark tracking-[40px] font-normal'
             ]}
           />
         </div>
