@@ -11,35 +11,35 @@ function Logo() {
             alt="premium"
             width={200}
             height={100}
-            className=" "
+            className="md:w-auto w-[80px]"
           />
           <Image
             src="/images/circle.svg"
             alt="circle"
             width={80}
             height={80}
-            className=" "
+            className="md:w-auto w-[40px]"
           />
           <Image
             src="/images/delightful.svg"
             alt="delightful"
             width={200}
             height={100}
-            className=" "
+            className="md:w-auto w-[80px]"
           />
           <Image
             src="/images/circle.svg"
             alt="circle"
             width={80}
             height={80}
-            className=" "
+            className="md:w-auto w-[40px]"
           />
           <Image
             src="/images/vitamin.svg"
             alt="vitamin"
             width={200}
             height={100}
-            className=" "
+            className="md:w-auto w-[80px]"
           />         
         </div>
       </div>

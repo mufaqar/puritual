@@ -29,7 +29,7 @@ const ScrollImageSection = () => {
     return (
         <section className="relative w-full">
             {/* Section 1 */}
-            <div className="h-screen bg-[url('/images/home_banner.jpg')] bg-no-repeat bg-center bg-cover md:py-[180px] py-16 flex flex-col items-center justify-center">
+            <div className="h-screen bg-[url('/images/home_banner.jpg')] bg-no-repeat bg-center bg-cover md:py-[180px] py-22 flex flex-col items-center justify-center">
                 <div className="container mx-auto md:px-0 px-3 flex md:flex-row flex-col justify-between md:items-center">
                     <div>
                         <h1 className="md:text-[150px] md:leading-[130px] text-6xl font-normal text-dark font-Melodrama">

@@ -53,7 +53,7 @@ const PrivacyTemplate = () => {
       <section className="bg-primary w-full">
         <main className=" sm:pt-24 pt-26 pb-10 sm:pb-20 bg-secoundry rounded-b-[60px]">
           <div className=" px-4 md:px-0">
-            <div className="text-[54px] md:text-[90px]  z-[1] relative text-center max-w-[1280px] mx-auto text-white font-medium uppercase leading-[60px] md:leading-[90px] ">
+            <div className="flex justify-center flex-wrap px-10 md:mt-8 overflow-y-hidden text-[6vw] font-medium leading-[6vw] text-white  text-center">
               {letterHeadingOne?.map((item, idx) => (
                 <span className="t4" key={idx}>
                   {item}

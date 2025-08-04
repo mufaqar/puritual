@@ -22,10 +22,10 @@ const CartStats = ({ cart }: any) => {
       </div>
       <div className="mt-5 flex gap-4">
         <SquareButton link="/checkout"
-          onClick={() => dispatch(closeCart())} Custom_class="w-1/2">
+          onClick={() => dispatch(closeCart())} Custom_class="w-1/2 md:text-lg text-sm">
           <span>Place an order</span>
         </SquareButton>
-        <SquareButton link="catalog" Custom_class="w-1/2">
+        <SquareButton link="catalog" Custom_class="w-1/2 md:text-lg text-sm">
           <span>
             Continue Shopping
           </span>

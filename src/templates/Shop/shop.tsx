@@ -8,12 +8,12 @@ function Shop() {
     return (
         <section className="bg-primary relative overflow-hidden bg-[url('/ images/shop-Bottle.png')] bg-no-repeat bg-contain bg-center">
             <div className="container mx-auto  flex md:flex-row flex-col justify-between">
-                <div className="md:w-1/3 w-full">
-                    <div className="pt-8 sm:pt-12 md:pt-16 lg:pt-20">
-                        <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-light mb-2 sm:mb-3 md:mb-4 text-[#25330A]">
+                <div className="md:w-1/3 w-full md:px-0 px-3">
+                    <div className="py-8 md:py-12 lg:py-8">
+                        <h2 className="font-medium  text-4xl md:text-6xl   text-[#25330A]">
                             Shop <br /> Hygiene
                         </h2>
-                        <p className="text-sm sm:text-base md:text-lg lg:text-xl mb-4 sm:mb-6 md:mb-8 text-[#25330A] font-light md:whitespace-nowrap">
+                        <p className=" mt-5 text-xl md:text-2xl text-[#25330A] font-light md:whitespace-nowrap mb-4 sm:mb-6 md:mb-8">
                             A gentle, organic hand wash that cleanses, hydrates, <br/>and refreshes.
                         </p>
                     </div>
