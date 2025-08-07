@@ -35,7 +35,7 @@ const CheckouthtmlForm = () => {
     }
 
     const subTotal = cart?.totalPrice?.toFixed(2)
-    const storePickup = 0
+    const storePickup = 200
     const tax = 0
     const saving = 0
     const grandTotal = subTotal + storePickup + tax + saving
@@ -251,7 +251,7 @@ const CheckouthtmlForm = () => {
                                     <dt className="text-gray-400">Savings</dt><dd className="text-secoundry">Rs{saving}</dd>
                                 </dl>
                                 <dl className="flex justify-between py-3 text-base">
-                                    <dt className="text-gray-400">Store Pickup</dt><dd className="text-secoundry">Rs{storePickup}</dd>
+                                    <dt className="text-gray-400">Delivery charges</dt><dd className="text-secoundry">Rs{storePickup}</dd>
                                 </dl>
                                 <dl className="flex justify-between py-3 text-base">
                                     <dt className="text-gray-400">Tax</dt><dd className="text-secoundry">Rs{tax}</dd>
