@@ -265,9 +265,9 @@ const CheckouthtmlForm = () => {
                             <SquareButton onClick={handleCheckoutPayment} Custom_class="uppercase w-full bg-primary !text-dark hover:!text-white">
                                 <p className='pb-[10px] font-medium pt-[14px]'>{loading ? "Proceeding..." : "Proceed to Payment"}</p>
                             </SquareButton>
-                            <p className="text-sm mt-2 font-normal text-gray-400">
+                            {/* <p className="text-sm mt-2 font-normal text-gray-400">
                                 One or more items in your cart require an account. <a href="#" className="font-medium text-primary-700 underline">Sign in or create an account now.</a>
-                            </p>
+                            </p> */}
                         </div>
                     </div>
                 </div>
