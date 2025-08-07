@@ -90,7 +90,7 @@ export default Menu;
 
 
 const menuItems = [
-  { id: 1, label: "Home", path: "/home" },
+  { id: 1, label: "Home", path: "/" },
   { id: 2, label: "Products", path: "/catalog" },
   { id: 3, label: "About Us", path: "/about-us" },
   { id: 4, label: "Blogs", path: "/blogs" },
