@@ -25,7 +25,7 @@ const CartStats = ({ cart }: any) => {
           onClick={() => dispatch(closeCart())} Custom_class="w-1/2 md:text-lg text-sm">
           <span>Place an order</span>
         </SquareButton>
-        <SquareButton link="catalog" Custom_class="w-1/2 md:text-lg text-sm">
+        <SquareButton link="/catalog" Custom_class="w-1/2 md:text-lg text-sm">
           <span>
             Continue Shopping
           </span>
