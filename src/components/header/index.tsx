@@ -45,7 +45,7 @@ const Header = () => {
           <Logo />
           <div className="flex items-center md:gap-8 gap-2.5">
             <CartButton />
-            <ul className="flex md:flex-row flex-col items-center">
+            {/* <ul className="flex md:flex-row flex-col items-center">
               <li>
                 <Link href="/sign-in">Sign In</Link>
               </li>
@@ -53,7 +53,7 @@ const Header = () => {
               <li>
                 <Link href="/register">Register</Link>
               </li>
-            </ul>
+            </ul> */}
             <Menu />
           </div>
         </div >
