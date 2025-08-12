@@ -4,7 +4,7 @@ import CircleText from "../ui/CircleText";
 
 const ScrollText = () => {
   return (
-    <section className="md:h-screen h-fit relative z-10 overflow-y-visible overflow-x-hidden">
+    <section className="md:h-screen h-fit relative z-10 overflow-hidden">
       <div className="space-y-6 ">
         <Marquee autoFill className="overflow-hidden" speed={80}>
           <p className="text-[#25330a36] flex gap-40 mr-14 md:mr-40 font-medium text-nowrap uppercase md:text-[150px] md:leading-[130px] text-5xl">

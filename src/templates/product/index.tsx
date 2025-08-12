@@ -43,7 +43,7 @@ interface ProductData {
   short_description: string;
 
   images: ProductImage[];
-  
+
 }
 
 interface ProductTemplateProps {
@@ -57,7 +57,7 @@ const ProductTemplate: React.FC<ProductTemplateProps> = ({ product, meta }) => {
   const images = product.images;
   const banner_image = meta.acf.banner_image;
   const enriched_image = meta.acf.enriched_image;
-const product_color = meta.acf.product_color;
+  const product_color = meta.acf.product_color;
   console.log(product);
   console.log(images[0].src);
 
@@ -75,15 +75,17 @@ const product_color = meta.acf.product_color;
               className="h-full w-full"
             />
           </div>
-          <div className="md:w-2/3 w-full md:px-8 px-4">
+          <div className="md:w-2/3 w-full md:px-8 px-4 ">
             <h1
-              className="md:text-[100px] md:leading-[100px] text-6xl font-normal text-dark"
-              dangerouslySetInnerHTML={{ __html: product.short_description }}
+              className="md:text-[100px] md:leading-[100px] text-3xl font-normal text-dark flex gap-2"
+              dangerouslySetInnerHTML={{ __html: '"' + product.short_description }}
             />
-            <p className="md:text-4xl text-2xl font-normal text-dark uppercase mt-4 mb-5">
+            <p className="md:text-4xl text-xl font-normal text-dark uppercase mt-4 mb-5">
               {product.name}
             </p>
-            <SingleCart product={product} />
+            <div className="md:block hidden">
+              <SingleCart product={product} />
+            </div>
           </div>
         </div>
       </section>
@@ -93,7 +95,7 @@ const product_color = meta.acf.product_color;
       {/* Product Info Section */}
       <section className="bg-dark md:py-[100px] py-16 px-8">
         <div className="container bg-primary flex md:flex-row flex-col-reverse items-center md:gap-10 gap-4 mx-auto px-4 border-[10px] rounded-[20px] md:px-8 md:py-10 py-5 relative"
-        style={{ borderColor: product_color }}>
+          style={{ borderColor: product_color }}>
           <div className="md:w-1/3 w-full">
             <Image
               src={enriched_image}
@@ -133,7 +135,7 @@ const product_color = meta.acf.product_color;
                   {product.name}
                 </h3>
 
-              <ProductFeatures listing={listing} />
+                <ProductFeatures listing={listing} />
               </div>
               <div className="md:min-w-[217px] md:h-[217px] w-[217px] h-[217px] rounded-full border border-secoundry flex flex-col items-center justify-center relative before:content-[''] before:absolute before:w-[30px] before:h-[30px] before:rounded-full before:border before:border-secoundry before:-top-2 before:left-0">
                 <p className="text-xs font-normal text-dark text-center">

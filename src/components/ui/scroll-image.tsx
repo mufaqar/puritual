@@ -5,6 +5,7 @@ import Image from "next/image";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Link from "next/link";
+import ScrollText from "../ScrollText";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -47,7 +48,7 @@ const ScrollImageSection = () => {
                             More than just a handwash — it’s a foamy, fragrant, feel-good ritual you’ll love.
                         </p>
                         <Link href="/catalog" className="md:text-3xl text-xl text-dark hover:text-dark font-semibold light_bubble bg-secoundry md:w-[172px] w-[94px] relative md:h-[172px] h-[94px] rounded-full flex text-center justify-center mt-10 items-center cursor-pointer transition-all duration-300 ease-linear group"                                  >
-                            <span className="z-10">SHOP <br/>NOW</span>
+                            <span className="z-10">SHOP <br />NOW</span>
                             <div className="bg-primary md:w-[172px] w-[94px] absolute md:h-[172px] h-[94px] scale-0 group-hover:scale-[1.01] transition-all duration-300 ease-linear rounded-full" />
                         </Link>
                     </div>
@@ -93,6 +94,9 @@ const ScrollImageSection = () => {
                         </p>
                     </div>
                 </div>
+            </div>
+            <div className="h-screen bg-primary w-full">
+                <ScrollText />
             </div>
         </section>
     );

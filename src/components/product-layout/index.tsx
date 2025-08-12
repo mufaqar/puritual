@@ -37,7 +37,7 @@ const ProductLayout = ({ product }: any) => {
           </p>
           <Link
             href={`/product/${product?.slug}`}
-            className="md:text-2xl text-lg font-normal text-black group-hover:text-secoundry tracking-normal flex gap-4 items-center transition-all duration-300 ease-in-out"
+            className="md:text-2xl text-base italic font-normal text-black group-hover:text-secoundry tracking-normal flex gap-4 items-center transition-all duration-300 ease-in-out"
           >
             LEARN MORE
             <FaChevronRight className="text-secoundry group-hover:text-black transition-all duration-300 ease-in-out" />
@@ -54,9 +54,8 @@ const ProductLayout = ({ product }: any) => {
             <Link
             href={`/product/${product?.slug}`} className="z-10 relative">
             <svg
-              width="38px"
-              height="53px"
-              className="z-10 fill-dark group-hover:fill-amber-50"
+              
+              className="z-10 fill-dark group-hover:fill-amber-50 md:h-[53px] md:w-[38px] h-[38px] w-[23px]"
               viewBox="0 0 38.108 53.352"
             >
               <path

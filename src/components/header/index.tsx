@@ -19,17 +19,17 @@ const Header = () => {
     const header = headerRef.current;
 
     ScrollTrigger.create({
-      start: 20, // Trigger once scroll passes 20px
+      start: 0, // Trigger once scroll passes 20px
       onEnter: () => {
         gsap.to(header, {
           backgroundColor: "#DCEFB2",
-          duration: 0.3,
+          duration: 0.1,
         });
       },
       onLeaveBack: () => {
         gsap.to(header, {
           backgroundColor: "transparent",
-          duration: 0.3,
+          duration: 0.1,
         });
       },
     });
@@ -43,8 +43,17 @@ const Header = () => {
       >
         <div className="container mx-auto px-3 flex justify-between items-center">
           <Logo />
-          <div className="flex items-center md:gap-[102px] gap-2.5">
+          <div className="flex items-center md:gap-8 gap-2.5">
             <CartButton />
+            <ul className="flex md:flex-row flex-col items-center">
+              <li>
+                <Link href="/sign-in">Sign In</Link>
+              </li>
+              <li className="sm:block hidden"> / </li>
+              <li>
+                <Link href="/register">Register</Link>
+              </li>
+            </ul>
             <Menu />
           </div>
         </div >

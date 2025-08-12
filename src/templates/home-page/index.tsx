@@ -62,9 +62,6 @@ const HomePage = ({ products }: any) => {
   return (
     <>
       <ScrollImageSection />
-      <section className="bg-primary w-full">
-        <ScrollText />
-      </section>
       <Premium />
       <Delightful />
       <Vitamin />
