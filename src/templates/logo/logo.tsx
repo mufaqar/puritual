@@ -5,41 +5,41 @@ function Logo() {
   return (
     <section className="bg-dark md:py-[140px] py-14 border-y border-[#dcefb242]">
       <div className="container mx-auto px-3">
-        <div className="flex md:flex-row flex-col gap-5 justify-between items-center ">
+        <div className="flex md:flex-row flex-row gap-5 justify-between items-center ">
           <Image
             src="/images/premium.svg"
             alt="premium"
             width={200}
             height={100}
-            className="md:w-auto w-[80px]"
+            className="md:w-auto w-[60px]"
           />
           <Image
             src="/images/circle.svg"
             alt="circle"
             width={80}
             height={80}
-            className="md:w-auto w-[40px]"
+            className="md:w-auto w-[30px]"
           />
           <Image
             src="/images/delightful.svg"
             alt="delightful"
             width={200}
             height={100}
-            className="md:w-auto w-[80px]"
+            className="md:w-auto w-[60px]"
           />
           <Image
             src="/images/circle.svg"
             alt="circle"
             width={80}
             height={80}
-            className="md:w-auto w-[40px]"
+            className="md:w-auto w-[30px]"
           />
           <Image
             src="/images/vitamin.svg"
             alt="vitamin"
             width={200}
             height={100}
-            className="md:w-auto w-[80px]"
+            className="md:w-auto w-[60px]"
           />         
         </div>
       </div>
