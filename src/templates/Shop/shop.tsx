@@ -10,10 +10,10 @@ function Shop() {
             <div className="container mx-auto px-3 flex md:flex-row flex-col justify-between">
                 <div className="md:w-1/3 w-full md:px-0 px-3">
                     <div className="py-8 md:py-12 lg:py-8">
-                        <h2 className="font-medium  text-4xl md:text-6xl   text-[#25330A]">
+                        <h2 className="font-medium  text-4xl md:text-6xl   text-dark">
                             Shop <br /> Hygiene
                         </h2>
-                        <p className=" mt-5 text-xl md:text-2xl text-[#25330A] font-light md:whitespace-nowrap mb-4 sm:mb-6 md:mb-8">
+                        <p className=" mt-5 text-xl md:text-2xl text-dark font-light md:whitespace-nowrap mb-4 sm:mb-6 md:mb-8">
                             A gentle, organic hand wash that cleanses, hydrates, <br/>and refreshes.
                         </p>
                     </div>
