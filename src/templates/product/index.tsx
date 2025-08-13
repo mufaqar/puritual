@@ -6,6 +6,7 @@ import Logo from "../logo/logo";
 import Review from "@/components/Reviews/Review";
 import { FaPlus } from "react-icons/fa";
 import ProductFeatures from "@/components/product-layout/ProductFeatures";
+import ProductGallery from "@/components/product-layout/ProductGallery";
 
 // Types
 interface MetaListingItem {
@@ -80,7 +81,7 @@ const ProductTemplate: React.FC<ProductTemplateProps> = ({ product, meta }) => {
               className="md:text-[100px] md:leading-[100px] text-3xl font-normal text-dark flex gap-2"
               dangerouslySetInnerHTML={{ __html: '"' + product.short_description }}
             />
-            <p className="md:text-4xl text-xl font-normal text-dark uppercase mt-4 mb-5">
+            <p className="md:text-4xl text-xl font-normal text-dark uppercase mt-4 mb-5 pl-4">
               {product.name}
             </p>
             <div className="md:block hidden">
@@ -93,8 +94,8 @@ const ProductTemplate: React.FC<ProductTemplateProps> = ({ product, meta }) => {
       <Logo />
 
       {/* Product Info Section */}
-      <section className="bg-dark md:py-[100px] py-16 px-8">
-        <div className="container bg-primary flex md:flex-row flex-col-reverse items-center md:gap-10 gap-4 mx-auto px-4 border-[10px] rounded-[20px] md:px-8 md:py-10 py-5 relative"
+      <section className="bg-dark md:py-[100px] py-16 md:px-8 px-3">
+        <div className="container bg-primary flex md:flex-row flex-col items-center md:gap-10 gap-4 mx-auto px-4 border-[10px] rounded-[20px] md:px-8 md:py-10 py-5 relative"
           style={{ borderColor: product_color }}>
           <div className="md:w-1/3 w-full">
             <Image
@@ -137,7 +138,7 @@ const ProductTemplate: React.FC<ProductTemplateProps> = ({ product, meta }) => {
 
                 <ProductFeatures listing={listing} />
               </div>
-              <div className="md:min-w-[217px] md:h-[217px] w-[217px] h-[217px] rounded-full border border-secoundry flex flex-col items-center justify-center relative before:content-[''] before:absolute before:w-[30px] before:h-[30px] before:rounded-full before:border before:border-secoundry before:-top-2 before:left-0">
+              <div className="md:min-w-[217px] md:h-[217px] w-[217px] h-[217px] rounded-full border border-secoundry md:flex hidden flex-col items-center justify-center relative before:content-[''] before:absolute before:w-[30px] before:h-[30px] before:rounded-full before:border before:border-secoundry before:-top-2 before:left-0">
                 <p className="text-xs font-normal text-dark text-center">
                   Enriched With
                 </p>
@@ -152,22 +153,7 @@ const ProductTemplate: React.FC<ProductTemplateProps> = ({ product, meta }) => {
       </section>
 
       {/* Gallery Section */}
-      <section className="py-16 bg-primary">
-        <div className="container mx-auto px-4 grid md:grid-cols-3 grid-cols-1 gap-8 items-center">
-          {images.slice(1).map((item, idx) => (
-            <div key={idx} className="mb-6">
-              <Image
-                src={item.src}
-                alt="gallery1"
-                width={500}
-                height={500}
-                className="rounded-full"
-              />
-            </div>
-          ))}
-          <div></div>
-        </div>
-      </section>
+    <ProductGallery images={images} />
 
       <Review />
       <RelatedProducts />

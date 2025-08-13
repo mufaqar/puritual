@@ -54,7 +54,7 @@ const Menu = () => {
 
   return (
     <>
-      <CircleButton onClick={handleMenu} className="dark_bubble bg-dark md:!w-[81px] md:!h-[81px] !w-[46px] !h-[46px] " BgHovr="bg-secoundry md:w-[81px] md:h-[81px] w-[46px] h-[46px] ">
+      <CircleButton onClick={handleMenu} className="dark_bubble bg-dark md:!w-[81px] md:!h-[81px] !w-[46px] !h-[46px] " BgHovr="bg-secoundry md:!w-[81px] md:!h-[81px] !w-[46px] !h-[46px] ">
         {!isMenu ? (
           <HiOutlineBars3 className="sm:text-4xl text-2xl text-white relative z-[100]" />
         ) : (

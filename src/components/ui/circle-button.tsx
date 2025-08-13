@@ -2,7 +2,7 @@ import React from "react";
 
 const CircleButton = ({ children, onClick, className, BgHovr }: any) => {
   return (
-    <button className={`${className} md:w-[94px] w-[64px] group relative md:h-[94px] h-[64px] rounded-full flex justify-center items-center cursor-pointer transition-all duration-300 ease-linear ml-auto`}
+    <button className={`${className} md:w-[94px] w-[64px] group relative md:h-[94px] h-[64px] rounded-full flex justify-center items-center cursor-pointer transition-all duration-300 ease-linear`}
       onClick={onClick}
     >
       {children}
