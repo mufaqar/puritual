@@ -44,17 +44,16 @@ const ProductLayout = ({ product }: any) => {
           </Link>
         </div>
         <div>
-          <p className="md:text-[25px] text-2xl font-normal text-black font-cervo">
+          <p className="md:text-[25px] text-lg font-normal text-black font-cervo">
             Rs {product?.price}
           </p>
           <CircleButton
-            className="light_bubble bg-secoundry"
+            className="light_bubble bg-secoundry ml-auto"
             BgHovr="bg-dark"
           >
             <Link
             href={`/product/${product?.slug}`} className="z-10 relative">
-            <svg
-              
+            <svg              
               className="z-10 fill-dark group-hover:fill-amber-50 md:h-[53px] md:w-[38px] h-[38px] w-[23px]"
               viewBox="0 0 38.108 53.352"
             >
