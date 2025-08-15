@@ -10,7 +10,7 @@ interface ProductSliderProps {
 }
 
 const ProductSlider: React.FC<ProductSliderProps> = ({ products }) => {
- 
+
   const sliderRef = useRef<Slider | null>(null);
 
   const next = () => {
@@ -22,7 +22,8 @@ const ProductSlider: React.FC<ProductSliderProps> = ({ products }) => {
 
   const settings: Settings = {
     dots: false,
-    infinite: false,
+    infinite: true,
+    autoplay: true,
     arrows: false,
     speed: 500,
     slidesToShow: 3,
@@ -30,8 +31,8 @@ const ProductSlider: React.FC<ProductSliderProps> = ({ products }) => {
     initialSlide: 0,
     responsive: [
       { breakpoint: 1024, settings: { slidesToShow: 3, slidesToScroll: 1 } },
-      { breakpoint: 600, settings: { slidesToShow: 2, slidesToScroll: 1 } },
-      { breakpoint: 480, settings: { slidesToShow: 1, slidesToScroll: 1 } },
+      { breakpoint: 600, settings: { slidesToShow: 2, slidesToScroll: 1,} },
+      { breakpoint: 480, settings: { slidesToShow: 1, slidesToScroll: 1, className: "center", centerMode: true, centerPadding: "40px", } },
     ],
   };
 
@@ -54,13 +55,13 @@ const ProductSlider: React.FC<ProductSliderProps> = ({ products }) => {
 
         {/* Custom Arrows */}
         <button
-          className="button absolute top-1/2 -translate-y-1/2 sm:-left-5 left-0 text-secoundry hover:text-primary text-3xl cursor-pointer hover:scale-125 transition-all "
+          className="button md:block hidden absolute top-1/2 -translate-y-1/2 sm:-left-5 left-0 text-secoundry hover:text-primary text-3xl cursor-pointer hover:scale-125 transition-all "
           onClick={previous}
         >
           <FaChevronLeft />
         </button>
         <button
-          className="button absolute top-1/2 -translate-y-1/2 sm:-right-5 right-0 text-secoundry hover:text-primary text-3xl cursor-pointer hover:scale-125 transition-all "
+          className="button md:block hidden absolute top-1/2 -translate-y-1/2 sm:-right-5 right-0 text-secoundry hover:text-primary text-3xl cursor-pointer hover:scale-125 transition-all "
           onClick={next}
         >
           <FaChevronRight />

@@ -34,7 +34,7 @@ const AboutSection = () => {
   }, [isMobile]);
 
   return (
-    <section className="pt-12 pb-20 relative overflow-x-hidden">
+    <section className="pt-12 pb-20 relative overflow-hidden">
       <div className="flex flex-col px-4 md:px-0 md:flex-row items-center justify-center gap-8 md:gap-14 max-w-[1280px] mx-auto">
         <figure className="">
           <Image
