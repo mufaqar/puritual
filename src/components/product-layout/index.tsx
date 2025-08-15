@@ -48,11 +48,11 @@ const ProductLayout = ({ product }: any) => {
             Rs {product?.price}
           </p>
           <CircleButton
+          onClick={()=>dispatch(addInCart(product))}
             className="light_bubble bg-secoundry ml-auto"
             BgHovr="bg-dark"
           >
-            <Link
-            href={`/product/${product?.slug}`} className="z-10 relative">
+            <span  className="z-10 relative">
             <svg              
               className="z-10 fill-dark group-hover:fill-amber-50 md:h-[53px] md:w-[38px] h-[38px] w-[23px]"
               viewBox="0 0 38.108 53.352"
@@ -64,7 +64,7 @@ const ProductLayout = ({ product }: any) => {
                 fill="current"
               />
             </svg>
-            </Link>
+            </span>
           </CircleButton>
         </div>
       </div>
