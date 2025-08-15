@@ -3,7 +3,7 @@ import React from 'react'
 
 function Better() {
     return (
-        <section className='bg-primary'>
+        <section className='bg-primary md:pb-0 pb-16'>
             <div className='mx-auto'>
                 <div className='flex flex-col md:flex-row gap-6'>
                     {/* text content - now on left side */}
