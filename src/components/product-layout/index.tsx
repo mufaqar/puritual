@@ -15,11 +15,11 @@ const ProductLayout = ({ product }: any) => {
 
   return (
     <div
-      className="border-4 bg-primary rounded-[20px] flex justify-start hover:bg-green-50 group flex-col items-center p-5 h-full product_box"
+      className="border-4 bg-primary rounded-[20px] flex justify-start hover:bg-green-50 group flex-col items-center md:p-5 p-2 h-full w-full product_box"
       style={{ borderColor: product_color }}
     >
-      <Link href={`/product/${product?.slug}`}>
-        <figure className="h-[450px] w-full">
+      <Link href={`/product/${product?.slug}`} className="flex w-full">
+        <figure className="md:h-[450px] h-[250px] w-full">
           <Image
             src={product?.images?.[0]?.src}
             alt=""

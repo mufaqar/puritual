@@ -20,7 +20,7 @@ const ScrollImageSection = () => {
                 scrollTrigger: {
                     trigger: imageRef.current,
                     start: "top 20%", // start animation when image enters 20% of viewport
-                    end: "+=90%", // continue animation for full section scroll
+                    end: "+=100%", // continue animation for full section scroll
                     scrub: true, // Sync with scroll
                 },
             });
@@ -67,7 +67,7 @@ const ScrollImageSection = () => {
                     alt="Foaming Hand Wash"
                     width={300}
                     height={600}
-                    className="drop-shadow-xl"
+                    className="drop-shadow-xl md:w-auto w-[150px]"
                 />
             </div>
 
