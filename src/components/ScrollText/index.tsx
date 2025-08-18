@@ -6,32 +6,32 @@ const ScrollText = () => {
   return (
     <section className="md:h-screen h-fit relative z-10 overflow-hidden">
       <div className="md:space-y-6 space-y-3">
-        <Marquee autoFill className="overflow-hidden" speed={80}>
+        <Marquee autoFill className="overflow-hidden" speed={80} play={false}>
           <p className="text-[#25330a36] flex gap-40 mr-14 md:mr-40 font-medium text-nowrap uppercase md:text-[150px] md:leading-[130px] text-3xl">
             Hygiene
           </p>
         </Marquee>
-        <Marquee autoFill className="overflow-hidden" direction="right">
+        <Marquee autoFill className="overflow-hidden" direction="right" play={false}>
           <p className="text-[#25330a36] flex gap-40 mr-14 md:mr-40 font-medium text-nowrap uppercase md:text-[90px] md:leading-[90px] text-xl">
             Meets Fun
           </p>
         </Marquee>
-        <Marquee autoFill className="overflow-hidden" speed={80}>
+        <Marquee autoFill className="overflow-hidden" speed={80} play={false}>
           <p className="text-[#25330a36] flex gap-40 mr-14 md:mr-40 font-medium text-nowrap uppercase md:text-[150px] md:leading-[130px] text-3xl">
             Natural
           </p>
         </Marquee>
-        <Marquee autoFill className="overflow-hidden" direction="right">
+        <Marquee autoFill className="overflow-hidden" direction="right" play={false}>
           <p className="text-[#25330a36] flex gap-40 mr-14 md:mr-40 font-medium text-nowrap uppercase md:text-[90px] md:leading-[90px] text-xl">
             Ingredients
           </p>
         </Marquee>
-        <Marquee autoFill className="overflow-hidden" speed={80}>
+        <Marquee autoFill className="overflow-hidden" speed={80} play={false}>
           <p className="text-[#25330a36] flex gap-40 mr-14 md:mr-40 font-medium text-nowrap uppercase md:text-[150px] md:leading-[130px] text-3xl">
             Nourish
           </p>
         </Marquee>
-        <Marquee autoFill className="overflow-hidden" direction="right">
+        <Marquee autoFill className="overflow-hidden" direction="right" play={false}>
           <p className="text-[#25330a36] flex gap-40 mr-14 md:mr-40 font-medium text-nowrap uppercase md:text-[90px] md:leading-[90px] text-xl">
             Foamy Fun
           </p>

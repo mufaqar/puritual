@@ -10,15 +10,15 @@ function Delightful() {
                     <div className='w-full md:w-[40%] items-center flex justify-center container mx-auto'>
                         {/* text content - now on left side */}
                         <div className='py-10 px-4 md:pl-10 lg:pl-20 md:ml-10 lg:ml-18'>
-                            <h2 className='font-medium  text-4xl md:text-6xl   text-dark'>
+                            <h2 className='font-normal  text-4xl md:text-6xl text-dark'>
                                 Delightful<br />
-                                <span className='font-light text-2xl md:text-5xl'>Fragrance</span>
+                                <span className='font-medium text-2xl md:text-5xl'>Fragrance</span>
                             </h2>
                             <div className='ml-0 md:ml-10 lg:ml-18 pt-6 md:pt-10'>
-                                <p className='  text-xl md:text-2xl lg:text-3xl text-dark font-normal'>
-                                    <span className='font-light'> Naturally inspired scents that turn cleaning into a sensory escape.</span>
-                                    Crafted scents that make each wash feel fresh, fun, sensory escape.
+                                <p className='text-xl md:text-2xl lg:text-3xl text-dark font-light'>
+                                    <span className='font-light'> Naturally inspired <span className='md:font-light font-bold'>scents</span> that turn <span className='md:font-light font-bold'>cleaning</span> into a <span className='md:font-light font-bold'>sensory escape</span> .</span>
                                 </p>
+                                <p className='text-xl md:text-2xl lg:text-3xl text-dark font-normal md:block hidden'>Crafted scents that make each wash feel fresh, fun, sensory escape.</p>
                             </div>
                         </div>
                     </div>
