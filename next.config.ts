@@ -6,7 +6,7 @@ const nextConfig: NextConfig = {
   },
   images: {
     domains: [
-      "localhost", "moccasin-chinchilla-599653.hostingersite.com"
+      "localhost", "https://puritualstore.com"
     ],
   },
 };
