@@ -5,7 +5,6 @@ const WooCommerce = new WooCommerceRestApi({
   consumerKey: process.env.NEXT_PUBLIC_WC_CONSUMER_KEY,
   consumerSecret: process.env.NEXT_PUBLIC_WC_CONSUMER_SECRET,
   version: process.env.NEXT_PUBLIC_WC_VERSION,
-  
 });
 
 export default WooCommerce;
