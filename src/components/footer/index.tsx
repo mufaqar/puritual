@@ -10,9 +10,9 @@ import Image from "next/image";
 const Footer = () => {
   return (
     <footer className="">
-      <section className="bg-dark py-[68px] lg:px-10 px-4">
-        <div className="flex md:flex-row flex-col justify-between gap-6 md:gap-0 container mx-auto">
-          <nav className="text-primary flex flex-col gap-4 md:justify-start justify-center">
+      <section className="bg-dark py-[60px] lg:px-10 px-4">
+        <div className="flex md:flex-row flex-row justify-between gap-0 md:gap-0 container mx-auto">
+          <nav className="md:w-auto w-1/5 text-primary flex flex-col gap-3">
             <Link href="/about-us" className="hover:text-pure">
               About
             </Link>
@@ -22,9 +22,11 @@ const Footer = () => {
             <Link href="/contact-us" className="hover:text-pure">
               Contact
             </Link>
+            <Link href="/faqs" className="hover:text-pure">
+              Faq
+            </Link>
           </nav>
-
-          <nav className="text-pure flex justify-center flex-col items-center gap-4 md:order-2 order-3 ">
+          <nav className="md:w-auto w-3/5 text-pure flex flex-col gap-8">
             <div className=" flex justify-center md:justify-end gap-4 lg:gap-8 text-lg lg:text-[26px]">
               <Link href="https://www.facebook.com/profile.php?id=61573850430062&rdid=TjDPWDoJiM2zrhOy&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F16N2cgBjq1%2F" target="_blank" className="bg-white text-dark rounded-md py-2 px-2 hover:scale-105 transition-all duration-300">
                 <FaFacebookF />
@@ -36,25 +38,23 @@ const Footer = () => {
                 <FaInstagram />
               </Link>
             </div>
-            <p className="text-primary font-light ">© Copyright 2026, Puritual</p>
+            <p className="text-primary font-light text-center">© Copyright 2026, Puritual</p>
           </nav>
-
-          <nav className="text-primary flex justify-center flex-col gap-4 md:order-3 order-2">
-            <Link href="/faqs" className="hover:text-pure">
-              Faq
-            </Link>
+          <nav className="md:w-auto w-1/5 text-primary flex flex-col gap-3 text-end">
             <Link href="/terms-conditions" className="hover:text-pure">
-              Terms & Conditions
+              Terms
             </Link>
             <Link href="/privacy-policy" className="hover:text-pure">
-              Privacy Policy
+              Privacy
+            </Link>
+            <Link href="/privacy-policy" className="hover:text-pure">
+              Return
             </Link>
             <Link href="/order-tracking" className="hover:text-pure">
-              Order Tracking
+              Tracking
             </Link>
           </nav>
         </div>
-
       </section>
 
       <div className="bg-dark px-4 md:px-10">
