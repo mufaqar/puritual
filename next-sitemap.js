@@ -2,7 +2,7 @@ const fs = require("fs");
 const WooCommerceRestApi = require("@woocommerce/woocommerce-rest-api").default;
 
 const SITE_URL = "https://www.puritualofficial.com";
-const WC_URL = "https://moccasin-chinchilla-599653.hostingersite.com";
+const WC_URL = "https://puritualstore.com";
 const WC_CONSUMER_KEY = "ck_6567880a557e19353440fa8ec3626f660cd54de9";
 const WC_CONSUMER_SECRET = "cs_4805d16670432b5c69983dd8c16fb5f3fe4f1927";
 const WC_VERSION = "wc/v3";
