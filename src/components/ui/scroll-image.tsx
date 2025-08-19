@@ -97,7 +97,7 @@ const ScrollImageSection = () => {
                     </div>
                 </div>
             </section>
-            <section className="md:h-screen bg-primary w-full md:py-0 py-16">
+            <section className="bg-primary md:py-0 py-16">
                 <ScrollText />
             </section>
         </main>
