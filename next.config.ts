@@ -6,7 +6,7 @@ const nextConfig: NextConfig = {
   },
   images: {
     domains: [
-      "localhost", "https://puritualstore.com"
+      "localhost", "puritualstore.com"
     ],
   },
 };
