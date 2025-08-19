@@ -9,14 +9,14 @@ const reviews = [
   {
     id: 1,
     username: '@customer.review',
-    text: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.`,
+    text: `Puritual's meditation oil is calming and smells divine! Enhances my daily practice, but the bottle leaks slightly. Great value for the price.`,
     image: '/images/user_dp.png',
     rating: 5,
   },
   {
     id: 2,
     username: '@customer.review',
-    text: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.`,
+    text: `Puritual's aromatherapy diffuser is sleek and calming. Elevates my mood, but setup was tricky. Affordable and effective for daily use!`,
     image: '/images/user_dp.png',
     rating: 5,
   },
