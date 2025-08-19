@@ -35,7 +35,7 @@ const ScrollText = () => {
             <CircleText
               text={[
                 'PODEMOS DE VERDADE! PODEMOS DE VERDADE!',
-                'NATURAL HYDRATION · ORGANIC GOODNESS · PUMP · FOAM · SMILE · REPEAT ·',
+                'NATURAL HYDRATION · O RGANIC GOODNESS · PUMP · FOAM · SM ILE · REPEAT ·',
               ]}
               radius={[150, 250]}
               reverse={[false, false]}
