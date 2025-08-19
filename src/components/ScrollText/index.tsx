@@ -6,27 +6,27 @@ const ScrollText = () => {
       <div className="container mx-auto md:px-3 px-3 flex flex-row justify-between items-center">
         <div className="md:space-y-4 space-y-2 md:w-fit w-[20%]">
 
-          <p className="text-[#25330a36] uppercase font-semibold md:text-[80px] md:leading-[90px] text-xl">
+          <p className="text-[#25330a36] uppercase font-semibold md:text-[80px] md:leading-[90px] text-base">
             Hygiene
           </p>
 
-          <p className="text-[#25330a36] uppercase font-normal md:text-[60px] md:leading-[70px] text-[15px]">
+          <p className="text-[#25330a36] uppercase font-normal md:text-[60px] md:leading-[70px] text-xs">
             Meets Fun
           </p>
 
-          <p className="text-[#25330a36] uppercase font-semibold md:text-[80px] md:leading-[90px] text-xl">
+          <p className="text-[#25330a36] uppercase font-semibold md:text-[80px] md:leading-[90px] text-base">
             Natural
           </p>
 
-          <p className="text-[#25330a36] uppercase font-normal md:text-[60px] md:leading-[70px] text-[15px]">
+          <p className="text-[#25330a36] uppercase font-normal md:text-[60px] md:leading-[70px] text-xs">
             Ingredients
           </p>
 
-          <p className="text-[#25330a36] uppercase font-semibold md:text-[80px] md:leading-[90px] text-xl">
+          <p className="text-[#25330a36] uppercase font-semibold md:text-[80px] md:leading-[90px] text-base">
             Nourish
           </p>
 
-          <p className="text-[#25330a36] uppercase font-normal md:text-[60px] md:leading-[70px] text-[15px]">
+          <p className="text-[#25330a36] uppercase font-normal md:text-[60px] md:leading-[70px] text-xs">
             Foamy Fun
           </p>
         </div>
@@ -49,27 +49,27 @@ const ScrollText = () => {
         </div>
         <div className="md:space-y-4 space-y-2 md:w-fit w-[20%]">
 
-          <p className="text-[#25330a36] uppercase font-semibold md:text-[80px] md:leading-[90px] text-xl">
+          <p className="text-[#25330a36] uppercase font-semibold md:text-[80px] md:leading-[90px] text-base">
             Hygiene
           </p>
 
-          <p className="text-[#25330a36] uppercase font-normal md:text-[60px] md:leading-[70px] text-[15px]">
+          <p className="text-[#25330a36] uppercase font-normal md:text-[60px] md:leading-[70px] text-xs">
             Meets Fun
           </p>
 
-          <p className="text-[#25330a36] uppercase font-semibold md:text-[80px] md:leading-[90px] text-xl">
+          <p className="text-[#25330a36] uppercase font-semibold md:text-[80px] md:leading-[90px] text-base">
             Natural
           </p>
 
-          <p className="text-[#25330a36] uppercase font-normal md:text-[60px] md:leading-[70px] text-[15px]">
+          <p className="text-[#25330a36] uppercase font-normal md:text-[60px] md:leading-[70px] text-xs">
             Ingredients
           </p>
 
-          <p className="text-[#25330a36] uppercase font-semibold md:text-[80px] md:leading-[90px] text-xl">
+          <p className="text-[#25330a36] uppercase font-semibold md:text-[80px] md:leading-[90px] text-base">
             Nourish
           </p>
 
-          <p className="text-[#25330a36] uppercase font-normal md:text-[60px] md:leading-[70px] text-[15px]">
+          <p className="text-[#25330a36] uppercase font-normal md:text-[60px] md:leading-[70px] text-xs">
             Foamy Fun
           </p>
         </div>
