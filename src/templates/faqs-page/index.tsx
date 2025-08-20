@@ -50,9 +50,9 @@ const FaqsTemplate = ({ faqs }: any) => {
   return (
     <>
       <section className="bg-primary w-full">
-        <main className="overflow-y-hidden sm:pt-36 pt-26 pb-10 sm:pb-20 bg-secoundry rounded-b-[60px]">
+        <main className=" sm:pt-28 pt-26 pb-10 sm:pb-20 bg-secoundry rounded-b-[60px]">
           {/* Animated Heading */}
-          <h1 className="flex justify-center flex-wrap px-10 overflow-y-hidden text-[14vw] font-medium md:text-[10vw] leading-[13vw] text-primary md:leading-[8vw] text-center">
+          <h1 className="flex justify-center flex-wrap px-10 overflow-y-hidden md:text-[70px] md:leading-[100px] text-6xl font-medium uppercase text-center text-dark font-Melodrama">
             {Array.from("FAQS").map((char, index) => (
               <span key={index} className="t1 uppercase">
                 {char === " " ? "\u00A0" : char}
@@ -62,21 +62,27 @@ const FaqsTemplate = ({ faqs }: any) => {
         </main>
       </section>
 
-      <section className="bg-primary pt-20 pb-20">
-        <div className="max-w-[1280px] mx-auto px-3">
-          {faqs?.map((item: any, idx: number) => (
-            <div
-              key={idx}
-              ref={(el: any) => (faqRefs.current[idx] = el)}
-              className="border-t gap-4 sm:gap-10 md:gap-20 text-dark py-4 md:p-10 flex flex-col sm:flex-row border-dark opacity-0"
-            >
-              <h4 className="sm:w-[35%] font-medium text-2xl sm:text-4xl">
-                {item?.question}
-              </h4>
-              <div className="flex-1 space-y-2" dangerouslySetInnerHTML={{ __html: item?.answer }} />
-            </div>
-          ))}
-        </div>
+      <section className="bg-primary pt-20 pb-20 space-y-10">
+        {faqs?.map((faq: any, id: number) => (
+          <div key={id}
+            ref={(el: any) => (faqRefs.current[id] = el)}
+            className="container mx-auto px-3 opacity-0">
+            <h2 className="md:text-[70px] md:leading-[60px] text-[28px] font-normal tracking-normal text-dark font-Melodrama mb-10">
+              {faq?.title}
+            </h2>
+            {faq?.items?.map((item: any, idx: number) => (
+              <div
+                key={idx}
+                className="border-t gap-4 sm:gap-10 md:gap-20 text-dark py-4 md:p-10 flex flex-col sm:flex-row border-dark"
+              >
+                <h4 className="sm:w-[35%] font-medium text-2xl sm:text-4xl">
+                  {item?.question}
+                </h4>
+                <div className="flex-1 space-y-2" dangerouslySetInnerHTML={{ __html: item?.answer }} />
+              </div>
+            ))}
+          </div>
+        ))}
       </section>
     </>
   );

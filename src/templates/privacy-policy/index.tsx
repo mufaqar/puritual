@@ -6,9 +6,7 @@ import PrivacySection from "./privacy-policy";
 
 const PrivacyTemplate = () => {
   const text = "Privacy Policy";
-  const text2 = "";
   const letterHeadingOne = text.split("");
-  const letterHeadingTwo = text2.split("");
 
   const timeline = gsap.timeline();
   useGSAP(() => {
@@ -51,33 +49,21 @@ const PrivacyTemplate = () => {
   return (
     <>
       <section className="bg-primary w-full">
-        <main className=" sm:pt-24 pt-26 pb-10 sm:pb-20 bg-secoundry rounded-b-[60px]">
-          <div className=" px-4 md:px-0">
-            <div className="flex justify-center flex-wrap px-10 md:mt-8 overflow-y-hidden text-[6vw] font-medium leading-[6vw] text-white  text-center">
+        <main className=" sm:pt-28 pt-26 pb-10 sm:pb-20 bg-secoundry rounded-b-[60px]">
+          <div className="container mx-auto px-3 md:px-0">
+             <h1 className="md:text-[100px] md:leading-[100px] text-6xl font-medium uppercase text-center text-dark font-Melodrama">
               {letterHeadingOne?.map((item, idx) => (
                 <span className="t4" key={idx}>
                   {item}
                 </span>
               ))}
-            </div>
-          </div>
-
-          <div className="px-4 md:px-0">
-            <div className="text-[54px] md:text-[90px] lg:text-[175px] z-[1] relative text-center max-w-[1280px] mx-auto text-white font-medium uppercase leading-[60px] md:leading-[90px] lg:leading-[160px]">
-              {letterHeadingTwo?.map((item, idx) => (
-                <span key={idx} className="t5">
-                  {item}
-                </span>
-              ))}
-            </div>
+            </h1>
           </div>
         </main>
       </section>
 
       <section className="pt-10 pb-20 bg-primary">
-        <div className="max-w-[1280px] mx-auto px-3 grid gap-4">
           <PrivacySection />
-        </div>
       </section>
     </>
   );

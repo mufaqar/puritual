@@ -1,5 +1,4 @@
 "use client";
-import CircleButton from "@/components/ui/square-button";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import Image from "next/image";
@@ -68,7 +67,7 @@ const AboutSection = () => {
           className="mission-Img2 md:max-w-[397px] w-full"
         />
         <div className="text-dark max-w-[675px] mission-text">
-          <h2 className="md:text-[100px] md:leading-[90px] text-[28px] font-light tracking-normal text-dark font-Melodrama">
+          <h2 className="md:text-[70px] md:leading-[60px] text-[28px] font-normal tracking-normal text-dark font-Melodrama">
             Our Promise
           </h2>
           <div className="mt-5">
