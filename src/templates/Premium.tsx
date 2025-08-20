@@ -3,7 +3,7 @@ import React from 'react'
 function Premium() {
   return (
     <div className="w-full h-screen py-16 md:bg-[url('/images/Premium.png')] bg-no-repeat bg-cover bg-center bg-[url('/images/premium_mbl.png')]">
-      <div className='flex flex-col-reverse md:flex-row md:gap-6 gap-0'>
+      <div className='flex flex-col-reverse md:flex-row md:gap-6 gap-0 justify-between'>
         {/* img - now on left side */}
         <div className='w-full md:w-[60%] '>
           
