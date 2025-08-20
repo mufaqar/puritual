@@ -67,7 +67,7 @@ const ScrollImageSection = () => {
                     alt="Foaming Hand Wash"
                     width={300}
                     height={600}
-                    className="drop-shadow-xl md:w-auto w-[150px]"
+                    className="drop-shadow-xl "
                 />
             </div>
 
