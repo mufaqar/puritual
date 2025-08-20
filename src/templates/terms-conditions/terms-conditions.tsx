@@ -27,60 +27,84 @@ const TermsSection: React.FC = () => {
   }, [isMobile]);
 
   return (
-    <section className="pt-12 pb-20 relative overflow-x-hidden">
-      <div className="px-4 md:px-0 max-w-[1280px] mx-auto">
-        <div className="font-axiforma text-secoundry mission-text">
-          <h3 className="text-2xl my-4">Welcome!</h3>
+    <section className="pt-12 pb-20 relative overflow-hidden">
+      <div className="container mx-auto px-3 md:px-0">
+        <div className="text-dark mission-text">
           <p>
-            Hi, and welcome to our store! These are the rules and guidelines required for purchasing any of our amazing products. By placing an order, you fully agree with these terms. So just read on before buying!
+            Welcome to Puritual! These Terms and Conditions outline the rules and regulations for using our website and purchasing our products. By visiting our website or placing an order, you agree to the following terms:
           </p>
 
-          <h3 className="text-2xl my-4">Order Acceptance</h3>
+          <h3 className="md:text-6xl text-2xl mt-8 mb-5">Order Acceptance</h3>
           <p>
-            Every order's acceptance and availability are subject to conditions. If something you ordered is sold out, we will inform you via e-mail. You can either wait until it is restocked or cancel the order; it's your choice!
+            All orders are subject to availability and acceptance. If a product you ordered is out of stock, we will notify you via email. You may choose to wait for restocking or cancel the order for a full refund.
           </p>
 
-          <h3 className="text-2xl my-4">Pricing and Payment</h3>
+          <h3 className="md:text-6xl text-2xl mt-8 mb-5">Pricing & Payment</h3>
           <p>
-            All prices include applicable taxes unless stated otherwise. Prices may change without notice, but you will see the latest price display during your shopping session. We accept various secure payment methods on our site. By ordering, you confirm your payment details are legit.
+            Prices listed include all applicable taxes unless otherwise stated. Prices are subject to change without notice. You’ll always see the latest prices during checkout. By placing an order, you confirm that the payment details you provide are accurate and that you're authorized to use the selected payment method.
           </p>
 
-          <h3 className="text-2xl my-4">Shipping and Delivery</h3>
+          <h3 className="md:text-6xl text-2xl mt-8 mb-5">Shipping & Delivery</h3>
           <p>
-            We aim to ship all orders within 2-3 business days. Delivery times vary depending on where you are and the shipping method. Our responsibility does not extend to delivery delays from uncontrollable external factors though we will do our very best to get your order to you ASAP!
+            We aim to dispatch orders within 2–3 business days. Delivery times may vary depending on your location and the courier. While we strive to deliver on time, we are not liable for delays caused by factors outside our control. We'll always do our best to keep you informed and get your package to you as quickly as possible.
           </p>
 
-          <h3 className="text-2xl my-4">Returns and Refunds</h3>
+          <h3 className="md:text-6xl text-2xl mt-8 mb-5">Returns & Refunds</h3>
           <p>
-            Not happy with your purchase? Not to worry! Simply return the items within 7 days and receive a full refund or exchange. The item should be in its original packaging and unused along with the relevant invoice. Please note that items bought during the sale cannot be exchanged or returned unless the product received does not match the product that you have ordered.
+            Not in love with your order? You can return any unused item in its original packaging within 7 days for a refund or exchange. Please note:
           </p>
           <p>
-            Customers are required to pay for their own shipping costs when returning an item. Shipping costs are non-refundable. If a refund is issued, the cost of return shipping & COD charges (if any) will be deducted from the refund amount.
+            Due to hygiene purpose, we don’t accept returns or exchanges of used or opened products.
+            Sale items are non-returnable unless you received the wrong or damaged product.
+            Return shipping costs are the customer’s responsibility and are non-refundable.
+            If a refund is issued, any return shipping and COD charges (if applicable) will be deducted.
           </p>
           <p>
-            Please contact customer support for further instructions regarding returns.
-          </p>
-
-          <h3 className="text-2xl my-4">Product Descriptions</h3>
-          <p>
-            Our product descriptions reflect accuracy to the best of our abilities, but small imperfections may occur occasionally. Undescribed product attributes call for product return directly to our facilities while maintaining items unused.
+            To initiate a return, contact our customer support team for instructions at <Link href="mailto:support@puritualofficial.com" target="_blank">support@puritualofficial.com</Link>
           </p>
 
-          <h3 className="text-2xl my-4">Limitations of Liability</h3>
+          <h3 className="md:text-6xl text-2xl mt-8 mb-5">Product Descriptions</h3>
           <p>
-            We set our liability limit to the amount of your payment when purchasing products. Our business does not burden itself with responsibility for indirect damages or special incidentals or any other types of special damages no matter what occurs.
+            We do our best to ensure our product descriptions and images are as accurate as possible. However, slight variations may occur.
           </p>
 
-          <h3 className="text-2xl my-4">Governing Law</h3>
+          <h3 className="md:text-6xl text-2xl mt-8 mb-5">Limitation of Liability</h3>
           <p>
-            The laws applying in the registered jurisdiction of our establishment shall govern these terms. Any disputes shall be adjudicated solely by the courts of that jurisdiction.
+            Puritual is not responsible for indirect, incidental, or consequential damages related to the use or misuse of our products. Our liability is limited to the value of the item purchased.
           </p>
 
-          <h3 className="text-2xl my-4">Contact Us</h3>
+          <h3 className="md:text-6xl text-2xl mt-8 mb-5">Governing Law</h3>
+          <p>
+            These terms are governed by the laws of Pakistan. Any disputes arising from these terms or your use of our website will be handled in the courts located in our jurisdiction.
+          </p>
+
+          <h3 className="md:text-6xl text-2xl mt-8 mb-5">Intellectual Property</h3>
+          <p>
+            All content on this website—including logos, text, graphics, and images—is the property of Puritual and is protected by copyright and trademark laws. You may not use, copy, or reproduce any content without our written permission.
+          </p>
+
+         <h3 className="md:text-6xl text-2xl mt-8 mb-5">User Conduct</h3>
+          <p>
+            By using our website, you agree not to:
+          </p>
+         <ul className="!list-disc list-inside font-medium flex flex-col gap-3 my-3">
+            <li>Violate any laws or regulations.</li>
+            <li>Interfere with the security or functionality of the site.</li>
+            <li>Upload any malicious code or spam.</li>
+            <li>Impersonate others or provide false information.</li>
+            <li>We reserve the right to restrict access to any user who violates these terms.</li>
+          </ul>
+
+         <h3 className="md:text-6xl text-2xl mt-8 mb-5">Changes to Terms</h3>
+          <p>
+            We may update these Terms & Conditions from time to time. Any changes will be posted on this page. Continued use of our website constitutes acceptance of those changes.
+          </p>
+
+         <h3 className="md:text-6xl text-2xl mt-8 mb-5">Contact Us</h3>
           <p>
             Got questions about these terms or your purchase? Our customer service team is here to help. The company supports each product sold and maintains a goal to provide you with enjoyable shopping experiences.
           </p>
-          <ul className="space-y-2 my-3">
+          <ul className="!list-disc list-inside font-medium flex flex-col gap-3 my-3">
             <li>
               <strong>Email Us:</strong>{" "}
               <Link href="mailto:support@puritualofficial.com" target="_blank">
@@ -107,9 +131,6 @@ const TermsSection: React.FC = () => {
               <strong>Site Address:</strong> 22A- Military Accounts Society, College Road, Lahore
             </li>
           </ul>
-          <p>
-            Thanks for choosing us! We appreciate your business and look forward to serving you again soon.
-          </p>
         </div>
       </div>
 

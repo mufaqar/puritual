@@ -65,9 +65,9 @@ const ScrollImageSection = () => {
                 <Image
                     src="/images/main_pro.png" // Replace with your image path
                     alt="Foaming Hand Wash"
-                    width={300}
+                    width={400}
                     height={600}
-                    className="drop-shadow-xl md:w-auto w-[150px] mx-auto"
+                    className="drop-shadow-xl"
                 />
             </div>
 
