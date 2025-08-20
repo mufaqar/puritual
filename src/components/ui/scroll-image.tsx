@@ -74,12 +74,12 @@ const ScrollImageSection = () => {
             {/* Section 2 */}
             <section className="md:h-screen bg-primary md:py-[180px] py-16 flex flex-col items-center justify-center">
                 <div className="container mx-auto md:px-0 px-3 flex md:flex-row flex-row justify-between md:items-center ">
-                    <div className="md:w-1/3 w-[30%]">
+                    <div className="md:w-1/3 w-[31%]">
                         <h2 className="md:text-[100px] md:leading-[90px] text-[28px] font-light tracking-normal text-dark font-Melodrama">
                             Who knew washing hands could be this much <span className="md:font-normal font-bold">fun?</span>
                         </h2>
                     </div>
-                    <div className="md:w-1/3 w-[40%] text-center self-end">
+                    <div className="md:w-1/3 w-[38%] text-center self-end">
                         <Image
                             src="/images/bubbles.png" // Replace with your image path
                             alt="Foaming Hand Wash"
@@ -87,11 +87,11 @@ const ScrollImageSection = () => {
                             height={640}
                         />
                     </div>
-                    <div className="md:w-1/3 w-[30%]">
-                        <p className="text-lg font-normal text-dark">
+                    <div className="md:w-1/3 w-[31%] md:text-start text-end pl-2">
+                        <p className="text-base font-normal text-dark">
                             With <span className="md:font-normal font-bold">Puritual</span>, every pump delivers rich, <span className="md:font-normal font-bold"> foamy goodness</span> that makes cleansing feel playful, <span className="md:font-normal font-bold"> fragrant </span>, and <span className="md:font-normal font-bold">refreshingly good</span>.
                         </p>
-                        <p className="text-lg font-semibold text-dark mt-6 md:block hidden">
+                        <p className="text-base font-semibold text-dark mt-6 md:block hidden">
                             It’s more than just clean — it’s your daily moment of care, joy, and soft skin.
                         </p>
                     </div>
