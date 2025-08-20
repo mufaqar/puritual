@@ -4,7 +4,7 @@ import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import Image from "next/image";
 import React from "react";
-import useIsMobile from  "@/hooks/useIsMobile"
+import useIsMobile from "@/hooks/useIsMobile"
 
 const AboutSection = () => {
   const isMobile = useIsMobile();
@@ -17,7 +17,7 @@ const AboutSection = () => {
       ".mission-Img2",
       ".mission-Img3",
       ".heading2",
-    ]).forEach((element:any, index) => {
+    ]).forEach((element: any, index) => {
       gsap.from(element, {
         x: isMobile ? (index % 2 === 0 ? -100 : 100) : 0, // Left-to-right for even indexes, right-to-left for odd
         y: isMobile ? 0 : 220, // Only apply Y animation on desktop
@@ -35,8 +35,8 @@ const AboutSection = () => {
 
   return (
     <section className="pt-12 pb-20 relative overflow-hidden">
-      <div className="flex flex-col px-4 md:px-0 md:flex-row items-center justify-center gap-8 md:gap-14 max-w-[1280px] mx-auto">
-        <figure className="">
+      <div className="container mx-auto px-3 md:px-0 flex md:flex-row flex-col items-center justify-between gap-8 md:gap-14">
+        <figure className="md:w-2/5 w-full">
           <Image
             src="/images/mission.png"
             alt=""
@@ -45,67 +45,45 @@ const AboutSection = () => {
             className="md:w-[500px] w-full mission-Img mt-6 "
           />
         </figure>
-        <div className="md:max-w-[483px] font-axiforma text-dark mission-text">
+        <div className="md:w-3/5 w-full text-dark mission-text">
           <p>
-            Once upon a time, a group of friends with big dreams and even bigger
-            hearts decided to make an impact in the world of personal care.
-            After countless discussions, trial and errors, and endless cups of
-            coffee, we brought our wildest ideas to life and created products
-            that make hygiene fun and fabulous.
+            Across cultures and generations, cleansing has always been more than hygiene — it’s a moment of pause, a ritual of renewal, a quiet act of self-care. At Puritual, we honor that tradition with a modern twist: rich, foamy handwashes that nourish your skin, lift your mood, and turn an everyday task into something a little magical.
           </p>
           <p>
-            Our journey wasn’t smooth and easy, but our commitment to excellence
-            and creativity kept us going strong. With hardly any clients, we
-            leaned on our close-knit community for support which gave us
-            confidence to keep moving and we started reaching more people who
-            loved our mission as much as we did.
+            We believe that the simplest routines deserve joy — so we bottled it.
+            Every Puritual formula is infused with the natural goodness of aloe vera and vitamin E, creating a rich lather that’s gentle, effective, and oh-so-satisfying. Our signature scents are crafted to do more than smell great — they make you feel something. Calm. Energized. Uplifted. Centered.
           </p>
           <p>
-            Now, we are super excited to introduce our premium products to the
-            world. We’re here to make every wash a delightful experience and to
-            set new trends in personal care that everyone can enjoy. Join us on
-            this amazing journey and let’s make cleanliness cool together!
+            We ditched the heavy gels, wasteful formulas, and harsh sulfates. Instead, we deliver light-as-air foam, skin-loving ingredients, and fragrance blends you’ll actually look forward to.
           </p>
         </div>
       </div>
 
-      <div className="lg:container mx-auto px-3 flex flex-col md:flex-row gap-10 mt-6 items-end">
-        <div className="flex flex-col md:flex-row gap-5 md:gap-10 items-start">
-          <Image
-            src="/images/mission-1.png"
-            alt=""
-            width={397}
-            height={296}
-            className="mission-Img2 md:max-w-[397px] w-full" 
-          />
-          <div className="text-dark max-w-[675px] mission-text">
-            <h2 className="text-[18vw] leading-[18vw] md:text-[120px] md:leading-[110px] z-[1] mb-5 md:mb-10 heading2 relative mx-auto text-dark font-medium uppercase ">
-              REDEFINING HAND & BODY CARE
-            </h2>
-            <div className="mission-text2">
-            <p>
-              Imagine a future where personal hygiene is not just a routine but
-              a luxurious and fun experience. Our commitment is to change this
-              landscape by introducing premium quality foaming handwashes and
-              body cleansers that do more than just clean- they nourish
-              rejuvenate your skin.{" "}
+      <div className="container mx-auto px-3 flex md:flex-row flex-col gap-10 items-start mt-16">
+        <Image
+          src="/images/mission-1.png"
+          alt=""
+          width={397}
+          height={296}
+          className="mission-Img2 md:max-w-[397px] w-full"
+        />
+        <div className="text-dark max-w-[675px] mission-text">
+          <h2 className="md:text-[100px] md:leading-[90px] text-[28px] font-light tracking-normal text-dark font-Melodrama">
+            Our Promise
+          </h2>
+          <div className="mt-5">
+            <ul className="!list-disc list-inside text-xl font-medium flex flex-col gap-3">
+              <li>No Sulfates, No Fuss — just clean, kind ingredients.</li>
+              <li>Made to Feel Good — on your skin and in your day.</li>
+              <li>Low Waste, More Washes — every pump goes further.</li>
+            </ul>
+            <p className="mt-5">
+              So go ahead — pump, foam, smile, repeat.<br />
+              Because with Puritual, cleansing isn’t just clean… It’s a ritual worth repeating
             </p>
-            <p className="mb-8 md:mb-16">
-              We are a strong believer of the fact that everyone deserves to
-              treat themselves to quality products made with care and the best
-              ingredients. Plus, we care about the earth too, so we make sure
-              our products are good for you and for our planet. We want to lift
-              the game and become trend setters in personal care, where
-              innovation meets style, and every wash is a pleasure. Our
-              allegiance to quality and wellness aims to elevate your daily
-              routines and make you feel wonderful, wherever you happen to be in
-              the world.
-            </p>
-            </div>
-         
           </div>
         </div>
-        
+
       </div>
 
       <Image
@@ -116,7 +94,7 @@ const AboutSection = () => {
         height={220}
       />
       <div className="scroll-bubble-1 flex absolute top-60">
-        <Image src="/svg/bubble-group.svg" alt="" width={888} height={580} className="w-[400px] md:w-[888px]"/>
+        <Image src="/svg/bubble-group.svg" alt="" width={888} height={580} className="w-[400px] md:w-[888px]" />
         <Image
           src="/images/bubble-white.png"
           alt=""
@@ -124,7 +102,7 @@ const AboutSection = () => {
           height={253}
           className=" absolute bottom-0 left-20 md:left-60 md:w-[141px]"
         />
-        <Image src="/svg/bubble-group.svg" alt="" width={888} height={580} className="w-[400px] md:w-[888px]"/>
+        <Image src="/svg/bubble-group.svg" alt="" width={888} height={580} className="w-[400px] md:w-[888px]" />
       </div>
     </section>
   );
