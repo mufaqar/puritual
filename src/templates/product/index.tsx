@@ -44,7 +44,6 @@ interface ProductData {
   short_description: string;
 
   images: ProductImage[];
-
 }
 
 interface ProductTemplateProps {
@@ -79,7 +78,9 @@ const ProductTemplate: React.FC<ProductTemplateProps> = ({ product, meta }) => {
           <div className="md:w-2/3 w-full md:px-8 px-4 ">
             <h1
               className="md:text-[100px] md:leading-[100px] text-3xl font-normal text-dark flex gap-2"
-              dangerouslySetInnerHTML={{ __html: '"' + product.short_description }}
+              dangerouslySetInnerHTML={{
+                __html: '"' + product.short_description,
+              }}
             />
             <p className="md:text-4xl text-xl font-normal text-dark uppercase mt-4 mb-5 pl-4">
               {product.name}
@@ -95,8 +96,10 @@ const ProductTemplate: React.FC<ProductTemplateProps> = ({ product, meta }) => {
 
       {/* Product Info Section */}
       <section className="bg-dark md:py-[100px] py-16 md:px-8 px-3">
-        <div className="container bg-primary flex md:flex-row flex-col items-center md:gap-10 gap-4 mx-auto px-4 border-[10px] rounded-[20px] md:px-8 md:py-10 py-5 relative"
-          style={{ borderColor: product_color }}>
+        <div
+          className="container bg-primary flex md:flex-row flex-col items-center md:gap-10 gap-4 mx-auto px-4 border-[10px] rounded-[20px] md:px-8 md:py-10 py-5 relative"
+          style={{ borderColor: product_color }}
+        >
           <div className="md:w-1/3 w-full">
             <Image
               src={enriched_image}
@@ -107,12 +110,12 @@ const ProductTemplate: React.FC<ProductTemplateProps> = ({ product, meta }) => {
             />
             <div className="relative w-[200px] h-[200px] mt-[-90px]">
               <Image
-                                          src="/images/natural_circle.png"
-                                          alt="Scroll Circle"
-                                          width={500}
-                                          height={500}
-                                          className="animate-rotate-smooth"
-                                        />
+                src="/images/natural_circle.png"
+                alt="Scroll Circle"
+                width={500}
+                height={500}
+                className="animate-rotate-smooth"
+              />
             </div>
           </div>
           <div className="md:w-2/3 w-full">
@@ -139,7 +142,7 @@ const ProductTemplate: React.FC<ProductTemplateProps> = ({ product, meta }) => {
       </section>
 
       {/* Gallery Section */}
-    <ProductGallery images={images} />
+      <ProductGallery images={images} />
 
       <Review />
       <RelatedProducts />
