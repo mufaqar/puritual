@@ -5,8 +5,8 @@ import React from "react";
 import AboutSection from "./about-us";
 
 const AboutTemplate = () => {
-  const text = "Where Clean Meets Calm.";
-  const text2 = "And a Little Fun.";
+  const text = "Where Clean Meets Calm";
+  const text2 = "And a Little Fun";
   const letterHeadingOne = text.split("");
   const letterHeadingTwo = text2.split("");
 
