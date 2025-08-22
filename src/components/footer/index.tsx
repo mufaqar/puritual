@@ -1,10 +1,6 @@
 import React from "react";
 import Link from "next/link";
-import {
-  FaFacebookF,
-  FaInstagram,
-  FaTiktok,
-} from "react-icons/fa";
+import { FaFacebookF, FaInstagram, FaTiktok } from "react-icons/fa";
 import Image from "next/image";
 
 const Footer = () => {
@@ -23,22 +19,36 @@ const Footer = () => {
               Contact
             </Link>
             <Link href="/faqs" className="hover:text-pure">
-              Faq
+              FAQs
             </Link>
           </nav>
           <nav className="md:w-auto w-3/5 text-pure flex flex-col gap-8">
             <div className=" flex justify-center md:justify-end gap-4 lg:gap-8 text-lg lg:text-[26px]">
-              <Link href="https://www.facebook.com/profile.php?id=61573850430062&rdid=TjDPWDoJiM2zrhOy&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F16N2cgBjq1%2F" target="_blank" className="bg-white text-dark rounded-md py-2 px-2 hover:scale-105 transition-all duration-300">
+              <Link
+                href="https://www.facebook.com/profile.php?id=61573850430062&rdid=TjDPWDoJiM2zrhOy&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F16N2cgBjq1%2F"
+                target="_blank"
+                className="bg-white text-dark rounded-md py-2 px-2 hover:scale-105 transition-all duration-300"
+              >
                 <FaFacebookF />
               </Link>
-              <Link href="https://www.tiktok.com/@puritualofficial?_t=ZS-8wDErVQexgw&_r=1" target="_blank" className="bg-white text-dark rounded-md py-2 px-2 hover:scale-105 transition-all duration-300">
+              <Link
+                href="https://www.tiktok.com/@puritualofficial?_t=ZS-8wDErVQexgw&_r=1"
+                target="_blank"
+                className="bg-white text-dark rounded-md py-2 px-2 hover:scale-105 transition-all duration-300"
+              >
                 <FaTiktok />
               </Link>
-              <Link href="https://www.instagram.com/puritualofficial?igsh=MW1wOXoxaWZrMjB6Zg%3D%3D" target="_blank" className="bg-white text-dark rounded-md py-2 px-2 hover:scale-105 transition-all duration-300">
+              <Link
+                href="https://www.instagram.com/puritualofficial?igsh=MW1wOXoxaWZrMjB6Zg%3D%3D"
+                target="_blank"
+                className="bg-white text-dark rounded-md py-2 px-2 hover:scale-105 transition-all duration-300"
+              >
                 <FaInstagram />
               </Link>
             </div>
-            <p className="text-primary font-light text-center">© Copyright 2026, Puritual</p>
+            <p className="text-primary font-light text-center">
+              © Copyright 2026, Puritual
+            </p>
           </nav>
           <nav className="md:w-auto w-1/5 text-primary flex flex-col gap-3 text-end">
             <Link href="/terms-conditions" className="hover:text-pure">
@@ -47,7 +57,7 @@ const Footer = () => {
             <Link href="/privacy-policy" className="hover:text-pure">
               Privacy
             </Link>
-            <Link href="/privacy-policy" className="hover:text-pure">
+            <Link href="/returns" className="hover:text-pure">
               Return
             </Link>
             <Link href="/order-tracking" className="hover:text-pure">
@@ -59,10 +69,15 @@ const Footer = () => {
 
       <div className="bg-dark px-4 md:px-10">
         <div className="flex justify-center">
-          <Image src="/images/footer-logo.png" alt="footer-logo" width={1436} height={250} className="w-full max-w-[900px] h-auto " />
+          <Image
+            src="/images/footer-logo.png"
+            alt="footer-logo"
+            width={1436}
+            height={250}
+            className="w-full max-w-[900px] h-auto "
+          />
         </div>
       </div>
-
     </footer>
   );
 };
