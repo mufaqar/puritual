@@ -18,14 +18,14 @@ function ProductFeatures({ listing }: any) {
       {listing?.map((item: any, idx: number) => (
         <div key={idx} className="mb-6">
           <h4
-            onClick={() => handleFAQ(idx)}
+          
             className="md:text-3xl text-xl font-normal text-dark mb-2.5 flex items-center justify-between gap-5"
           >
-            <span>{item.title}</span> {openFaq === idx ? <TfiLayoutLineSolid  />: <LiaPlusSolid  />}
+            <span>{item.title}</span> 
           </h4>
           <div
-            className={`transition-all duration-200 ${
-              openFaq === idx ? "max-h-[300px] h-full" : "h-0 overflow-hidden"
+            className={`transition-all duration-200 max-h-[300px] h-full ${
+              openFaq === idx ? "" : "h-0 overflow-hidden"
             }`}
           >
             <p

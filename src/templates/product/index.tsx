@@ -106,7 +106,7 @@ const ProductTemplate: React.FC<ProductTemplateProps> = ({ product, meta }) => {
               alt="enriched_image"
               width={700}
               height={700}
-              className="relative z-10"
+              className=""
             />
             <div className="relative w-[200px] h-[200px] mt-[-90px]">
               <Image

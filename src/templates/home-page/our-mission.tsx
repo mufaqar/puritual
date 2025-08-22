@@ -136,7 +136,7 @@ const OurMission = () => {
               a luxurious and fun experience. Our commitment is to change this
               landscape by introducing premium quality foaming handwashes and
               body cleansers that do more than just clean- they nourish
-              rejuvenate your skin.{" "}
+              rejuvenate your skin.
             </p>
             <p className="mb-8 md:mb-16">
               We are a strong believer of the fact that everyone deserves to
