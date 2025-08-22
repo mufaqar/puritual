@@ -1,5 +1,6 @@
 import React from "react";
 import CircleText from "../ui/CircleText";
+import Image from "next/image";
 
 const ScrollText = () => {
   return (
@@ -31,19 +32,13 @@ const ScrollText = () => {
           </p>
         </div>
         <div className="md:w-fit w-[60%] h-full">
-          <div className="md:w-[200px] mx-auto md:h-[200px] w-[90px] h-[90px] pointer-events-none relative z-10">
-            <CircleText
-              text={[
-                'PODEMOS DE VERDADE! PODEMOS DE VERDADE!',
-                'NATURAL HYDRATION · O RGANIC GOODNESS · PUMP · FOAM · SM ILE · REPEAT ·',
-              ]}
-              radius={[150, 250]}
-              reverse={[false, false]}
-              className={['', '']}
-              textClass={[
-                'md:text-2xl text-xl text-dark tracking-widest font-normal',
-                'md:text-3xl text-xl text-dark tracking-[40px] font-normal'
-              ]}
+          <div className="pointer-events-none relative z-10">
+              <Image
+           src="/images/scroll_circle.png"
+            alt="Scroll Circle"
+            width={500}
+            height={500} 
+            className="animate-rotate-smooth"
             />
           </div>
         </div>

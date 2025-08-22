@@ -40,7 +40,17 @@ h6 {
   --color-primary: var(--primary);
   --color-secoundry: var(--secoundry);
   --color-dark: var(--dark);
-  --font-Melodrama: var(--font-Melodrama_Regular)
+  --font-Melodrama: var(--font-Melodrama_Regular);
+   --animate-rotate-smooth: rotate-smooth 6s linear infinite;
+
+  @keyframes rotate-smooth {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
 }
 .circle_button .arrow path {
   transition: 0.4s ease-in-out;
