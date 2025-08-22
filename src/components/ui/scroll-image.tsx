@@ -36,7 +36,7 @@ const ScrollImageSection = () => {
 
                     <div>
                         <h1 className="md:text-[150px] md:leading-[130px] text-6xl font-normal text-dark font-Melodrama">
-                            Cleanse<br />
+                             <span className="-ml[28px]">Cleanse</span><br />
                             <span className="md:pl-12 pl-6">Refresh <br /></span>
                             <span className="md:pl-12 pl-6">Repeat</span>
                         </h1>

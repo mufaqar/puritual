@@ -47,7 +47,7 @@ const BlogsTemplate = ({posts}:any) => {
         <main className="overflow-y-hidden sm:pt-24 pt-26 pb-10 sm:pb-20 bg-secoundry rounded-b-[60px]">
           {/* Animated Heading */}
           <h1 className="flex justify-center flex-wrap px-10 mt-8 overflow-y-hidden text-[14vw] font-medium md:text-[10vw] leading-[13vw] text-primary md:leading-[8vw] text-center">
-            {Array.from("Blogs").map((char, index) => (
+            {Array.from("Blog").map((char, index) => (
               <span key={index} className="t1 uppercase">
                 {char === " " ? "\u00A0" : char}
               </span>

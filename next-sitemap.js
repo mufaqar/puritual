@@ -38,13 +38,13 @@ async function generateSitemap() {
           <loc>${SITE_URL}/faqs</loc>
       </url>
       <url>
-          <loc>${SITE_URL}/blogs</loc>
+          <loc>${SITE_URL}/blog</loc>
       </url>
       ${posts
         ?.map(
           (item) => `
         <url>
-          <loc>${SITE_URL}/blogs/${item.slug}</loc>
+          <loc>${SITE_URL}/blog/${item.slug}</loc>
         </url>
       `
         )

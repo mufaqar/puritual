@@ -40,7 +40,7 @@ const BlogsList = ({ blog }: any) => {
           {/* Buttons */}
           <div className="mt-4 flex gap-3">
             <div className="relative">
-              <SquareButton link={`/blogs/${blog.slug}`} Custom_class="hidden md:block text-white px-4 py-2 text-sm transition">
+              <SquareButton link={`/blog/${blog.slug}`} Custom_class="hidden md:block text-white px-4 py-2 text-sm transition">
                 <span
                 >
                   READ MORE
