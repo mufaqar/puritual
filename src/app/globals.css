@@ -41,7 +41,7 @@ h6 {
   --color-secoundry: var(--secoundry);
   --color-dark: var(--dark);
   --font-Melodrama: var(--font-Melodrama_Regular);
-   --animate-rotate-smooth: rotate-smooth 6s linear infinite;
+   --animate-rotate-smooth: rotate-smooth 12s linear infinite;
 
   @keyframes rotate-smooth {
     0% {

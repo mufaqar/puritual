@@ -36,14 +36,14 @@ const ScrollImageSection = () => {
 
                     <div>
                         <h1 className="md:text-[150px] md:leading-[130px] text-6xl font-normal text-dark font-Melodrama">
-                            Cleans<br />
+                            Cleanse<br />
                             <span className="md:pl-12 pl-6">Refresh <br /></span>
                             <span className="md:pl-12 pl-6">Repeat</span>
                         </h1>
                         <p className="md:text-4xl text-xl font-light text-dark uppercase md:mt-10 mt-5 md:pl-12 pl-6">Your daily treat!</p>
                     </div>
                     <div className="max-w-[450px] flex flex-col items-end justify-end">
-                        <p className="text-lg font-light text-dark md:block hidden">
+                        <p className="text-lg font-normal text-dark md:block hidden">
                             Puritual transforms simple cleansing into pure, foamy fun — a joyful ritual you will love. While regular soaps just clean, Puritual delights you with rich lather, natural goodness of aloe vera and vitamin E and mood-lifting scents that make you smile.
                         </p>
                         <p className="text-lg font-semibold text-dark mt-6 md:block hidden">
@@ -88,10 +88,10 @@ const ScrollImageSection = () => {
                         />
                     </div>
                     <div className="md:w-1/3 w-[31%] md:text-start text-end pl-2">
-                        <p className="text-base font-normal text-dark">
+                        <p className="text-lg font-normal text-dark">
                             With <span className="md:font-normal font-bold">Puritual</span>, every pump delivers rich, <span className="md:font-normal font-bold"> foamy goodness</span> that makes cleansing feel playful, <span className="md:font-normal font-bold"> fragrant </span>, and <span className="md:font-normal font-bold">refreshingly good</span>.
                         </p>
-                        <p className="text-base font-semibold text-dark mt-6 md:block hidden">
+                        <p className="text-lg font-semibold text-dark mt-6 md:block hidden">
                             It’s more than just clean — it’s your daily moment of care, joy, and soft skin.
                         </p>
                     </div>

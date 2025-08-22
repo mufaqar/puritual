@@ -23,13 +23,13 @@ function Shop() {
             </p>
           </div>
         </div>
-        <div className="md:w-1/3 w-[70%] mx-auto bg-[url('/images/shop-Bottle.png')] bg-no-repeat bg-cover bg-center h-[500px] md:h-[600px] lg:h-[700px] md:static absolute left-1/2 md:translate-x-0 -translate-x-1/2">
-            <video
-                src="/images/gif-shop.mp4"
-                autoPlay
-                loop
-                muted
-                className="w-full h-full object-contain" />
+        <div className="md:w-1/3 w-[70%] mx-auto  bg-cover bg-center h-[500px] md:h-[600px] lg:h-[640px] md:static absolute left-1/2 md:translate-x-0 -translate-x-1/2">
+            <Image
+                src="/images/shop-gif.gif"
+               width={500}
+               height={650}
+               alt=""
+                className="object-contain" />
         </div>
         <div className="md:w-1/3 w-1/3 md:px-0 px-3 flex justify-end items-end h-full pt-20 self-end">
           <Link
