@@ -2,6 +2,7 @@
 import React from 'react';
 import CircleText from '@/components/ui/CircleText'; // Import the component
 import Link from 'next/link';
+import Image from 'next/image';
 
 function Shop() {
 
@@ -31,17 +32,13 @@ function Shop() {
 
             {/* Circular text */}
             <div className="absolute right-6 sm:right-8 md:right-16 lg:right-24 xl:right-80 md:top-[40%] top-[16%] -translate-y-1/2 w-24 h-24 sm:w-40 sm:h-40 md:w-48 md:h-48 pointer-events-none z-10">
-                <CircleText
-                    text={[
-                        'PODEMOS DE VERDADE! PODEMOS DE VERDADE!',
-                    ]}
-                    radius={[150, 250]}
-                    reverse={[false, false]}
-                    className={['text-xl', '']}
-                    textClass={[
-                        'md:text-xl text-base text-dark font-normal tracking-[1em]',
-                    ]}
-                />
+                <Image
+                            src="/images/shop_circle.png"
+                            alt="Scroll Circle"
+                            width={500}
+                            height={500}
+                            className="animate-rotate-smooth"
+                          />
             </div>
         </section>
     );

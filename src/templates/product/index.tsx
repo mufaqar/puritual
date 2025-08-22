@@ -103,30 +103,16 @@ const ProductTemplate: React.FC<ProductTemplateProps> = ({ product, meta }) => {
               alt="enriched_image"
               width={700}
               height={700}
+              className="relative z-10"
             />
             <div className="relative w-[200px] h-[200px] mt-[-90px]">
-              <svg
-                viewBox="0 0 200 200"
-                className="w-full h-full"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <defs>
-                  {/* Define a circular path */}
-                  <path
-                    id="text-circle"
-                    d="M 100, 100 m -75, 0 a 75,75 0 1,1 150,0 a 75,75 0 1,1 -150,0"
-                  />
-                </defs>
-                <text fill="#25330A" fontSize="19" fontFamily="">
-                  <textPath
-                    href="#text-circle"
-                    startOffset="50%"
-                    textAnchor="start"
-                  >
-                    NATURAL INGREDIENTS!
-                  </textPath>
-                </text>
-              </svg>
+              <Image
+                                          src="/images/natural_circle.png"
+                                          alt="Scroll Circle"
+                                          width={500}
+                                          height={500}
+                                          className="animate-rotate-smooth"
+                                        />
             </div>
           </div>
           <div className="md:w-2/3 w-full">
