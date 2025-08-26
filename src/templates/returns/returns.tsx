@@ -35,7 +35,7 @@ const ReturnsSection = () => {
           <p>
         At Puritual, we want you to love every part of your cleansing ritual. If something’s not quite right, we’re here to help.  </p>
 
-          <h3 className="md:text-6xl text-2xl mt-8 mb-5">Information Collection</h3>
+          <h3 className="md:text-6xl text-2xl mt-8 mb-5">Return or exchange</h3>
           <p>We collect personal information such as your name, email, shipping address, and payment details when you:</p>
          
         </div>
