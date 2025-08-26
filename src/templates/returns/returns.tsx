@@ -32,15 +32,11 @@ const ReturnsSection = () => {
     <section className="pt-12 pb-20 relative overflow-hidden">
       <div className="container mx-auto px-3 md:px-0">
         <div className="mission-text text-dark">
-          <p>
-        At Puritual, we want you to love every part of your cleansing ritual. If something’s not quite right, we’re here to help.  </p>
-
+          <p>At Puritual, we want you to love every part of your cleansing ritual. If something’s not quite right, we’re here to help.</p>
           <h3 className="md:text-6xl text-2xl mt-8 mb-5">Return or exchange</h3>
-          <p>We collect personal information such as your name, email, shipping address, and payment details when you:</p>
-         
+          <p>We collect personal information such as your name, email, shipping address, and payment details when you:</p>         
         </div>
       </div>
-
       <Image
         src="/svg/bubble.svg"
         alt=""
