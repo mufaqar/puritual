@@ -23,7 +23,8 @@ export default function PaymentRedirect() {
 
   useEffect(() => {
     if (data?.fields) {
-      document.getElementById("alfaForm")?.submit();
+      const form = document.getElementById("alfaForm") as HTMLFormElement | null;
+      form?.submit();
     }
   }, [data]);
 
