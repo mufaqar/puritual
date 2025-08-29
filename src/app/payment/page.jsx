@@ -1,36 +1,32 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
+import { useState } from "react";
 
-export default function PaymentRedirect() {
-  const [formData, setFormData] = useState(null);
+export default function CheckoutPage() {
+  const [amount, setAmount] = useState("100.00");
+  const router = useRouter();
 
-  useEffect(() => {
-    async function init() {
-      const res = await fetch("/api/alfa-transaction", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ amount: "100.00", orderId: "ORDER123" }),
-      });
-      const data = await res.json();
-      setFormData(data);
-    }
-    init();
-  }, []);
-
-  useEffect(() => {
-    if (formData?.fields) {
-      document.getElementById("alfaForm")?.submit();
-    }
-  }, [formData]);
-
-  if (!formData) return <p>Loading...</p>;
+  const handlePay = async () => {
+    const orderId = `ORDER-${Date.now()}`;
+    router.push(`/payment/redirect?amount=${amount}&orderId=${orderId}`);
+  };
 
   return (
-    <form id="alfaForm" method="POST" action={formData.actionUrl}>
-      {Object.entries(formData.fields).map(([k, v]) => (
-        <input type="hidden" key={k} name={k} value={v} />
-      ))}
-      <p>Redirecting to Bank Alfalah...</p>
-    </form>
+    <div className="p-10 max-w-lg mx-auto">
+      <h1 className="text-2xl font-bold mb-4">Checkout</h1>
+      <label className="block mb-2">Amount</label>
+      <input
+        type="text"
+        className="border p-2 w-full mb-4"
+        value={amount}
+        onChange={(e) => setAmount(e.target.value)}
+      />
+      <button
+        onClick={handlePay}
+        className="bg-blue-600 text-white py-2 px-4 rounded"
+      >
+        Pay Now
+      </button>
+    </div>
   );
 }

@@ -1,11 +1,11 @@
 import { NextResponse } from "next/server";
 import crypto from "crypto";
 
-function encryptAES(payload: string, hash: string) {
-  const key = hash.substring(0, 16);
-  const iv = hash.substring(0, 16);
+function encryptAES(data: string, keyStr: string) {
+  const key = keyStr.substring(0, 16);
+  const iv = keyStr.substring(0, 16);
   const cipher = crypto.createCipheriv("aes-128-cbc", key, iv);
-  let encrypted = cipher.update(payload, "utf8", "base64");
+  let encrypted = cipher.update(data, "utf8", "base64");
   encrypted += cipher.final("base64");
   return encrypted;
 }
@@ -35,8 +35,8 @@ export async function POST(req: Request) {
         HS_RequestHash: hash,
       },
     });
-  } catch (error) {
-    console.error(error);
-    return NextResponse.json({ error: "Failed" }, { status: 500 });
+  } catch (err) {
+    console.error(err);
+    return NextResponse.json({ error: "Failed to generate request" }, { status: 500 });
   }
 }
