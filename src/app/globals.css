@@ -181,3 +181,233 @@ h6 {
 svg path#text-circle{
 background-color: #25330a;
 }
+
+
+
+
+.header h1 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
+
+.header p {
+  font-size: 1.1rem;
+  opacity: 0.9;
+}
+
+.card {
+  background: white;
+  border-radius: 10px;
+  padding: 25px;
+  margin-bottom: 25px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.card h2 {
+  color: #0070f3;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #f0f0f0;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: #444;
+}
+
+.form-group input,
+.form-group select {
+  width: 100%;
+  padding: 12px 15px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 16px;
+  transition: border-color 0.3s;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  outline: none;
+  border-color: #0070f3;
+  box-shadow: 0 0 0 3px rgba(0, 112, 243, 0.1);
+}
+
+.btn {
+  display: inline-block;
+  padding: 12px 25px;
+  background-color: #0070f3;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.btn:hover {
+  background-color: #0051a8;
+}
+
+.btn:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.btn-danger {
+  background-color: #e53935;
+}
+
+.btn-danger:hover {
+  background-color: #c62828;
+}
+
+.result {
+  margin-top: 20px;
+  padding: 15px;
+  border-radius: 6px;
+  background-color: #f8f9fa;
+  border-left: 4px solid #0070f3;
+}
+
+.result.success {
+  border-left-color: #4caf50;
+  background-color: #e8f5e9;
+}
+
+.result.error {
+  border-left-color: #f44336;
+  background-color: #ffebee;
+}
+
+.loading {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top-color: white;
+  animation: spin 1s ease-in-out infinite;
+  margin-right: 10px;
+}
+
+
+
+/* Tab Styles */
+.tabs {
+  display: flex;
+  margin-bottom: 20px;
+  border-bottom: 2px solid #e0e0e0;
+}
+
+.tab {
+  padding: 12px 24px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  color: #666;
+  border-bottom: 3px solid transparent;
+  transition: all 0.3s;
+}
+
+.tab:hover {
+  color: #0070f3;
+}
+
+.tab.active {
+  color: #0070f3;
+  border-bottom-color: #0070f3;
+}
+
+.tab:disabled {
+  color: #ccc;
+  cursor: not-allowed;
+}
+
+/* Form Styles */
+.instruction {
+  color: #666;
+  margin-bottom: 20px;
+  font-style: italic;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #0070f3 0%, #0051a8 100%);
+}
+
+.btn-success {
+  background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+}
+
+.btn-primary:hover:not(:disabled) {
+  background: linear-gradient(135deg, #0051a8 0%, #003d82 100%);
+}
+
+.btn-success:hover:not(:disabled) {
+  background: linear-gradient(135deg, #218838 0%, #1aa179 100%);
+}
+
+/* Result Styles */
+.result.success {
+  border-left: 4px solid #28a745;
+  background-color: #e8f5e9;
+}
+
+.result.error {
+  border-left: 4px solid #dc3545;
+  background-color: #ffebee;
+}
+
+.auth-token-info {
+  margin-top: 15px;
+  padding: 10px;
+  background: rgba(0, 0, 0, 0.05);
+  border-radius: 4px;
+}
+
+/* Info Card Styles */
+.info-card {
+  background: #f8f9fa;
+  border-left: 4px solid #0070f3;
+}
+
+.info-section {
+  margin: 15px 0;
+}
+
+.info-section h3 {
+  color: #0070f3;
+  margin-bottom: 8px;
+}
+
+.info-section ul {
+  padding-left: 20px;
+  color: #555;
+}
+
+.info-section li {
+  margin-bottom: 5px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .tabs {
+    flex-direction: column;
+  }
+  
+  .tab {
+    text-align: left;
+    border-bottom: 1px solid #e0e0e0;
+  }
+  
+  .tab.active {
+    border-bottom: 2px solid #0070f3;
+  }
+}
