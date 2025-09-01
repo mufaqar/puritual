@@ -8,9 +8,9 @@ export async function POST(req) {
     // Use environment variables with fallback values
     const merchantId = process.env.HS_MERCHANT_ID || '32286';
     const storeId = process.env.HS_STORE_ID || '220188';
-    const merchantHash = process.env.HS_MERCHANT_HASH || '0aFsbiT8uYBQKWZnuLKZtzSbVcvzxBAbSsjzsmfYwIgQdnhHbQEbwxemeqeWYLbX';
-    const username = process.env.HS_USERNAME || 'enenul';
-    const password = process.env.HS_PASSWORD || 'MinKUhGphedvFzk4yqF7CA==';
+    const merchantHash = process.env.HS_MERCHANT_HASH || '0aFsbiT8uYBQKWZnuLKZtzSbVcvzxBAbSsjzsmfYwIioaXsfGaNxgPq2Zd8wy9hr';
+    const username = process.env.HS_USERNAME || 'jopoci';
+    const password = process.env.HS_PASSWORD || 'X4ncb3xY0YRvFzk4yqF7CA==';
     const channelId = process.env.HS_CHANNEL_ID || '1001';
     const key1 = process.env.HS_KEY1 || 'AbjYYVRgqe7Cxep2';
     const key2 = process.env.HS_KEY2 || '6029068825205865';
@@ -39,7 +39,7 @@ export async function POST(req) {
     // In a real implementation, you would call AlphaPay's API
     return Response.json({
       success: true,
-      authToken: `mock-auth-token-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`,
+      authToken: "uYtmxwFtQxUpp2uL6x4Echgk3WpfpzZcZi/N9k9P58Uv83WqpvuvNMjglFCC15LIDP2UTwJ3iBlbwvMIMca 20BzagNY/92TtQIO9Zs1AvAWQCDb3U1kNUnUpLzW/EFVHB1SUmxDKnQk=",
       handshakePayload: {
         HS_MerchantId: merchantId,
         HS_StoreId: storeId,

@@ -22,7 +22,7 @@ export async function POST(req: Request) {
     const hash = encryptAES(payload, process.env.HS_MERCHANT_HASH!);
 
     return NextResponse.json({
-      actionUrl: "https://sandbox.bankalfalah.com/HS/HS/HS",
+      actionUrl: "https://sandbox.bankalfalah.com/SSO/SSO/SSO",
       fields: {
         HS_MerchantId: merchantId,
         HS_StoreId: storeId,
