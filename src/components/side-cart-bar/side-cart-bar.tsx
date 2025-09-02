@@ -44,6 +44,10 @@ const SideCartBar = () => {
 
   return (
     <>
+     {/* Overlay for outside click (optional, improves UX) */}
+      {isOpen && (
+        <div onClick={() => dispatch(closeCart())} className="fixed inset-0 bg-transparent z-[999]" />
+      )}
       <div
         ref={sideCartRef}
         className="z-[1000] fixed top-0 bottom-0 right-0 max-w-[460px] w-full bg-primary shadow-lg px-7 py-5"

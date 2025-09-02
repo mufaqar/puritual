@@ -74,7 +74,7 @@ const ScrollImageSection = () => {
       {/* Animated Image */}
       <div
         ref={imageRef}
-        className="absolute md:top-[0%] top-[300px] left-1/2 -translate-x-1/2 md:z-[900] z-20"
+        className="absolute md:top-[0%] top-[300px] left-1/2 -translate-x-1/2 md:z-[500] z-20"
       >
         <Image
           src="/images/main_pro.png" 
