@@ -76,77 +76,84 @@ export default function PaymentPage() {
     }
   };
 
-  const handleTransactionSubmit = async (e) => {
-    e.preventDefault();
-    if (
-      !transactionData.orderId ||
-      !transactionData.amount ||
-      !transactionData.transactionType
-    ) {
-      setResult({ type: "error", message: "Please fill all required fields" });
-      return;
+ const handleTransactionSubmit = async (e) => {
+  e.preventDefault();
+  if (
+    !transactionData.orderId ||
+    !transactionData.amount ||
+    !transactionData.transactionType
+  ) {
+    setResult({ type: "error", message: "Please fill all required fields" });
+    return;
+  }
+
+  setIsProcessing(true);
+  setResult(null);
+
+  try {
+    const transactionRequest = {
+      AuthToken: authToken,
+      ChannelId: "1001",
+      Currency: "PKR",
+      IsBIN: 0,
+      ReturnURL: `${window.location.origin}/api/alfa-callback`,
+      MerchantId: process.env.NEXT_PUBLIC_HS_MERCHANT_ID || "32286",
+      StoreId: process.env.NEXT_PUBLIC_HS_STORE_ID || "220188",
+      MerchantHash:
+        process.env.NEXT_PUBLIC_HS_MERCHANT_HASH ||
+        "0aFsbiT8uYBQKWZnuLKZtzSbVcvzxBAbSsjzsmfYwIioaXsfGaNxgPq2Zd8wy9hr",
+      MerchantUsername: process.env.NEXT_PUBLIC_HS_USERNAME || "jopoci",
+      MerchantPassword:
+        process.env.NEXT_PUBLIC_HS_PASSWORD || "X4ncb3xY0YRvFzk4yqF7CA==",
+      TransactionTypeId: transactionData.transactionType,
+      TransactionReferenceNumber: transactionData.orderId,
+      TransactionAmount: transactionData.amount,
+    };
+
+    // 🔥 Get real RequestHash from server
+    const hashResponse = await fetch("/api/transaction-hash", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(transactionRequest),
+    });
+    const hashData = await hashResponse.json();
+
+    if (!hashData.success) {
+      throw new Error(hashData.error || "Failed to get RequestHash");
     }
 
-    setIsProcessing(true);
-    setResult(null);
+    // Create form and submit to AlfaPay
+    const form = document.createElement("form");
+    form.method = "POST";
+    form.action = "https://sandbox.bankalfalah.com/SSO/SSO/SSO";
+    form.style.display = "none";
 
-    try {
-      // Prepare transaction data
-      // Prepare transaction data
-      const transactionRequest = {
-        AuthToken: authToken,
-        ChannelId: "1001",
-        Currency: "PKR",
-        IsBIN: 0,
-        ReturnURL: `${window.location.origin}/api/alfa-callback`,
-        MerchantId: process.env.NEXT_PUBLIC_HS_MERCHANT_ID || "32286",
-        StoreId: process.env.NEXT_PUBLIC_HS_STORE_ID || "220188",
-        MerchantHash:
-          process.env.NEXT_PUBLIC_HS_MERCHANT_HASH ||
-          "0aFsbiT8uYBQKWZnuLKZtzSbVcvzxBAbSsjzsmfYwIioaXsfGaNxgPq2Zd8wy9hr",
-        MerchantUsername: process.env.NEXT_PUBLIC_HS_USERNAME || "jopoci",
-        MerchantPassword:
-          process.env.NEXT_PUBLIC_HS_PASSWORD || "X4ncb3xY0YRvFzk4yqF7CA==",
-        TransactionTypeId: transactionData.transactionType,
-        TransactionReferenceNumber: transactionData.orderId,
-        TransactionAmount: transactionData.amount,
-      };
-
-      // Generate request hash (this would be done server-side in real implementation)
-      console.log("Submitting transaction:", transactionRequest);
-
-      // Create form and submit to AlphaPay
-      const form = document.createElement("form");
-      form.method = "POST";
-      form.action = "https://sandbox.bankalfalah.com/SSO/SSO/SSO";
-      form.style.display = "none";
-
-      for (const [key, value] of Object.entries(transactionRequest)) {
-        const input = document.createElement("input");
-        input.type = "hidden";
-        input.name = key;
-        input.value = value;
-        form.appendChild(input);
-      }
-
-      // Add RequestHash (this would be properly calculated in real implementation)
-      const requestHashInput = document.createElement("input");
-      requestHashInput.type = "hidden";
-      requestHashInput.name = "RequestHash";
-      requestHashInput.value = result?.data?.handshakeHash || ''; // ✅ Real hash
-      form.appendChild(requestHashInput);
-
-      document.body.appendChild(form);
-      form.submit();
-    } catch (error) {
-      console.error("Transaction error:", error);
-      setResult({
-        type: "error",
-        message: `Transaction failed: ${error.message}`,
-      });
-      setIsProcessing(false);
+    for (const [key, value] of Object.entries(transactionRequest)) {
+      const input = document.createElement("input");
+      input.type = "hidden";
+      input.name = key;
+      input.value = value;
+      form.appendChild(input);
     }
-  };
+
+    const requestHashInput = document.createElement("input");
+    requestHashInput.type = "hidden";
+    requestHashInput.name = "RequestHash";
+    requestHashInput.value = hashData.requestHash;
+    form.appendChild(requestHashInput);
+
+    document.body.appendChild(form);
+    form.submit();
+  } catch (error) {
+    console.error("Transaction error:", error);
+    setResult({
+      type: "error",
+      message: `Transaction failed: ${error.message}`,
+    });
+    setIsProcessing(false);
+  }
+};
+
 
   const handleInputChange = (setter) => (e) => {
     const { name, value } = e.target;
