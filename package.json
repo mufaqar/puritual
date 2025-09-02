@@ -14,9 +14,11 @@
     "@reduxjs/toolkit": "^2.6.1",
     "@stripe/stripe-js": "^7.0.0",
     "@woocommerce/woocommerce-rest-api": "^1.0.1",
+    "crypto-js": "^4.1.1",
     "gsap": "^3.12.7",
     "next": "15.2.3",
     "nextjs-toploader": "^3.8.16",
+    "node-fetch": "^3.3.2",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-fast-marquee": "^1.6.5",
@@ -26,8 +28,7 @@
     "react-toastify": "^11.0.5",
     "slick-carousel": "^1.8.1",
     "stripe": "^18.0.0",
-    "swiper": "^11.2.10",
-     "crypto-js": "^4.1.1"
+    "swiper": "^11.2.10"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
