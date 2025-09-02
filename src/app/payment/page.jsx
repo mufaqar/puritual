@@ -1,181 +1,191 @@
-'use client';
+"use client";
 
-import { useState } from 'react';
+import { useState } from "react";
 
 export default function PaymentPage() {
-  const [activeTab, setActiveTab] = useState('handshake');
+  const [activeTab, setActiveTab] = useState("handshake");
   const [handshakeData, setHandshakeData] = useState({
-    orderId: '',
+    orderId: "",
   });
   const [transactionData, setTransactionData] = useState({
-    orderId: '',
-    amount: '',
-    transactionType: '3',
-    mobileNumber: '',
-    email: ''
+    orderId: "",
+    amount: "",
+    transactionType: "3",
+    mobileNumber: "",
+    email: "",
   });
   const [isProcessing, setIsProcessing] = useState(false);
   const [result, setResult] = useState(null);
-  const [authToken, setAuthToken] = useState('');
+  const [authToken, setAuthToken] = useState("");
 
   const handleHandshakeSubmit = async (e) => {
     e.preventDefault();
     if (!handshakeData.orderId) {
-      setResult({ type: 'error', message: 'Please enter Order ID' });
+      setResult({ type: "error", message: "Please enter Order ID" });
       return;
     }
-    
+
     setIsProcessing(true);
     setResult(null);
-    
+
     try {
       // Call our handshake API
-      const response = await fetch('/api/handshake', {
-        method: 'POST',
+      const response = await fetch("/api/handshake", {
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
         body: JSON.stringify({
           orderId: handshakeData.orderId,
         }),
       });
-      
+
       const result = await response.json();
-      
+
       if (!result.success) {
-        throw new Error(result.error || 'Handshake failed');
+        throw new Error(result.error || "Handshake failed");
       }
-      
-      setResult({ 
-        type: 'success', 
-        message: 'Handshake successful!',
-        data: result
+
+      setResult({
+        type: "success",
+        message: "Handshake successful!",
+        data: result,
       });
-      
+
       // Store auth token for transaction request
       if (result.authToken) {
         setAuthToken(result.authToken);
       }
-      
+
       // Pre-fill transaction form with order ID
-      setTransactionData(prev => ({
+      setTransactionData((prev) => ({
         ...prev,
-        orderId: handshakeData.orderId
+        orderId: handshakeData.orderId,
       }));
-      
+
       // Switch to transaction tab
-      setActiveTab('transaction');
-      
+      setActiveTab("transaction");
     } catch (error) {
-      console.error('Handshake error:', error);
-      setResult({ 
-        type: 'error', 
-        message: `Handshake failed: ${error.message}` 
+      console.error("Handshake error:", error);
+      setResult({
+        type: "error",
+        message: `Handshake failed: ${error.message}`,
       });
     } finally {
       setIsProcessing(false);
     }
   };
 
-  const handleTransactionSubmit = async (e) => {
-    e.preventDefault();
-    if (!transactionData.orderId || !transactionData.amount || !transactionData.transactionType) {
-      setResult({ type: 'error', message: 'Please fill all required fields' });
-      return;
+ const handleTransactionSubmit = async (e) => {
+  e.preventDefault();
+  if (
+    !transactionData.orderId ||
+    !transactionData.amount ||
+    !transactionData.transactionType
+  ) {
+    setResult({ type: "error", message: "Please fill all required fields" });
+    return;
+  }
+
+  setIsProcessing(true);
+  setResult(null);
+
+  try {
+    const transactionRequest = {
+      AuthToken: authToken,
+      ChannelId: "1001",
+      Currency: "PKR",
+      IsBIN: 0,
+      ReturnURL: `${window.location.origin}/api/alfa-callback`,
+      MerchantId: process.env.NEXT_PUBLIC_HS_MERCHANT_ID || "32286",
+      StoreId: process.env.NEXT_PUBLIC_HS_STORE_ID || "220188",
+      MerchantHash:
+        process.env.NEXT_PUBLIC_HS_MERCHANT_HASH ||
+        "0aFsbiT8uYBQKWZnuLKZtzSbVcvzxBAbSsjzsmfYwIioaXsfGaNxgPq2Zd8wy9hr",
+      MerchantUsername: process.env.NEXT_PUBLIC_HS_USERNAME || "jopoci",
+      MerchantPassword:
+        process.env.NEXT_PUBLIC_HS_PASSWORD || "X4ncb3xY0YRvFzk4yqF7CA==",
+      TransactionTypeId: transactionData.transactionType,
+      TransactionReferenceNumber: transactionData.orderId,
+      TransactionAmount: transactionData.amount,
+    };
+
+    // 🔥 Get real RequestHash from server
+    const hashResponse = await fetch("/api/transaction-hash", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(transactionRequest),
+    });
+    const hashData = await hashResponse.json();
+
+    if (!hashData.success) {
+      throw new Error(hashData.error || "Failed to get RequestHash");
     }
-    
-    setIsProcessing(true);
-    setResult(null);
-    
-    try {
-      // Prepare transaction data
-      const transactionRequest = {
-        AuthToken: authToken,
-        ChannelId: '1001',
-        Currency: 'PKR',
-        IsBIN: '10',
-        ReturnURL: `${window.location.origin}/api/alfa-callback`,
-        MerchantId: process.env.NEXT_PUBLIC_HS_MERCHANT_ID ,
-        StoreId: process.env.NEXT_PUBLIC_HS_STORE_ID ,
-        MerchantHash: process.env.NEXT_PUBLIC_HS_MERCHANT_HASH ,
-        MerchantUsername: process.env.NEXT_PUBLIC_HS_USERNAME ,
-        MerchantPassword: process.env.NEXT_PUBLIC_HS_PASSWORD ,
-        TransactionTypeId: transactionData.transactionType,
-        TransactionReferenceNumber: transactionData.orderId,
-        TransactionAmount: transactionData.amount,
-        CustomerMobile: transactionData.mobileNumber,
-        CustomerEmail: transactionData.email
-      };
-      
-      // Generate request hash (this would be done server-side in real implementation)
-      console.log('Submitting transaction:', transactionRequest);
-      
-      // Create form and submit to AlphaPay
-      const form = document.createElement('form');
-      form.method = 'POST';
-      form.action = 'https://sandbox.bankalfalah.com/SSO/SSO/SSO';
-      form.style.display = 'none';
-      
-      for (const [key, value] of Object.entries(transactionRequest)) {
-        const input = document.createElement('input');
-        input.type = 'hidden';
-        input.name = key;
-        input.value = value;
-        form.appendChild(input);
-      }
-      
-      // Add RequestHash (this would be properly calculated in real implementation)
-      const requestHashInput = document.createElement('input');
-      requestHashInput.type = 'hidden';
-      requestHashInput.name = 'RequestHash';
-      requestHashInput.value = 'simulated-request-hash';
-      form.appendChild(requestHashInput);
-      
-      document.body.appendChild(form);
-      form.submit();
-      
-    } catch (error) {
-      console.error('Transaction error:', error);
-      setResult({ 
-        type: 'error', 
-        message: `Transaction failed: ${error.message}` 
-      });
-      setIsProcessing(false);
+
+    // Create form and submit to AlfaPay
+    const form = document.createElement("form");
+    form.method = "POST";
+    form.action = "https://sandbox.bankalfalah.com/SSO/SSO/SSO";
+    form.style.display = "none";
+
+    for (const [key, value] of Object.entries(transactionRequest)) {
+      const input = document.createElement("input");
+      input.type = "hidden";
+      input.name = key;
+      input.value = value;
+      form.appendChild(input);
     }
-  };
+
+    const requestHashInput = document.createElement("input");
+    requestHashInput.type = "hidden";
+    requestHashInput.name = "RequestHash";
+    requestHashInput.value = hashData.requestHash;
+    form.appendChild(requestHashInput);
+
+    document.body.appendChild(form);
+    form.submit();
+  } catch (error) {
+    console.error("Transaction error:", error);
+    setResult({
+      type: "error",
+      message: `Transaction failed: ${error.message}`,
+    });
+    setIsProcessing(false);
+  }
+};
+
 
   const handleInputChange = (setter) => (e) => {
     const { name, value } = e.target;
-    setter(prev => ({
+    setter((prev) => ({
       ...prev,
-      [name]: value
+      [name]: value,
     }));
   };
 
   return (
     <div className="container py-20 mx-auto p-4">
-      
       <div className="tabs">
-        <button 
-          className={`tab ${activeTab === 'handshake' ? 'active' : ''}`}
-          onClick={() => setActiveTab('handshake')}
+        <button
+          className={`tab ${activeTab === "handshake" ? "active" : ""}`}
+          onClick={() => setActiveTab("handshake")}
         >
           Step 1: Handshake Request
         </button>
-        <button 
-          className={`tab ${activeTab === 'transaction' ? 'active' : ''}`}
-          onClick={() => setActiveTab('transaction')}
+        <button
+          className={`tab ${activeTab === "transaction" ? "active" : ""}`}
+          onClick={() => setActiveTab("transaction")}
           disabled={!authToken}
         >
           Step 2: Transaction Request
         </button>
       </div>
-      
-      {activeTab === 'handshake' && (
+
+      {activeTab === "handshake" && (
         <div className="card">
           <h2>Handshake Request</h2>
           <p className="instruction">Enter Order ID and click Handshake</p>
-          
+
           <form onSubmit={handleHandshakeSubmit}>
             <div className="form-group">
               <label htmlFor="handshakeOrderId">Order ID:</label>
@@ -189,26 +199,27 @@ export default function PaymentPage() {
                 required
               />
             </div>
-            
-            <button 
-              type="submit" 
+
+            <button
+              type="submit"
               disabled={isProcessing}
               className="btn btn-primary"
             >
               {isProcessing && <span className="loading"></span>}
-              {isProcessing ? 'Processing...' : 'Handshake'}
+              {isProcessing ? "Processing..." : "Handshake"}
             </button>
           </form>
         </div>
       )}
-      
-      {activeTab === 'transaction' && (
+
+      {activeTab === "transaction" && (
         <div className="card">
           <h2>Transaction Request Parameters</h2>
           <p className="instruction">
-            Select Payment Mode, enter transaction details, and click Run to redirect to AlphaPay payment gateway
+            Select Payment Mode, enter transaction details, and click Run to
+            redirect to AlphaPay payment gateway
           </p>
-          
+
           <form onSubmit={handleTransactionSubmit}>
             <div className="form-group">
               <label htmlFor="transactionType">Transaction Type:</label>
@@ -224,7 +235,7 @@ export default function PaymentPage() {
                 <option value="3">Credit/Debit Card</option>
               </select>
             </div>
-            
+
             <div className="form-group">
               <label htmlFor="transactionOrderId">Order ID:</label>
               <input
@@ -237,7 +248,7 @@ export default function PaymentPage() {
                 required
               />
             </div>
-            
+
             <div className="form-group">
               <label htmlFor="amount">Transaction Amount (Whole Number):</label>
               <input
@@ -252,74 +263,80 @@ export default function PaymentPage() {
                 required
               />
             </div>
-            
-         
-            
-            <button 
-              type="submit" 
+
+            <button
+              type="submit"
               disabled={isProcessing}
               className="btn btn-success"
             >
               {isProcessing && <span className="loading"></span>}
-              {isProcessing ? 'Processing...' : 'RUN'}
+              {isProcessing ? "Processing..." : "RUN"}
             </button>
           </form>
         </div>
       )}
-      
+
       {result && (
         <div className={`card result ${result.type}`}>
-          <h3>{result.type === 'success' ? 'Success' : 'Error'}</h3>
+          <h3>{result.type === "success" ? "Success" : "Error"}</h3>
           <p>{result.message}</p>
-          {result.type === 'success' && authToken && (
+          {result.type === "success" && authToken && (
             <div className="auth-token-info">
-              <p><strong>Auth Token:</strong> {authToken.substring(0, 20)}...</p>
+              <p>
+                <strong>Auth Token:</strong> {authToken.substring(0, 20)}...
+              </p>
               <p>You can now proceed to the transaction step.</p>
             </div>
           )}
-          {result.type === 'error' && (
-            <button 
+          {result.type === "error" && (
+            <button
               onClick={() => setResult(null)}
               className="btn"
-              style={{marginTop: '10px'}}
+              style={{ marginTop: "10px" }}
             >
               Try Again
             </button>
           )}
 
-        
-{process.env.NODE_ENV === 'development' && (
-  <div className="card debug-card">
-    <h2>Debug Information</h2>
-    <div className="debug-section">
-      <h3>Environment Variables:</h3>
-      <pre>
-        {JSON.stringify({
-          HS_MERCHANT_ID: process.env.HS_MERCHANT_ID ? 'Set' : 'Missing',
-          HS_STORE_ID: process.env.HS_STORE_ID ? 'Set' : 'Missing',
-          HS_CHANNEL_ID: process.env.HS_CHANNEL_ID ? 'Set' : 'Missing',
-          RETURN_URL: process.env.NEXT_PUBLIC_RETURN_URL || 'Not set'
-        }, null, 2)}
-      </pre>
-    </div>
-    {authToken && (
-      <div className="debug-section">
-        <h3>Auth Token:</h3>
-        <p>{authToken}</p>
-      </div>
-    )}
-    {result && result.data && (
-      <div className="debug-section">
-        <h3>Response Data:</h3>
-        <pre>{JSON.stringify(result.data, null, 2)}</pre>
-      </div>
-    )}
-  </div>
-)}
+          {process.env.NODE_ENV === "development" && (
+            <div className="card debug-card">
+              <h2>Debug Information</h2>
+              <div className="debug-section">
+                <h3>Environment Variables:</h3>
+                <pre>
+                  {JSON.stringify(
+                    {
+                      HS_MERCHANT_ID: process.env.HS_MERCHANT_ID
+                        ? "Set"
+                        : "Missing",
+                      HS_STORE_ID: process.env.HS_STORE_ID ? "Set" : "Missing",
+                      HS_CHANNEL_ID: process.env.HS_CHANNEL_ID
+                        ? "Set"
+                        : "Missing",
+                      RETURN_URL:
+                        process.env.NEXT_PUBLIC_RETURN_URL || "Not set",
+                    },
+                    null,
+                    2
+                  )}
+                </pre>
+              </div>
+              {authToken && (
+                <div className="debug-section">
+                  <h3>Auth Token:</h3>
+                  <p>{authToken}</p>
+                </div>
+              )}
+              {result && result.data && (
+                <div className="debug-section">
+                  <h3>Response Data:</h3>
+                  <pre>{JSON.stringify(result.data, null, 2)}</pre>
+                </div>
+              )}
+            </div>
+          )}
         </div>
       )}
-      
-      
     </div>
   );
 }
