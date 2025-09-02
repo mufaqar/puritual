@@ -57,29 +57,29 @@ const CheckouthtmlForm = () => {
     formData: formData || {},
   };
 
-//   const handleCheckoutPayment = async () => {
-//     if (checkMissingFiled()) return;
-//     setLoading(true);
-//     if (formData?.payment_method === "pay-on-delivery") {
-//       const res = await CreateOrder(data);
-//       const paymentMethod = res?.orderData?.payment_method_title;
-//       const name = res?.orderData?.billing?.first_name;
-//       const address = res?.orderData?.billing?.address;
-//       const email = res?.orderData?.billing?.email;
-//       const phone = res?.orderData?.billing?.phone;
-//       if (res?.status === "success") {
-//         setLoading(false);
-//         localStorage.removeItem("couponData");
-//         router.push(
-//           `/success?paymentMethod=${paymentMethod}&name=${name}&address=${address}&email=${email}&phone=${phone}&orderId=${res?.orderId}`
-//         );
-//       } else {
-//         setLoading(false);
-//       }
-//     } else {
-//       handleCheckout(data);
-//     }
-//   };
+  //   const handleCheckoutPayment = async () => {
+  //     if (checkMissingFiled()) return;
+  //     setLoading(true);
+  //     if (formData?.payment_method === "pay-on-delivery") {
+  //       const res = await CreateOrder(data);
+  //       const paymentMethod = res?.orderData?.payment_method_title;
+  //       const name = res?.orderData?.billing?.first_name;
+  //       const address = res?.orderData?.billing?.address;
+  //       const email = res?.orderData?.billing?.email;
+  //       const phone = res?.orderData?.billing?.phone;
+  //       if (res?.status === "success") {
+  //         setLoading(false);
+  //         localStorage.removeItem("couponData");
+  //         router.push(
+  //           `/success?paymentMethod=${paymentMethod}&name=${name}&address=${address}&email=${email}&phone=${phone}&orderId=${res?.orderId}`
+  //         );
+  //       } else {
+  //         setLoading(false);
+  //       }
+  //     } else {
+  //       handleCheckout(data);
+  //     }
+  //   };
 
   const checkMissingFiled = () => {
     const requiredFields = [
@@ -99,7 +99,7 @@ const CheckouthtmlForm = () => {
     }
   };
 
- const handleCheckoutPayment = async () => {
+  const handleCheckoutPayment = async () => {
     console.log("🚀 handleCheckoutPayment started...");
 
     if (checkMissingFiled()) return;
@@ -155,7 +155,7 @@ const CheckouthtmlForm = () => {
           process.env.NEXT_PUBLIC_HS_PASSWORD || "X4ncb3xY0YRvFzk4yqF7CA==",
         TransactionTypeId: "3",
         TransactionReferenceNumber: orderId,
-        TransactionAmount: orderTotal,
+        TransactionAmount: 50,
       };
 
       console.log("📦 Transaction Request Payload:", transactionRequest);
@@ -174,7 +174,29 @@ const CheckouthtmlForm = () => {
 
       // 🔹 Step 5: Redirect to Bank Alfalah
       console.log("🎉 Redirecting to Bank Alfalah...");
-     // redirectToBank(authToken, requestHash, transactionRequest);
+
+      // Create form and submit to AlfaPay
+      const form = document.createElement("form");
+      form.method = "POST";
+      form.action = "https://sandbox.bankalfalah.com/SSO/SSO/SSO";
+      form.style.display = "none";
+
+      for (const [key, value] of Object.entries(transactionRequest)) {
+        const input = document.createElement("input");
+        input.type = "hidden";
+        input.name = key;
+        input.value = value;
+        form.appendChild(input);
+      }
+
+      const requestHashInput = document.createElement("input");
+      requestHashInput.type = "hidden";
+      requestHashInput.name = "RequestHash";
+      requestHashInput.value = requestHash;
+      form.appendChild(requestHashInput);
+
+      document.body.appendChild(form);
+      form.submit();
     } catch (error) {
       console.error("🔥 Checkout Error:", error);
       alert("Something went wrong with payment. Check console logs.");
@@ -216,7 +238,6 @@ const CheckouthtmlForm = () => {
     document.body.appendChild(form);
     form.submit();
   };
-
 
   return (
     <section className="max-w-[1280px] mx-auto px-3">
