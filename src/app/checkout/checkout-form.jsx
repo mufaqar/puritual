@@ -134,7 +134,7 @@ const CheckouthtmlForm = () => {
 
       console.log("📦 Transaction Request Payload:", transactionRequest);
 
-      const NEXT_PUBLIC_SB_TRANSACTION="https://sandbox.bankalfalah.com/SSO/SSO/SSO";
+      const NEXT_PUBLIC_SB_TRANSACTION=process.env.NEXT_PUBLIC_SB_TRANS;
 
       // 🔹 Step 4: Request transaction hash
       const hashResponse = await fetch("/api/transaction-hash", {
