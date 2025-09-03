@@ -352,7 +352,7 @@ const CheckouthtmlForm = () => {
                     htmlFor="company_name"
                     className="mb-2 block text-sm font-medium text-dark"
                   >
-                    Company name
+                    Company Name*
                   </label>
                   <input
                     type="text"
@@ -399,13 +399,13 @@ const CheckouthtmlForm = () => {
                         type="radio"
                         id={id}
                         name="payment_method"
-                        checked={formData.payment_method === id}
+                        checked="checked"
                         onChange={handleRadioChange}
                         className="h-4 w-4 mt-1"
                       />
                       <div className="ms-4 text-sm">
                         <span className="font-medium leading-none text-primary capitalize">
-                          {id.replace("-", " ")}
+                          Credit / Debit Card
                         </span>
                         <p className="mt-1 text-xs text-gray-400">
                           {id === "pay-on-delivery"
