@@ -14,6 +14,9 @@ export async function POST(req: Request) {
     const HS_MerchantHash = process.env.NEXT_PUBLIC_HS_MERCHANT_HASH!;
     const HS_MerchantUsername = process.env.NEXT_PUBLIC_HS_USERNAME!;
     const HS_MerchantPassword = process.env.NEXT_PUBLIC_HS_PASSWORD!;
+    const HS_SB_HANDSHAKE = process.env.NEXT_PUBLIC_SB_HANDSHAKE!;
+
+    
 
     const mapString = `HS_ChannelId=${HS_ChannelId}&HS_IsRedirectionRequest=0&HS_MerchantId=${HS_MerchantId}&HS_StoreId=${HS_StoreId}&HS_ReturnURL=${HS_ReturnURL}&HS_MerchantHash=${HS_MerchantHash}&HS_MerchantUsername=${HS_MerchantUsername}&HS_MerchantPassword=${HS_MerchantPassword}&HS_TransactionReferenceNumber=${orderId}`;
 
@@ -38,15 +41,18 @@ export async function POST(req: Request) {
       HS_RequestHash: encrypted,
     });
 
+   
+
+
     
 
-    const response = await fetch("https://payments.bankalfalah.com/HS/HS/HS", {
+    const response = await fetch(HS_SB_HANDSHAKE, {
       method: "POST",
       body: payload.toString(),
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
     });
 
-  
+   console.log("Handshake Payload:", response);
 
     const result = await response.json();
 

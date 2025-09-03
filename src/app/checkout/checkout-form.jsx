@@ -134,6 +134,8 @@ const CheckouthtmlForm = () => {
 
       console.log("📦 Transaction Request Payload:", transactionRequest);
 
+      const NEXT_PUBLIC_SB_TRANSACTION="https://sandbox.bankalfalah.com/SSO/SSO/SSO";
+
       // 🔹 Step 4: Request transaction hash
       const hashResponse = await fetch("/api/transaction-hash", {
         method: "POST",
@@ -151,7 +153,7 @@ const CheckouthtmlForm = () => {
       // Create form and submit to AlfaPay
       const form = document.createElement("form");
       form.method = "POST";
-      form.action = "https://payments.bankalfalah.com/SSO/SSO/SSO";
+      form.action = NEXT_PUBLIC_SB_TRANSACTION;
       form.style.display = "none";
 
       for (const [key, value] of Object.entries(transactionRequest)) {
