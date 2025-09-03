@@ -4,8 +4,6 @@ import crypto from "crypto";
 export async function POST(req: Request) {
   try {
     const body = await req.json();
-    console.log("Request Body:", body);
-
     const {
       AuthToken,
       ChannelId,
@@ -26,7 +24,7 @@ export async function POST(req: Request) {
     const Key2 = process.env.NEXT_PUBLIC_KEY2!;
 
     // String to encrypt
-    const dataToEncrypt = `AuthToken=${AuthToken}&ChannelId=${ChannelId}&Currency=${Currency}&IsBIN=${IsBIN}&ReturnURL=${ReturnURL}&MerchantId=${MerchantId}&StoreId=${StoreId}&MerchantHash=${MerchantHash}&MerchantUsername=${MerchantUsername}&MerchantPassword=${MerchantPassword}&TransactionTypeId=${TransactionTypeId}&TransactionReferenceNumber=${TransactionReferenceNumber}&TransactionAmount=50`;
+    const dataToEncrypt = `AuthToken=${AuthToken}&ChannelId=${ChannelId}&Currency=${Currency}&IsBIN=${IsBIN}&ReturnURL=${ReturnURL}&MerchantId=${MerchantId}&StoreId=${StoreId}&MerchantHash=${MerchantHash}&MerchantUsername=${MerchantUsername}&MerchantPassword=${MerchantPassword}&TransactionTypeId=${TransactionTypeId}&TransactionReferenceNumber=${TransactionReferenceNumber}&TransactionAmount=${TransactionAmount}`;
 
     const cipher = crypto.createCipheriv(
       "aes-128-cbc",
@@ -42,6 +40,9 @@ export async function POST(req: Request) {
     });
   } catch (error: any) {
     console.error("Transaction Hash Error:", error);
-    return NextResponse.json({ success: false, error: error.message }, { status: 500 });
+    return NextResponse.json(
+      { success: false, error: error.message },
+      { status: 500 }
+    );
   }
 }

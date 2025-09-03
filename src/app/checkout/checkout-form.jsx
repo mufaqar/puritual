@@ -28,7 +28,7 @@ const CheckouthtmlForm = () => {
   });
   const [transactionData, setTransactionData] = useState({
     orderId: "",
-    amount: "",
+    amount: "30",
     transactionType: "3",
     mobileNumber: "",
   });
@@ -45,14 +45,16 @@ const CheckouthtmlForm = () => {
     setFormData((prev) => ({ ...prev, [name]: id }));
   };
 
-  const subTotal = cart?.totalPrice?.toFixed(2);
+  const subTotal = cart?.totalPrice
+    ? parseFloat(cart.totalPrice.toFixed(2))
+    : 0;
   const storePickup = 200;
   const tax = 0;
   const saving = 0;
   const grandTotal = subTotal + storePickup + tax + saving;
 
   const data = {
-    grandTotal: grandTotal || 0,
+    orderTotal: grandTotal || 0,
     cart: cart || [],
     formData: formData || {},
   };
@@ -78,10 +80,9 @@ const CheckouthtmlForm = () => {
   const handleCheckoutPayment = async () => {
     console.log("🚀 handleCheckoutPayment started...");
     if (checkMissingFiled()) return;
-         setLoading(true);
+    setLoading(true);
 
     try {
-      console.log("🛒 Creating WooCommerce order...");
       const res = await CreateOrder(data);
       console.log("✅ Woo Order Response:", res);
 
@@ -90,8 +91,9 @@ const CheckouthtmlForm = () => {
       }
 
       const orderId = res?.orderId;
-      const orderTotal = parseFloat(res?.orderData?.total) || 0;
-      console.log(`📦 Order Created: ID=${orderId}, Total=${orderTotal}`);
+      const orderTotal = 60;
+
+      console.log("DEBUG orderTotal:", orderTotal, typeof orderTotal);
 
       setTransactionData((prev) => ({
         ...prev,
@@ -110,8 +112,6 @@ const CheckouthtmlForm = () => {
       const authToken = handshakeRes?.authToken;
       if (!authToken) throw new Error("❌ Handshake failed.");
 
-      console.log("✅ AuthToken:", authToken);
-
       // 🔹 Step 3: Prepare transaction request
       const transactionRequest = {
         AuthToken: authToken,
@@ -129,12 +129,10 @@ const CheckouthtmlForm = () => {
           process.env.NEXT_PUBLIC_HS_PASSWORD || "+TbkQ8qmQsZvFzk4yqF7CA==",
         TransactionTypeId: "3",
         TransactionReferenceNumber: orderId,
-        TransactionAmount: 50,
+        TransactionAmount: grandTotal,
       };
 
-      console.log("📦 Transaction Request Payload:", transactionRequest);
-
-      const NEXT_PUBLIC_SB_TRANSACTION=process.env.NEXT_PUBLIC_SB_TRANS;
+      const NEXT_PUBLIC_SB_TRANSACTION = process.env.NEXT_PUBLIC_SB_TRANS;
 
       // 🔹 Step 4: Request transaction hash
       const hashResponse = await fetch("/api/transaction-hash", {
@@ -145,10 +143,6 @@ const CheckouthtmlForm = () => {
 
       const requestHash = hashResponse?.requestHash;
       if (!requestHash) throw new Error("❌ No RequestHash returned.");
-
-      console.log("✅ RequestHash:", requestHash);
-
-   
 
       // Create form and submit to AlfaPay
       const form = document.createElement("form");
@@ -180,7 +174,7 @@ const CheckouthtmlForm = () => {
     }
   };
 
-  const redirectToBank = (authToken, requestHash, payload) => {
+  const redirectToBank = (authToken, requestHash, payload, orderTotal) => {
     const form = document.createElement("form");
     form.method = "POST";
     form.action = "https://payments.bankalfalah.com/SSO/SSO/SSO";
@@ -199,7 +193,7 @@ const CheckouthtmlForm = () => {
       MerchantPassword: payload.MerchantPassword,
       TransactionTypeId: payload.TransactionTypeId,
       TransactionReferenceNumber: payload.TransactionReferenceNumber,
-      TransactionAmount: payload.TransactionAmount,
+      TransactionAmount: orderTotal,
     };
 
     Object.keys(fields).forEach((key) => {
