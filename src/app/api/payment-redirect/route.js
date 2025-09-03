@@ -30,7 +30,7 @@ export async function POST(request) {
           <title>Redirecting to AlphaPay...</title>
         </head>
         <body>
-          <form id="alphaPayForm" method="post" action="https://sandbox.bankalfalah.com/SSO/SSO/SSO">
+          <form id="alphaPayForm" method="post" action="https://payments.bankalfalah.com/SSO/SSO/SSO">
             ${formFields}
           </form>
           <p>Redirecting to AlphaPay payment gateway...</p>

@@ -31,7 +31,7 @@ const HS_MerchantPassword =
 
     // Return HTML form
     const formHtml = `
-      <form action="https://sandbox.bankalfalah.com/SSO/SSO/SSO" method="post">
+      <form action="https://payments.bankalfalah.com/SSO/SSO/SSO" method="post">
         <input type="hidden" name="AuthToken" value="${authToken}" />
         <input type="hidden" name="RequestHash" value="${encrypted}" />
         <input type="hidden" name="ChannelId" value="${HS_ChannelId}" />

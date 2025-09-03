@@ -107,7 +107,7 @@ export default function PaymentPage() {
         process.env.NEXT_PUBLIC_HS_PASSWORD || "X4ncb3xY0YRvFzk4yqF7CA==",
       TransactionTypeId: transactionData.transactionType,
       TransactionReferenceNumber: transactionData.orderId,
-      TransactionAmount: transactionData.amount,
+      TransactionAmount: 50,
     };
 
     // 🔥 Get real RequestHash from server
@@ -125,7 +125,7 @@ export default function PaymentPage() {
     // Create form and submit to AlfaPay
     const form = document.createElement("form");
     form.method = "POST";
-    form.action = "https://sandbox.bankalfalah.com/SSO/SSO/SSO";
+    form.action = "https://payments.bankalfalah.com/SSO/SSO/SSO";
     form.style.display = "none";
 
     for (const [key, value] of Object.entries(transactionRequest)) {

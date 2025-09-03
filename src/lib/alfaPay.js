@@ -1,5 +1,5 @@
 export async function alfaHandshake() {
-  const response = await fetch("https://sandbox.bankalfalah.com/HS/HS/HS", {
+  const response = await fetch("https://payments.bankalfalah.com/HS/HS/HS", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
@@ -15,7 +15,7 @@ export async function alfaHandshake() {
 }
 
 export async function alfaPaymentRequest(transactionData) {
-  const response = await fetch("https://sandbox.bankalfalah.com/SSO/SSO/SSO", {
+  const response = await fetch("https://payments.bankalfalah.com/SSO/SSO/SSO", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(transactionData),
