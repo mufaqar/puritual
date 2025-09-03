@@ -38,11 +38,15 @@ export async function POST(req: Request) {
       HS_RequestHash: encrypted,
     });
 
+    
+
     const response = await fetch("https://payments.bankalfalah.com/HS/HS/HS", {
       method: "POST",
       body: payload.toString(),
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
     });
+
+  
 
     const result = await response.json();
 

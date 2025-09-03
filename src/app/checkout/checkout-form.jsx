@@ -123,10 +123,10 @@ const CheckouthtmlForm = () => {
         StoreId: process.env.NEXT_PUBLIC_HS_STORE_ID || "220188",
         MerchantHash:
           process.env.NEXT_PUBLIC_HS_MERCHANT_HASH ||
-          "0aFsbiT8uYBQKWZnuLKZtzSbVcvzxBAbSsjzsmfYwIioaXsfGaNxgPq2Zd8wy9hr",
-        MerchantUsername: process.env.NEXT_PUBLIC_HS_USERNAME || "jopoci",
+          "OUU362MB1urs/t6z8hRyGZuT7KpVgaK4lRdYLGTkBqiq468CtZr5q3/GJF2Z5WRbrx2sWlaPP75vFzk4yqF7CA==",
+        MerchantUsername: process.env.NEXT_PUBLIC_HS_USERNAME || "asarot",
         MerchantPassword:
-          process.env.NEXT_PUBLIC_HS_PASSWORD || "X4ncb3xY0YRvFzk4yqF7CA==",
+          process.env.NEXT_PUBLIC_HS_PASSWORD || "+TbkQ8qmQsZvFzk4yqF7CA==",
         TransactionTypeId: "3",
         TransactionReferenceNumber: orderId,
         TransactionAmount: 50,
