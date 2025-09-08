@@ -1,6 +1,5 @@
 "use client";
 import React from "react";
-import CircleText from "@/components/ui/CircleText"; // Import the component
 import Link from "next/link";
 import Image from "next/image";
 
@@ -14,10 +13,10 @@ function Shop() {
               Shop <br /> Hygiene
             </h2>
             <p className=" mt-5 text-base md:text-2xl text-dark font-light md:whitespace-nowrap pb-8 sm:mb-6 md:mb-8">
-              A gentle,{" "}
+              A gentle,
               <span className="md:font-light font-normal">organic </span> hand
-              wash that cleanses,{" "}
-              <span className="md:font-light font-normal">hydrates</span>,{" "}
+              wash that cleanses,
+              <span className="md:font-light font-normal">hydrates</span>,
               <br />
               and refreshes.
             </p>

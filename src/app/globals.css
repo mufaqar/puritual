@@ -2,17 +2,18 @@
 @import "slick-carousel/slick/slick.css";
 @import "slick-carousel/slick/slick-theme.css";
 
-
 @font-face {
-  font-family: 'Berlos';
+  font-family: "Berlos";
   src: url("../../public/fonts/Berlos.woff");
 }
+
 @font-face {
   font-family: "Melodrama";
   src: url("../../public/fonts/Melodrama-Regular.woff");
 }
+
 body {
-font-family: var(--font-josefin), sans-serif;
+  font-family: var(--font-josefin), sans-serif;
   overflow-x: hidden;
 }
 
@@ -24,8 +25,6 @@ h5,
 h6 {
   font-family: "Melodrama";
 }
-
-
 
 :root {
   --pure: #ffffff;
@@ -41,23 +40,27 @@ h6 {
   --color-secoundry: var(--secoundry);
   --color-dark: var(--dark);
   --font-Melodrama: var(--font-Melodrama_Regular);
-   --animate-rotate-smooth: rotate-smooth 12s linear infinite;
+  --animate-rotate-smooth: rotate-smooth 12s linear infinite;
 
   @keyframes rotate-smooth {
     0% {
       transform: rotate(0deg);
     }
+
     100% {
       transform: rotate(360deg);
     }
   }
 }
+
 .circle_button .arrow path {
   transition: 0.4s ease-in-out;
 }
+
 .circle_button:hover .arrow path {
   stroke: #111;
 }
+
 .circle_button.dark:hover .arrow path {
   stroke: #fff;
 }
@@ -71,51 +74,61 @@ h6 {
   animation-iteration-count: infinite;
   transform-origin: center;
 }
+
 .singleBlog p {
   font-size: 18px;
 }
+
 .singleBlog {
   color: var(--dark);
   font-size: 18px;
 }
+
 .singleBlog h3 {
   font-size: 21px;
   line-height: 27px;
   font-weight: 700;
   margin: 10px 0;
 }
+
 .singleBlog h4 {
   font-size: 20px;
   line-height: 26px;
   font-weight: 700;
   margin: 10px 0;
 }
+
 .singleBlog a {
   color: rgb(0, 118, 168);
   text-decoration: underline;
 }
+
 .singleBlog h5 {
   font-size: 18px;
   line-height: 24px;
   font-weight: 700;
   margin: 10px 0;
 }
+
 .singleBlog h6 {
   font-size: 16px;
   line-height: 22px;
   font-weight: 700;
   margin: 10px 0;
 }
+
 .singleBlog h2 {
   font-size: 22px;
   line-height: 28px;
   font-weight: 700;
   margin: 10px 0;
 }
+
 .singleBlog ul {
   padding-left: 1.4rem;
   margin: 8px 0;
 }
+
 .singleBlog li {
   list-style-type: circle;
 }
@@ -124,6 +137,7 @@ h6 {
   0% {
     transform: rotate(0deg);
   }
+
   100% {
     transform: rotate(-1turn);
   }
@@ -137,6 +151,7 @@ h6 {
   from {
     transform: translatey(100vw);
   }
+
   to {
     transform: translatey(-100vw);
   }
@@ -146,12 +161,15 @@ h6 {
   width: 0px; Width of the scrollbar
 } */
 ::-webkit-scrollbar-thumb {
-  background: #888; /* Color of the scrollbar */
+  background: #888;
+  /* Color of the scrollbar */
   border-radius: 0px;
 }
+
 ::-webkit-scrollbar-thumb:hover {
   background: #555;
 }
+
 ::-webkit-scrollbar-track {
   background: transparent;
 }
@@ -159,31 +177,40 @@ h6 {
 .light_bubble {
   @apply relative;
 }
+
+@keyframes bubbleMove {
+  0% {
+    transform: translate(0, 0);
+  }
+
+  50% {
+    transform: translate(-20px, -20px);
+  }
+
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
 .light_bubble::before {
   content: "";
-  @apply w-2.5 h-2.5 bg-secoundry rounded-full absolute -top-0.5 -left-0.5 transition-all duration-300 ease-linear;
+  @apply w-4 h-4 bg-secoundry rounded-full absolute top-5 left-5;
+  animation: bubbleMove 2s ease-in-out infinite;
 }
-.light_bubble:hover::before {
-  transform: translate(5px, 5px);
-  @apply bg-dark;
-}
+
 .dark_bubble {
   @apply relative;
 }
+
 .dark_bubble::before {
   content: "";
-  @apply w-2.5 h-2.5 bg-dark rounded-full absolute -top-0.5 -left-0.5 transition-all duration-300 ease-linear;
-}
-.dark_bubble:hover::before {
-  transform: translate(5px, 5px);
-  @apply bg-secoundry;
-}
-svg path#text-circle{
-background-color: #25330a;
+  @apply w-4 h-4 bg-dark rounded-full absolute top-5 left-5;
+  animation: bubbleMove 2s ease-in-out infinite;
 }
 
-
-
+svg path#text-circle {
+  background-color: #25330a;
+}
 
 .header h1 {
   font-size: 2.5rem;
@@ -297,8 +324,6 @@ background-color: #25330a;
   margin-right: 10px;
 }
 
-
-
 /* Tab Styles */
 .tabs {
   display: flex;
@@ -401,12 +426,12 @@ background-color: #25330a;
   .tabs {
     flex-direction: column;
   }
-  
+
   .tab {
     text-align: left;
     border-bottom: 1px solid #e0e0e0;
   }
-  
+
   .tab.active {
     border-bottom: 2px solid #0070f3;
   }
