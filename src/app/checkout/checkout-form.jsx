@@ -48,7 +48,7 @@ const CheckouthtmlForm = () => {
   const subTotal = cart?.totalPrice
     ? parseFloat(cart.totalPrice.toFixed(2))
     : 0;
-  const storePickup = 200;
+  const storePickup = 250;
   const tax = 0;
   const saving = 0;
   const grandTotal = subTotal + storePickup + tax + saving;
@@ -483,9 +483,9 @@ const CheckouthtmlForm = () => {
                   {loading ? "Proceeding..." : "Proceed to Payment"}
                 </p>
               </button>
-              {/* <p className="text-sm mt-2 font-normal text-gray-400">
-                                One or more items in your cart require an account. <a href="#" className="font-medium text-primary-700 underline">Sign in or create an account now.</a>
-                            </p> */}
+              <p className="text-sm mt-2 font-normal text-gray-400">
+                Free Delivery above Rs 3000
+              </p>
             </div>
           </div>
         </div>
