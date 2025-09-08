@@ -50,7 +50,7 @@ const Review = () => {
     <section className="bg-primary py-10 md:py-[90px]">
       <div className="container mx-auto px-4 ">
         <h2 className="text-4xl md:text-[150px] md:leading-[110px] z-[1] mb-10 relative mx-auto text-dark font-normal capitalize">
-          Costumer Reviews
+          Customer Reviews
         </h2>
         <div className="relative">
           <Slider ref={sliderRef} {...settings}>
