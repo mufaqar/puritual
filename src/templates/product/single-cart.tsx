@@ -18,11 +18,11 @@ const SingleCart = ({ product }: any) => {
     <>
       <div className="flex flex-row md:flex-row gap-4 md:items-center md:justify-end justify-center">
         <CircleButton
-          className="dark_bubble bg-dark md:!w-[152px] md:!h-[152px] !w-[86px] !h-[86px]"
-          BgHovr="bg-secoundry md:!w-[152px] md:!h-[152px] !w-[86px] !h-[86px]"
+          className="dark_bubble bg-dark md:!min-w-[152px] md:!h-[152px] !min-w-[86px] !h-[86px]"
+          BgHovr="bg-secoundry md:!min-w-[152px] md:!h-[152px] !min-w-[86px] !h-[86px]"
         >
           <p className="md:text-3xl text-base font-bold text-primary z-10 group-hover:text-dark">
-            Rs {(Number(product?.price) * cartItem).toFixed(2)}
+            Rs {(Number(product?.price) * cartItem).toFixed(0)}
           </p>
         </CircleButton>
         <div className="flex items-center gap-3 mt-2 pb-1.5">
@@ -44,8 +44,8 @@ const SingleCart = ({ product }: any) => {
         </div>
         <CircleButton
           onClick={handleAddToCart}
-          className="light_bubble bg-secoundry md:!w-[152px] md:!h-[152px] !w-[86px] !h-[86px] "
-          BgHovr="bg-dark md:!w-[152px] md:!h-[152px] !w-[86px] !h-[86px] "
+          className="light_bubble bg-secoundry md:!min-w-[152px] md:!h-[152px] !min-w-[86px] !h-[86px] "
+          BgHovr="bg-dark md:!min-w-[152px] md:!h-[152px] !min-w-[86px] !h-[86px] "
         >
           <svg
             className="z-10 fill-dark group-hover:fill-amber-50 md:h-[53px] md:w-[38px] h-[38px] w-[23px]"
