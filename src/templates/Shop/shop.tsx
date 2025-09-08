@@ -6,7 +6,7 @@ import Image from "next/image";
 
 function Shop() {
   return (
-    <section className="bg-primary relative overflow-hidden bg-[url('/ images/shop-Bottle.png')] bg-no-repeat bg-contain bg-center relative md:h-full h-[500px]">
+    <section className="bg-primary relative overflow-hidden bg-[url('/ images/shop-Bottle.png')] bg-no-repeat bg-contain bg-center relative md:h-full h-[360px]">
       <div className="container mx-auto md:px-3 px-0 flex md:flex-row flex-row justify-between">
         <div className="md:w-1/3 w-1/3 md:px-0 px-3">
           <div className="py-4 md:py-12 lg:py-8 relative z-[2]">
@@ -23,7 +23,7 @@ function Shop() {
             </p>
           </div>
         </div>
-        <div className="md:w-1/3 w-[70%] mx-auto  bg-cover bg-center h-[500px] md:h-[600px] lg:h-[640px] md:static absolute left-1/2 md:translate-x-0 -translate-x-1/2">
+        <div className="md:w-1/3 w-[70%] mx-auto  bg-cover bg-center h-[360px] md:h-[600px] lg:h-[640px] md:static absolute left-1/2 md:translate-x-0 -translate-x-1/2">
             <Image
                 src="/images/shop-gif.gif"
                width={500}
