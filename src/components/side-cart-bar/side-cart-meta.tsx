@@ -26,7 +26,7 @@ const SideCartMeta = ({ data }: any) => {
                 <h6 className="text-2xl text-dark">
                   {item?.name}
                 </h6>
-                <p className="text-xs text-dark">Serving weight: 80g</p>
+                {/* <p className="text-xs text-dark">Serving weight: 80g</p> */}
               </div>
               <button
                 className="text-red-500 mt-3 cursor-pointer"
