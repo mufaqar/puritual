@@ -48,7 +48,7 @@ const CheckouthtmlForm = () => {
   const subTotal = cart?.totalPrice
     ? parseFloat(cart.totalPrice.toFixed(2))
     : 0;
-  const storePickup = 250;
+  const storePickup = subTotal > 3000 ? 0 : 250; // Free delivery if subtotal > 3000
   const tax = 0;
   const saving = 0;
   const grandTotal = subTotal + storePickup + tax + saving;
@@ -464,7 +464,7 @@ const CheckouthtmlForm = () => {
                 </dl>
                 <dl className="flex justify-between py-3 text-base">
                   <dt className="text-gray-400">Tax</dt>
-                  <dd className="text-secoundry">Rs{tax}</dd>
+                  <dd className="text-secoundry">Included </dd>
                 </dl>
                 <dl className="flex justify-between py-3 text-base font-bold">
                   <dt className="text-secoundry">Total</dt>
