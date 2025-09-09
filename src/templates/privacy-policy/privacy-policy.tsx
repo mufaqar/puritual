@@ -71,7 +71,7 @@ const PrivacySection = () => {
           <p>Registered users and customers may occasionally receive promotional emails or newsletters. If you prefer not to receive these communications, you can opt out anytime by:</p>
           <ul className="!list-disc list-inside font-medium flex flex-col gap-3 my-3">
             <li>Clicking the unsubscribe link in emails</li>
-            <li>Contacting us at <Link href="mailto:support@puritual.com" target="_blank"> support@puritual.com</Link></li>
+            <li>Contacting us at <Link href="mailto:support@puritualofficial.com" target="_blank"> support@puritualofficial.com</Link></li>
           </ul>
 
           <h3 className="md:text-6xl text-2xl mt-8 mb-5">Third-Party Services</h3>
@@ -106,7 +106,7 @@ const PrivacySection = () => {
           <p>If you have any questions or requests regarding this policy, contact us at:</p>
           <ul className="!list-disc list-inside font-medium flex flex-col gap-3 my-3">
             <li>Puritual</li>
-            <li>Email: <Link href="mailto:support@puritual.com" target="_blank">support@puritual.com</Link></li>
+            <li>Email: <Link href="mailto:support@puritualofficial.com" target="_blank">support@puritualofficial.com</Link></li>
             <li>Phone: <Link href="tel:+923004416441">(+92) 300 4416441</Link></li>
           </ul>
         </div>

@@ -46,7 +46,7 @@ const ReturnsSection = () => {
           <p>What if I received the wrong item or my product was damaged?</p>
           <p>
             We’re so sorry! If something went wrong, email us at
-            support@puritual.com with:
+            support@puritualofficial.com with:
           </p>
 
           <p>Your order number</p>
