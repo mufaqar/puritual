@@ -26,7 +26,7 @@ const SingleCart = ({ product }: any) => {
           </p>
         </CircleButton>
         <div className="flex items-center gap-3 mt-2 pb-1.5">
-          <button onClick={() => setCartItem(cartItem <= 0 ? 0 : cartItem - 1)}>
+          <button onClick={() => setCartItem(cartItem <= 1 ? 1 : cartItem - 1)}>
             <div className="md:w-[88px] md:h-[88px] w-9 h-9 flex text-dark hover:text-primary bg-transparent hover:bg-dark justify-center items-center border border-dark rounded-full cursor-pointer md:text-4xl text-xl font-normal transition-all duration-300 ease-linear">
               <TfiLayoutLineSolid />
             </div>
