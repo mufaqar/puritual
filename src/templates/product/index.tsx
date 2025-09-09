@@ -4,7 +4,6 @@ import Image from "next/image";
 import RelatedProducts from "./related-products";
 import Logo from "../logo/logo";
 import Review from "@/components/Reviews/Review";
-import { FaPlus } from "react-icons/fa";
 import ProductFeatures from "@/components/product-layout/ProductFeatures";
 import ProductGallery from "@/components/product-layout/ProductGallery";
 
@@ -58,8 +57,8 @@ const ProductTemplate: React.FC<ProductTemplateProps> = ({ product, meta }) => {
   const banner_image = meta.acf.banner_image;
   const enriched_image = meta.acf.enriched_image;
   const product_color = meta.acf.product_color;
-  console.log(product);
-  console.log(images[0].src);
+//  console.log(product);
+//  console.log(images[0].src);
 
   return (
     <>
