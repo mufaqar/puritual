@@ -49,10 +49,10 @@ export default function SuccessPage() {
 
   return (
     <>
-      <section className="bg-primary w-full">
-        <main className="overflow-y-hidden sm:pt-24 pt-26 pb-10 sm:pb-20 bg-dark rounded-b-[60px]">
+   <section className="bg-primary w-full">
+        <main className=" sm:pt-28 pt-26 pb-10 sm:pb-20 bg-secoundry rounded-b-[60px]">
           <h1 className="flex justify-center flex-wrap px-10 mt-8 text-[14vw] font-medium md:text-[10vw] leading-[13vw] text-primary md:leading-[8vw] text-center">
-            {Array.from("Payment Successful!").map((char, index) => (
+            {Array.from("Thank you").map((char, index) => (
               <span key={index} className="t1 uppercase">
                 {char === " " ? "\u00A0" : char}
               </span>
@@ -102,7 +102,7 @@ export default function SuccessPage() {
 
           <div className="flex items-center space-x-4">
             <Link
-              href={`/track-order?orderId=${order.id}`}
+              href={`/order-tracking?orderId=${order.id}`}
               className="text-white bg-dark pb-2.5 pt-3 px-5 rounded-[8px] hover:bg-secoundry hover:text-dark"
             >
               Track your order

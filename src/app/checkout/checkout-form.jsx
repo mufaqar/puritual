@@ -1,11 +1,9 @@
 "use client";
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
-import { handleCheckout } from "@/lib/handle-checkout";
 import { CreateOrder } from "@/lib/create-order";
 import { useRouter } from "next/navigation";
 import { toast } from "react-toastify";
-import SquareButton from "@/components/ui/square-button";
 
 const CheckouthtmlForm = () => {
   const cart = useSelector((state) => state?.cart);
@@ -13,24 +11,13 @@ const CheckouthtmlForm = () => {
   const [formData, setFormData] = useState({
     your_name: "",
     your_email: "",
-    country: "",
-    city: "",
+    country: "pakistan",
+    city: "LHR",
     phone_number: "",
     address: "",
-    company_name: "",
+    state: "PU",
     postcode: "",
-    payment_method: "credit-card",
-    delivery_method: "free",
-  });
-
-  const [handshakeData, setHandshakeData] = useState({
-    orderId: "",
-  });
-  const [transactionData, setTransactionData] = useState({
-    orderId: "",
-    amount: "30",
-    transactionType: "3",
-    mobileNumber: "",
+    payment_method: "cod", 
   });
 
   const router = useRouter();
@@ -41,8 +28,8 @@ const CheckouthtmlForm = () => {
   };
 
   const handleRadioChange = (e) => {
-    const { name, id } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: id }));
+    const { id } = e.target;
+    setFormData((prev) => ({ ...prev, payment_method: id }));
   };
 
   const subTotal = cart?.totalPrice
@@ -67,7 +54,7 @@ const CheckouthtmlForm = () => {
       "city",
       "phone_number",
       "address",
-      "company_name",
+      "state",
       "postcode",
     ];
     const missingFields = requiredFields.filter((field) => !formData[field]);
@@ -78,31 +65,30 @@ const CheckouthtmlForm = () => {
   };
 
   const handleCheckoutPayment = async () => {
-    console.log("🚀 handleCheckoutPayment started...");
     if (checkMissingFiled()) return;
     setLoading(true);
 
     try {
-      const res = await CreateOrder(data);
-      console.log("✅ Woo Order Response:", res);
-
-      if (res?.status !== "success") {
-        throw new Error("❌ Failed to create Woo order.");
+      // ✅ COD FLOW
+      if (formData.payment_method === "cod") {
+        const res = await CreateOrder(data);
+        if (res?.status === "success") {
+          const orderId = res?.orderId;
+          router.push(`/thank-you?orderId=${orderId}`);
+        } else {
+          toast.error("❌ Failed to create COD order.");
+        }
+        return;
       }
 
+      // ✅ CREDIT CARD (ONLINE PAYMENT) FLOW
+      const res = await CreateOrder(data);
+      if (res?.status !== "success")
+        throw new Error("❌ Failed to create Woo order.");
+
       const orderId = res?.orderId;
-      const orderTotal = 60;
-
-      console.log("DEBUG orderTotal:", orderTotal, typeof orderTotal);
-
-      setTransactionData((prev) => ({
-        ...prev,
-        orderId,
-        amount: orderTotal,
-      }));
 
       // 🔹 Step 2: Request handshake
-      console.log("🔹 Requesting handshake...");
       const handshakeRes = await fetch("/api/handshake", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -144,7 +130,7 @@ const CheckouthtmlForm = () => {
       const requestHash = hashResponse?.requestHash;
       if (!requestHash) throw new Error("❌ No RequestHash returned.");
 
-      // Create form and submit to AlfaPay
+      // 🔹 Step 5: Submit form to AlfaPay
       const form = document.createElement("form");
       form.method = "POST";
       form.action = NEXT_PUBLIC_SB_TRANSACTION;
@@ -174,39 +160,39 @@ const CheckouthtmlForm = () => {
     }
   };
 
-  const redirectToBank = (authToken, requestHash, payload, orderTotal) => {
-    const form = document.createElement("form");
-    form.method = "POST";
-    form.action = "https://payments.bankalfalah.com/SSO/SSO/SSO";
+  // const redirectToBank = (authToken, requestHash, payload, orderTotal) => {
+  //   const form = document.createElement("form");
+  //   form.method = "POST";
+  //   form.action = "https://payments.bankalfalah.com/SSO/SSO/SSO";
 
-    const fields = {
-      AuthToken: authToken,
-      RequestHash: requestHash,
-      ChannelId: payload.ChannelId,
-      Currency: payload.Currency,
-      IsBIN: payload.IsBIN,
-      ReturnURL: payload.ReturnURL,
-      MerchantId: payload.MerchantId,
-      StoreId: payload.StoreId,
-      MerchantHash: payload.MerchantHash,
-      MerchantUsername: payload.MerchantUsername,
-      MerchantPassword: payload.MerchantPassword,
-      TransactionTypeId: payload.TransactionTypeId,
-      TransactionReferenceNumber: payload.TransactionReferenceNumber,
-      TransactionAmount: orderTotal,
-    };
+  //   const fields = {
+  //     AuthToken: authToken,
+  //     RequestHash: requestHash,
+  //     ChannelId: payload.ChannelId,
+  //     Currency: payload.Currency,
+  //     IsBIN: payload.IsBIN,
+  //     ReturnURL: payload.ReturnURL,
+  //     MerchantId: payload.MerchantId,
+  //     StoreId: payload.StoreId,
+  //     MerchantHash: payload.MerchantHash,
+  //     MerchantUsername: payload.MerchantUsername,
+  //     MerchantPassword: payload.MerchantPassword,
+  //     TransactionTypeId: payload.TransactionTypeId,
+  //     TransactionReferenceNumber: payload.TransactionReferenceNumber,
+  //     TransactionAmount: orderTotal,
+  //   };
 
-    Object.keys(fields).forEach((key) => {
-      const input = document.createElement("input");
-      input.type = "hidden";
-      input.name = key;
-      input.value = fields[key];
-      form.appendChild(input);
-    });
+  //   Object.keys(fields).forEach((key) => {
+  //     const input = document.createElement("input");
+  //     input.type = "hidden";
+  //     input.name = key;
+  //     input.value = fields[key];
+  //     form.appendChild(input);
+  //   });
 
-    document.body.appendChild(form);
-    form.submit();
-  };
+  //   document.body.appendChild(form);
+  //   form.submit();
+  // };
 
   return (
     <section className="max-w-[1280px] mx-auto px-3">
@@ -237,7 +223,6 @@ const CheckouthtmlForm = () => {
                     required
                   />
                 </div>
-
                 <div>
                   <label
                     htmlFor="your_email"
@@ -258,24 +243,6 @@ const CheckouthtmlForm = () => {
 
                 <div>
                   <label
-                    htmlFor="country"
-                    className="mb-2 block text-sm font-medium text-dark"
-                  >
-                    Country*
-                  </label>
-                  <select
-                    id="country"
-                    value={formData.country}
-                    onChange={handleChange}
-                    className="block w-full rounded-lg bg-dark p-4 text-sm text-primary"
-                  >
-                    <option value="">Select Country</option>
-                    <option value="pakistan">Pakistan</option>
-                  </select>
-                </div>
-
-                <div>
-                  <label
                     htmlFor="city"
                     className="mb-2 block text-sm font-medium text-dark"
                   >
@@ -288,7 +255,7 @@ const CheckouthtmlForm = () => {
                     className="block w-full rounded-lg bg-dark p-4 text-sm text-primary"
                   >
                     <option value="KHI">Karachi</option>
-                    <option value="LHR">Lahore</option>
+                    <option value="LHR" >Lahore</option>
                     <option value="ISB">Islamabad</option>
                     <option value="RWP">Rawalpindi</option>
                     <option value="FSD">Faisalabad</option>
@@ -297,6 +264,45 @@ const CheckouthtmlForm = () => {
                     <option value="QTA">Quetta</option>
                     <option value="GJW">Gujranwala</option>
                     <option value="SKT">Sialkot</option>
+                  </select>
+                </div>
+
+                <div>
+                  <label
+                    htmlFor="state"
+                    className="mb-2 block text-sm font-medium text-dark"
+                  >
+                    State*
+                  </label>
+                  <select
+                    id="state"
+                    value={formData.state}
+                    onChange={handleChange}
+                    className="block w-full rounded-lg bg-dark p-4 text-sm text-primary"
+                  >
+                    <option value="PU" >Punjab</option>
+                    <option value="LHR">Sindh</option>
+                    <option value="ISB">KPK</option>
+                    <option value="RWP">Balochistan</option>
+                    <option value="FSD">Gilgit-Baltistan</option>
+                    <option value="MLT">Azad Kashmir</option>
+                  </select>
+                </div>
+
+                <div>
+                  <label
+                    htmlFor="country"
+                    className="mb-2 block text-sm font-medium text-dark"
+                  >
+                    Country*
+                  </label>
+                  <select
+                    id="country"
+                    value={formData.country}
+                    onChange={handleChange}
+                    className="block w-full rounded-lg bg-dark p-4 text-sm text-primary"
+                  >
+                    <option value="pakistan">Pakistan</option>
                   </select>
                 </div>
 
@@ -343,24 +349,6 @@ const CheckouthtmlForm = () => {
 
                 <div>
                   <label
-                    htmlFor="company_name"
-                    className="mb-2 block text-sm font-medium text-dark"
-                  >
-                    Company Name*
-                  </label>
-                  <input
-                    type="text"
-                    id="company_name"
-                    value={formData.company_name}
-                    onChange={handleChange}
-                    className="block w-full rounded-lg bg-dark p-4 text-sm text-primary"
-                    placeholder="Puritual "
-                    required
-                  />
-                </div>
-
-                <div>
-                  <label
                     htmlFor="postcode"
                     className="mb-2 block text-sm font-medium text-dark"
                   >
@@ -382,68 +370,58 @@ const CheckouthtmlForm = () => {
             <div className="space-y-4">
               <h3 className="text-xl font-semibold text-dark">Payment</h3>
               <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
-                {["pay-on-delivery"].map((id) => (
-                  <label
-                    htmlFor={id}
-                    key={id}
-                    className="rounded-lg border cursor-pointer border-gray-200 bg-dark p-4 ps-4 "
-                  >
-                    <div className="flex items-start">
-                      <input
-                        type="radio"
-                        id={id}
-                        name="payment_method"
-                        checked="checked"
-                        onChange={handleRadioChange}
-                        className="h-4 w-4 mt-1"
-                      />
-                      <div className="ms-4 text-sm">
-                        <span className="font-medium leading-none text-primary capitalize">
-                          Credit / Debit Card
-                        </span>
-                        <p className="mt-1 text-xs text-gray-400">
-                          {id === "pay-on-delivery"
-                            ? "+$15 payment processing fee"
-                            : "Pay with your credit/Debit card"}
-                        </p>
-                      </div>
-                    </div>
-                  </label>
-                ))}
-              </div>
-            </div>
-
-            {/* Delivery Methods */}
-            <div className="space-y-4">
-              <h3 className="text-xl font-semibold text-dark">
-                Delivery Methods
-              </h3>
-              <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
-                <div className="rounded-lg border border-gray-200 bg-dark p-4 ps-4">
+                <label
+                  htmlFor="credit_card"
+                  key="credit_card"
+                  className="rounded-lg border cursor-pointer border-gray-200 bg-dark p-4 ps-4 "
+                >
                   <div className="flex items-start">
                     <input
                       type="radio"
-                      id="free"
-                      name="delivery_method"
-                      checked={formData.delivery_method === "free"}
+                      id="credit_card"
+                      name="payment_method"
+                      checked={formData.payment_method === "credit_card"}
                       onChange={handleRadioChange}
                       className="h-4 w-4 mt-1"
                     />
                     <div className="ms-4 text-sm">
-                      <label
-                        htmlFor="free"
-                        className="font-medium leading-none text-primary"
-                      >
-                        Free Delivery
-                      </label>
+                      <span className="font-medium leading-none text-primary capitalize">
+                        Online Payment
+                      </span>
                       <p className="mt-1 text-xs text-gray-400">
-                        Get it in 3-5 days
+                        Pay with your credit/Debit card
                       </p>
                     </div>
                   </div>
-                </div>
+                </label>
+                <label
+                  htmlFor="cod"
+                  key="cod"
+                  className="rounded-lg border cursor-pointer border-gray-200 bg-dark p-4 ps-4 "
+                >
+                  <div className="flex items-start">
+                    <input
+                      type="radio"
+                      id="cod"
+                      name="payment_method"
+                      checked={formData.payment_method === "cod"}
+                      onChange={handleRadioChange}
+                      className="h-4 w-4 mt-1"
+                    />
+                    <div className="ms-4 text-sm">
+                      <span className="font-medium leading-none text-primary capitalize">
+                        Cash on Delivery
+                      </span>
+                      <p className="mt-1 text-xs text-gray-400">
+                        Pay once you receive the product
+                      </p>
+                    </div>
+                  </div>
+                </label>
               </div>
             </div>
+
+            {/* Delivery Methods */}
           </div>
 
           {/* Sidebar Summary */}
