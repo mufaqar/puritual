@@ -24,7 +24,7 @@ export async function POST(req: Request) {
   } else if (data?.formData?.payment_method === "credit_card") {
     payment_method = "credit_card";
     payment_method_title = "Credit Card";
-    set_paid = true;
+    set_paid = false;
   }
   const orderData = {
     payment_method,
