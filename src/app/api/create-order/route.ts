@@ -3,22 +3,36 @@ import WooCommerce from "@/lib/woocommerce";
 import { NextResponse } from "next/server";
 
 export async function POST(req: Request) {
-  const data = await req.json()
+  const data = await req.json();
 
   const line_items = data?.cart?.items?.map((item: any) => {
     return {
       product_id: item?.id,
-      quantity: item?.quantity
-    }
-  })
+      quantity: item?.quantity,
+    };
+  });
 
+  // Payment logic
+  let payment_method = "credit_card";
+  let payment_method_title = "Credit Card";
+  let set_paid = true;
+
+  if (data?.formData?.payment_method === "cod") {
+    payment_method = "cod";
+    payment_method_title = "Cash on Delivery";
+    set_paid = false;
+  } else if (data?.formData?.payment_method === "credit_card") {
+    payment_method = "credit_card";
+    payment_method_title = "Credit Card";
+    set_paid = true;
+  }
   const orderData = {
-    payment_method: data?.formData?.payment_method === 'pay-on-delivery' ? 'cod' : 'bacs',
-    payment_method_title: data?.formData?.payment_method === 'pay-on-delivery' ? 'Cash on Delivery' : 'Direct Bank Transfer',
-    set_paid: data?.formData?.payment_method === 'pay-on-delivery' ? false : true,
+    payment_method,
+    payment_method_title,
+    set_paid,
     billing: {
       first_name: data?.formData?.your_name,
-      last_name: '',
+      last_name: "",
       address_1: data?.formData?.address,
       city: data?.formData?.city,
       postcode: data?.formData?.postcode,
@@ -28,37 +42,44 @@ export async function POST(req: Request) {
     },
     shipping: {
       first_name: data?.formData?.your_name,
-      last_name: '',
+      last_name: "",
       address_1: data?.formData?.address,
       city: data?.formData?.city,
       postcode: data?.formData?.postcode,
       country: data?.formData?.country,
     },
-    line_items
+
+    line_items,
+    shipping_lines: [
+      {
+        method_id: "flat_rate",
+        method_title: "Standard Shipping",
+        total: "250",
+      },
+    ],
   };
 
   try {
-    const response = await WooCommerce.post('orders', orderData);
-    const orderId = response.data.id
+    const response = await WooCommerce.post("orders", orderData);
+    const orderId = response.data.id;
     return new NextResponse(
       JSON.stringify({
         status: "success",
         message: "Order Created",
         orderData,
-        orderId
+        orderId,
       }),
       { status: 200 }
     );
   } catch (error) {
-    console.error('Error creating order:', error);
+    console.error("Error creating order:", error);
     return new NextResponse(
       JSON.stringify({
         status: "Error",
         message: "error",
-        error
+        error,
       }),
       { status: 401 }
     );
   }
-
 }
