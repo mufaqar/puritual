@@ -48,6 +48,8 @@ const Review = ({ productId }: { productId: number }) => {
       { breakpoint: 480, settings: { slidesToShow: 1, slidesToScroll: 1 } },
     ],
   };
+
+  
   return (
     <>
       <section className="bg-primary py-10 md:py-[90px] relative">
@@ -106,7 +108,7 @@ const Review = ({ productId }: { productId: number }) => {
           </button>
         </div>
 
-        <div className={`${reviewOpen === true ? "flex " : "hidden"} items-center justify-center absolute bottom-0 w-full z-10`}>
+        <div className={`${reviewOpen === true ? "flex " : "hidden"} items-center justify-center `}>
           <Reviewform productId={productId} />
         </div>
       </section>
