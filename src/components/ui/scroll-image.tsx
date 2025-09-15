@@ -35,14 +35,12 @@ const ScrollImageSection = () => {
         <div className="container mx-auto md:px-0 px-3 h-full flex md:flex-row flex-col justify-between md:items-center">
           <div>
             <h1 className="md:text-[150px] md:leading-[130px] text-6xl font-normal text-dark font-Melodrama">
-              <span className="-ml[28px]">Cleanse</span>
+              Cleanse
               <br />
-              <span className="md:pl-12 pl-6">
-                Refresh <br />
-              </span>
-              <span className="md:pl-12 pl-6">Repeat</span>
+              Refresh <br />
+              Repeat
             </h1>
-            <p className="md:text-5xl text-xl font-light text-dark uppercase md:mt-10 mt-5 md:pl-12 pl-6">
+            <p className="md:text-5xl text-xl font-light text-dark uppercase md:mt-10 mt-5 ">
               Your daily treat!
             </p>
           </div>
@@ -77,7 +75,7 @@ const ScrollImageSection = () => {
         className="absolute md:top-[0%] top-[300px] left-1/2 -translate-x-1/2 md:z-[500] z-20"
       >
         <Image
-          src="/images/main_pro.png" 
+          src="/images/main_pro.png"
           alt="Foaming Hand Wash"
           width={400}
           height={600}
@@ -96,7 +94,7 @@ const ScrollImageSection = () => {
           </div>
           <div className="md:w-1/3 w-[38%] text-center self-end">
             <Image
-              src="/images/bubbles.png" 
+              src="/images/bubbles.png"
               alt="Foaming Hand Wash"
               width={911}
               height={640}

@@ -1,9 +1,10 @@
 "use client";
 
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import Image from 'next/image';
 import { FaChevronLeft, FaChevronRight, FaStar } from 'react-icons/fa';
 import Slider, { Settings } from "react-slick";
+import Reviewform from "./reviewform";
 
 const reviews = [
   {
@@ -24,6 +25,7 @@ const reviews = [
 
 const Review = () => {
   const sliderRef = useRef<Slider | null>(null);
+  const [reviewOpen, setReviewOpen] = useState(false);
 
   const next = () => {
     sliderRef.current?.slickNext();
@@ -47,86 +49,69 @@ const Review = () => {
     ],
   };
   return (
-    <section className="bg-primary py-10 md:py-[90px]">
-      <div className="container mx-auto px-4 ">
-        <h2 className="text-4xl md:text-[150px] md:leading-[110px] z-[1] mb-10 relative mx-auto text-dark font-normal capitalize">
-          Customer Reviews
-        </h2>
-        <div className="relative">
-          <Slider ref={sliderRef} {...settings}>
-            {reviews.map((review) => (
-              <div key={review.id} className="md:px-2.5 px-1">
-                <div className="flex items-center gap-4 mb-6">
-                  <p className="md:text-[50px] md:leading-[50px] text-2xl text-dark">Rating</p>
-                  <div className="flex gap-4">
-                    {Array.from({ length: review.rating }).map((_, i) => (
-                      <FaStar key={i} className="text-dark text-2xl" />
-                    ))}
+    <>
+      <section className="bg-primary py-10 md:py-[90px] relative">
+        <div className="container mx-auto px-4 ">
+          <h2 className="text-4xl md:text-[150px] md:leading-[110px] z-[1] mb-10 relative mx-auto text-dark font-normal capitalize">
+            Customer Reviews
+          </h2>
+          <div className="relative mb-16">
+            <Slider ref={sliderRef} {...settings}>
+              {reviews.map((review) => (
+                <div key={review.id} className="md:px-2.5 px-1">
+                  <div className="flex items-center gap-4 mb-6">
+                    <p className="md:text-[50px] md:leading-[50px] text-2xl text-dark">Rating</p>
+                    <div className="flex gap-4">
+                      {Array.from({ length: review.rating }).map((_, i) => (
+                        <FaStar key={i} className="text-dark text-2xl" />
+                      ))}
+                    </div>
                   </div>
-                </div>
-                <div className="bg-dark text-primary py-5 rounded-[20px]">
-                  <div className="flex md:flex-row flex-row items-start gap-3 md:px-[70px] px-5">
-                    <Image
-                      src={review.image}
-                      alt={review.username}
-                      width={70}
-                      height={70}
-                      className='rounded-full md:w-[70px] md:h-[70px] w-10 h-10' />
+                  <div className="bg-dark text-primary py-5 rounded-[20px]">
+                    <div className="flex md:flex-row flex-row items-start gap-3 md:px-[70px] px-5">
+                      <Image
+                        src={review.image}
+                        alt={review.username}
+                        width={70}
+                        height={70}
+                        className='rounded-full md:w-[70px] md:h-[70px] w-10 h-10' />
 
-                    <div className="mt-4">
-                      <p className="md:text-2xl text-xl font-medium mb-2">{review.username}</p>
-                      <p className="md:text-2xl text-xl font-[100] italic">{review.text}</p>
+                      <div className="mt-4">
+                        <p className="md:text-2xl text-xl font-medium mb-2">{review.username}</p>
+                        <p className="md:text-2xl text-xl font-[100] italic">{review.text}</p>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
-            ))}
-          </Slider>
-          {/* Custom Arrows */}
-          <button
-            className="md:hidden block button absolute top-1/2 -translate-y-1/2 sm:-left-5 -left-4 text-secoundry hover:text-dark text-3xl cursor-pointer hover:scale-125 transition-all "
-            onClick={previous}
+              ))}
+            </Slider>
+            {/* Custom Arrows */}
+            <button
+              className="md:hidden block button absolute top-1/2 -translate-y-1/2 sm:-left-5 -left-4 text-secoundry hover:text-dark text-3xl cursor-pointer hover:scale-125 transition-all "
+              onClick={previous}
+            >
+              <FaChevronLeft />
+            </button>
+            <button
+              className="md:hidden block button absolute top-1/2 -translate-y-1/2 sm:-right-5 -right-4 text-secoundry hover:text-dark text-3xl cursor-pointer hover:scale-125 transition-all "
+              onClick={next}
+            >
+              <FaChevronRight />
+            </button>
+          </div>
+          <button onClick={() => setReviewOpen(true)}
+            className="uppercase w-fit mx-auto bg-dark text-white hover:bg-secoundry px-3 py-2 text-base relative flex text-center justify-center items-center shadow-[3px_3px_0_3px_rgb(174,208,54)] hover:shadow-[0px_0px_0_0px_rgb(174,208,54)] transition-all duration-300 ease-linear"
           >
-            <FaChevronLeft />
-          </button>
-          <button
-            className="md:hidden block button absolute top-1/2 -translate-y-1/2 sm:-right-5 -right-4 text-secoundry hover:text-dark text-3xl cursor-pointer hover:scale-125 transition-all "
-            onClick={next}
-          >
-            <FaChevronRight />
+            Post A Review
           </button>
         </div>
-        {/* <div className="grid md:grid-cols-2 gap-6">
-          {reviews.map((review) => (
-            <div key={review.id}>
-              <div className="flex items-center gap-4 mb-6">
-                <p className="md:text-[50px] md:leading-[50px] text-4xl text-dark">Rating</p>
-                <div className="flex gap-4">
-                  {Array.from({ length: review.rating }).map((_, i) => (
-                    <FaStar key={i} className="text-dark text-2xl" />
-                  ))}
-                </div>
-              </div>
-              <div className="bg-dark text-primary p-5 rounded-[20px]">
-                <div className="flex md:flex-row flex-col items-start gap-3 md:px-[70px] px-5">
-                  <Image
-                    src={review.image}
-                    alt={review.username}
-                    width={70}
-                    height={70}
-                    className='rounded-full md:w-[70px] md:h-[70px] w-16 h-16' />
 
-                  <div className="mt-4">
-                    <p className="md:text-2xl text-xl font-medium mb-2">{review.username}</p>
-                    <p className="md:text-2xl text-xl font-[100] italic">{review.text}</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div> */}
-      </div>
-    </section>
+        <div className={`${reviewOpen === true ? "flex " : "hidden"} items-center justify-center absolute bottom-0 w-full z-10`}>
+          <Reviewform />
+        </div>
+      </section>
+      <div className="fixed inset-0 bg-transparent z-[999] hidden"></div>
+    </>
   );
 };
 
