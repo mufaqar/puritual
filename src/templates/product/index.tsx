@@ -143,7 +143,7 @@ const ProductTemplate: React.FC<ProductTemplateProps> = ({ product, meta }) => {
       {/* Gallery Section */}
       <ProductGallery images={images} />
 
-      <Review />
+      <Review productId={product.id} />
       <RelatedProducts />
     </>
   );

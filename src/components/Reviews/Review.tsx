@@ -23,7 +23,7 @@ const reviews = [
   },
 ];
 
-const Review = () => {
+const Review = ({ productId }: { productId: number }) => {
   const sliderRef = useRef<Slider | null>(null);
   const [reviewOpen, setReviewOpen] = useState(false);
 
@@ -107,7 +107,7 @@ const Review = () => {
         </div>
 
         <div className={`${reviewOpen === true ? "flex " : "hidden"} items-center justify-center absolute bottom-0 w-full z-10`}>
-          <Reviewform />
+          <Reviewform productId={productId} />
         </div>
       </section>
       <div className="fixed inset-0 bg-transparent z-[999] hidden"></div>

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { FaStar } from "react-icons/fa";
 
-const Reviewform = () => {
+const Reviewform = ({ productId }: { productId: number }) => {
     const [formData, setFormData] = useState({
         name: "",
         review: "",
@@ -18,18 +18,37 @@ const Reviewform = () => {
         setFormData((prev) => ({ ...prev, [name]: value }));
     };
 
-    // Handle form submit
-    const handleSubmit = (e: React.FormEvent) => {
-        e.preventDefault();
-        console.log(formData); // ✅ Includes name, review, and rating
+   // Handle form submit
+const handleSubmit = async (e: React.FormEvent) => {
+  e.preventDefault();
 
-        // 👉 send `formData` to your API or database here
-        alert(`Review submitted!\nName: ${formData.name}\nRating: ${formData.rating}\nReview: ${formData.review}`);
+  try {
+    const res = await fetch("/api/reviews", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        productId,              // ✅ comes from props
+        reviewer: formData.name,
+        review: formData.review,
+        rating: formData.rating,
+      }),
+    });
 
-        // Reset form
-        setFormData({ name: "", review: "", rating: 0 });
-        setHover(0);
-    };
+    const data = await res.json();
+
+    if (res.ok) {
+      alert("✅ Review submitted successfully!");
+      // reset form
+      setFormData({ name: "", review: "", rating: 0 });
+      setHover(0);
+    } else {
+      alert("❌ Failed: " + (data.message || data.error));
+    }
+  } catch (err) {
+    console.error(err);
+    alert("❌ Something went wrong!");
+  }
+};
 
     return (
         <div className="md:w-2/3 w-full mx-auto px-4 bg-primary py-16 md:px-10">
