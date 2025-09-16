@@ -1,43 +1,44 @@
 "use client";
 
-import React, { useEffect, useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import Image from "next/image";
 import { FaChevronLeft, FaChevronRight, FaStar } from "react-icons/fa";
 import Slider, { Settings } from "react-slick";
 import Reviewform from "./reviewform";
 
+interface ReviewType {
+  id: number;
+  reviewer: string;
+  review: string;
+  rating: number;
+  reviewer_avatar_urls: { [key: string]: string };
+}
+
 const Review = ({ productId }: { productId: number }) => {
   const sliderRef = useRef<Slider | null>(null);
+  const [reviews, setReviews] = useState<ReviewType[]>([]);
   const [reviewOpen, setReviewOpen] = useState(false);
-  const [reviews, setReviews] = useState<any[]>([]);
-  const [loading, setLoading] = useState(true);
 
+  console.log(reviews);
+
+  // Fetch reviews from Woo API
   useEffect(() => {
     const fetchReviews = async () => {
       try {
         const res = await fetch(`/api/product-review/${productId}`);
+        if (!res.ok) throw new Error("Failed to fetch reviews");
         const data = await res.json();
-        if (res.ok) {
-          setReviews(data.reviews);
-        } else {
-          console.error("Error fetching reviews:", data);
-        }
+     
+        setReviews(data.reviews);
       } catch (err) {
-        console.error(err);
-      } finally {
-        setLoading(false);
+        console.error("Error fetching reviews:", err);
       }
     };
-
     fetchReviews();
   }, [productId]);
 
-  const next = () => {
-    sliderRef.current?.slickNext();
-  };
-  const previous = () => {
-    sliderRef.current?.slickPrev();
-  };
+  const next = () => sliderRef.current?.slickNext();
+  const previous = () => sliderRef.current?.slickPrev();
 
   const settings: Settings = {
     dots: false,
@@ -46,7 +47,6 @@ const Review = ({ productId }: { productId: number }) => {
     speed: 500,
     slidesToShow: 2,
     slidesToScroll: 1,
-    initialSlide: 0,
     responsive: [
       { breakpoint: 1024, settings: { slidesToShow: 2, slidesToScroll: 1 } },
       { breakpoint: 600, settings: { slidesToShow: 2, slidesToScroll: 1 } },
@@ -56,34 +56,28 @@ const Review = ({ productId }: { productId: number }) => {
 
   return (
     <section className="bg-primary py-10 md:py-[90px] relative">
-      <div className="container mx-auto px-4 ">
+      <div className="container mx-auto px-4">
         <h2 className="text-4xl md:text-[150px] md:leading-[110px] z-[1] mb-10 relative mx-auto text-dark font-normal capitalize">
           Customer Reviews
         </h2>
-
-        {loading ? (
-          <p>Loading reviews...</p>
-        ) : reviews.length === 0 ? (
-          <p>No reviews yet.</p>
-        ) : (
-          <div className="relative mb-16">
+        <div className="relative mb-16">          
+          {reviews.length > 0 ? (
             <Slider ref={sliderRef} {...settings}>
               {reviews.map((review) => (
                 <div key={review.id} className="md:px-2.5 px-1">
                   <div className="flex items-center gap-4 mb-6">
-                    <p className="md:text-[50px] md:leading-[50px] text-2xl text-dark">
-                      Rating
-                    </p>
-                    <div className="flex gap-4">
-                      {Array.from({ length: review.rating }).map((_, i) => (
+                    <p className="md:text-[50px] text-2xl text-dark">Rating</p>
+                    <div className="flex gap-2">
+                      {Array.from({ length: 5 }).map((_, i) => (
                         <FaStar key={i} className="text-dark text-2xl" />
                       ))}
                     </div>
                   </div>
                   <div className="bg-dark text-primary py-5 rounded-[20px]">
-                    <div className="flex md:flex-row flex-row items-start gap-3 md:px-[70px] px-5">
+                    <div className="flex items-start gap-3 md:px-[70px] px-5">
                       <Image
-                        src="/images/user_dp.png" // fallback avatar
+                        src=
+                          "/images/user_dp.png"                        
                         alt={review.reviewer}
                         width={70}
                         height={70}
@@ -93,41 +87,49 @@ const Review = ({ productId }: { productId: number }) => {
                         <p className="md:text-2xl text-xl font-medium mb-2">
                           {review.reviewer}
                         </p>
-                        <p className="md:text-2xl text-xl font-[100] italic">
-                          {review.review}
-                        </p>
+                        <p
+  className="md:text-2xl text-xl font-[100] italic"
+  dangerouslySetInnerHTML={{ __html: review.review }}
+/>
                       </div>
                     </div>
                   </div>
                 </div>
               ))}
             </Slider>
-            {/* Custom Arrows */}
-            <button
-              className="md:hidden block button absolute top-1/2 -translate-y-1/2 sm:-left-5 -left-4 text-secoundry hover:text-dark text-3xl cursor-pointer hover:scale-125 transition-all "
-              onClick={previous}
-            >
-              <FaChevronLeft />
-            </button>
-            <button
-              className="md:hidden block button absolute top-1/2 -translate-y-1/2 sm:-right-5 -right-4 text-secoundry hover:text-dark text-3xl cursor-pointer hover:scale-125 transition-all "
-              onClick={next}
-            >
-              <FaChevronRight />
-            </button>
-          </div>
-        )}
+          ) : (
+            <p className="text-dark text-lg italic">No reviews yet.</p>
+          )}
+
+          {/* Custom Arrows */}
+          <button
+            className="md:hidden block absolute top-1/2 -translate-y-1/2 sm:-left-5 -left-4 text-secoundry hover:text-dark text-3xl"
+            onClick={previous}
+          >
+            <FaChevronLeft />
+          </button>
+          <button
+            className="md:hidden block absolute top-1/2 -translate-y-1/2 sm:-right-5 -right-4 text-secoundry hover:text-dark text-3xl"
+            onClick={next}
+          >
+            <FaChevronRight />
+          </button>
+        </div>
 
         <button
           onClick={() => setReviewOpen(true)}
-          className="uppercase w-fit mx-auto bg-dark text-white hover:bg-secoundry px-3 py-2 text-base relative flex text-center justify-center items-center shadow-[3px_3px_0_3px_rgb(174,208,54)] hover:shadow-[0px_0px_0_0px_rgb(174,208,54)] transition-all duration-300 ease-linear"
+          className="uppercase w-fit mx-auto bg-dark text-white hover:bg-secoundry px-3 py-2 text-base relative flex justify-center items-center shadow-[3px_3px_0_3px_rgb(174,208,54)] hover:shadow-[0px_0px_0_0px_rgb(174,208,54)] transition-all duration-300"
         >
           Post A Review
         </button>
       </div>
 
-      {/* Review form modal */}
-      <div className={`${reviewOpen ? "flex" : "hidden"} items-center justify-center`}>
+      {/* Review Form Modal */}
+      <div
+        className={`${
+          reviewOpen ? "flex" : "hidden"
+        } items-center justify-center`}
+      >
         <Reviewform productId={productId} />
       </div>
     </section>

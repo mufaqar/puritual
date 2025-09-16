@@ -6,6 +6,7 @@ import Logo from "../logo/logo";
 import Review from "@/components/Reviews/Review";
 import ProductFeatures from "@/components/product-layout/ProductFeatures";
 import ProductGallery from "@/components/product-layout/ProductGallery";
+import FetchReviews from "@/components/Reviews/FetchReviews";
 
 // Types
 interface MetaListingItem {
@@ -143,6 +144,8 @@ const ProductTemplate: React.FC<ProductTemplateProps> = ({ product, meta }) => {
       {/* Gallery Section */}
       <ProductGallery images={images} />
 
+
+   
       <Review productId={product.id} />
       <RelatedProducts />
     </>

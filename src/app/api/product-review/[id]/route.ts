@@ -1,32 +1,25 @@
-import WooCommerce from "@/lib/woocommerce";
 import { NextResponse } from "next/server";
+import WooCommerce from "@/lib/woocommerce";
 
+// GET /api/reviews/[id] → Fetch reviews for a product
 export async function GET(
   req: Request,
-  { params }: { params: { id: string } }
+  { params }: { params: { id: number } }
 ) {
   try {
-    const { id } = params;
-
-    // Fetch reviews for given product
+    // Get reviews for the product ID from params
     const response = await WooCommerce.get("products/reviews", {
-      product: id,
-      per_page: 20, // optional: number of reviews per page
-      page: 1,      // optional: pagination
+      product: params.id, // filter by product ID
+      per_page: 10,       // optional: number of reviews to return
+      status: "approved", // optional: only approved reviews
     });
 
-    return NextResponse.json({
-      status: "success",
-      reviews: response.data,
-    });
-  } catch (error: any) {
-    console.error("Error fetching reviews:", error.response?.data || error);
+   
+    return NextResponse.json({ reviews: response.data });
+  } catch (error) {
+    console.error("Error fetching reviews:", error);
     return NextResponse.json(
-      {
-        status: "error",
-        message: "Failed to fetch reviews",
-        error: error.response?.data || error.message,
-      },
+      { error: "Failed to fetch reviews" },
       { status: 500 }
     );
   }

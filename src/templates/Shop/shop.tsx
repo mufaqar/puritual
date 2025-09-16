@@ -3,6 +3,7 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 
+
 function Shop() {
   return (
     <section className="bg-primary relative overflow-hidden bg-[url('/ images/shop-Bottle.png')] bg-no-repeat bg-contain bg-center relative md:h-full h-[360px]">
@@ -54,6 +55,8 @@ function Shop() {
           className="animate-rotate-smooth"
         />
       </div>
+
+        
     </section>
   );
 }

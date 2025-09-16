@@ -11,7 +11,9 @@ export async function POST(req: Request) {
       review: data?.review,          // Review text
       reviewer: data?.name,      // Name of reviewer
       reviewer_email: data?.email, // Email of reviewer
-      rating: data?.rating,          // Rating: 1–5
+      rating: data?.rating, 
+      status: "hold",  
+      
     };
     // Create review
     const response = await WooCommerce.post("products/reviews", reviewData);
