@@ -5,9 +5,11 @@ export async function GET(
   req: Request,
   { params }: { params: { id: string  } }
 ) {
-  try {   
+  try {  
+    
+    const productId = parseInt(params.id, 10); 
     const response = await WooCommerce.get("products/reviews", {
-      product: params.id, 
+      product: productId, 
       per_page: 10,       
       status: "approved"
     });
