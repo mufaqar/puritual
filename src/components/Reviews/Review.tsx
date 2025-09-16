@@ -129,7 +129,7 @@ const Review = ({ productId }: { productId: number }) => {
       )}
       <div
         className={`${reviewOpen ? "flex" : "hidden"
-          } items-center justify-center absolute top-0 inset-x-0 z-20 md:w-2/3 w-full mx-auto px-4 bg-primary py-16 md:px-10 border-2 border-secoundry rounded-xl  `}
+          } items-center justify-center absolute top-0 inset-x-0 z-20 md:w-2/3 w-full mx-auto px-4`}
       >
         <Reviewform productId={productId} setReviewOpen={setReviewOpen} />
       </div>

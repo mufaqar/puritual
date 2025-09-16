@@ -58,7 +58,7 @@ const handleSubmit = async (e: React.FormEvent) => {
 };
 
     return (
-        <div className="w-full relative">
+        <div className="w-full px-4 relative bg-primary py-16 md:px-10 border-2 border-secoundry rounded-xl">
             <IoCloseOutline onClick={() => setReviewOpen(false)} className="bg-dark text-3xl text-primary rounded-full absolute top-4 right-4 cursor-pointer" />
             <form onSubmit={handleSubmit} className="space-y-5">
                 {/* Name */}
