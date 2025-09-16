@@ -1,7 +1,5 @@
 "use client";
-
-import { useSearchParams } from "next/navigation";
-import { Suspense, useEffect, useState } from "react";
+import { Suspense } from "react";
 
 interface OrderStatusResponse {
   ResponseCode: string;
@@ -22,8 +20,6 @@ interface OrderStatusResponse {
 }
 
 const OrderStatusContent = () => {
-  const searchParams = useSearchParams();
- 
 
   return (
     <>
