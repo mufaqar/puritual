@@ -173,7 +173,9 @@ h6 {
 ::-webkit-scrollbar-track {
   background: transparent;
 }
-
+.review ::-webkit-scrollbar {
+  width: 2px;
+}
 .light_bubble {
   @apply relative;
 }

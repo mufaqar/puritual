@@ -1,4 +1,3 @@
-// app/api/get-checkout-session/route.ts
 import { NextRequest } from "next/server";
 import Stripe from "stripe";
 

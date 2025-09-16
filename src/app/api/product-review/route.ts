@@ -27,7 +27,6 @@ export async function POST(req: Request) {
       { status: 200 }
     );
   } catch (error: any) {
-  console.error("Error creating review:", error.response?.data || error.message || error);
 
   return new NextResponse(
     JSON.stringify({

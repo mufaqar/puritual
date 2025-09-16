@@ -1,4 +1,3 @@
-// app/api/checkout-session/route.ts
 import WooCommerce from "@/lib/woocommerce";
 import { NextResponse } from "next/server";
 
@@ -72,7 +71,6 @@ export async function POST(req: Request) {
       { status: 200 }
     );
   } catch (error) {
-    console.error("Error creating order:", error);
     return new NextResponse(
       JSON.stringify({
         status: "Error",

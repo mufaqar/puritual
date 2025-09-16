@@ -1,5 +1,5 @@
 
-import Review from "@/components/Reviews/Review";
+import AllReviews from "@/components/Reviews/FetchReviews";
 import WooCommerce from "@/lib/woocommerce"
 import OurProducts from "@/templates/home-page/our-products";
 import Logo from "@/templates/logo/logo";
@@ -49,7 +49,7 @@ export default async function Home() {
       </section>
       <Logo />
       <OurProducts products={products.data} />
-      <Review />
+      <AllReviews />
     </>
   );
 }

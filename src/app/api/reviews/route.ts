@@ -1,4 +1,3 @@
-// src/app/api/reviews/route.ts
 import WooCommerce from "@/lib/woocommerce";
 import { NextResponse } from "next/server";
 
@@ -11,7 +10,6 @@ export async function GET() {
 
     return NextResponse.json({ reviews: response.data });
   } catch (error: any) {
-    console.error("Error fetching reviews:", error.response?.data || error.message || error);
     return NextResponse.json(
       { error: "Failed to fetch reviews" },
       { status: 500 }

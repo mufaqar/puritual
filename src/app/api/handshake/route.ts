@@ -57,7 +57,6 @@ export async function POST(req: Request) {
       data: result,
     });
   } catch (error: any) {
-    console.error("Handshake Error:", error);
     return NextResponse.json({ success: false, error: error.message }, { status: 500 });
   }
 }

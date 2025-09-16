@@ -1,4 +1,3 @@
-// app/api/alfa-callback/route.ts
 import { NextResponse } from "next/server";
 
 export async function GET(req: Request) {
@@ -9,7 +8,6 @@ export async function GET(req: Request) {
   const TS = searchParams.get("TS"); // Transaction Status
   const O = searchParams.get("O");   // Order ID (your reference)
 
-  console.log("🔍 AlfaPay Callback Params:", { RC, RD, TS, O });
 
   // Redirect to a frontend page with these params
   return NextResponse.redirect(

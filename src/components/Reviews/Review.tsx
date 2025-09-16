@@ -19,7 +19,6 @@ const Review = ({ productId }: { productId: number }) => {
   const [reviews, setReviews] = useState<ReviewType[]>([]);
   const [reviewOpen, setReviewOpen] = useState(false);
 
-  console.log(reviews);
 
   // Fetch reviews from Woo API
   useEffect(() => {
@@ -28,10 +27,9 @@ const Review = ({ productId }: { productId: number }) => {
         const res = await fetch(`/api/product-review/${productId}`);
         if (!res.ok) throw new Error("Failed to fetch reviews");
         const data = await res.json();
-     
+
         setReviews(data.reviews);
       } catch (err) {
-        console.error("Error fetching reviews:", err);
       }
     };
     fetchReviews();
@@ -60,7 +58,7 @@ const Review = ({ productId }: { productId: number }) => {
         <h2 className="text-4xl md:text-[150px] md:leading-[110px] z-[1] mb-10 relative mx-auto text-dark font-normal capitalize">
           Customer Reviews
         </h2>
-        <div className="relative mb-16">          
+        <div className="relative mb-16">
           {reviews.length > 0 ? (
             <Slider ref={sliderRef} {...settings}>
               {reviews.map((review) => (
@@ -77,20 +75,20 @@ const Review = ({ productId }: { productId: number }) => {
                     <div className="flex items-start gap-3 md:px-[70px] px-5">
                       <Image
                         src=
-                          "/images/user_dp.png"                        
+                        "/images/user_dp.png"
                         alt={review.reviewer}
                         width={70}
                         height={70}
                         className="rounded-full md:w-[70px] md:h-[70px] w-10 h-10"
                       />
-                      <div className="mt-4">
+                      <div className="mt-4 review">
                         <p className="md:text-2xl text-xl font-medium mb-2">
                           {review.reviewer}
                         </p>
                         <p
-  className="md:text-2xl text-xl font-[100] italic"
-  dangerouslySetInnerHTML={{ __html: review.review }}
-/>
+                          className="md:text-2xl text-base font-[100] italic h-[180px] overflow-y-scroll"
+                          dangerouslySetInnerHTML={{ __html: review.review }}
+                        />
                       </div>
                     </div>
                   </div>
@@ -118,19 +116,22 @@ const Review = ({ productId }: { productId: number }) => {
 
         <button
           onClick={() => setReviewOpen(true)}
-          className="uppercase w-fit mx-auto bg-dark text-white hover:bg-secoundry px-3 py-2 text-base relative flex justify-center items-center shadow-[3px_3px_0_3px_rgb(174,208,54)] hover:shadow-[0px_0px_0_0px_rgb(174,208,54)] transition-all duration-300"
+          className="uppercase w-fit mx-auto bg-dark text-white hover:bg-secoundry px-3 py-2 text-base relative flex justify-center items-center shadow-[3px_3px_0_3px_rgb(174,208,54)] hover:shadow-[0px_0px_0_0px_rgb(174,208,54)] transition-all duration-300 cursor-pointer"
         >
           Post A Review
         </button>
       </div>
 
       {/* Review Form Modal */}
+      {/* Overlay for outside click (optional, improves UX) */}
+      {reviewOpen && (
+        <div onClick={() => setReviewOpen(false)} className="fixed inset-0 bg-black/15 z-20" />
+      )}
       <div
-        className={`${
-          reviewOpen ? "flex" : "hidden"
-        } items-center justify-center`}
+        className={`${reviewOpen ? "flex" : "hidden"
+          } items-center justify-center absolute top-0 inset-x-0 z-20 md:w-2/3 w-full mx-auto px-4 bg-primary py-16 md:px-10 border-2 border-secoundry rounded-xl  `}
       >
-        <Reviewform productId={productId} />
+        <Reviewform productId={productId} setReviewOpen={setReviewOpen} />
       </div>
     </section>
   );

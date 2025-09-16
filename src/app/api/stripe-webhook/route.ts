@@ -1,4 +1,3 @@
-// app/api/stripe-webhook/route.ts
 import { CreateOrder } from "@/lib/create-order";
 import { NextRequest } from "next/server";
 import Stripe from "stripe";

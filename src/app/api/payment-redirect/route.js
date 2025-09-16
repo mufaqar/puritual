@@ -46,7 +46,6 @@ export async function POST(request) {
       },
     });
   } catch (error) {
-    console.error('Payment redirect error:', error);
     return new Response(JSON.stringify({ 
       success: 'false', 
       Message: error.message || 'Internal server error' 

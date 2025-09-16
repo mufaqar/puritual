@@ -1,7 +1,11 @@
 import React, { useState } from "react";
 import { FaStar } from "react-icons/fa";
+import { IoCloseOutline } from "react-icons/io5";
 
-const Reviewform = ({ productId }: { productId: number }) => {
+const Reviewform = ({
+  productId,
+  setReviewOpen,
+}: { productId: number; setReviewOpen: (open: boolean) => void }) => {
     const [formData, setFormData] = useState({
         name: "Test",
         email: "mufaqar@gmail.com",
@@ -43,17 +47,19 @@ const handleSubmit = async (e: React.FormEvent) => {
       // reset form
       setFormData({ name: "",email: "", review: "", rating: 0 });
       setHover(0);
+       // ✅ close form after submit
+      setReviewOpen(false);
     } else {
       alert("❌ Failed: " + (data.message || data.error));
     }
   } catch (err) {
-    console.error(err);
     alert("❌ Something went wrong!");
   }
 };
 
     return (
-        <div className="md:w-2/3 w-full mx-auto px-4 bg-primary py-16 md:px-10">
+        <div className="w-full relative">
+            <IoCloseOutline onClick={() => setReviewOpen(false)} className="bg-dark text-3xl text-primary rounded-full absolute top-4 right-4 cursor-pointer" />
             <form onSubmit={handleSubmit} className="space-y-5">
                 {/* Name */}
                 <div className="sm:flex gap-10 space-y-5 sm:space-y-0">
@@ -94,7 +100,7 @@ const handleSubmit = async (e: React.FormEvent) => {
                             >
                                 <FaStar
                                     className={`w-7 h-7 ${star <= (hover || formData.rating)
-                                        ? "fill-yellow-400 text-yellow-400"
+                                        ? "fill-secoundry text-secoundry"
                                         : "text-dark"
                                         }`}
                                 />
@@ -120,7 +126,7 @@ const handleSubmit = async (e: React.FormEvent) => {
                 <div className="relative">
                     <button
                         type="submit"
-                        className="uppercase w-fit mx-auto bg-dark text-white hover:bg-secoundry px-3 py-2 text-base relative z-20 flex text-center justify-center items-center shadow-[3px_3px_0_3px_rgb(174,208,54)] hover:shadow-[0px_0px_0_0px_rgb(174,208,54)] transition-all duration-300 ease-linear"
+                        className="uppercase w-fit mx-auto bg-dark text-white hover:bg-secoundry px-3 py-2 text-base relative z-20 flex text-center justify-center items-center shadow-[3px_3px_0_3px_rgb(174,208,54)] hover:shadow-[0px_0px_0_0px_rgb(174,208,54)] transition-all duration-300 ease-linear cursor-pointer"
                     >
                         Submit Review
                     </button>
