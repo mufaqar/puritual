@@ -3,7 +3,7 @@ import WooCommerce from "@/lib/woocommerce";
 
 export async function GET(
   req: Request,
-  { params }: { params: { id: number } }
+  { params }: { params: { id: string  } }
 ) {
   try {   
     const response = await WooCommerce.get("products/reviews", {
