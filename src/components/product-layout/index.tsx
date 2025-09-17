@@ -6,12 +6,14 @@ import React from "react";
 import { FaChevronRight } from "react-icons/fa";
 import { useDispatch } from "react-redux";
 import CircleButton from "../ui/circle-button";
+import { usePathname } from "next/navigation";
 
 const ProductLayout = ({ product }: any) => {
   // console.log("🚀 ~ ProductLayout ~ product:", product);
   const product_color = product.acf.product_color;
   // console.log("🚀 ~ ProductLayout ~ product:", product_color);
   const dispatch = useDispatch();
+  const pathname = usePathname();
 
   return (
     <div
@@ -19,7 +21,7 @@ const ProductLayout = ({ product }: any) => {
       style={{ borderColor: product_color }}
     >
       <Link href={`/product/${product?.slug}`} className="flex w-full">
-        <figure className="md:h-[450px] h-[250px] w-full">
+        <figure className="md:h-[450px] h-[370px] w-full">
           <Image
             src={product?.images?.[0]?.src}
             alt=""
@@ -29,7 +31,7 @@ const ProductLayout = ({ product }: any) => {
           />
         </figure>
       </Link>
-      <div className="flex justify-between items-start gap-4 min-h-[190px] w-full mt-3.5">
+      <div className={`flex justify-between items-start gap-4 w-full mt-3.5 ${pathname === "/" ? "min-h-[190px]" : "min-h-[130px]"}`}>
         <div>
           <Link href={`/product/${product?.slug}`}>
             {" "}
