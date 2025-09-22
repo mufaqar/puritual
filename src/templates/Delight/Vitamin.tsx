@@ -13,13 +13,22 @@ function Vitamin() {
                             alt="Vitamin E Aloe product"
                             width={500}
                             height={500}
-                            className="w-full h-auto "
+                            className="w-full h-auto relative z-10"
                             priority
                         />
                     </div>
                     {/* text content - now on left side */}
-                    <div className='w-full md:w-[40%] items-center flex justify-center container mx-auto'>
-                        <div className='py-10 px-4 md:pl-10 lg:pl-10'>
+                    <div className='w-full md:w-[40%] items-center flex justify-center container mx-auto relative'>
+                        <div className="w-[290px] h-[290px] -ml-28 -z-0">
+                                      <Image
+                                        src="/images/enriched-with.png"
+                                        alt="Scroll Circle"
+                                        width={1334}
+                                        height={1334}
+                                        className="animate-rotate-smooth"
+                                      />
+                                    </div>
+                        <div className='py-10 px-4 '>
                             <h2 className='font-medium md:text-[110px] md:leading-[110px] text-5xl text-dark'>
                                 Vitamin E<br /><span className='font-normal md:text-[70px] md:leading-[80px] text-3xl md:block hidden'>&</span>
                                 <span className='font-medium md:text-[110px] md:leading-[110px] text-5xl'> <span className='md:hidden inline-block'>& </span> Aloe</span>

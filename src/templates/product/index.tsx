@@ -6,7 +6,6 @@ import Logo from "../logo/logo";
 import Review from "@/components/Reviews/Review";
 import ProductFeatures from "@/components/product-layout/ProductFeatures";
 import ProductGallery from "@/components/product-layout/ProductGallery";
-import FetchReviews from "@/components/Reviews/FetchReviews";
 
 // Types
 interface MetaListingItem {
@@ -112,8 +111,8 @@ const ProductTemplate: React.FC<ProductTemplateProps> = ({ product, meta }) => {
               <Image
                 src="/images/natural_circle.png"
                 alt="Scroll Circle"
-                width={500}
-                height={500}
+                width={1334}
+                height={1334}
                 className="animate-rotate-smooth"
               />
             </div>

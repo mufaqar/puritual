@@ -26,12 +26,12 @@ function Shop() {
         <div className="md:w-1/3 w-[70%] mx-auto  bg-cover bg-center h-[360px] md:h-[600px] lg:h-[640px] md:static absolute left-1/2 md:translate-x-0 -translate-x-1/2">
             <Image
                 src="/images/shop-gif.gif"
-               width={500}
-               height={650}
-               alt=""
-                className="object-contain" />
+               width={800}
+               height={1100}
+               alt="shop-gif"
+                className="h-full w-full" />
         </div>
-        <div className="md:w-1/3 w-1/3 md:px-0 px-3 flex justify-end items-end h-full pt-20 self-end">
+        <div className="md:w-1/3 w-1/3 md:px-0 px-3 flex justify-end items-end h-full pt-20 self-end pb-5">
           <Link
             href="/catalog"
             className="md:text-3xl text-xl text-dark hover:text-dark font-semibold light_bubble bg-secoundry md:w-[172px] w-[94px] relative md:h-[172px] h-[94px] rounded-full flex text-center justify-center mt-10 items-center cursor-pointer transition-all duration-300 ease-linear group"
