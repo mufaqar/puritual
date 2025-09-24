@@ -29,6 +29,7 @@ export async function POST(req: Request) {
     payment_method,
     payment_method_title,
     set_paid,
+    status: "processing",
     billing: {
       first_name: data?.formData?.your_name,
       last_name: "",
