@@ -24,13 +24,13 @@ const BlogsList = ({ blog }: any) => {
         {/* Content Section */}
         <div className="flex-1">
           <Link
-            href={`/blogs/${blog.slug}`}
+            href={`/blog/${blog.slug}`}
             className="text-2xl sm:text-3xl leading-[26px] font-medium text-dark font-cervo"
           >
             {blog.title.rendered}
           </Link>
           <p className="text-[10px] sm:text-sm text-gray-600 mt-1">
-            By Developer | 1 minute Read | 4 Comments
+            By Puritual | 3 minute Read
           </p>
           <div
             className="text-gray-700 line-clamp-3 sm:line-clamp-none mt-2"
