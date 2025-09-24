@@ -47,13 +47,7 @@ const BlogsList = ({ blog }: any) => {
                 </span>
               </SquareButton>
             </div>
-            <div className="relative">
-              <SquareButton link={blog?.addCommentLink || "#"} Custom_class="hidden md:block text-white px-4 py-2 text-sm transition">
-                <span>
-                  ADD COMMENT
-                </span>
-              </SquareButton>
-            </div>
+           
           </div>
         </div>
       </div>

@@ -40,7 +40,7 @@ const BlogSingle = async ({ params }: any) => {
               <img
                 className="mr-4 w-16 h-16 rounded-full"
                 src="https://flowbite.com/docs/images/people/profile-picture-2.jpg"
-                alt="Jese Leos"
+                alt="Puritual"
               />
               <div>
                 <a
@@ -48,10 +48,10 @@ const BlogSingle = async ({ params }: any) => {
                   rel="author"
                   className="text-xl font-bold text-dark "
                 >
-                  Jese Leos
+                 Puritual
                 </a>
                 <p className="text-base text-gray-500 ">
-                  Graphic Designer, educator & CEO Flowbite
+                  CEO @ Puritual
                 </p>
                 <p className="text-base text-gray-500 ">
                   <time>{formatDate(post?.modified)}</time>

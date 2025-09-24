@@ -97,7 +97,7 @@ const menuItems = [
   { id: 1, label: "Home", path: "/" },
   { id: 2, label: "Products", path: "/catalog" },
   { id: 3, label: "About Us", path: "/about-us" },
-  { id: 4, label: "Blogs", path: "/blogs" },
+  { id: 4, label: "Blog", path: "/blog" },
   { id: 5, label: "FAQ", path: "/faqs" },
   { id: 6, label: "Contacts", path: "/contact-us" },
 ];
