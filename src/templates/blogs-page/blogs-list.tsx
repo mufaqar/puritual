@@ -30,7 +30,7 @@ const BlogsList = ({ blog }: any) => {
             {blog.title.rendered}
           </Link>
           <p className="text-[10px] sm:text-sm text-gray-600 mt-1">
-            By Puritual | 3 minute Read
+            By Puritual | -3 minute Read
           </p>
           <div
             className="text-gray-700 line-clamp-3 sm:line-clamp-none mt-2"
