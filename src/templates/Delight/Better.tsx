@@ -28,7 +28,15 @@ function Better() {
                             alt="Puritual hand wash product comparison"
                             width={600}
                             height={600}
-                            className="w-full h-auto object-contain"
+                            className="w-full h-auto object-contain md:block hidden"
+                            priority
+                        />
+                        <Image
+                            src="/images/better-mbl.webp"
+                            alt="better mbl"
+                            width={1667}
+                            height={1667}
+                            className="w-full h-auto object-contain md:hidden block"
                             priority
                         />
                     </div>

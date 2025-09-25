@@ -1,12 +1,13 @@
+import Image from 'next/image'
 import React from 'react'
 
 function Premium() {
   return (
-    <div className="w-full md:h-screen h-[354px] md:py-16 py-5 md:bg-[url('/images/Premium.png')] bg-no-repeat bg-cover bg-center bg-[url('/images/premium_mbl.png')]">
-      <div className='flex flex-col-reverse md:flex-row md:gap-6 gap-0 justify-between container mx-auto md:px-3 px-3'>
+    <div className="w-full md:h-screen h-[550px] md:py-16 py-5 md:bg-[url('/images/Premium.png')] bg-no-repeat bg-cover bg-center bg-none relative">
+      <Image src="/images/premium.webp" alt='premium' width={1667} height={1667} className='w-full h-full absolute top-0 md:hidden block' />
+      <div className='flex flex-col-reverse md:flex-row md:gap-6 gap-0 justify-between container mx-auto md:px-3 px-3 relative z-[3]'>
         {/* img - now on left side */}
         <div className='w-full md:w-[75%] '>
-          
         </div>
         {/* text content - now on left side */}
         <div className='w-full md:w-[35%]'>

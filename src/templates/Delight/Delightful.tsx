@@ -29,7 +29,15 @@ function Delightful() {
                             alt="Fragrance product"
                             width={600}
                             height={600}
-                            className="w-full h-auto object-contain"
+                            className="w-full h-auto object-contain md:block hidden"
+                            priority
+                        />
+                        <Image
+                            src="/images/fragrance-mbl.webp"
+                            alt="Fragrance product"
+                            width={1667}
+                            height={1667}
+                            className="w-full h-auto object-contain md:hidden block"
                             priority
                         />
                     </div>
