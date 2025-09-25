@@ -20,10 +20,10 @@ export default async function Home() {
       <section className="md:py-[180px] py-20 md:bg-[url('/images/catalog.jpg')] bg-center bg-cover bg-no-repeat bg-blend-overlay md:bg-transparent bg-primary">
         <div className="container mx-auto px-4 md:hidden block h-[320px] mb-5">
           <Image
-            src="/images/catalog.jpg" // Replace with your image path
-            alt="catalog"
-            width={1920}
-            height={1000}
+            src="/images/cataloge-mbl.webp" // Replace with your image path
+            alt="cataloge mbl"
+            width={1667}
+            height={1917}
             className="drop-shadow-xl object-cover object-center h-full w-full"
           />
         </div>
