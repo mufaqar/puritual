@@ -34,7 +34,7 @@ const ProductLayout = ({ product }: any) => {
       <div className={`flex justify-between items-start gap-4 w-full mt-3.5 ${pathname === "/" ? "min-h-[190px]" : "min-h-[130px]"}`}>
         <div>
           <Link href={`/product/${product?.slug}`}>           
-            <h6 className="md:text-[46px] md:leading-[50px] text-[28px] uppercase text-black font-normal max-w-2">
+            <h6 className="md:text-[46px] md:leading-[50px] text-[28px] uppercase text-black font-normal max-w-[160px]">
               {product?.name}
             </h6>
           </Link>
