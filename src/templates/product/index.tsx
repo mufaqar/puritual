@@ -120,7 +120,7 @@ const ProductTemplate: React.FC<ProductTemplateProps> = ({ product, meta }) => {
           <div className="md:w-2/3 w-full">
             <div className=" flex md:flex-row flex-col-reverse md:gap-2 gap-5 mb-5">
               <div className="md:w-fit w-full space-y-5">
-                <h3 className="md:text-[50px] md:leading-[50px] text-3xl font-normal text-dark uppercase">
+                <h3 className="md:text-[40px] md:leading-[50px] text-3xl font-normal text-dark uppercase">
                   {product.name}
                 </h3>
 
