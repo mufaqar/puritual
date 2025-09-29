@@ -31,12 +31,13 @@ export default function AllReviews() {
   const previous = () => sliderRef.current?.slickPrev();
 
   const settings: Settings = {
-    dots: false,
-    infinite: false,
-    arrows: false,
-    speed: 500,
-    slidesToShow: 2,
-    slidesToScroll: 1,
+     dots: false,
+  infinite: true,
+  arrows: false,
+  speed: 500,
+  slidesToShow: 2,
+  slidesToScroll: 1,
+  autoplay: true,  
     responsive: [
       { breakpoint: 1024, settings: { slidesToShow: 2, slidesToScroll: 1 } },
       { breakpoint: 600, settings: { slidesToShow: 2, slidesToScroll: 1 } },
