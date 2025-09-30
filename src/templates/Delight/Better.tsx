@@ -13,7 +13,7 @@ function Better() {
                                 Better than<br />
                                 <span className='font-light md:text-5xl lg:text-5xl text-3xl text-dark'>Soap & Gel wash</span>
                             </h2>
-                            <div className='ml-0 md:ml-10 lg:ml-18 pt-6 md:pt-10'>
+                            <div className='pt-6 md:pt-10'>
                                 <p className='text-xl md:text-2xl lg:text-3xl text-dark font-normal'>
                                     <span className='font-light'> Unlike conventional gel-based hand washes, </span>
                                     Puritual dispenses rich, airy lather and lasts at least twice as long.

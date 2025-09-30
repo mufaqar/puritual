@@ -41,7 +41,7 @@ function Vitamin() {
                                 Vitamin E<br /><span className='font-normal md:text-[70px] md:leading-[80px] text-3xl md:block hidden'>&</span>
                                 <span className='font-medium md:text-7xl lg:text-9xl text-5xl'> <span className='md:hidden inline-block'>& </span> Aloe</span>
                             </h2>
-                            <div className='ml-0 md:ml-10 lg:ml-18 pt-6 md:pt-10'>
+                            <div className='pt-6 md:pt-10'>
                                 <p className='text-xl md:text-2xl lg:text-3xl text-dark font-light'>
                                     <span className='font-normal'> Aloe + E =</span>
                                     skin that feels clean, calm, and cared for

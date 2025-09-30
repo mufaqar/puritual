@@ -13,7 +13,7 @@ function Delightful() {
                                 Delightful<br />
                                 <span className='font-medium md:text-7xl lg:text-9xl text-5xl'>Fragrance</span>
                             </h2>
-                            <div className='ml-0 md:ml-10 lg:ml-18 pt-6 md:pt-10'>
+                            <div className=' pt-6 md:pt-10'>
                                 <p className='text-xl md:text-2xl lg:text-3xl text-dark font-light'>
                                     <span className='font-light'> Naturally inspired <span className='md:font-light font-bold'>scents</span> that turn <span className='md:font-light font-bold'>cleaning</span> into a <span className='md:font-light font-bold'>sensory escape</span> .</span>
                                 </p>
