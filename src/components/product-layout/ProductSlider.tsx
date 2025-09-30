@@ -42,7 +42,7 @@ const ProductSlider: React.FC<ProductSliderProps> = ({ products }) => {
   return (
     <section className="bg-dark py-10 md:py-[120px]">
       <div className="lg:container mx-auto px-3 relative">
-        <h2 className="text-4xl md:text-[150px] md:leading-[110px] z-[1] mb-10 relative mx-auto text-primary font-Melodrama font-normal capitalize ">
+        <h2 className="text-4xl md:text-7xl lg:text-9xl z-[1] mb-10 relative mx-auto text-primary font-Melodrama font-normal capitalize ">
           Our Products
         </h2>
         <Slider ref={sliderRef} {...settings}>

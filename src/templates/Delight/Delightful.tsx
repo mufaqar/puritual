@@ -9,9 +9,9 @@ function Delightful() {
                     <div className='w-full md:w-[40%] items-center flex justify-center container mx-auto'>
                         {/* text content - now on left side */}
                         <div className='py-10 px-4 md:pl-10 lg:pl-20 md:ml-10 lg:ml-18'>
-                            <h2 className='font-normal md:text-[70px] md:leading-[80px] text-3xl text-dark'>
+                            <h2 className='font-normal md:text-5xl lg:text-7xl text-3xl text-dark'>
                                 Delightful<br />
-                                <span className='font-medium md:text-[110px] md:leading-[110px] text-5xl'>Fragrance</span>
+                                <span className='font-medium md:text-7xl lg:text-9xl text-5xl'>Fragrance</span>
                             </h2>
                             <div className='ml-0 md:ml-10 lg:ml-18 pt-6 md:pt-10'>
                                 <p className='text-xl md:text-2xl lg:text-3xl text-dark font-light'>

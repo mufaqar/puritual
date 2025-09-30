@@ -33,19 +33,20 @@ const ScrollImageSection = () => {
 
       <section className="h-screen bg-[url('/images/home_banner.jpg')] bg-no-repeat bg-center bg-cover md:py-[180px] py-22 flex flex-col md:items-center md:justify-center">
         <div className="container mx-auto md:px-0 px-3 h-full flex md:flex-row flex-col justify-between md:items-center">
-          <div>
-            <h1 className="md:text-[150px] md:leading-[130px] text-6xl font-normal text-dark font-Melodrama">
+          <div className="md:w-1/3 w-full ">
+            <h1 className="md:text-7xl  lg:text-7xl  2xl:text-[150px]  2xl:leading-[130px] text-6xl font-normal text-dark font-Melodrama">
               Cleanse
               <br />
               Refresh <br />
               Repeat
             </h1>
-            <p className="md:text-5xl text-xl font-light text-dark uppercase md:mt-10 mt-5 ">
+            <p className="md:text-3xl  lg:text-5xl  2xl:text-5xl text-xl font-light text-dark uppercase md:mt-10 mt-5 ">
               Your daily treat!
             </p>
           </div>
-          <div className="max-w-[450px] flex flex-col items-end justify-end">
-            <p className="text-lg font-normal text-dark md:block hidden">
+         <div className="md:w-1/3 w-full "></div>
+          <div className="md:w-1/3 w-full max-w-[450px] flex flex-col items-end justify-end">
+            <p className="md:text-base  lg:text-lg  2xl:text-lg font-normal text-dark md:block hidden md:mt-20">
               Puritual transforms simple cleansing into pure, foamy fun — a
               joyful ritual you will love. While regular soaps just clean,
               Puritual delights you with rich lather, natural goodness of aloe
@@ -79,7 +80,7 @@ const ScrollImageSection = () => {
           alt="Foaming Hand Wash"
           width={400}
           height={600}
-          className="drop-shadow-xl 2xl:w-fit 2xl:object-contain"
+          className="drop-shadow-xl md:w-[260px] 2xl:w-fit 2xl:object-contain"
         />
       </div>
 
@@ -87,8 +88,8 @@ const ScrollImageSection = () => {
       <section className="md:h-screen bg-primary md:py-[180px] py-16 flex flex-col items-center justify-center">
         <div className="container mx-auto md:px-0 px-3 flex md:flex-row flex-row justify-between md:items-center ">
           <div className="md:w-1/3 w-[31%]">
-            <h2 className="md:text-[100px] md:leading-[90px] text-[28px] font-light tracking-normal text-dark font-Melodrama">
-              Who knew washing hands could be this much{" "}
+            <h2 className="md:text-5xl  lg:text-[100px]   2xl:text-[100px]  md:leading-none text-[28px] font-light tracking-normal text-dark font-Melodrama">
+              Who knew washing hands could be this much
               <span className="md:font-normal font-bold">fun?</span>
             </h2>
           </div>

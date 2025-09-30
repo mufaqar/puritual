@@ -34,16 +34,16 @@ const ProductLayout = ({ product }: any) => {
       <div className={`flex justify-between items-start gap-4 w-full mt-3.5 ${pathname === "/" ? "min-h-[190px]" : "min-h-[130px]"}`}>
         <div>
           <Link href={`/product/${product?.slug}`}>           
-            <h6 className="md:text-[46px] md:leading-[50px] text-[28px] uppercase text-black font-normal max-w-[160px]">
+            <h6 className="text-xl md:text-2xl lg:text-5xl  uppercase text-black font-normal max-w-[160px]">
               {product?.name}
             </h6>
           </Link>
-          <p className="text-black md:text-2xl text-lg font-axiforma mb-5">
+          <p className="text-black text-lg md:text-xl lg:text-2xl font-axiforma mb-5">
             Premium Hand Wash
           </p>
           <Link
             href={`/product/${product?.slug}`}
-            className="md:text-2xl text-base italic font-normal text-black group-hover:text-secoundry tracking-normal flex gap-4 items-center transition-all duration-300 ease-in-out"
+            className="text-lg md:text-lg lg:text-2xl italic font-normal text-black group-hover:text-secoundry tracking-normal flex gap-4 items-center transition-all duration-300 ease-in-out"
           >
             LEARN MORE
             <FaChevronRight className="text-secoundry group-hover:text-black transition-all duration-300 ease-in-out" />

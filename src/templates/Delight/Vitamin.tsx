@@ -37,9 +37,9 @@ function Vitamin() {
                             />
                         </div>
                         <div className='py-10 px-4 '>
-                            <h2 className='font-medium md:text-[110px] md:leading-[110px] text-5xl text-dark'>
+                            <h2 className='font-medium md:text-7xl lg:text-9xl  text-dark'>
                                 Vitamin E<br /><span className='font-normal md:text-[70px] md:leading-[80px] text-3xl md:block hidden'>&</span>
-                                <span className='font-medium md:text-[110px] md:leading-[110px] text-5xl'> <span className='md:hidden inline-block'>& </span> Aloe</span>
+                                <span className='font-medium md:text-7xl lg:text-9xl text-5xl'> <span className='md:hidden inline-block'>& </span> Aloe</span>
                             </h2>
                             <div className='ml-0 md:ml-10 lg:ml-18 pt-6 md:pt-10'>
                                 <p className='text-xl md:text-2xl lg:text-3xl text-dark font-light'>
