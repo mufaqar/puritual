@@ -25,10 +25,10 @@ function Delightful() {
                     {/* img - on right side */}
                     <div className='w-full md:w-[60%]'>
                         <Image
-                            src="/images/Fragrance.png"
+                            src="/images/fragrance.webp"
                             alt="Fragrance product"
-                            width={600}
-                            height={600}
+                            width={1170}
+                            height={1000}
                             className="w-full h-auto object-contain md:block hidden"
                             priority
                         />

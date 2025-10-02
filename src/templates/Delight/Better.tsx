@@ -24,10 +24,10 @@ function Better() {
                     {/* img - on right side */}
                     <div className='w-full md:w-[60%]'>
                         <Image
-                            src="/images/Better-than.png"
+                            src="/images/better.webp"
                             alt="Puritual hand wash product comparison"
-                            width={600}
-                            height={600}
+                            width={1170}
+                            height={1000}
                             className="w-full h-auto object-contain md:block hidden"
                             priority
                         />

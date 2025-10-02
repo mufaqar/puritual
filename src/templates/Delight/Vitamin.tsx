@@ -9,10 +9,10 @@ function Vitamin() {
                     {/* img - now on left side */}
                     <div className='w-full md:w-[60%] '>
                         <Image
-                            src="/images/Vitamin.png"
+                            src="/images/vitamin.webp"
                             alt="Vitamin E Aloe product"
-                            width={500}
-                            height={500}
+                            width={1170}
+                            height={1000}
                             className="w-full h-auto relative z-10 md:block hidden"
                             priority
                         />
