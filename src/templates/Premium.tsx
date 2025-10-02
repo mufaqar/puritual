@@ -17,7 +17,7 @@ function Premium() {
               <span className='font-medium md:text-7xl lg:text-9xl text-5xl'>FOAMING</span>
             </h2>
             <h2 className='ml-10 md:ml-10 lg:ml-18 font-normal md:text-5xl lg:text-6xl  text-3xl text-dark'>Hand Wash</h2>
-            <div className='ml-0 md:ml-10 lg:ml-18 md:pt-6 pt-2 md:w-full w-[67%]'>
+            <div className='ml-0 md:ml-10 lg:ml-18 md:pt-6 pt-2 md:w-full w-[50%]'>
               <p className='text-sm md:text-2xl lg:text-3xl text-dark font-normal'>
                 <span className='md:font-normal font-bold'>No Gel</span>, Same clean, more fun!
               </p>
