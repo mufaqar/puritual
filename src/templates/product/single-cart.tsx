@@ -18,34 +18,34 @@ const SingleCart = ({ product }: any) => {
     <>
       <div className="flex flex-row md:flex-row gap-4 md:items-center md:justify-end justify-center">
         <CircleButton
-          className="dark_bubble bg-dark md:!min-w-[152px] md:!h-[152px] !min-w-[86px] !h-[86px]"
-          BgHovr="bg-secoundry md:!min-w-[152px] md:!h-[152px] !min-w-[86px] !h-[86px]"
+          className="dark_bubble bg-dark md:!min-w-[100px] md:!h-[100px] lg:!min-w-[152px] lg:!h-[152px] !min-w-[86px] !h-[86px]"
+          BgHovr="bg-secoundry md:!min-w-[100px] md:!h-[100px] lg:!min-w-[152px] lg:!h-[152px] !min-w-[86px] !h-[86px]"
         >
-          <p className="md:text-3xl text-base font-bold text-primary z-10 group-hover:text-dark">
+          <p className="md:text-xl lg:text-3xl text-base font-bold text-primary z-10 group-hover:text-dark">
             Rs {(Number(product?.price) * cartItem).toFixed(0)}
           </p>
         </CircleButton>
         <div className="flex items-center gap-3 mt-2 pb-1.5">
           <button onClick={() => setCartItem(cartItem <= 1 ? 1 : cartItem - 1)}>
-            <div className="md:w-[88px] md:h-[88px] w-9 h-9 flex text-dark hover:text-primary bg-transparent hover:bg-dark justify-center items-center border border-dark rounded-full cursor-pointer md:text-4xl text-xl font-normal transition-all duration-300 ease-linear">
+            <div className="md:w-[54px] md:h-[54px] lg:w-[88px] lg:h-[88px] w-9 h-9 flex text-dark hover:text-primary bg-transparent hover:bg-dark justify-center items-center border border-dark rounded-full cursor-pointer md:text-4xl text-xl font-normal transition-all duration-300 ease-linear">
               <TfiLayoutLineSolid />
             </div>
           </button>
           <button>
-            <div className="md:w-[88px] md:h-[88px] w-9 h-9 flex text-dark hover:text-primary bg-transparent hover:bg-dark justify-center items-center border border-dark rounded-full cursor-pointer md:text-4xl text-xl font-normal transition-all duration-300 ease-linear pt-1">
+            <div className="md:w-[54px] md:h-[54px] lg:w-[88px] lg:h-[88px] w-9 h-9 flex text-dark hover:text-primary bg-transparent hover:bg-dark justify-center items-center border border-dark rounded-full cursor-pointer md:text-4xl text-xl font-normal transition-all duration-300 ease-linear pt-1">
               {cartItem}
             </div>
           </button>
           <button onClick={() => setCartItem(cartItem + 1)}>
-            <div className="md:w-[88px] md:h-[88px] w-9 h-9 flex text-dark hover:text-primary bg-transparent hover:bg-dark justify-center items-center border border-dark rounded-full cursor-pointer md:text-4xl text-xl font-normal transition-all duration-300 ease-linear">
+            <div className="md:w-[54px] md:h-[54px] lg:w-[88px] lg:h-[88px] w-9 h-9 flex text-dark hover:text-primary bg-transparent hover:bg-dark justify-center items-center border border-dark rounded-full cursor-pointer md:text-4xl text-xl font-normal transition-all duration-300 ease-linear">
               <LiaPlusSolid />
             </div>
           </button>
         </div>
         <CircleButton
           onClick={handleAddToCart}
-          className="light_bubble bg-secoundry md:!min-w-[152px] md:!h-[152px] !min-w-[86px] !h-[86px] "
-          BgHovr="bg-dark md:!min-w-[152px] md:!h-[152px] !min-w-[86px] !h-[86px] "
+          className="light_bubble bg-secoundry md:!min-w-[100px] md:!h-[100px] lg:!min-w-[152px] lg:!h-[152px] !min-w-[86px] !h-[86px] "
+          BgHovr="bg-dark md:!min-w-[100px] md:!h-[100px] lg:!min-w-[152px] lg:!h-[152px] !min-w-[86px] !h-[86px] "
         >
           <svg
             className="z-10 fill-dark group-hover:fill-amber-50 md:h-[53px] md:w-[38px] h-[38px] w-[23px]"

@@ -76,12 +76,12 @@ const ProductTemplate: React.FC<ProductTemplateProps> = ({ product, meta }) => {
           </div>
           <div className="md:w-2/3 w-full md:px-8 px-4 ">
             <h1
-              className="md:text-[100px] md:leading-[100px] text-3xl font-normal text-dark flex gap-2"
+              className="md:text-4xl lg:text-6xl xl:text-7xl text-3xl font-normal text-dark flex gap-2"
               dangerouslySetInnerHTML={{
                 __html: '"' + product.short_description,
               }}
             />
-            <p className="md:text-4xl text-xl font-normal text-dark uppercase mt-4 mb-5 pl-4">
+            <p className="md:text-2xl lg:text-4xl text-xl font-normal text-dark uppercase mt-4 mb-5 pl-4">
               {product.name}
             </p>
             <div className="md:block hidden">
