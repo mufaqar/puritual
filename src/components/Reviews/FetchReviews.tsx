@@ -31,13 +31,16 @@ export default function AllReviews() {
   const previous = () => sliderRef.current?.slickPrev();
 
   const settings: Settings = {
-     dots: false,
-  infinite: true,
-  arrows: false,
-  speed: 500,
-  slidesToShow: 2,
-  slidesToScroll: 1,
-  autoplay: true,  
+    dots: false,
+    infinite: true,
+    arrows: false,
+    speed: 500,
+    slidesToShow: 2,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 3000, // <-- add this
+    pauseOnHover: true, // optional (pause on hover)
+    pauseOnFocus: true, // optional (pause on focus)
     responsive: [
       { breakpoint: 1024, settings: { slidesToShow: 2, slidesToScroll: 1 } },
       { breakpoint: 600, settings: { slidesToShow: 2, slidesToScroll: 1 } },
@@ -66,8 +69,7 @@ export default function AllReviews() {
                   <div className="bg-dark text-primary py-5 rounded-[20px]">
                     <div className="flex items-start gap-3 md:px-[70px] px-5">
                       <Image
-                        src=
-                        "/images/user_dp.png"
+                        src="/images/user_dp.png"
                         alt={review.reviewer}
                         width={70}
                         height={70}
@@ -81,7 +83,6 @@ export default function AllReviews() {
                           className="md:text-2xl text-base font-[100] italic h-[180px] overflow-y-scroll"
                           dangerouslySetInnerHTML={{ __html: review.review }}
                         />
-                        
                       </div>
                     </div>
                   </div>

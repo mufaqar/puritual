@@ -40,11 +40,15 @@ const Review = ({ productId }: { productId: number }) => {
 
   const settings: Settings = {
     dots: false,
-    infinite: false,
+    infinite: true,
     arrows: false,
     speed: 500,
     slidesToShow: 2,
     slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 3000, // <-- add this
+    pauseOnHover: true, // optional (pause on hover)
+    pauseOnFocus: true, // optional (pause on focus)
     responsive: [
       { breakpoint: 1024, settings: { slidesToShow: 2, slidesToScroll: 1 } },
       { breakpoint: 600, settings: { slidesToShow: 2, slidesToScroll: 1 } },
