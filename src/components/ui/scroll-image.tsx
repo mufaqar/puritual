@@ -76,10 +76,10 @@ const ScrollImageSection = () => {
         className="absolute md:top-[0%] top-[300px] left-1/2 -translate-x-1/2 md:z-[500] z-20 2xl:w-[480px]"
       >
         <Image
-          src="/images/main_pro.png"
+          src="/images/new_bottle.webp"
           alt="Foaming Hand Wash"
-          width={400}
-          height={600}
+          width={744}
+          height={1919}
           className="drop-shadow-xl md:w-[260px] 2xl:w-fit 2xl:object-contain"
         />
       </div>
