@@ -146,7 +146,7 @@ const ProductTemplate: React.FC<ProductTemplateProps> = ({ product, meta }) => {
 
    
       <Review productId={product.id} />
-      <RelatedProducts />
+      <RelatedProducts productId={product.id} />
     </>
   );
 };

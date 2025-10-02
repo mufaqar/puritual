@@ -5,32 +5,46 @@ import Slider, { Settings } from "react-slick";
 import WooCommerce from "@/lib/woocommerce";
 import ProductLayout from "@/components/product-layout";
 
+interface RelatedProductsProps {
+  productId: number; // 👈 Pass current product ID as prop
+}
+
 // Tailwind border colors
 const colors = ["border-[#663399]", "border-[#CC6633]", "border-[#CC3366]"];
 
-const RelatedProducts: React.FC = () => {
+const RelatedProducts: React.FC<RelatedProductsProps> = ({ productId }) => {
   const [products, setProducts] = useState<any[]>([]);
 
-  useEffect(() => {
-    WooCommerce.get("products", { per_page: 3 })
-      .then((res) => setProducts(res.data))
-      .catch((err) => console.error(err));
-  }, []);
 
-  const settings: Settings = {
-    dots: false,
-    infinite: false,
-    autoplay: true,
-    arrows: false,
-    speed: 500,
-    slidesToShow: 3,
-    slidesToScroll: 1,
-    responsive: [
-      { breakpoint: 1024, settings: { slidesToShow: 2, slidesToScroll: 1 } },
-      { breakpoint: 768, settings: { slidesToShow: 2, slidesToScroll: 1 } },
-      { breakpoint: 480, settings: { slidesToShow: 1, slidesToScroll: 1 } },
-    ],
-  };
+
+ useEffect(() => {
+  if (!productId) return;
+
+  // Step 1: Get current product with related_ids
+  WooCommerce.get(`products/${productId}`)
+    .then((res) => {
+      const relatedIds = res.data.related_ids || [];
+
+      if (relatedIds.length) {
+        // Step 2: Fetch related products
+        return WooCommerce.get("products", {
+          include: relatedIds.join(","), // API accepts comma-separated IDs
+        });
+      }
+    })
+    .then((relatedRes) => {
+      if (relatedRes) {
+        // 🔥 Remove the current product from related list
+        const filtered = relatedRes.data.filter(
+          (product: any) => product.id !== productId
+        );
+         setProducts(filtered.slice(0, 3));
+      }
+    })
+    .catch((err) => console.error(err));
+}, [productId]);
+
+ 
 
   return (
     <section className="bg-dark py-10 md:py-[120px]">
@@ -39,7 +53,7 @@ const RelatedProducts: React.FC = () => {
           Worth a try
         </h2>
 
-        <Slider {...settings}>
+         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 md:gap-[70px] gap-3">
           {products.map((product, idx) => (
             <div key={product.id} className="px-2.5">
               <ProductLayout
@@ -48,7 +62,8 @@ const RelatedProducts: React.FC = () => {
               />
             </div>
           ))}
-        </Slider>
+           </div>
+     
       </div>
     </section>
   );
