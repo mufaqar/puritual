@@ -17,31 +17,47 @@ const RelatedProducts: React.FC<RelatedProductsProps> = ({ productId }) => {
 
 
 
- useEffect(() => {
+useEffect(() => {
   if (!productId) return;
 
-  // Step 1: Get current product with related_ids
-  WooCommerce.get(`products/${productId}`)
-    .then((res) => {
-      const relatedIds = res.data.related_ids || [];
+  let isMounted = true;
 
-      if (relatedIds.length) {
-        // Step 2: Fetch related products
-        return WooCommerce.get("products", {
-          include: relatedIds.join(","), // API accepts comma-separated IDs
-        });
-      }
-    })
-    .then((relatedRes) => {
-      if (relatedRes) {
-        // 🔥 Remove the current product from related list
+  const fetchRelatedProducts = async (retryCount = 0) => {
+    try {
+      const res = await WooCommerce.get(`products/${productId}`);
+      const relatedIds = res.data?.related_ids || [];
+
+      if (relatedIds.length === 0) return;
+
+      const relatedRes = await WooCommerce.get("products", {
+        include: relatedIds.join(","),
+      });
+
+      if (isMounted && relatedRes?.data) {
         const filtered = relatedRes.data.filter(
           (product: any) => product.id !== productId
         );
-         setProducts(filtered.slice(0, 3));
+        setProducts(filtered.slice(0, 3));
       }
-    })
-    .catch((err) => console.error(err));
+    } catch (error) {
+      console.error("Error loading related products:", error);
+
+      // Retry logic (max 3 attempts)
+      if (retryCount < 3) {
+        setTimeout(() => fetchRelatedProducts(retryCount + 1), 1500);
+      }
+    }
+  };
+
+  // Delay a bit to ensure productId is fully ready (especially on hydration)
+  const timeoutId = setTimeout(() => {
+    fetchRelatedProducts();
+  }, 300);
+
+  return () => {
+    isMounted = false;
+    clearTimeout(timeoutId);
+  };
 }, [productId]);
 
  
