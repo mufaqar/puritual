@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useRef, useState, useEffect } from "react";
+import React, { useRef, useState } from "react";
 import Image from "next/image";
 import { FaChevronLeft, FaChevronRight, FaStar } from "react-icons/fa";
 import Slider, { Settings } from "react-slick";
@@ -14,26 +14,30 @@ interface ReviewType {
   reviewer_avatar_urls: { [key: string]: string };
 }
 
+// ✅ Helper to fetch reviews directly (without useEffect)
+async function fetchReviews(productId: number): Promise<ReviewType[]> {
+  try {
+    const res = await fetch(`/api/product-review/${productId}`, {
+      cache: "no-store",
+    });
+    if (!res.ok) throw new Error("Failed to fetch reviews");
+    const data = await res.json();
+    return data.reviews || [];
+  } catch (error) {
+    console.error("Error fetching reviews:", error);
+    return [];
+  }
+}
+
 const Review = ({ productId }: { productId: number }) => {
   const sliderRef = useRef<Slider | null>(null);
   const [reviews, setReviews] = useState<ReviewType[]>([]);
   const [reviewOpen, setReviewOpen] = useState(false);
 
-
-  // Fetch reviews from Woo API
-  useEffect(() => {
-    const fetchReviews = async () => {
-      try {
-        const res = await fetch(`/api/product-review/${productId}`);
-        if (!res.ok) throw new Error("Failed to fetch reviews");
-        const data = await res.json();
-
-        setReviews(data.reviews);
-      } catch (err) {
-      }
-    };
-    fetchReviews();
-  }, [productId]);
+  // ✅ Fetch reviews immediately (without useEffect)
+  if (reviews.length === 0) {
+    fetchReviews(productId).then((data) => setReviews(data));
+  }
 
   const next = () => sliderRef.current?.slickNext();
   const previous = () => sliderRef.current?.slickPrev();
@@ -46,9 +50,9 @@ const Review = ({ productId }: { productId: number }) => {
     slidesToShow: 2,
     slidesToScroll: 1,
     autoplay: true,
-    autoplaySpeed: 3000, // <-- add this
-    pauseOnHover: true, // optional (pause on hover)
-    pauseOnFocus: true, // optional (pause on focus)
+    autoplaySpeed: 3000,
+    pauseOnHover: true,
+    pauseOnFocus: true,
     responsive: [
       { breakpoint: 1024, settings: { slidesToShow: 2, slidesToScroll: 1 } },
       { breakpoint: 600, settings: { slidesToShow: 2, slidesToScroll: 1 } },
@@ -78,8 +82,7 @@ const Review = ({ productId }: { productId: number }) => {
                   <div className="bg-dark text-primary py-5 rounded-[20px]">
                     <div className="flex items-start gap-3 md:px-[70px] px-5">
                       <Image
-                        src=
-                        "/images/user_dp.png"
+                        src="/images/user_dp.png"
                         alt={review.reviewer}
                         width={70}
                         height={70}
@@ -127,7 +130,6 @@ const Review = ({ productId }: { productId: number }) => {
       </div>
 
       {/* Review Form Modal */}
-      {/* Overlay for outside click (optional, improves UX) */}
       {reviewOpen && (
         <div onClick={() => setReviewOpen(false)} className="fixed inset-0 bg-black/15 z-20" />
       )}
