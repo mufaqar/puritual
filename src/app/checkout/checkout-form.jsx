@@ -66,6 +66,18 @@ const CheckouthtmlForm = () => {
 
   const handleCheckoutPayment = async () => {
     if (checkMissingFiled()) return;
+     // 🧠 Check if product(s) exist in the cart
+  if (!cart?.items || cart.items.length === 0) {
+    toast.error("🛒 Your cart is empty. Please add a product before checkout.");
+    return;
+  }
+
+  // 🧠 Ensure all products have valid IDs
+  const invalidItems = cart.items.filter((item) => !item.id || item.id === "");
+  if (invalidItems.length > 0) {
+    toast.error("⚠️ Some products in your cart are invalid. Please re-add them.");
+    return;
+  }
     setLoading(true);
 
     try {
