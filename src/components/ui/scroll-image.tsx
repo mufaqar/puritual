@@ -31,7 +31,7 @@ const ScrollImageSection = () => {
     <main className="relative w-full">
       {/* Section 1 */}
 
-      <section className="lg:h-screen bg-[url('/images/home_banner.jpg')] bg-no-repeat bg-center bg-cover md:py-[180px] py-22 flex flex-col md:items-center md:justify-center">
+      <section className="h-screen bg-[url('/images/home_banner.jpg')] bg-no-repeat bg-center bg-cover md:py-[180px] py-22 flex flex-col md:items-center md:justify-center">
         <div className="container mx-auto md:px-0 px-3 h-full flex md:flex-row flex-col justify-between md:items-center">
           <div className="md:w-1/3 w-full ">
             <h1 className="md:text-7xl  lg:text-7xl  2xl:text-[150px]  2xl:leading-[130px] text-6xl font-normal text-dark font-Melodrama">
@@ -44,7 +44,7 @@ const ScrollImageSection = () => {
               Your daily treat!
             </p>
           </div>
-         <div className="md:w-1/3 w-full "></div>
+          <div className="md:w-1/3 w-full "></div>
           <div className="md:w-1/3 w-full max-w-[450px] flex flex-col items-end justify-end">
             <p className="md:text-base  lg:text-lg  2xl:text-lg font-normal text-dark md:block hidden md:mt-20">
               Puritual transforms simple cleansing into pure, foamy fun — a
@@ -78,14 +78,14 @@ const ScrollImageSection = () => {
         <Image
           src="/images/new_bottle.webp"
           alt="Foaming Hand Wash"
-          width={744}
-          height={1919}
+          width={400}
+          height={600}
           className="drop-shadow-xl md:w-[260px] 2xl:w-fit 2xl:object-contain"
         />
       </div>
 
       {/* Section 2 */}
-      <section className=" lg:h-screen bg-primary md:py-[180px] py-16 flex flex-col items-center justify-center">
+      <section className="md:h-screen h-fit bg-primary md:py-[180px] py-16 flex flex-col items-center justify-center">
         <div className="container mx-auto md:px-0 px-3 flex md:flex-row flex-row justify-between md:items-center ">
           <div className="md:w-1/3 w-[31%]">
             <h2 className="md:text-5xl  lg:text-[100px]   2xl:text-[100px]  md:leading-none text-[28px] font-light tracking-normal text-dark font-Melodrama">
