@@ -11,6 +11,16 @@ export async function POST(req: Request) {
     };
   });
 
+   // 🧾 Handle Coupon (if any)
+    const coupon_lines =
+      data?.formData?.coupon_code && data?.formData?.coupon_code.trim() !== ""
+        ? [
+            {
+              code: data.formData.coupon_code, // must match Woo coupon code
+            },
+          ]
+        : [];
+
   // Payment logic
   let payment_method = "credit_card";
   let payment_method_title = "Credit Card";
@@ -57,6 +67,8 @@ export async function POST(req: Request) {
         total: "250",
       },
     ],
+     // ✅ Add coupon line if exists
+      coupon_lines,
   };
 
   try {

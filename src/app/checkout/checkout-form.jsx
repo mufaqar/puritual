@@ -4,8 +4,10 @@ import { useSelector } from "react-redux";
 import { CreateOrder } from "@/lib/create-order";
 import { useRouter } from "next/navigation";
 import { toast } from "react-toastify";
+import CouponSection from "@/components/CouponSection";
 
 const CheckouthtmlForm = () => {
+  const [discount, setDiscount] = useState(0);
   const cart = useSelector((state) => state?.cart);
   const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState({
@@ -17,7 +19,7 @@ const CheckouthtmlForm = () => {
     address: "",
     state: "PU",
     postcode: "",
-    payment_method: "cod", 
+    payment_method: "cod",
   });
 
   const router = useRouter();
@@ -32,13 +34,20 @@ const CheckouthtmlForm = () => {
     setFormData((prev) => ({ ...prev, payment_method: id }));
   };
 
+  // ✅ Calculate subtotal
   const subTotal = cart?.totalPrice
     ? parseFloat(cart.totalPrice.toFixed(2))
     : 0;
-  const storePickup = subTotal > 3000 ? 0 : 250; // Free delivery if subtotal > 3000
+
+  // ✅ Free delivery if subtotal > 3000 PKR
+  const deliveryCharges = subTotal > 3000 ? 0 : 250;
+
+  // ✅ Optional fields (can be dynamic later)
   const tax = 0;
   const saving = 0;
-  const grandTotal = subTotal + storePickup + tax + saving;
+
+  // ✅ Grand total calculation
+  const grandTotal = subTotal + deliveryCharges + tax - discount;
 
   const data = {
     orderTotal: grandTotal || 0,
@@ -66,18 +75,24 @@ const CheckouthtmlForm = () => {
 
   const handleCheckoutPayment = async () => {
     if (checkMissingFiled()) return;
-     // 🧠 Check if product(s) exist in the cart
-  if (!cart?.items || cart.items.length === 0) {
-    toast.error("🛒 Your cart is empty. Please add a product before checkout.");
-    return;
-  }
+    // 🧠 Check if product(s) exist in the cart
+    if (!cart?.items || cart.items.length === 0) {
+      toast.error(
+        "🛒 Your cart is empty. Please add a product before checkout."
+      );
+      return;
+    }
 
-  // 🧠 Ensure all products have valid IDs
-  const invalidItems = cart.items.filter((item) => !item.id || item.id === "");
-  if (invalidItems.length > 0) {
-    toast.error("⚠️ Some products in your cart are invalid. Please re-add them.");
-    return;
-  }
+    // 🧠 Ensure all products have valid IDs
+    const invalidItems = cart.items.filter(
+      (item) => !item.id || item.id === ""
+    );
+    if (invalidItems.length > 0) {
+      toast.error(
+        "⚠️ Some products in your cart are invalid. Please re-add them."
+      );
+      return;
+    }
     setLoading(true);
 
     try {
@@ -267,7 +282,7 @@ const CheckouthtmlForm = () => {
                     className="block w-full rounded-lg bg-dark p-4 text-sm text-primary"
                   >
                     <option value="KHI">Karachi</option>
-                    <option value="LHR" >Lahore</option>
+                    <option value="LHR">Lahore</option>
                     <option value="ISB">Islamabad</option>
                     <option value="RWP">Rawalpindi</option>
                     <option value="FSD">Faisalabad</option>
@@ -292,7 +307,7 @@ const CheckouthtmlForm = () => {
                     onChange={handleChange}
                     className="block w-full rounded-lg bg-dark p-4 text-sm text-primary"
                   >
-                    <option value="PU" >Punjab</option>
+                    <option value="PU">Punjab</option>
                     <option value="LHR">Sindh</option>
                     <option value="ISB">KPK</option>
                     <option value="RWP">Balochistan</option>
@@ -450,7 +465,7 @@ const CheckouthtmlForm = () => {
                 </dl>
                 <dl className="flex justify-between py-3 text-base">
                   <dt className="text-gray-400">Delivery charges</dt>
-                  <dd className="text-secoundry">Rs{storePickup}</dd>
+                  <dd className="text-secoundry">Rs{deliveryCharges}</dd>
                 </dl>
                 <dl className="flex justify-between py-3 text-base">
                   <dt className="text-gray-400">Tax</dt>
@@ -464,6 +479,11 @@ const CheckouthtmlForm = () => {
                 </dl>
               </div>
             </div>
+            <CouponSection
+              subTotal={subTotal}
+              setDiscount={setDiscount}
+              setFormData={setFormData}
+            />
             <div className="space-y-3">
               <button
                 onClick={handleCheckoutPayment}
