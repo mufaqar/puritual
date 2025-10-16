@@ -4,24 +4,14 @@ import { NextResponse } from "next/server";
 export async function POST(req: Request) {
   const data = await req.json();
 
-  const line_items = data?.cart?.items?.map((item: any) => {
-    return {
-      product_id: item?.id,
-      quantity: item?.quantity,
-    };
-  });
+  const line_items = data?.cart?.items?.map((item: any) => ({
+    product_id: item?.id,
+    quantity: item?.quantity,
+  }));
 
-   // 🧾 Handle Coupon (if any)
-    const coupon_lines =
-      data?.formData?.coupon_code && data?.formData?.coupon_code.trim() !== ""
-        ? [
-            {
-              code: data.formData.coupon_code, // must match Woo coupon code
-            },
-          ]
-        : [];
+  const shippingCost = data?.shipping_cost ?? 250;
+  const discountAmount = data?.discount_amount ?? 0;
 
-  // Payment logic
   let payment_method = "credit_card";
   let payment_method_title = "Credit Card";
   let set_paid = true;
@@ -36,8 +26,17 @@ export async function POST(req: Request) {
     set_paid = false;
   }
 
-    // ✅ Dynamically assign shipping cost (from frontend)
-  const shippingCost = data?.shipping_cost ?? 250;
+  // ✅ Coupon lines (only if coupon applied)
+  const coupon_lines =
+    data?.formData?.coupon_code && data?.formData?.coupon_code.trim() !== ""
+      ? [
+          {
+            code: data.formData.coupon_code,
+            discount: discountAmount.toString(),
+          },
+        ]
+      : [];
+
   const orderData = {
     payment_method,
     payment_method_title,
@@ -45,7 +44,6 @@ export async function POST(req: Request) {
     status: "processing",
     billing: {
       first_name: data?.formData?.your_name,
-      last_name: "",
       address_1: data?.formData?.address,
       city: data?.formData?.city,
       postcode: data?.formData?.postcode,
@@ -55,47 +53,39 @@ export async function POST(req: Request) {
     },
     shipping: {
       first_name: data?.formData?.your_name,
-      last_name: "",
       address_1: data?.formData?.address,
       city: data?.formData?.city,
       postcode: data?.formData?.postcode,
       country: data?.formData?.country,
     },
-
     line_items,
-    // ✅ Use dynamic shipping total
     shipping_lines: [
       {
         method_id: "flat_rate",
-        method_title:
-          shippingCost === 0 ? "Free Shipping" : "Standard Shipping",
+        method_title: shippingCost === 0 ? "Free Shipping" : "Standard Shipping",
         total: shippingCost.toString(),
       },
     ],
-     // ✅ Add coupon line if exists
-      coupon_lines,
+    coupon_lines,
   };
 
   try {
     const response = await WooCommerce.post("orders", orderData);
     const orderId = response.data.id;
-    return new NextResponse(
-      JSON.stringify({
+    return NextResponse.json(
+      {
         status: "success",
-        message: "Order Created",
-        orderData,
+        message: "Order created successfully",
         orderId,
-      }),
+        orderData,
+      },
       { status: 200 }
     );
-  } catch (error) {
-    return new NextResponse(
-      JSON.stringify({
-        status: "Error",
-        message: "error",
-        error,
-      }),
-      { status: 401 }
+  } catch (error: any) {
+    console.error("Order error:", error.response?.data || error);
+    return NextResponse.json(
+      { status: "error", message: "Failed to create order", error },
+      { status: 500 }
     );
   }
 }

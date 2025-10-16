@@ -45,13 +45,14 @@ const CheckouthtmlForm = () => {
 
 
   // ✅ Grand total calculation
-  const grandTotal = subTotal + deliveryCharges ;
+  const grandTotal = subTotal + deliveryCharges - discount  ;
 
   const data = {
     orderTotal: grandTotal || 0,
     cart: cart || [],
     formData: formData || {},
-    shipping_cost: deliveryCharges, // ✅ send shipping cost dynamically
+    shipping_cost: deliveryCharges, 
+    discount_amount: discount, // ✅ send discount value
   };
 
   const checkMissingFiled = () => {
@@ -186,39 +187,7 @@ const CheckouthtmlForm = () => {
     }
   };
 
-  // const redirectToBank = (authToken, requestHash, payload, orderTotal) => {
-  //   const form = document.createElement("form");
-  //   form.method = "POST";
-  //   form.action = "https://payments.bankalfalah.com/SSO/SSO/SSO";
-
-  //   const fields = {
-  //     AuthToken: authToken,
-  //     RequestHash: requestHash,
-  //     ChannelId: payload.ChannelId,
-  //     Currency: payload.Currency,
-  //     IsBIN: payload.IsBIN,
-  //     ReturnURL: payload.ReturnURL,
-  //     MerchantId: payload.MerchantId,
-  //     StoreId: payload.StoreId,
-  //     MerchantHash: payload.MerchantHash,
-  //     MerchantUsername: payload.MerchantUsername,
-  //     MerchantPassword: payload.MerchantPassword,
-  //     TransactionTypeId: payload.TransactionTypeId,
-  //     TransactionReferenceNumber: payload.TransactionReferenceNumber,
-  //     TransactionAmount: orderTotal,
-  //   };
-
-  //   Object.keys(fields).forEach((key) => {
-  //     const input = document.createElement("input");
-  //     input.type = "hidden";
-  //     input.name = key;
-  //     input.value = fields[key];
-  //     form.appendChild(input);
-  //   });
-
-  //   document.body.appendChild(form);
-  //   form.submit();
-  // };
+  
 
   return (
     <section className="max-w-[1280px] mx-auto px-3">

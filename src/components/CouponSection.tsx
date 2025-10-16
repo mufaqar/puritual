@@ -5,9 +5,14 @@ import { toast } from "react-toastify";
 interface CouponSectionProps {
   subTotal: number;
   setDiscount: (amount: number) => void;
+  setFormData: React.Dispatch<React.SetStateAction<any>>;
 }
 
-const CouponSection: React.FC<CouponSectionProps> = ({ subTotal, setDiscount }) => {
+const CouponSection: React.FC<CouponSectionProps> = ({
+  subTotal,
+  setDiscount,
+  setFormData,
+}) => {
   const [couponCode, setCouponCode] = useState("");
   const [loading, setLoading] = useState(false);
   const [couponAmount, setCouponAmount] = useState(0);
@@ -32,7 +37,7 @@ const CouponSection: React.FC<CouponSectionProps> = ({ subTotal, setDiscount }) 
       const data = await res.json();
 
       if (data.status === "valid") {
-        const { discount_type, amount } = data.coupon;
+        const { discount_type, amount, code } = data.coupon;
 
         let discountValue = 0;
         if (discount_type === "percent") {
@@ -43,6 +48,12 @@ const CouponSection: React.FC<CouponSectionProps> = ({ subTotal, setDiscount }) 
 
         setDiscount(discountValue);
         setCouponAmount(discountValue);
+
+        // ✅ Save coupon in checkout form
+        setFormData((prev:any) => ({
+          ...prev,
+          coupon_code: code || couponCode,
+        }));
 
         toast.success(`Coupon applied! You saved Rs ${discountValue.toFixed(2)}`);
       } else {
@@ -56,7 +67,7 @@ const CouponSection: React.FC<CouponSectionProps> = ({ subTotal, setDiscount }) 
   };
 
   return (
-    <div className="my-4 border border-secoundry p-4 rounded-xl  text-secoundry">
+    <div className="my-4 border border-secoundry p-4 rounded-xl text-secoundry">
       <h3 className="font-semibold mb-2 text-lg">Apply Coupon</h3>
       <div className="flex gap-2">
         <input

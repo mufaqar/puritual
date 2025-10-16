@@ -1,50 +1,64 @@
-import WooCommerce from "@/lib/woocommerce";
 import { NextResponse } from "next/server";
+import WooCommerce from "@/lib/woocommerce"; // ✅ Reuse your existing WooCommerce client
 
 export async function POST(req: Request) {
-  const { coupon_code } = await req.json();
-
-  if (!coupon_code) {
-    return new NextResponse(
-      JSON.stringify({ status: "error", message: "Coupon code is required." }),
-      { status: 400 }
-    );
-  }
-
   try {
-    // Fetch coupon details from WooCommerce
-    const response = await WooCommerce.get(`coupons?code=${coupon_code}`);
+    const { coupon_code } = await req.json();
+    console.log("🔍 Validating coupon:", coupon_code);
 
-    if (!response.data.length) {
-      return new NextResponse(
-        JSON.stringify({ status: "invalid", message: "Invalid coupon code." }),
-        { status: 404 }
+    if (!coupon_code) {
+      return NextResponse.json(
+        { status: "error", message: "Coupon code is required." },
+        { status: 400 }
       );
     }
 
-    const coupon = response.data[0];
+    // ✅ Use your existing client to query coupons
+    const { data } = await WooCommerce.get("coupons", { code: coupon_code });
+    console.log("🧾 WooCommerce response:", data);
 
-    return new NextResponse(
-      JSON.stringify({
-        status: "valid",
-        message: "Coupon applied successfully!",
-        coupon: {
-          id: coupon.id,
-          code: coupon.code,
-          amount: coupon.amount,
-          discount_type: coupon.discount_type,
-          date_expires: coupon.date_expires,
-          individual_use: coupon.individual_use,
-        },
-      }),
-      { status: 200 }
-    );
+    if (!Array.isArray(data) || data.length === 0) {
+      return NextResponse.json({
+        status: "invalid",
+        message: "Coupon not found or invalid.",
+      });
+    }
+
+    const coupon = data[0];
+
+    // ✅ Check usage limits
+    if (coupon?.usage_limit && coupon?.usage_count >= coupon?.usage_limit) {
+      return NextResponse.json({
+        status: "invalid",
+        message: "Coupon usage limit reached.",
+      });
+    }
+
+    // ✅ Check if expired
+    if (coupon?.date_expires && new Date(coupon.date_expires) < new Date()) {
+      return NextResponse.json({
+        status: "invalid",
+        message: "Coupon expired.",
+      });
+    }
+
+    return NextResponse.json({
+      status: "valid",
+      coupon: {
+        code: coupon.code,
+        amount: coupon.amount,
+        discount_type: coupon.discount_type,
+        date_expires: coupon.date_expires,
+      },
+    });
   } catch (error: any) {
-    return new NextResponse(
-      JSON.stringify({
+    console.error("❌ Coupon validation error:", error.response?.data || error.message);
+    return NextResponse.json(
+      {
         status: "error",
-        message: error.response?.data?.message || "Error validating coupon",
-      }),
+        message: "Failed to validate coupon.",
+        details: error.response?.data || error.message,
+      },
       { status: 500 }
     );
   }
