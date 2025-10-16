@@ -42,17 +42,16 @@ const CheckouthtmlForm = () => {
   // ✅ Free delivery if subtotal > 3000 PKR
   const deliveryCharges = subTotal > 3000 ? 0 : 250;
 
-  // ✅ Optional fields (can be dynamic later)
-  const tax = 0;
-  const saving = 0;
+
 
   // ✅ Grand total calculation
-  const grandTotal = subTotal + deliveryCharges + tax - discount;
+  const grandTotal = subTotal + deliveryCharges ;
 
   const data = {
     orderTotal: grandTotal || 0,
     cart: cart || [],
     formData: formData || {},
+    shipping_cost: deliveryCharges, // ✅ send shipping cost dynamically
   };
 
   const checkMissingFiled = () => {
@@ -458,11 +457,7 @@ const CheckouthtmlForm = () => {
                 <dl className="flex justify-between py-3 text-base">
                   <dt className="text-gray-400">Subtotal</dt>
                   <dd className="text-secoundry">Rs{subTotal}</dd>
-                </dl>
-                <dl className="flex justify-between py-3 text-base">
-                  <dt className="text-gray-400">Savings</dt>
-                  <dd className="text-secoundry">Rs{saving}</dd>
-                </dl>
+                </dl>                
                 <dl className="flex justify-between py-3 text-base">
                   <dt className="text-gray-400">Delivery charges</dt>
                   <dd className="text-secoundry">Rs{deliveryCharges}</dd>

@@ -10,7 +10,7 @@ import { usePathname } from "next/navigation";
 
 const ProductLayout = ({ product }: any) => {
   // console.log("🚀 ~ ProductLayout ~ product:", product);
-  const product_color = product.acf.product_color;
+  const product_color = product?.acf?.product_color;
   // console.log("🚀 ~ ProductLayout ~ product:", product_color);
   const dispatch = useDispatch();
   const pathname = usePathname();

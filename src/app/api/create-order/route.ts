@@ -35,6 +35,9 @@ export async function POST(req: Request) {
     payment_method_title = "Credit Card";
     set_paid = false;
   }
+
+    // ✅ Dynamically assign shipping cost (from frontend)
+  const shippingCost = data?.shipping_cost ?? 250;
   const orderData = {
     payment_method,
     payment_method_title,
@@ -60,11 +63,13 @@ export async function POST(req: Request) {
     },
 
     line_items,
+    // ✅ Use dynamic shipping total
     shipping_lines: [
       {
         method_id: "flat_rate",
-        method_title: "Standard Shipping",
-        total: "250",
+        method_title:
+          shippingCost === 0 ? "Free Shipping" : "Standard Shipping",
+        total: shippingCost.toString(),
       },
     ],
      // ✅ Add coupon line if exists

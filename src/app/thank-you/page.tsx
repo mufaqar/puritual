@@ -81,22 +81,22 @@ export default function SuccessPage() {
             <dl className="sm:flex items-center justify-between gap-4">
               <dt className="font-normal text-pure">Payment Method</dt>
               <dd className="font-medium text-primary sm:text-end">
-                {order.payment_method_title}
+                {order?.payment_method_title}
               </dd>
             </dl>
             <dl className="sm:flex items-center justify-between gap-4">
               <dt className="font-normal text-pure">Name</dt>
               <dd className="font-medium text-primary sm:text-end">
-                {order.billing.first_name} {order.billing.last_name}
+                {order?.billing?.first_name} {order?.billing?.last_name}
               </dd>
             </dl>
             <dl className="sm:flex items-center justify-between gap-4">
               <dt className="font-normal text-pure">Email</dt>
-              <dd className="font-medium text-primary sm:text-end">{order.billing.email}</dd>
+              <dd className="font-medium text-primary sm:text-end">{order?.billing?.email}</dd>
             </dl>
             <dl className="sm:flex items-center justify-between gap-4">
               <dt className="font-normal text-pure">Phone</dt>
-              <dd className="font-medium text-primary sm:text-end">{order.billing.phone}</dd>
+              <dd className="font-medium text-primary sm:text-end">{order?.billing?.phone}</dd>
             </dl>
           </div>
 
