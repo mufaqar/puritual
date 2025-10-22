@@ -7,12 +7,25 @@ import { LiaPlusSolid } from "react-icons/lia";
 import { TfiLayoutLineSolid } from "react-icons/tfi";
 import { useDispatch } from "react-redux";
 
+
+
 const SingleCart = ({ product }: any) => {
   const [cartItem, setCartItem] = useState(1);
   const dispatch = useDispatch();
   const handleAddToCart = () => {
     dispatch(addInCart({ ...product, quantity: cartItem }));
     dispatch(openCart());
+      // 💡 Meta Pixel: AddToCart event
+   // ✅ Meta Pixel: AddToCart Event
+    if (typeof window !== "undefined" && (window as any).fbq) {
+      (window as any).fbq("track", "AddToCart", {
+        content_name: product.name,
+        content_ids: [product.id],
+        content_type: "product",
+        value: Number(product.price) * cartItem || 0,
+        currency: "PKR",
+      });
+    }
   };
   return (
     <>

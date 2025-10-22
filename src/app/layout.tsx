@@ -5,23 +5,23 @@ import Header from "@/components/header";
 import Footer from "@/components/footer";
 import ThemeLayout from "@/components/ui/theme-layout";
 import NextTopLoader from "nextjs-toploader";
-import { Josefin_Sans } from 'next/font/google';
+import { Josefin_Sans } from "next/font/google";
+import MetaPixel from "@/components/Tracking/MetaPixel";
 
 export const metadata: Metadata = {
   title: "Puritual | Elevate Your Self-Care Rituals",
-description: "Discover natural, sustainable, and beautifully crafted products to enrich your wellness journey. Shop skincare, wellness essentials, and mindful living products at Puritual.",
+  description:
+    "Discover natural, sustainable, and beautifully crafted products to enrich your wellness journey. Shop skincare, wellness essentials, and mindful living products at Puritual.",
   alternates: {
     canonical: `${process.env.NEXT_PUBLIC_BASE_URL}/`,
   },
 };
 
-
-
 const josefin = Josefin_Sans({
-  subsets: ['latin'],
-  weight: ['100', '200', '300', '400', '500', '600', '700'],
-  style: ['normal', 'italic'],
-  variable: '--font-josefin',
+  subsets: ["latin"],
+  weight: ["100", "200", "300", "400", "500", "600", "700"],
+  style: ["normal", "italic"],
+  variable: "--font-josefin",
 });
 
 export default function RootLayout({
@@ -31,13 +31,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${josefin.variable}`}>
-      <body
-        className={``}
-      >
+      <body className={``}>
         <NextTopLoader />
         <ThemeLayout>
           <Header />
           {children}
+          <MetaPixel pixelId="1121246583554328" />
           <Footer />
         </ThemeLayout>
       </body>

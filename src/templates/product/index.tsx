@@ -6,6 +6,7 @@ import Logo from "../logo/logo";
 import Review from "@/components/Reviews/Review";
 import ProductFeatures from "@/components/product-layout/ProductFeatures";
 import ProductGallery from "@/components/product-layout/ProductGallery";
+import WooPixelEvents from "@/components/Tracking/WooPixelEvents";
 
 // Types
 interface MetaListingItem {
@@ -57,12 +58,13 @@ const ProductTemplate: React.FC<ProductTemplateProps> = ({ product, meta }) => {
   const banner_image = meta.acf.banner_image;
   const enriched_image = meta.acf.enriched_image;
   const product_color = meta.acf.product_color;
-//  console.log(product);
-//  console.log(images[0].src);
+  //  console.log(product);
+  //  console.log(images[0].src);
 
   return (
     <>
       {/* Banner Section */}
+      <WooPixelEvents product={product} />
       <section className="bg-primary relative">
         <div className="flex md:flex-row flex-col gap-6 items-center">
           <div className="md:w-1/3 w-full h-full">
@@ -143,8 +145,6 @@ const ProductTemplate: React.FC<ProductTemplateProps> = ({ product, meta }) => {
       {/* Gallery Section */}
       <ProductGallery images={images} />
 
-
-   
       <Review productId={product.id} />
       <RelatedProducts productId={product.id} />
     </>
