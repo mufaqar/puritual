@@ -16,7 +16,7 @@
     "@woocommerce/woocommerce-rest-api": "^1.0.1",
     "crypto-js": "^4.1.1",
     "gsap": "^3.12.7",
-    "next": "15.2.3",
+    "next": "15.2.8",
     "nextjs-toploader": "^3.8.16",
     "node-fetch": "^3.3.2",
     "react": "^19.0.0",
