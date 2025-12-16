@@ -19,10 +19,8 @@ async function generateSitemap() {
     per_page: 100,
   });
   const products = response?.data;
-
   const blogResponse = await fetch(`${WC_URL}/wp-json/wp/v2/posts`);
   const posts = await blogResponse.json();
-
   const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
     <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
      <url>
@@ -62,5 +60,4 @@ async function generateSitemap() {
   `;
   fs.writeFileSync("public/sitemap.xml", sitemap);
 }
-
 generateSitemap();
